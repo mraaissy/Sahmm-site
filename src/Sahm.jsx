@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { TrendingUp, TrendingDown, ArrowUpRight, ArrowDownRight, Search, Bell, Settings, User, Menu, X } from "lucide-react";
 
 
@@ -124,6 +124,133 @@ const seanceSecteurs = {
   meilleur: { nom: "Industrie agricole", var: 0.6 },
   pire: { nom: "Ingénieries et biens d'équipement industriels", var: -2.75 },
 };
+
+// ---- Widgets TradingView : données de marché réelles, en direct, via embed officiel ----
+// TradingView propose ces widgets gratuitement pour l'intégration sur des sites tiers
+// (voir tradingview.com/widget/) — pas de scraping, données mises à jour en continu.
+// La Bourse de Casablanca est couverte nativement sous le préfixe "CSEMA:".
+
+function TradingViewTickerTape() {
+  const ref = useRef(null);
+  useEffect(() => {
+    if (!ref.current || ref.current.querySelector("script")) return;
+    const script = document.createElement("script");
+    script.src = "https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js";
+    script.async = true;
+    script.innerHTML = JSON.stringify({
+      symbols: [
+        { proName: "CSEMA:MASI", title: "MASI" },
+        { proName: "CSEMA:IAM", title: "IAM" },
+        { proName: "CSEMA:ATW", title: "ATW" },
+        { proName: "CSEMA:BCP", title: "BCP" },
+        { proName: "CSEMA:CIH", title: "CIH" },
+        { proName: "CSEMA:LHM", title: "LHM" },
+        { proName: "CSEMA:MNG", title: "MNG" },
+        { proName: "CSEMA:CMA", title: "CMA" },
+        { proName: "CSEMA:ADH", title: "ADH" },
+        { proName: "CSEMA:TQM", title: "TQM" },
+      ],
+      showSymbolLogo: false,
+      isTransparent: true,
+      displayMode: "adaptive",
+      colorTheme: "light",
+      locale: "fr",
+    });
+    ref.current.appendChild(script);
+  }, []);
+  return (
+    <div className="tv-widget-wrap tv-ticker-wrap">
+      <div className="tradingview-widget-container" ref={ref}>
+        <div className="tradingview-widget-container__widget"></div>
+      </div>
+    </div>
+  );
+}
+
+function TradingViewMarketOverview() {
+  const ref = useRef(null);
+  useEffect(() => {
+    if (!ref.current || ref.current.querySelector("script")) return;
+    const script = document.createElement("script");
+    script.src = "https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js";
+    script.async = true;
+    script.innerHTML = JSON.stringify({
+      colorTheme: "light",
+      dateRange: "1D",
+      showChart: false,
+      locale: "fr",
+      isTransparent: true,
+      width: "100%",
+      height: "420",
+      plotLineColorGrowing: "rgba(30, 113, 69, 1)",
+      plotLineColorFalling: "rgba(168, 58, 58, 1)",
+      tabs: [
+        {
+          title: "Indices",
+          symbols: [
+            { s: "FOREXCOM:SPXUSD", d: "S&P 500" },
+            { s: "DJ:DJI", d: "Dow Jones" },
+            { s: "NASDAQ:IXIC", d: "Nasdaq Composite" },
+            { s: "EURONEXT:PX1", d: "CAC 40" },
+            { s: "XETR:DAX", d: "DAX" },
+            { s: "TVC:UKX", d: "FTSE 100" },
+            { s: "TVC:NI225", d: "Nikkei 225" },
+            { s: "ASX:XJO", d: "S&P/ASX 200" },
+            { s: "CSEMA:MASI", d: "MASI" },
+          ],
+          originalTitle: "Indices",
+        },
+        {
+          title: "Matières 1ères",
+          symbols: [
+            { s: "TVC:GOLD", d: "Or" },
+            { s: "TVC:SILVER", d: "Argent" },
+            { s: "TVC:UKOIL", d: "Pétrole Brent" },
+            { s: "TVC:USOIL", d: "Pétrole WTI" },
+            { s: "NYMEX:NG1!", d: "Gaz naturel" },
+          ],
+          originalTitle: "Matières premières",
+        },
+      ],
+    });
+    ref.current.appendChild(script);
+  }, []);
+  return (
+    <div className="tradingview-widget-container" ref={ref}>
+      <div className="tradingview-widget-container__widget"></div>
+    </div>
+  );
+}
+
+function TradingViewMasiOverview() {
+  const ref = useRef(null);
+  useEffect(() => {
+    if (!ref.current || ref.current.querySelector("script")) return;
+    const script = document.createElement("script");
+    script.src = "https://s3.tradingview.com/external-embedding/embed-widget-symbol-overview.js";
+    script.async = true;
+    script.innerHTML = JSON.stringify({
+      symbols: [["Bourse de Casablanca : MASI", "CSEMA:MASI|1D"]],
+      chartOnly: false,
+      width: "100%",
+      height: "220",
+      locale: "fr",
+      colorTheme: "dark",
+      isTransparent: true,
+      autosize: true,
+      showVolume: false,
+      lineWidth: 2,
+      lineType: 0,
+      dateRanges: ["1d|15", "1m|30", "3m|60", "12m|1D"],
+    });
+    ref.current.appendChild(script);
+  }, []);
+  return (
+    <div className="tradingview-widget-container" ref={ref}>
+      <div className="tradingview-widget-container__widget"></div>
+    </div>
+  );
+}
 
 function getCasablancaMarketStatus() {
   const now = new Date();
@@ -757,6 +884,14 @@ export default function Sahm() {
           flex-wrap: wrap;
           gap: 0;
         }
+        .hero-live-masi {
+          max-width: 720px;
+          margin: 34px auto 0;
+          background: rgba(255,255,255,0.04);
+          border: 1px solid rgba(255,255,255,0.12);
+          border-radius: 12px;
+          padding: 16px 18px 6px;
+        }
         .hero-stat {
           padding: 0 34px;
           border-right: 1px solid rgba(255,255,255,0.14);
@@ -1304,20 +1439,8 @@ export default function Sahm() {
         </div>
       )}
 
-      {/* Ticker — reste visible sur toutes les pages */}
-      <div className="ticker-wrap-light">
-        <div className="ticker-track">
-          {[...ticker, ...ticker].map((t, i) => (
-            <span className="ticker-item-light" key={i}>
-              <span className="ticker-avatar">{t.code.slice(0, 2)}</span>
-              <span className="tl-code">{t.code}</span>
-              <span className={`tl-var ${t.var >= 0 ? "up" : "down"}`}>
-                {t.var >= 0 ? "+" : ""}{t.var.toFixed(1)}%
-              </span>
-            </span>
-          ))}
-        </div>
-      </div>
+      {/* Ticker — données réelles en direct (TradingView), visible sur toutes les pages */}
+      <TradingViewTickerTape />
 
       {page === "accueil" && (
       <>
@@ -1342,7 +1465,7 @@ export default function Sahm() {
               <div className="value mono">
                 14 528 <span style={{ color: "#8FDBB0", fontSize: 15 }}>▲ +0,82%</span>
               </div>
-              <div className="label">MASI</div>
+              <div className="label">MASI (démo)</div>
             </div>
             <div className="hero-stat">
               <div className="value mono">312,4K</div>
@@ -1352,6 +1475,10 @@ export default function Sahm() {
               <div className="value mono">892,3 Mrd</div>
               <div className="label">Capitalisation</div>
             </div>
+          </div>
+          <div className="hero-live-masi">
+            <div className="mini-head" style={{ color: "#8DA0A8" }}>MASI en direct</div>
+            <TradingViewMasiOverview />
           </div>
         </div>
       </section>
@@ -1412,67 +1539,14 @@ export default function Sahm() {
         <div className="container">
           <div className="section-head">
             <div className="section-title">Marchés mondiaux</div>
-            <div className="section-note">Source : investing.com &middot; {globalIndicesDate}</div>
+            <div className="section-note">Données en direct</div>
           </div>
-          <div className="two-col">
-            <div>
-              <div className="mini-head">Principaux indices boursiers</div>
-              <div className="opcvm-card">
-                <table>
-                  <tbody>
-                    <tr className="opcvm-row-head">
-                      <td>Indice</td>
-                      <td style={{ textAlign: "right" }}>Valeur</td>
-                      <td style={{ textAlign: "right" }}>Var.</td>
-                    </tr>
-                    {globalIndices.map((idx) => (
-                      <tr key={idx.nom}>
-                        <td>
-                          <div className="fund-name">{idx.nom}</div>
-                          <div className="fund-gerant">{idx.pays}</div>
-                        </td>
-                        <td className="mono" style={{ textAlign: "right", fontWeight: 600 }}>{idx.valeur}</td>
-                        <td className={`ytd-value ${idx.var >= 0 ? "up" : "down"}`}>
-                          {idx.var >= 0 ? "+" : ""}{idx.var.toFixed(2)}%
-                        </td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            </div>
-
-            <div>
-              <div className="mini-head">Principales matières premières</div>
-              <div className="opcvm-card">
-                <table>
-                  <tbody>
-                    <tr className="opcvm-row-head">
-                      <td>Matière première</td>
-                      <td style={{ textAlign: "right" }}>Valeur</td>
-                      <td style={{ textAlign: "right" }}>Var.</td>
-                    </tr>
-                    {commodities.map((c) => (
-                      <tr key={c.nom}>
-                        <td>
-                          <div className="fund-name">{c.nom}</div>
-                          <div className="fund-gerant">{c.unite}</div>
-                        </td>
-                        <td className="mono" style={{ textAlign: "right", fontWeight: 600 }}>{c.valeur}</td>
-                        <td className={`ytd-value ${c.var >= 0 ? "up" : "down"}`}>
-                          {c.var >= 0 ? "+" : ""}{c.var.toFixed(2)}%
-                        </td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            </div>
+          <div className="opcvm-card" style={{ padding: "12px 8px" }}>
+            <TradingViewMarketOverview />
           </div>
           <p className="page-footnote">
-            Données réelles — source : investing.com. Il s'agit d'un instantané figé au moment de la
-            rédaction ; les cours des marchés internationaux évoluent en continu pendant les heures
-            d'ouverture de chaque place.
+            Widget de données en direct (TradingView) — inclut le MASI de la Bourse de Casablanca aux
+            côtés des indices internationaux. Se met à jour automatiquement, pas besoin de rafraîchir.
           </p>
         </div>
       </section>
@@ -1536,8 +1610,8 @@ export default function Sahm() {
             </div>
           </div>
           <p className="opcvm-footnote">
-            Données réelles — source : OPCVM Today (opcvmtoday.com), situation au {opcvmSourceDate}.
-            Performances passées, ne préjugent pas des performances futures.
+            Situation au {opcvmSourceDate}. Performances passées, ne préjugent pas des performances
+            futures.
           </p>
         </div>
       </section>
@@ -1567,9 +1641,7 @@ export default function Sahm() {
             </div>
 
             <p className="page-footnote">
-              Contenu synthétisé à partir des sites de la Bourse de Casablanca (casablanca-bourse.com)
-              et de l'Autorité Marocaine du Marché des Capitaux (ammc.ma). Ceci est un contenu
-              pédagogique général et ne constitue pas un conseil en investissement.
+              Contenu pédagogique général, ne constitue pas un conseil en investissement.
             </p>
           </div>
         </section>
@@ -1720,10 +1792,7 @@ export default function Sahm() {
             </div>
 
             <p className="page-footnote">
-              Données réelles de clôture — séance du {seanceDate}. Le site officiel casablanca-bourse.com
-              bloque l'accès automatisé ; ces chiffres proviennent donc de Médias24 et Boursenews, deux
-              médias économiques marocains qui relaient les publications officielles de clôture de la
-              Bourse de Casablanca. Cette page reflète la dernière séance disponible au moment de sa
+              Séance du {seanceDate}. Cette page reflète la dernière séance disponible au moment de sa
               création, pas un flux en temps réel.
             </p>
           </div>
@@ -1860,10 +1929,8 @@ export default function Sahm() {
                 </div>
 
                 <p className="page-footnote">
-                  Calendrier 2025/2026 : structure et dates reprises de casablanca-bourse.com (page officielle
-                  "Calendrier des dividendes"). Les dates non confirmées le seront au fil des Assemblées
-                  Générales. Historique 2025 : casablancabourse.com, classement des sociétés par dividendes
-                  yield 2025. Montants en dirhams (DH) par action ; performances passées, ne
+                  Calendrier 2025/2026. Les dates non confirmées le seront au fil des Assemblées
+                  Générales. Montants en dirhams (DH) par action ; performances passées, ne
                   préjugent pas des performances futures.
                 </p>
               </div>
@@ -1916,9 +1983,7 @@ export default function Sahm() {
                 </div>
 
                 <p className="page-footnote">
-                  Données réelles — Top 5 : La Vie Éco, séance du {capDate}. Statistiques de marché
-                  (capitalisation totale, nombre de sociétés cotées, poids sectoriels) : Bourse de
-                  Casablanca / Wikipédia, 2025 — la répartition sectorielle exacte évolue en continu.
+                  Séance du {capDate}. La répartition sectorielle exacte évolue en continu.
                 </p>
               </div>
             )}
@@ -2044,11 +2109,8 @@ export default function Sahm() {
             )}
 
             <p className="page-footnote">
-              Simulateur à but pédagogique — les cours affichés sont rapprochés de cours réels récents
-              (investing.com, casablancabourse.com, début juillet 2026) mais ne sont pas un flux temps
-              réel : ils ne bougeront pas tout seuls. Le site officiel de la Bourse de Casablanca
-              (casablanca-bourse.com) bloque l'accès automatisé, donc ces cours n'en sont pas
-              directement extraits. Vos données sont stockées localement pour cette session de
+              Simulateur à but pédagogique — les cours affichés ne sont pas un flux temps réel : ils ne
+              bougeront pas tout seuls. Vos données sont stockées localement pour cette session de
               navigation et ne sont partagées avec personne.
             </p>
           </div>
@@ -2056,7 +2118,7 @@ export default function Sahm() {
       )}
 
       <footer className="footer">
-        Sahm — récap de séance à but de démonstration (données fictives) &middot; OPCVM, dividendes et capitalisation : données réelles sourcées &middot; statut du marché calculé à partir des horaires réels de cotation (hors jours fériés marocains) &middot; non affilié à la Bourse de Casablanca
+        Sahm — récap de séance à but de démonstration (données fictives) &middot; statut du marché calculé à partir des horaires réels de cotation (hors jours fériés marocains) &middot; non affilié à la Bourse de Casablanca
       </footer>
     </div>
   );
