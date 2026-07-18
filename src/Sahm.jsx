@@ -27,49 +27,49 @@ const ticker = [
 
 // Top 5 des OPCVM par catégorie — données réelles publiées par OPCVM Today
 // (source : opcvmtoday.com, situation au 2 juillet 2026)
-const opcvmSourceDate = "2 juillet 2026";
+const opcvmSourceDate = "16 juillet 2026";
 const opcvmFunds = {
   Actions: [
-    { nom: "STAFF ACTION", code: "MA0000035735", valeur: "4 478,88", jour: 1.35, m1: -0.77, m3: 7.72, m6: -1.74, a1: -1.41, a2: 41.34, a5: 70.48 },
-    { nom: "CFG VALEURS", code: "MA0000035784", valeur: "680,12", jour: 1.12, m1: -0.89, m3: 5.85, m6: -3.46, a1: -4.79, a2: 33.08, a5: 41.75 },
-    { nom: "HORIZON EPARGNE", code: "MA0000041709", valeur: "248,75", jour: 1.11, m1: -1.51, m3: 7.00, m6: 0.00, a1: 0.00, a2: 0.00, a5: 56.80 },
-    { nom: "FCP OPTIMA PERFORMANCE", code: "MA0000039729", valeur: "949,60", jour: 1.10, m1: -0.67, m3: 7.59, m6: -1.62, a1: -4.54, a2: 0.00, a5: 0.00 },
-    { nom: "CFG PERFORMANCE", code: "MA0000035743", valeur: "1 161,11", jour: 1.09, m1: -1.48, m3: 6.73, m6: -2.42, a1: -4.51, a2: 40.32, a5: 52.42 },
+    { nom: "AD CAPITAL MULTISTRATEGIE", code: "MA0000300048", valeur: "1 001,68", jour: 0.26, m1: 0.71, m3: 0.00, m6: 0.00, a1: 0.00, a2: 0.00, a5: 0.00 },
+    { nom: "DAILY EQUITY FUND", code: "MA0000038820", valeur: "1 318,35", jour: -0.03, m1: -5.01, m3: -5.54, m6: -14.43, a1: -14.44, a2: 18.18, a5: 26.76 },
+    { nom: "TWIN PERFORMANCE", code: "MA0000039927", valeur: "97,82", jour: -0.06, m1: -2.97, m3: -3.17, m6: 0.00, a1: 0.00, a2: 0.00, a5: 0.00 },
+    { nom: "CMR ASHOUM", code: "MA0000041113", valeur: "2 684,73", jour: -0.18, m1: -3.85, m3: -5.00, m6: -12.16, a1: -12.05, a2: 27.46, a5: 51.10 },
+    { nom: "WG VALEURS", code: "MA0000039059", valeur: "1 522,70", jour: -0.19, m1: -2.25, m3: -1.48, m6: -1.32, a1: 4.49, a2: 45.00, a5: 0.00 },
   ],
   "Diversifié": [
-    { nom: "WG RENDEMENT", code: "MA0000042392", valeur: "166 465,43", jour: 1.76, m1: -2.51, m3: 11.28, m6: 7.75, a1: 16.15, a2: 34.33, a5: 48.96 },
-    { nom: "FCP ALLOCATIONS", code: "MA0000040792", valeur: "1 899,75", jour: 0.85, m1: 0.24, m3: 0.52, m6: -1.59, a1: 0.23, a2: 7.21, a5: 13.23 },
-    { nom: "ATTIJARI DIVERSIFIE", code: "MA0000030520", valeur: "760,33", jour: 0.68, m1: -2.05, m3: 7.98, m6: 5.87, a1: 0.00, a2: 0.00, a5: 33.69 },
-    { nom: "CDM OPTIMUM", code: "MA0000030579", valeur: "6 950,97", jour: 0.64, m1: -1.36, m3: 6.17, m6: 1.50, a1: 1.69, a2: 25.99, a5: 31.91 },
-    { nom: "CFG Diversifié", code: "MA0000039323", valeur: "1 196,35", jour: 0.64, m1: -0.71, m3: 4.50, m6: -2.65, a1: -0.86, a2: 10.07, a5: 0.00 },
+    { nom: "FCP STERLING DYNAMIC", code: "MA0000039950", valeur: "982,32", jour: 0.03, m1: -0.71, m3: 0.00, m6: 0.00, a1: 0.00, a2: 0.00, a5: 0.00 },
+    { nom: "AFG ALLOCATION FUND", code: "MA0000039968", valeur: "1 008,70", jour: 0.02, m1: 0.54, m3: 0.00, m6: 0.00, a1: 0.00, a2: 0.00, a5: 0.00 },
+    { nom: "CFG OPPORTUNITÉS", code: "MA0000039315", valeur: "1 240,00", jour: 0.01, m1: -2.45, m3: 0.53, m6: 0.15, a1: 1.09, a2: 0.00, a5: 0.00 },
+    { nom: "FCP QUANTUM OPTIMUM DIVERSIFIE", code: "MA0000039984", valeur: "1 017,47", jour: 0.00, m1: -0.43, m3: 0.76, m6: 0.00, a1: 0.00, a2: 0.00, a5: 0.00 },
+    { nom: "UPLINE CROISSANCE", code: "MA0000039331", valeur: "1 092,40", jour: -0.01, m1: 0.05, m3: -0.01, m6: -1.73, a1: -1.28, a2: 5.33, a5: 0.00 },
   ],
   OMLT: [
-    { nom: "FCP EMERGENCE OBLIRENDEMENT", code: "MA0000038200", valeur: "1 206,56", jour: 0.50, m1: 0.27, m3: 1.68, m6: -0.32, a1: 0.51, a2: 8.54, a5: 9.74 },
-    { nom: "CAPITAL TRUST OBLIG PLUS", code: "MA0000038051", valeur: "1 334,29", jour: 0.27, m1: 0.71, m3: 2.52, m6: 2.29, a1: 3.68, a2: 12.06, a5: 19.37 },
-    { nom: "EMERGENCE RENDEMENT PLUS", code: "MA0000042210", valeur: "1 117,14", jour: 0.21, m1: 0.33, m3: 1.92, m6: -0.62, a1: 0.01, a2: 8.89, a5: 8.85 },
-    { nom: "CFG PROFIL PRUDENT", code: "MA0000038168", valeur: "1 176,75", jour: 0.11, m1: 0.31, m3: 1.21, m6: 0.07, a1: 0.58, a2: 7.75, a5: 10.85 },
-    { nom: "FCP EMERGENCE OBLIHORIZON", code: "MA0000038770", valeur: "1 149,53", jour: 0.05, m1: 0.06, m3: 1.30, m6: -1.25, a1: -0.19, a2: 9.48, a5: 11.32 },
+    { nom: "FCP EMERGENCE OBLIHORIZON", code: "MA0000038770", valeur: "1 153,10", jour: 0.42, m1: 0.70, m3: 0.72, m6: -0.29, a1: -0.66, a2: 9.13, a5: 11.60 },
+    { nom: "AD CAPITAL OBLIGATAIRE PLUS", code: "MA0000300055", valeur: "1 004,68", jour: 0.26, m1: 0.87, m3: 0.00, m6: 0.00, a1: 0.00, a2: 0.00, a5: 0.00 },
+    { nom: "AD CAPITAL DYNAMIC BOND", code: "MA0000300030", valeur: "1 004,24", jour: 0.26, m1: 0.85, m3: 0.00, m6: 0.00, a1: 0.00, a2: 0.00, a5: 0.00 },
+    { nom: "UPLINE OBLIG PLUS", code: "MA0000037376", valeur: "1 804,33", jour: 0.17, m1: 0.53, m3: 0.97, m6: 1.33, a1: 1.64, a2: 10.17, a5: 18.63 },
+    { nom: "UNIVERS OBLIGATIONS", code: "MA0000042368", valeur: "1 906,44", jour: 0.16, m1: -0.14, m3: -1.09, m6: 0.07, a1: 2.76, a2: 8.99, a5: 18.63 },
   ],
   OCT: [
-    { nom: "FCP INSTITUTIONS", code: "MA0000040677", valeur: "1 761,06", jour: 0.02, m1: 0.19, m3: 0.62, m6: 1.05, a1: 2.10, a2: 4.73, a5: 12.53 },
-    { nom: "OBLIDYNAMIC", code: "MA0000040180", valeur: "210,44", jour: 0.02, m1: 0.27, m3: 0.92, m6: 1.37, a1: 2.67, a2: 6.07, a5: 12.81 },
-    { nom: "FCP EMERGENCE TRESOR PLUS", code: "MA0000038119", valeur: "1 209,48", jour: 0.02, m1: 0.18, m3: 0.62, m6: 1.04, a1: 2.01, a2: 5.03, a5: 11.48 },
-    { nom: "CIMR MONETAIRE PLUS", code: "MA0000037558", valeur: "1 402,41", jour: 0.02, m1: 0.21, m3: 0.84, m6: 1.23, a1: 2.36, a2: 5.55, a5: 13.00 },
-    { nom: "ATLAS OBLIGBANCAIRES", code: "MA0000042061", valeur: "125,17", jour: 0.02, m1: 0.22, m3: 0.88, m6: 1.36, a1: 2.59, a2: 6.06, a5: 14.25 },
+    { nom: "CDG OBLIG SÉCURITÉ", code: "MA0000041154", valeur: "1 705,16", jour: 0.02, m1: 0.34, m3: 0.88, m6: 1.55, a1: 2.61, a2: 6.11, a5: 14.28 },
+    { nom: "CDG DYNAMIC COURT TERME", code: "MA0000040594", valeur: "1 196,45", jour: 0.02, m1: 0.34, m3: 0.89, m6: 1.46, a1: 2.48, a2: 6.41, a5: 14.56 },
+    { nom: "FCP CAM TRESO PLUS", code: "MA0000036352", valeur: "174,25", jour: 0.02, m1: 0.32, m3: 0.86, m6: 1.56, a1: 2.67, a2: 6.46, a5: 15.11 },
+    { nom: "TWIN TREASURY", code: "MA0000038655", valeur: "1 185,72", jour: 0.02, m1: 0.34, m3: 0.94, m6: 1.65, a1: 2.69, a2: 7.02, a5: 15.71 },
+    { nom: "AFRICAPITAL CASH", code: "MA0000036873", valeur: "1 597,88", jour: 0.01, m1: 0.28, m3: 0.78, m6: 1.35, a1: 2.30, a2: 5.99, a5: 14.33 },
   ],
   "Monétaire": [
-    { nom: "FCP MONETAIRE DYNAMIQUE", code: "MA0000038945", valeur: "1 114,61", jour: 0.01, m1: 0.20, m3: 0.61, m6: 1.12, a1: 2.18, a2: 4.73, a5: 0.00 },
-    { nom: "FCP LIQUIDITES", code: "MA0000040776", valeur: "3 423,16", jour: 0.01, m1: 0.20, m3: 0.64, m6: 1.18, a1: 2.30, a2: 5.00, a5: 11.96 },
-    { nom: "CFG CASH SECURE", code: "MA0000037814", valeur: "1 252,37", jour: 0.01, m1: 0.18, m3: 0.57, m6: 1.11, a1: 2.14, a2: 4.95, a5: 12.04 },
-    { nom: "FCP EMERGENCE TRESOR", code: "MA0000038127", valeur: "1 172,99", jour: 0.01, m1: 0.11, m3: 0.47, m6: 0.91, a1: 1.94, a2: 4.49, a5: 10.98 },
-    { nom: "CDM MONETAIRE PLUS", code: "MA0000041303", valeur: "1 279,35", jour: 0.01, m1: 0.20, m3: 0.66, m6: 1.26, a1: 2.48, a2: 5.58, a5: 13.59 },
+    { nom: "FCP MONETAIRE DYNAMIQUE", code: "MA0000038945", valeur: "1 115,85", jour: 0.01, m1: 0.23, m3: 0.62, m6: 1.16, a1: 2.19, a2: 4.72, a5: 0.00 },
+    { nom: "RMA TRESO PLUS", code: "MA0000041097", valeur: "102,86", jour: 0.01, m1: 0.21, m3: 0.61, m6: 3.82, a1: 4.91, a2: 10.76, a5: 32.62 },
+    { nom: "BMCI MONETAIRE PLUS", code: "MA0000041899", valeur: "145 931,46", jour: 0.01, m1: 0.24, m3: 0.70, m6: 1.36, a1: 2.57, a2: 5.41, a5: 11.49 },
+    { nom: "INSTIMONETAIRE", code: "MA0000036477", valeur: "139,87", jour: 0.01, m1: 0.16, m3: 1.08, m6: 1.88, a1: 4.12, a2: 7.87, a5: 11.28 },
+    { nom: "AXA MONETAIRE", code: "MA0000037046", valeur: "159 560,84", jour: 0.01, m1: 0.20, m3: 0.61, m6: 1.17, a1: 2.18, a2: 4.93, a5: 12.07 },
   ],
   Contractuel: [
-    { nom: "CAPITAL IMTIYAZ GARANTI", code: "MA0000039497", valeur: "1 057,60", jour: 0.01, m1: 0.17, m3: 0.52, m6: 1.05, a1: 2.12, a2: 4.56, a5: 0.00 },
-    { nom: "ATTIJARI CASH GARANTI", code: "MA0000042145", valeur: "1 087,63", jour: 0.01, m1: 0.16, m3: 0.48, m6: 0.98, a1: 1.98, a2: 4.29, a5: 0.00 },
-    { nom: "UPLINE CAPITAL GARANTI", code: "MA0000037350", valeur: "13 194,52", jour: 0.01, m1: 0.16, m3: 0.51, m6: 1.01, a1: 2.05, a2: 4.42, a5: 10.68 },
-    { nom: "HORIZON CAPITAL GARANTI", code: "MA0000041691", valeur: "142 505,25", jour: 0.01, m1: 0.15, m3: 0.46, m6: 0.95, a1: 1.95, a2: 4.23, a5: 10.33 },
-    { nom: "FCP CKG GARANTI", code: "MA0000042228", valeur: "1 065,38", jour: 0.00, m1: 0.16, m3: 0.51, m6: 1.02, a1: 2.04, a2: 4.25, a5: 0.00 },
+    { nom: "CAPITAL IMTIYAZ GARANTI", code: "MA0000039497", valeur: "1 058,43", jour: 0.01, m1: 0.17, m3: 0.52, m6: 1.04, a1: 2.11, a2: 4.53, a5: 0.00 },
+    { nom: "UPLINE CAPITAL GARANTI", code: "MA0000037350", valeur: "13 204,47", jour: 0.01, m1: 0.16, m3: 0.50, m6: 1.00, a1: 2.04, a2: 4.40, a5: 10.72 },
+    { nom: "HORIZON CAPITAL GARANTI", code: "MA0000041691", valeur: "142 591,16", jour: 0.01, m1: 0.14, m3: 0.45, m6: 0.93, a1: 1.93, a2: 4.20, a5: 10.35 },
+    { nom: "FCP CKG GARANTI", code: "MA0000042228", valeur: "1 066,20", jour: 0.00, m1: 0.16, m3: 0.51, m6: 1.02, a1: 2.03, a2: 4.24, a5: 0.00 },
+    { nom: "ATTIJARI CASH GARANTI", code: "MA0000042145", valeur: "1 088,41", jour: 0.00, m1: 0.16, m3: 0.48, m6: 0.97, a1: 1.98, a2: 4.26, a5: 0.00 },
   ],
 };
 const opcvmCategoryList = Object.keys(opcvmFunds);
@@ -84,45 +84,45 @@ const opcvmCategoryList = Object.keys(opcvmFunds);
 // Casablanca — le site casablanca-bourse.com bloquant l'accès automatisé, ces médias
 // financiers qui reprennent ses publications officielles sont la source la plus fiable
 // accessible) — séance du mardi 7 juillet 2026
-const seanceDate = "mercredi 8 juillet 2026";
+const seanceDate = "mercredi 15 juillet 2026";
 const seanceIndices = [
-  { nom: "MASI", valeur: "18 055,63", var: -0.93, ytd: -4.2 },
-  { nom: "MASI ESG", valeur: "1 287,00", var: -0.73, ytd: null },
-  { nom: "MASI 20", valeur: "1 328,05", var: -1.0, ytd: -10.61 },
+  { nom: "MASI", valeur: "17 882,04", var: 0.38, ytd: -5.12 },
+  { nom: "MASI ESG", valeur: "1 272,75", var: 0.72, ytd: null },
+  { nom: "MASI 20", valeur: "1 324,01", var: 0.33, ytd: -10.88 },
 ];
 const seanceStats = {
-  capitalisation: "1 037,05 MMDH",
-  volume: "2,67 MMDH",
-  volumeCentral: "108,80 MDH",
-  volumeBlocs: "0 MDH (le solde provient de l'augmentation de capital de Sanlam Maroc, 2,56 MMDH)",
-  hausses: 16,
-  baisses: 43,
-  inchangees: 10,
+  capitalisation: "1 023,96 MMDH",
+  volume: "142,90 MDH",
+  volumeCentral: "142,90 MDH",
+  volumeBlocs: "0 MDH (aucun échange sur le marché de blocs)",
+  hausses: null,
+  baisses: null,
+  inchangees: null,
 };
 const seanceHausses = [
-  { nom: "Sonasid", var: 3.06, cours: "1 989,00" },
-  { nom: "Colorado", var: 2.44, cours: "79,90" },
-  { nom: "Ciments du Maroc", var: 1.16, cours: "1 650,00" },
-  { nom: "Auto Hall", var: 0.98, cours: "97,60" },
-  { nom: "Salafin", var: 0.91, cours: "666,00" },
+  { nom: "IB Maroc.com", var: 9.24, cours: "58,99" },
+  { nom: "Société des Boissons du Maroc", var: 8.40, cours: "2 168,00" },
+  { nom: "Stroc Industrie", var: 6.21, cours: "178,00" },
+  { nom: "CDM", var: 4.06, cours: "1 000,00" },
+  { nom: "Réalisations Mécaniques", var: 3.94, cours: "475,00" },
 ];
 const seanceBaisses = [
-  { nom: "Promopharm", var: -5.93, cours: "1 269,00" },
-  { nom: "SMI", var: -4.77, cours: "5 966,00" },
-  { nom: "Compagnie Minière de Touissit", var: -4.11, cours: "4 600,00" },
-  { nom: "Managem", var: -3.96, cours: "12 822,00" },
-  { nom: "Alliances", var: -3.78, cours: "522,00" },
+  { nom: "Rebab Company", var: -5.99, cours: "91,66" },
+  { nom: "Med Paper", var: -3.58, cours: "25,55" },
+  { nom: "Aluminium du Maroc", var: -2.44, cours: "1 800,00" },
+  { nom: "Compagnie Minière de Touissit", var: -1.85, cours: "4 515,00" },
+  { nom: "Microdata", var: -1.79, cours: "766,00" },
 ];
 const seancePlusActives = [
-  { nom: "CIH Bank", volume: "15,63 MDH", var: null, cours: null },
-  { nom: "Label'Vie", volume: "13,70 MDH", var: null, cours: null },
-  { nom: "TGCC", volume: "12,38 MDH", var: null, cours: null },
-  { nom: "Attijariwafa Bank", volume: "9,49 MDH", var: null, cours: null },
-  { nom: "Akdital", volume: "7,65 MDH", var: null, cours: null },
+  { nom: "Résidences Dar Saada", volume: "15,55 MDH", var: null, cours: null },
+  { nom: "Managem", volume: "15,38 MDH", var: null, cours: null },
+  { nom: "Bank of Africa", volume: "12,26 MDH", var: null, cours: null },
+  { nom: "Attijariwafa Bank", volume: "11,80 MDH", var: null, cours: null },
+  { nom: "Marsa Maroc", volume: "11,35 MDH", var: null, cours: null },
 ];
 const seanceSecteurs = {
-  meilleur: { nom: "Industrie agricole", var: 0.6 },
-  pire: { nom: "Ingénieries et biens d'équipement industriels", var: -2.75 },
+  meilleur: { nom: "Boissons", var: 6.44 },
+  pire: { nom: "Sylviculture et Papier", var: -3.58 },
 };
 
 // ---- Widgets TradingView : données de marché réelles, en direct, via embed officiel ----
@@ -337,6 +337,38 @@ function TradingViewSingleQuote({ symbol }) {
   return (
     <div className="tradingview-widget-container tv-single-quote" ref={ref}>
       <div className="tradingview-widget-container__widget"></div>
+    </div>
+  );
+}
+
+function TradingViewScreener({ screen, title }) {
+  const ref = useRef(null);
+  useEffect(() => {
+    if (!ref.current || ref.current.querySelector("script")) return;
+    const script = document.createElement("script");
+    script.src = "https://s3.tradingview.com/external-embedding/embed-widget-screener.js";
+    script.async = true;
+    script.innerHTML = JSON.stringify({
+      width: "100%",
+      height: 400,
+      defaultColumn: "overview",
+      defaultScreen: screen,
+      market: "morocco",
+      showToolbar: false,
+      colorTheme: "light",
+      locale: "fr",
+      isTransparent: true,
+    });
+    ref.current.appendChild(script);
+  }, [screen]);
+  return (
+    <div className="palmares-card">
+      <div className={`palmares-head ${screen === "top_gainers" ? "gain" : "loss"}`}>
+        {screen === "top_gainers" ? <TrendingUp size={16} /> : <TrendingDown size={16} />} {title}
+      </div>
+      <div className="tradingview-widget-container" ref={ref}>
+        <div className="tradingview-widget-container__widget"></div>
+      </div>
     </div>
   );
 }
@@ -1582,46 +1614,11 @@ export default function Sahm() {
         <div className="container">
           <div className="section-head">
             <div className="section-title">Palmarès de la séance</div>
-            <div className="section-note">{seanceDate}</div>
+            <div className="section-note">Données en direct</div>
           </div>
           <div className="palmares-grid">
-            <div className="palmares-card">
-              <div className="palmares-head gain">
-                <TrendingUp size={16} /> Plus fortes hausses
-              </div>
-              <table>
-                <tbody>
-                  {seanceHausses.map((s) => (
-                    <tr key={s.nom}>
-                      <td>
-                        <div className="stock-code">{s.nom}</div>
-                      </td>
-                      <td><Variation value={s.var} /></td>
-                      <td className="stock-cours">{s.cours} MAD</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-
-            <div className="palmares-card">
-              <div className="palmares-head loss">
-                <TrendingDown size={16} /> Plus fortes baisses
-              </div>
-              <table>
-                <tbody>
-                  {seanceBaisses.map((s) => (
-                    <tr key={s.nom}>
-                      <td>
-                        <div className="stock-code">{s.nom}</div>
-                      </td>
-                      <td><Variation value={s.var} /></td>
-                      <td className="stock-cours">{s.cours} MAD</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
+            <TradingViewScreener screen="top_gainers" title="Plus fortes hausses" />
+            <TradingViewScreener screen="top_losers" title="Plus fortes baisses" />
           </div>
         </div>
       </section>
@@ -1779,19 +1776,15 @@ export default function Sahm() {
                 <div className="fund-gerant">Marché central : {seanceStats.volumeCentral} &middot; Marché de blocs : {seanceStats.volumeBlocs}</div>
               </div>
               <div className="opcvm-card" style={{ padding: "18px 22px" }}>
-                <div className="mini-head">Valeurs en hausse / baisse / stables</div>
+                <div className="mini-head">Meilleure hausse / plus forte baisse</div>
                 <div style={{ display: "flex", gap: 22, marginTop: 6 }}>
                   <div>
-                    <div className="kpi-value" style={{ color: "var(--green)", fontSize: 24 }}>{seanceStats.hausses}</div>
-                    <div className="fund-gerant">en hausse</div>
+                    <div className="kpi-value" style={{ color: "var(--green)", fontSize: 20 }}>+{seanceHausses[0].var.toFixed(2)}%</div>
+                    <div className="fund-gerant">{seanceHausses[0].nom}</div>
                   </div>
                   <div>
-                    <div className="kpi-value" style={{ color: "var(--red)", fontSize: 24 }}>{seanceStats.baisses}</div>
-                    <div className="fund-gerant">en baisse</div>
-                  </div>
-                  <div>
-                    <div className="kpi-value" style={{ color: "var(--ink-soft)", fontSize: 24 }}>{seanceStats.inchangees}</div>
-                    <div className="fund-gerant">inchangées</div>
+                    <div className="kpi-value" style={{ color: "var(--red)", fontSize: 20 }}>{seanceBaisses[0].var.toFixed(2)}%</div>
+                    <div className="fund-gerant">{seanceBaisses[0].nom}</div>
                   </div>
                 </div>
               </div>
@@ -1819,40 +1812,11 @@ export default function Sahm() {
 
             <div className="section-head">
               <div className="section-title" style={{ fontSize: 22 }}>Palmarès de la séance</div>
+              <div className="section-note">Données en direct</div>
             </div>
             <div className="palmares-grid" style={{ marginBottom: 36 }}>
-              <div className="palmares-card">
-                <div className="palmares-head gain">
-                  <TrendingUp size={16} /> Plus fortes hausses
-                </div>
-                <table>
-                  <tbody>
-                    {seanceHausses.map((s) => (
-                      <tr key={s.nom}>
-                        <td><div className="stock-code">{s.nom}</div></td>
-                        <td><Variation value={s.var} /></td>
-                        <td className="stock-cours">{s.cours} MAD</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-              <div className="palmares-card">
-                <div className="palmares-head loss">
-                  <TrendingDown size={16} /> Plus fortes baisses
-                </div>
-                <table>
-                  <tbody>
-                    {seanceBaisses.map((s) => (
-                      <tr key={s.nom}>
-                        <td><div className="stock-code">{s.nom}</div></td>
-                        <td><Variation value={s.var} /></td>
-                        <td className="stock-cours">{s.cours} MAD</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
+              <TradingViewScreener screen="top_gainers" title="Plus fortes hausses" />
+              <TradingViewScreener screen="top_losers" title="Plus fortes baisses" />
             </div>
 
             <div className="section-head">
