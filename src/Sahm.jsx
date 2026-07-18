@@ -318,6 +318,29 @@ function TradingViewMasiOverview() {
   );
 }
 
+function TradingViewSingleQuote({ symbol }) {
+  const ref = useRef(null);
+  useEffect(() => {
+    if (!ref.current || ref.current.querySelector("script")) return;
+    const script = document.createElement("script");
+    script.src = "https://s3.tradingview.com/external-embedding/embed-widget-single-quote.js";
+    script.async = true;
+    script.innerHTML = JSON.stringify({
+      symbol: `CSEMA:${symbol}`,
+      width: "100%",
+      colorTheme: "light",
+      isTransparent: true,
+      locale: "fr",
+    });
+    ref.current.appendChild(script);
+  }, [symbol]);
+  return (
+    <div className="tradingview-widget-container tv-single-quote" ref={ref}>
+      <div className="tradingview-widget-container__widget"></div>
+    </div>
+  );
+}
+
 function getCasablancaMarketStatus() {
   const now = new Date();
   const parts = new Intl.DateTimeFormat("en-US", {
@@ -516,7 +539,7 @@ const stocksUniverse = [
   { code: "MNG", nom: "Managem", cours: 12822.0 },
   { code: "ADH", nom: "Douja Prom Addoha", cours: 31.9 },
   { code: "TQM", nom: "Taqa Morocco", cours: 1042.0 },
-  { code: "SNA", nom: "Snep", cours: 348.0 },
+  { code: "SNP", nom: "Snep", cours: 348.0 },
   { code: "RIS", nom: "Risma", cours: 322.5 },
   { code: "DHO", nom: "Delta Holding", cours: 60.0 },
   { code: "MSA", nom: "Marsa Maroc", cours: 828.0 },
@@ -1434,6 +1457,11 @@ export default function Sahm() {
         }
         .ptf-remove-btn:hover { color: var(--red); border-color: var(--red); }
 
+        .tv-single-quote {
+          min-width: 140px;
+          max-width: 220px;
+        }
+
         /* ---- Footer ---- */
         .footer {
           padding: 28px 0 40px;
@@ -1524,21 +1552,21 @@ export default function Sahm() {
           </p>
           <div className="hero-stats-row">
             <div className="hero-stat">
-              <div className="value mono">19,40</div>
-              <div className="label">P/E 2025 &middot; 17,85 P/E 2026E</div>
+              <div className="value mono">18,8x</div>
+              <div className="label">PER 2026E &middot; marché</div>
             </div>
             <div className="hero-stat">
               <div className="value mono">
-                14 528 <span style={{ color: "#8FDBB0", fontSize: 15 }}>▲ +0,82%</span>
+                {seanceIndices[0].valeur} <span style={{ color: "#E9A5A5", fontSize: 15 }}>▼ {seanceIndices[0].var.toFixed(2)}%</span>
               </div>
-              <div className="label">MASI (démo)</div>
+              <div className="label">MASI</div>
             </div>
             <div className="hero-stat">
-              <div className="value mono">312,4K</div>
-              <div className="label">Volume total</div>
+              <div className="value mono">{seanceStats.volumeCentral}</div>
+              <div className="label">Volume (marché central)</div>
             </div>
             <div className="hero-stat">
-              <div className="value mono">892,3 Mrd</div>
+              <div className="value mono">{seanceStats.capitalisation}</div>
               <div className="label">Capitalisation</div>
             </div>
           </div>
@@ -1554,7 +1582,7 @@ export default function Sahm() {
         <div className="container">
           <div className="section-head">
             <div className="section-title">Palmarès de la séance</div>
-            <div className="section-note">Variation en %</div>
+            <div className="section-note">{seanceDate}</div>
           </div>
           <div className="palmares-grid">
             <div className="palmares-card">
@@ -1563,11 +1591,10 @@ export default function Sahm() {
               </div>
               <table>
                 <tbody>
-                  {hausses.map((s) => (
-                    <tr key={s.code}>
+                  {seanceHausses.map((s) => (
+                    <tr key={s.nom}>
                       <td>
-                        <div className="stock-code">{s.code}</div>
-                        <div className="stock-nom">{s.nom}</div>
+                        <div className="stock-code">{s.nom}</div>
                       </td>
                       <td><Variation value={s.var} /></td>
                       <td className="stock-cours">{s.cours} MAD</td>
@@ -1583,11 +1610,10 @@ export default function Sahm() {
               </div>
               <table>
                 <tbody>
-                  {baisses.map((s) => (
-                    <tr key={s.code}>
+                  {seanceBaisses.map((s) => (
+                    <tr key={s.nom}>
                       <td>
-                        <div className="stock-code">{s.code}</div>
-                        <div className="stock-nom">{s.nom}</div>
+                        <div className="stock-code">{s.nom}</div>
                       </td>
                       <td><Variation value={s.var} /></td>
                       <td className="stock-cours">{s.cours} MAD</td>
@@ -2065,9 +2091,10 @@ export default function Sahm() {
               <h1 className="page-title serif">Gérer votre portefeuille en temps réel</h1>
               <p className="page-subtitle">
                 Ajoutez les valeurs qui composent votre portefeuille pour suivre sa valeur, votre
-                plus-value ou moins-value. Les cours utilisés ici sont des cours de démonstration
-                (non temps réel) ; vos lignes sont enregistrées uniquement dans votre navigateur,
-                elles ne sont pas visibles par les autres visiteurs.
+                plus-value ou moins-value. Le calcul utilise un cours enregistré (mis à jour
+                manuellement), mais chaque ligne affiche aussi son <strong>cours en direct via
+                TradingView</strong> pour comparaison ; vos lignes sont enregistrées uniquement
+                dans votre navigateur, elles ne sont pas visibles par les autres visiteurs.
               </p>
             </div>
 
@@ -2139,7 +2166,8 @@ export default function Sahm() {
                           <td>Valeur</td>
                           <td style={{ textAlign: "right" }}>Quantité</td>
                           <td style={{ textAlign: "right" }}>Prix d'achat</td>
-                          <td style={{ textAlign: "right" }}>Cours actuel</td>
+                          <td style={{ textAlign: "right" }}>Cours enregistré</td>
+                          <td style={{ minWidth: 150 }}>Cours en direct (TradingView)</td>
                           <td style={{ textAlign: "right" }}>Valeur actuelle</td>
                           <td style={{ textAlign: "right" }}>Plus/moins-value</td>
                           <td></td>
@@ -2153,6 +2181,9 @@ export default function Sahm() {
                             <td className="mono" style={{ textAlign: "right" }}>{r.quantite}</td>
                             <td className="mono" style={{ textAlign: "right" }}>{r.prixAchat.toFixed(2)} DH</td>
                             <td className="mono" style={{ textAlign: "right" }}>{r.cours.toFixed(2)} DH</td>
+                            <td>
+                              <TradingViewSingleQuote symbol={r.code} />
+                            </td>
                             <td className="mono" style={{ textAlign: "right", fontWeight: 600 }}>
                               {r.valeur.toLocaleString("fr-FR", { maximumFractionDigits: 0 })} DH
                             </td>
@@ -2175,16 +2206,17 @@ export default function Sahm() {
             )}
 
             <p className="page-footnote">
-              Simulateur à but pédagogique — les cours affichés ne sont pas un flux temps réel : ils ne
-              bougeront pas tout seuls. Vos données sont stockées localement pour cette session de
-              navigation et ne sont partagées avec personne.
+              Simulateur à but pédagogique — le calcul de plus/moins-value se base sur un cours
+              enregistré (pas un flux en continu, il ne bouge pas tout seul), tandis que la colonne
+              "Cours en direct" reflète le vrai marché via TradingView. Vos données sont stockées
+              localement pour cette session de navigation et ne sont partagées avec personne.
             </p>
           </div>
         </section>
       )}
 
       <footer className="footer">
-        Sahm — récap de séance à but de démonstration (données fictives) &middot; statut du marché calculé à partir des horaires réels de cotation (hors jours fériés marocains) &middot; non affilié à la Bourse de Casablanca
+        Sahm — statut du marché calculé à partir des horaires réels de cotation (hors jours fériés marocains) &middot; non affilié à la Bourse de Casablanca
       </footer>
     </div>
   );
