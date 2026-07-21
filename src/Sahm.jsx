@@ -692,6 +692,22 @@ export default function Sahm() {
     return () => clearInterval(id);
   }, []);
 
+  // Données de marché en direct (mises à jour toutes les 15 min par un robot GitHub,
+  // source e-bourse.ma — plateforme officielle de la Bourse de Casablanca)
+  const [marketData, setMarketData] = useState(null);
+  React.useEffect(() => {
+    let cancelled = false;
+    fetch("/data/marche.json", { cache: "no-store" })
+      .then((res) => (res.ok ? res.json() : null))
+      .then((data) => {
+        if (!cancelled && data) setMarketData(data);
+      })
+      .catch(() => {
+        // Pas grave — le site retombe sur les données statiques de secours
+      });
+    return () => { cancelled = true; };
+  }, []);
+
   // Portefeuille
   const [holdings, setHoldings] = useState([]);
   const [ptfLoading, setPtfLoading] = useState(true);
@@ -1667,9 +1683,12 @@ export default function Sahm() {
             </div>
             <div className="hero-stat">
               <div className="value mono">
-                {seanceIndices[0].valeur} <span style={{ color: seanceIndices[0].var >= 0 ? "#8FDBB0" : "#E9A5A5", fontSize: 15 }}>{seanceIndices[0].var >= 0 ? "▲" : "▼"} {seanceIndices[0].var >= 0 ? "+" : ""}{seanceIndices[0].var.toFixed(2)}%</span>
+                {marketData?.masi
+                  ? <>{marketData.masi.value.toLocaleString("fr-FR", { minimumFractionDigits: 2, maximumFractionDigits: 2 })} <span style={{ color: marketData.masi.change_pct >= 0 ? "#8FDBB0" : "#E9A5A5", fontSize: 15 }}>{marketData.masi.change_pct >= 0 ? "▲" : "▼"} {marketData.masi.change_pct >= 0 ? "+" : ""}{marketData.masi.change_pct.toFixed(2)}%</span></>
+                  : <>{seanceIndices[0].valeur} <span style={{ color: seanceIndices[0].var >= 0 ? "#8FDBB0" : "#E9A5A5", fontSize: 15 }}>{seanceIndices[0].var >= 0 ? "▲" : "▼"} {seanceIndices[0].var >= 0 ? "+" : ""}{seanceIndices[0].var.toFixed(2)}%</span></>
+                }
               </div>
-              <div className="label">MASI</div>
+              <div className="label">MASI {marketData?.masi ? "— en direct" : ""}</div>
             </div>
             <div className="hero-stat">
               <div className="value mono">{seanceStats.volumeCentral}</div>
@@ -1692,7 +1711,7 @@ export default function Sahm() {
         <div className="container">
           <div className="section-head">
             <div className="section-title">Palmarès de la séance</div>
-            <div className="section-note">{seanceDate}</div>
+            <div className="section-note">{marketData ? "Données en direct (15 min de différé)" : seanceDate}</div>
           </div>
           <div className="palmares-grid">
             <div className="palmares-card">
@@ -1701,11 +1720,13 @@ export default function Sahm() {
               </div>
               <table>
                 <tbody>
-                  {seanceHausses.map((s) => (
-                    <tr key={s.code}>
-                      <td className="stock-code">{s.code}</td>
-                      <td className="stock-cours">{s.cours} MAD</td>
-                      <td><Variation value={s.var} /></td>
+                  {(marketData?.top_hausses || seanceHausses).map((s) => (
+                    <tr key={s.code || s.name}>
+                      <td className="stock-code">{s.code || s.name}</td>
+                      <td className="stock-cours">
+                        {(s.price ?? s.cours)} MAD
+                      </td>
+                      <td><Variation value={s.var ?? s.change_pct} /></td>
                     </tr>
                   ))}
                 </tbody>
@@ -1717,11 +1738,13 @@ export default function Sahm() {
               </div>
               <table>
                 <tbody>
-                  {seanceBaisses.map((s) => (
-                    <tr key={s.code}>
-                      <td className="stock-code">{s.code}</td>
-                      <td className="stock-cours">{s.cours} MAD</td>
-                      <td><Variation value={s.var} /></td>
+                  {(marketData?.top_baisses || seanceBaisses).map((s) => (
+                    <tr key={s.code || s.name}>
+                      <td className="stock-code">{s.code || s.name}</td>
+                      <td className="stock-cours">
+                        {(s.price ?? s.cours)} MAD
+                      </td>
+                      <td><Variation value={s.var ?? s.change_pct} /></td>
                     </tr>
                   ))}
                 </tbody>
@@ -2238,7 +2261,9 @@ export default function Sahm() {
       )}
 
       <footer className="footer">
-        Sahm — statut du marché calculé à partir des horaires réels de cotation (hors jours fériés marocains) &middot; non affilié à la Bourse de Casablanca
+        Sahm — statut du marché calculé à partir des horaires réels de cotation (hors jours fériés marocains)
+        {marketData?.updated_at && ` · données de marché mises à jour automatiquement (dernière : ${new Date(marketData.updated_at).toLocaleString("fr-FR", { timeZone: "Africa/Casablanca" })})`}
+        {" "}&middot; non affilié à la Bourse de Casablanca
       </footer>
     </div>
   );

@@ -4,6 +4,9 @@ on:
   push:
     branches: ["main"]
   workflow_dispatch:
+  schedule:
+    # Toutes les 15 minutes — met à jour les données de marché et republie le site
+    - cron: "*/15 * * * *"
 
 permissions:
   contents: read
@@ -20,6 +23,18 @@ jobs:
     steps:
       - name: Récupérer le code
         uses: actions/checkout@v4
+
+      - name: Installer Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Installer les dépendances Python
+        run: pip install requests
+
+      - name: Récupérer les données de marché (e-bourse.ma)
+        run: python scripts/update_data.py
+        continue-on-error: true
 
       - name: Installer Node.js
         uses: actions/setup-node@v4
