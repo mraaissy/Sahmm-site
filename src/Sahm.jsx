@@ -100,18 +100,18 @@ const seanceStats = {
   inchangees: null,
 };
 const seanceHausses = [
-  { nom: "Rebab Company", var: 6.00, cours: "93,29" },
-  { nom: "Balima", var: 5.99, cours: "199,90" },
-  { nom: "Involys", var: 5.79, cours: "128,00" },
-  { nom: "Sonasid", var: 2.94, cours: "1 999,00" },
-  { nom: "Jet Contractors", var: 2.90, cours: "2 058,00" },
+  { code: "REB", nom: "Rebab Company", var: 6.00, cours: "93,29" },
+  { code: "BAL", nom: "Balima", var: 5.99, cours: "199,90" },
+  { code: "INV", nom: "Involys", var: 5.79, cours: "128,00" },
+  { code: "SID", nom: "Sonasid", var: 2.94, cours: "1 999,00" },
+  { code: "JET", nom: "Jet Contractors", var: 2.90, cours: "2 058,00" },
 ];
 const seanceBaisses = [
-  { nom: "Sanlam Maroc", var: -5.51, cours: "2 881,00" },
-  { nom: "Microdata", var: -4.94, cours: "712,00" },
-  { nom: "Réalisations Mécaniques", var: -4.01, cours: "450,00" },
-  { nom: "TotalEnergies Marketing Maroc", var: -3.69, cours: "1 435,00" },
-  { nom: "Delta Holding", var: -3.64, cours: "53,00" },
+  { code: "SAHM", nom: "Sanlam Maroc", var: -5.51, cours: "2 881,00" },
+  { code: "MIC", nom: "Microdata", var: -4.94, cours: "712,00" },
+  { code: "SRM", nom: "Réalisations Mécaniques", var: -4.01, cours: "450,00" },
+  { code: "TMA", nom: "TotalEnergies Marketing Maroc", var: -3.69, cours: "1 435,00" },
+  { code: "DHO", nom: "Delta Holding", var: -3.64, cours: "53,00" },
 ];
 const seancePlusActives = [
   { nom: "CIH Bank", volume: "16,11 MDH", var: null, cours: null },
@@ -1692,10 +1692,41 @@ export default function Sahm() {
         <div className="container">
           <div className="section-head">
             <div className="section-title">Palmarès de la séance</div>
-            <div className="section-note">Données en direct</div>
+            <div className="section-note">{seanceDate}</div>
           </div>
-          <div className="opcvm-card" style={{ padding: "12px 8px" }}>
-            <TradingViewHotlist />
+          <div className="palmares-grid">
+            <div className="palmares-card">
+              <div className="palmares-head gain">
+                <TrendingUp size={16} /> Plus fortes hausses
+              </div>
+              <table>
+                <tbody>
+                  {seanceHausses.map((s) => (
+                    <tr key={s.code}>
+                      <td className="stock-code">{s.code}</td>
+                      <td className="stock-cours">{s.cours} MAD</td>
+                      <td><Variation value={s.var} /></td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <div className="palmares-card">
+              <div className="palmares-head loss">
+                <TrendingDown size={16} /> Plus fortes baisses
+              </div>
+              <table>
+                <tbody>
+                  {seanceBaisses.map((s) => (
+                    <tr key={s.code}>
+                      <td className="stock-code">{s.code}</td>
+                      <td className="stock-cours">{s.cours} MAD</td>
+                      <td><Variation value={s.var} /></td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
       </section>
