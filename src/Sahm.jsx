@@ -337,6 +337,34 @@ function TradingViewSingleQuote({ symbol }) {
   );
 }
 
+function TradingViewHotlist() {
+  const ref = useRef(null);
+  useEffect(() => {
+    if (!ref.current || ref.current.querySelector("script")) return;
+    const script = document.createElement("script");
+    script.src = "https://s3.tradingview.com/external-embedding/embed-widget-hotlists.js";
+    script.async = true;
+    script.innerHTML = JSON.stringify({
+      colorTheme: "light",
+      dateRange: "1D",
+      exchange: "CSEMA",
+      showChart: false,
+      locale: "fr",
+      isTransparent: true,
+      showSymbolLogo: false,
+      showFloatingTooltip: false,
+      width: "100%",
+      height: 450,
+    });
+    ref.current.appendChild(script);
+  }, []);
+  return (
+    <div className="tradingview-widget-container" ref={ref}>
+      <div className="tradingview-widget-container__widget"></div>
+    </div>
+  );
+}
+
 function TradingViewScreener({ screen, title }) {
   const ref = useRef(null);
   useEffect(() => {
@@ -1666,9 +1694,8 @@ export default function Sahm() {
             <div className="section-title">Palmarès de la séance</div>
             <div className="section-note">Données en direct</div>
           </div>
-          <div className="palmares-grid">
-            <TradingViewScreener screen="top_gainers" title="Plus fortes hausses" />
-            <TradingViewScreener screen="top_losers" title="Plus fortes baisses" />
+          <div className="opcvm-card" style={{ padding: "12px 8px" }}>
+            <TradingViewHotlist />
           </div>
         </div>
       </section>
@@ -1868,9 +1895,8 @@ export default function Sahm() {
               <div className="section-title" style={{ fontSize: 22 }}>Palmarès de la séance</div>
               <div className="section-note">Données en direct</div>
             </div>
-            <div className="palmares-grid" style={{ marginBottom: 36 }}>
-              <TradingViewScreener screen="top_gainers" title="Plus fortes hausses" />
-              <TradingViewScreener screen="top_losers" title="Plus fortes baisses" />
+            <div className="opcvm-card" style={{ padding: "12px 8px", marginBottom: 36 }}>
+              <TradingViewHotlist />
             </div>
 
             <div className="section-head">
