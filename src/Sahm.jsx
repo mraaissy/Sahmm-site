@@ -396,6 +396,33 @@ function TradingViewMarketCapScreener() {
   );
 }
 
+function TradingViewAllStocksScreener() {
+  const ref = useRef(null);
+  useEffect(() => {
+    if (!ref.current || ref.current.querySelector("script")) return;
+    const script = document.createElement("script");
+    script.src = "https://s3.tradingview.com/external-embedding/embed-widget-screener.js";
+    script.async = true;
+    script.innerHTML = JSON.stringify({
+      width: "100%",
+      height: 600,
+      defaultColumn: "performance",
+      defaultScreen: "general",
+      market: "morocco",
+      showToolbar: true,
+      colorTheme: "light",
+      locale: "fr",
+      isTransparent: true,
+    });
+    ref.current.appendChild(script);
+  }, []);
+  return (
+    <div className="tradingview-widget-container" ref={ref}>
+      <div className="tradingview-widget-container__widget"></div>
+    </div>
+  );
+}
+
 function getCasablancaMarketStatus() {
   const now = new Date();
   const parts = new Intl.DateTimeFormat("en-US", {
@@ -1847,36 +1874,17 @@ export default function Sahm() {
             </div>
 
             <div className="section-head">
-              <div className="section-title" style={{ fontSize: 22 }}>Valeurs les plus actives (par volume)</div>
+              <div className="section-title" style={{ fontSize: 22 }}>Toutes les valeurs cotées</div>
+              <div className="section-note">Données en direct</div>
             </div>
-            <div className="opcvm-card">
-              <table>
-                <tbody>
-                  <tr className="opcvm-row-head">
-                    <td>Société</td>
-                    <td style={{ textAlign: "right" }}>Volume échangé</td>
-                    <td style={{ textAlign: "right" }}>Cours</td>
-                    <td style={{ textAlign: "right" }}>Variation</td>
-                  </tr>
-                  {seancePlusActives.map((s) => (
-                    <tr key={s.nom}>
-                      <td className="fund-name">{s.nom}</td>
-                      <td className="mono" style={{ textAlign: "right", fontWeight: 600 }}>{s.volume}</td>
-                      <td className="mono" style={{ textAlign: "right", color: "var(--ink-soft)" }}>
-                        {s.cours ? `${s.cours} DH` : "—"}
-                      </td>
-                      <td className={`perf-cell ${s.var == null ? "flat" : s.var >= 0 ? "up" : "down"}`} style={{ textAlign: "right" }}>
-                        {s.var == null ? "—" : `${s.var >= 0 ? "+" : ""}${s.var.toFixed(2)}%`}
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
+            <div className="opcvm-card" style={{ padding: "12px 8px" }}>
+              <TradingViewAllStocksScreener />
             </div>
 
             <p className="page-footnote">
-              Séance du {seanceDate}. Cette page reflète la dernière séance disponible au moment de sa
-              création, pas un flux en temps réel.
+              Widget de données en direct (TradingView, marché Maroc) — se met à jour automatiquement.
+              Les indices (MASI, MASI ESG, MASI 20), la capitalisation et le volume ci-dessus reflètent
+              la dernière séance disponible au moment de la création de cette page, pas un flux en temps réel.
             </p>
           </div>
         </section>
