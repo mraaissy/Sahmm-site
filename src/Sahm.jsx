@@ -692,7 +692,7 @@ export default function Sahm() {
     return () => clearInterval(id);
   }, []);
 
-  // Données de marché en direct (mises à jour toutes les 15 min par un robot GitHub,
+  // MASI en direct (mis à jour toutes les 15 min par un robot GitHub,
   // source e-bourse.ma — plateforme officielle de la Bourse de Casablanca)
   const [marketData, setMarketData] = useState(null);
   React.useEffect(() => {
@@ -703,7 +703,7 @@ export default function Sahm() {
         if (!cancelled && data) setMarketData(data);
       })
       .catch(() => {
-        // Pas grave — le site retombe sur les données statiques de secours
+        // Pas grave — le site retombe sur la donnée statique de secours
       });
     return () => { cancelled = true; };
   }, []);
@@ -1688,7 +1688,7 @@ export default function Sahm() {
                   : <>{seanceIndices[0].valeur} <span style={{ color: seanceIndices[0].var >= 0 ? "#8FDBB0" : "#E9A5A5", fontSize: 15 }}>{seanceIndices[0].var >= 0 ? "▲" : "▼"} {seanceIndices[0].var >= 0 ? "+" : ""}{seanceIndices[0].var.toFixed(2)}%</span></>
                 }
               </div>
-              <div className="label">MASI {marketData?.masi ? "— en direct" : ""}</div>
+              <div className="label">MASI</div>
             </div>
             <div className="hero-stat">
               <div className="value mono">{seanceStats.volumeCentral}</div>
@@ -1711,45 +1711,10 @@ export default function Sahm() {
         <div className="container">
           <div className="section-head">
             <div className="section-title">Palmarès de la séance</div>
-            <div className="section-note">{marketData ? "Données en direct (15 min de différé)" : seanceDate}</div>
+            <div className="section-note">Données en direct</div>
           </div>
-          <div className="palmares-grid">
-            <div className="palmares-card">
-              <div className="palmares-head gain">
-                <TrendingUp size={16} /> Plus fortes hausses
-              </div>
-              <table>
-                <tbody>
-                  {(marketData?.top_hausses || seanceHausses).map((s) => (
-                    <tr key={s.code || s.name}>
-                      <td className="stock-code">{s.code || s.name}</td>
-                      <td className="stock-cours">
-                        {(s.price ?? s.cours)} MAD
-                      </td>
-                      <td><Variation value={s.var ?? s.change_pct} /></td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-            <div className="palmares-card">
-              <div className="palmares-head loss">
-                <TrendingDown size={16} /> Plus fortes baisses
-              </div>
-              <table>
-                <tbody>
-                  {(marketData?.top_baisses || seanceBaisses).map((s) => (
-                    <tr key={s.code || s.name}>
-                      <td className="stock-code">{s.code || s.name}</td>
-                      <td className="stock-cours">
-                        {(s.price ?? s.cours)} MAD
-                      </td>
-                      <td><Variation value={s.var ?? s.change_pct} /></td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
+          <div className="opcvm-card" style={{ padding: "12px 8px" }}>
+            <TradingViewHotlist />
           </div>
         </div>
       </section>
@@ -2261,9 +2226,7 @@ export default function Sahm() {
       )}
 
       <footer className="footer">
-        Sahm — statut du marché calculé à partir des horaires réels de cotation (hors jours fériés marocains)
-        {marketData?.updated_at && ` · données de marché mises à jour automatiquement (dernière : ${new Date(marketData.updated_at).toLocaleString("fr-FR", { timeZone: "Africa/Casablanca" })})`}
-        {" "}&middot; non affilié à la Bourse de Casablanca
+        Sahm — statut du marché calculé à partir des horaires réels de cotation (hors jours fériés marocains) &middot; non affilié à la Bourse de Casablanca
       </footer>
     </div>
   );

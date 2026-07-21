@@ -5,7 +5,7 @@ on:
     branches: ["main"]
   workflow_dispatch:
   schedule:
-    # Toutes les 15 minutes — met à jour les données de marché et republie le site
+    # Toutes les 15 minutes — met à jour le MASI et republie le site
     - cron: "*/15 * * * *"
 
 permissions:
@@ -32,7 +32,7 @@ jobs:
       - name: Installer les dépendances Python
         run: pip install requests
 
-      - name: Récupérer les données de marché (e-bourse.ma)
+      - name: Récupérer le MASI (e-bourse.ma)
         run: python scripts/update_data.py
         continue-on-error: true
 

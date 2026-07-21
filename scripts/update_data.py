@@ -1,12 +1,17 @@
 #!/usr/bin/env python3
 """
-Récupère les données de marché en direct depuis e-bourse.ma (plateforme
-officielle et éducative de la Bourse de Casablanca, partenaire TradingView),
-et les écrit dans public/data/marche.json pour que le site les affiche.
+Récupère le MASI en direct depuis e-bourse.ma (plateforme officielle et
+éducative de la Bourse de Casablanca, partenaire TradingView), et l'écrit
+dans public/data/marche.json pour que le site l'affiche.
 
 Ce site est officiellement exploité par la Bourse de Casablanca et n'interdit
 pas l'accès automatisé (contrairement à casablanca-bourse.com) — vérifié avant
 la mise en place de ce script. Les cours y sont différés de 15 minutes.
+
+Note : ce site ne semble pas se rafraîchir aussi souvent qu'annoncé (vérifié
+à plusieurs heures d'intervalle avec les mêmes chiffres). Le MASI qu'il
+affiche reste néanmoins une vraie donnée réelle, juste pas forcément la plus
+récente à la minute près.
 
 Si la structure de la page change et que ce script ne trouve plus rien,
 il n'écrase PAS le fichier existant (pour éviter d'afficher un site vide) et
@@ -32,47 +37,6 @@ def fetch_page_text() -> str:
     resp = requests.get(URL, headers=HEADERS, timeout=20)
     resp.raise_for_status()
     return resp.text
-
-
-def parse_stocks(html: str):
-    """
-    Cherche des lignes du type :
-      <NOM DE LA VALEUR> <PRIX (format 1 234.00)> <VARIATION (+/-N.NN ou 0)>
-    telles qu'observées dans la page (ex. "AFRIQUIA GAZ 3 720.00 +1.86").
-    """
-    # On travaille sur le texte "aplati" de la page pour rester robuste
-    # aux changements mineurs de balises HTML.
-    text = re.sub(r"<[^>]+>", "\n", html)
-    text = re.sub(r"&amp;", "&", text)
-
-    pattern = re.compile(
-        r"([A-Z][A-Z0-9\.\-&/' ]{2,40}?)\s+"
-        r"([\d]{1,3}(?:[ \u00a0]\d{3})*\.\d{2})\s+"
-        r"([+-]?\d+(?:\.\d+)?)\s*%?"
-    )
-
-    stocks = []
-    seen = set()
-    for match in pattern.finditer(text):
-        name = " ".join(match.group(1).split())
-        price_raw = match.group(2).replace("\u00a0", " ").replace(" ", "")
-        change_raw = match.group(3)
-        try:
-            price = float(price_raw)
-            change = float(change_raw)
-        except ValueError:
-            continue
-        if price <= 0:
-            continue
-        if name in seen:
-            continue
-        # Filtre les faux positifs évidents (texte de menu, dates, etc.)
-        if len(name) < 2 or name.isdigit():
-            continue
-        seen.add(name)
-        stocks.append({"name": name, "price": price, "change_pct": change})
-
-    return stocks
 
 
 def parse_index(html: str, label: str):
@@ -111,37 +75,26 @@ def parse_index(html: str, label: str):
 def main():
     try:
         html = fetch_page_text()
-        stocks = parse_stocks(html)
         masi = parse_index(html, "MASI")
         masi20 = parse_index(html, "MASI 20")
     except Exception as exc:  # noqa: BLE001
         print(f"Erreur lors de la récupération/analyse : {exc}", file=sys.stderr)
         sys.exit(1)
 
-    if len(stocks) < 20 or masi is None:
-        # Structure de page probablement changée — on n'écrase rien.
-        print(
-            f"Données insuffisantes (stocks={len(stocks)}, masi={masi}) — "
-            "abandon sans écraser le fichier existant.",
-            file=sys.stderr,
-        )
+    if masi is None:
+        print("MASI introuvable — abandon sans écraser le fichier existant.", file=sys.stderr)
         sys.exit(1)
-
-    stocks_sorted = sorted(stocks, key=lambda s: s["change_pct"], reverse=True)
 
     data = {
         "updated_at": datetime.now(timezone.utc).isoformat(),
         "source": "e-bourse.ma (plateforme officielle Bourse de Casablanca, cours différés de 15 min)",
         "masi": masi,
         "masi20": masi20,
-        "top_hausses": stocks_sorted[:5],
-        "top_baisses": list(reversed(stocks_sorted[-5:])),
-        "stocks": stocks_sorted,
     }
 
     OUTPUT_PATH.parent.mkdir(parents=True, exist_ok=True)
     OUTPUT_PATH.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
-    print(f"OK — {len(stocks)} valeurs, MASI={masi['value']}, écrit dans {OUTPUT_PATH}")
+    print(f"OK — MASI={masi['value']} ({masi['change_pct']}%), écrit dans {OUTPUT_PATH}")
 
 
 if __name__ == "__main__":

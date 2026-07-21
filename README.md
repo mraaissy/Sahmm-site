@@ -84,43 +84,6 @@ leur support pour voir quelles options ils permettent.
 
 Ton site sera alors accessible directement sur **https://www.sahmm.ma**.
 
-## Automatisation des données de marché (toutes les 15 min)
-
-Le fichier `scripts/update_data.py` récupère les cours en direct (différés de
-15 min) depuis **e-bourse.ma**, la plateforme éducative officielle de la
-Bourse de Casablanca (partenaire TradingView) — ce site autorise l'accès
-automatisé, contrairement au site principal casablanca-bourse.com.
-
-Le workflow `.github/workflows/deploy.yml` exécute ce script **automatiquement
-toutes les 15 minutes** (en plus de chaque `git push`), puis reconstruit et
-republie le site avec les données fraîches. Tu n'as rien à faire une fois que
-c'est poussé sur GitHub — GitHub Actions s'en charge tout seul, gratuitement.
-
-### ⚠️ Point important à vérifier après la mise en ligne
-
-Ce script a été écrit sans pouvoir être testé en conditions réelles (pas
-d'accès internet dans l'environnement où il a été créé). Après ton premier
-`git push` :
-
-1. Va dans l'onglet **Actions** de ton dépôt GitHub
-2. Attends qu'une exécution programmée se déclenche (dans les 15 min), ou
-   lance-la toi-même : Actions → "Déployer sur GitHub Pages" → "Run workflow"
-3. Clique sur l'exécution, puis sur le job **build**, puis sur l'étape
-   **"Récupérer les données de marché (e-bourse.ma)"**
-4. Si tu vois `OK — XX valeurs, MASI=...`, tout fonctionne
-5. Si tu vois une erreur en rouge, le site continuera de fonctionner quand
-   même (grâce à `continue-on-error: true` et au fichier de secours
-   `public/data/marche.json` déjà fourni), mais les données resteront figées
-   sur leur dernière valeur connue. Dans ce cas, copie le message d'erreur et
-   partage-le pour qu'on corrige le script ensemble.
-
-### Tester le script en local (optionnel, avancé)
-
-```bash
-pip install requests
-python scripts/update_data.py
-```
-
 ## Pour tester en local avant de pousser (optionnel)
 
 ```bash
