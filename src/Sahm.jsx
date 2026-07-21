@@ -84,46 +84,42 @@ const opcvmCategoryList = Object.keys(opcvmFunds);
 // Casablanca — le site casablanca-bourse.com bloquant l'accès automatisé, ces médias
 // financiers qui reprennent ses publications officielles sont la source la plus fiable
 // accessible) — séance du mardi 7 juillet 2026
-const seanceDate = "mercredi 15 juillet 2026";
+const seanceDate = "lundi 20 juillet 2026";
 const seanceIndices = [
-  { nom: "MASI", valeur: "17 882,04", var: 0.38, ytd: -5.12 },
-  { nom: "MASI ESG", valeur: "1 272,75", var: 0.72, ytd: null },
-  { nom: "MASI 20", valeur: "1 324,01", var: 0.33, ytd: -10.88 },
+  { nom: "MASI", valeur: "17 539,62", var: -0.22, ytd: -6.93 },
+  { nom: "MASI ESG", valeur: "1 243,72", var: -0.06, ytd: null },
+  { nom: "MASI 20", valeur: "1 301,16", var: -0.11, ytd: -12.42 },
 ];
 const seanceStats = {
-  capitalisation: "1 023,96 MMDH",
-  volume: "142,90 MDH",
-  volumeCentral: "142,90 MDH",
+  capitalisation: "1 002,85 MMDH",
+  volume: "87,97 MDH",
+  volumeCentral: "87,97 MDH",
   volumeBlocs: "0 MDH (aucun échange sur le marché de blocs)",
   hausses: null,
   baisses: null,
   inchangees: null,
 };
 const seanceHausses = [
-  { nom: "IB Maroc.com", var: 9.24, cours: "58,99" },
-  { nom: "Société des Boissons du Maroc", var: 8.40, cours: "2 168,00" },
-  { nom: "Stroc Industrie", var: 6.21, cours: "178,00" },
-  { nom: "CDM", var: 4.06, cours: "1 000,00" },
-  { nom: "Réalisations Mécaniques", var: 3.94, cours: "475,00" },
+  { nom: "Rebab Company", var: 6.00, cours: "93,29" },
+  { nom: "Balima", var: 5.99, cours: "199,90" },
+  { nom: "Involys", var: 5.79, cours: "128,00" },
+  { nom: "Sonasid", var: 2.94, cours: "1 999,00" },
+  { nom: "Jet Contractors", var: 2.90, cours: "2 058,00" },
 ];
 const seanceBaisses = [
-  { nom: "Rebab Company", var: -5.99, cours: "91,66" },
-  { nom: "Med Paper", var: -3.58, cours: "25,55" },
-  { nom: "Aluminium du Maroc", var: -2.44, cours: "1 800,00" },
-  { nom: "Compagnie Minière de Touissit", var: -1.85, cours: "4 515,00" },
-  { nom: "Microdata", var: -1.79, cours: "766,00" },
+  { nom: "Sanlam Maroc", var: -5.51, cours: "2 881,00" },
+  { nom: "Microdata", var: -4.94, cours: "712,00" },
+  { nom: "Réalisations Mécaniques", var: -4.01, cours: "450,00" },
+  { nom: "TotalEnergies Marketing Maroc", var: -3.69, cours: "1 435,00" },
+  { nom: "Delta Holding", var: -3.64, cours: "53,00" },
 ];
 const seancePlusActives = [
-  { nom: "Résidences Dar Saada", volume: "15,55 MDH", var: null, cours: null },
-  { nom: "Managem", volume: "15,38 MDH", var: null, cours: null },
-  { nom: "Bank of Africa", volume: "12,26 MDH", var: null, cours: null },
-  { nom: "Attijariwafa Bank", volume: "11,80 MDH", var: null, cours: null },
-  { nom: "Marsa Maroc", volume: "11,35 MDH", var: null, cours: null },
+  { nom: "CIH Bank", volume: "16,11 MDH", var: null, cours: null },
+  { nom: "Attijariwafa Bank", volume: "11,05 MDH", var: null, cours: null },
+  { nom: "TGCC", volume: "9,11 MDH", var: null, cours: null },
+  { nom: "Maroc Telecom", volume: "6,33 MDH", var: null, cours: null },
 ];
-const seanceSecteurs = {
-  meilleur: { nom: "Boissons", var: 6.44 },
-  pire: { nom: "Sylviculture et Papier", var: -3.58 },
-};
+const seanceSecteurs = null;
 
 // ---- Widgets TradingView : données de marché réelles, en direct, via embed officiel ----
 // TradingView propose ces widgets gratuitement pour l'intégration sur des sites tiers
@@ -369,6 +365,33 @@ function TradingViewScreener({ screen, title }) {
       <div className="tradingview-widget-container" ref={ref}>
         <div className="tradingview-widget-container__widget"></div>
       </div>
+    </div>
+  );
+}
+
+function TradingViewMarketCapScreener() {
+  const ref = useRef(null);
+  useEffect(() => {
+    if (!ref.current || ref.current.querySelector("script")) return;
+    const script = document.createElement("script");
+    script.src = "https://s3.tradingview.com/external-embedding/embed-widget-screener.js";
+    script.async = true;
+    script.innerHTML = JSON.stringify({
+      width: "100%",
+      height: 500,
+      defaultColumn: "overview",
+      defaultScreen: "general",
+      market: "morocco",
+      showToolbar: true,
+      colorTheme: "light",
+      locale: "fr",
+      isTransparent: true,
+    });
+    ref.current.appendChild(script);
+  }, []);
+  return (
+    <div className="tradingview-widget-container" ref={ref}>
+      <div className="tradingview-widget-container__widget"></div>
     </div>
   );
 }
@@ -1589,7 +1612,7 @@ export default function Sahm() {
             </div>
             <div className="hero-stat">
               <div className="value mono">
-                {seanceIndices[0].valeur} <span style={{ color: "#E9A5A5", fontSize: 15 }}>▼ {seanceIndices[0].var.toFixed(2)}%</span>
+                {seanceIndices[0].valeur} <span style={{ color: seanceIndices[0].var >= 0 ? "#8FDBB0" : "#E9A5A5", fontSize: 15 }}>{seanceIndices[0].var >= 0 ? "▲" : "▼"} {seanceIndices[0].var >= 0 ? "+" : ""}{seanceIndices[0].var.toFixed(2)}%</span>
               </div>
               <div className="label">MASI</div>
             </div>
@@ -1790,25 +1813,29 @@ export default function Sahm() {
               </div>
             </div>
 
-            <div className="section-head">
-              <div className="section-title" style={{ fontSize: 22 }}>Secteurs : meilleure et pire performance</div>
-            </div>
-            <div className="two-col" style={{ marginBottom: 36 }}>
-              <div className="opcvm-card" style={{ padding: "16px 22px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                <div>
-                  <div className="fund-name">{seanceSecteurs.meilleur.nom}</div>
-                  <div className="fund-gerant">Meilleur secteur de la séance</div>
+            {seanceSecteurs && (
+              <>
+                <div className="section-head">
+                  <div className="section-title" style={{ fontSize: 22 }}>Secteurs : meilleure et pire performance</div>
                 </div>
-                <div className="ytd-value up">+{seanceSecteurs.meilleur.var.toFixed(2)}%</div>
-              </div>
-              <div className="opcvm-card" style={{ padding: "16px 22px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                <div>
-                  <div className="fund-name">{seanceSecteurs.pire.nom}</div>
-                  <div className="fund-gerant">Pire secteur de la séance</div>
+                <div className="two-col" style={{ marginBottom: 36 }}>
+                  <div className="opcvm-card" style={{ padding: "16px 22px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                    <div>
+                      <div className="fund-name">{seanceSecteurs.meilleur.nom}</div>
+                      <div className="fund-gerant">Meilleur secteur de la séance</div>
+                    </div>
+                    <div className="ytd-value up">+{seanceSecteurs.meilleur.var.toFixed(2)}%</div>
+                  </div>
+                  <div className="opcvm-card" style={{ padding: "16px 22px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                    <div>
+                      <div className="fund-name">{seanceSecteurs.pire.nom}</div>
+                      <div className="fund-gerant">Pire secteur de la séance</div>
+                    </div>
+                    <div className="ytd-value down">{seanceSecteurs.pire.var.toFixed(2)}%</div>
+                  </div>
                 </div>
-                <div className="ytd-value down">{seanceSecteurs.pire.var.toFixed(2)}%</div>
-              </div>
-            </div>
+              </>
+            )}
 
             <div className="section-head">
               <div className="section-title" style={{ fontSize: 22 }}>Palmarès de la séance</div>
@@ -1994,52 +2021,18 @@ export default function Sahm() {
 
             {dataTab === "capitalisation" && (
               <div>
-                <div className="kpi-row">
-                  <div className="kpi-cell">
-                    <div className="kpi-value">{capMarketStats.total}+ Mrd</div>
-                    <div className="kpi-label">Capitalisation totale (MAD)</div>
-                  </div>
-                  <div className="kpi-cell">
-                    <div className="kpi-value">{capMarketStats.societes}</div>
-                    <div className="kpi-label">Sociétés cotées</div>
-                  </div>
-                  <div className="kpi-cell">
-                    <div className="kpi-value">{capMarketStats.secteurBanques}%</div>
-                    <div className="kpi-label">Poids du secteur bancaire</div>
-                  </div>
-                  <div className="kpi-cell">
-                    <div className="kpi-value">{capMarketStats.secteurTelecoms}%</div>
-                    <div className="kpi-label">Poids des télécoms</div>
-                  </div>
+                <div className="section-head">
+                  <div className="section-title" style={{ fontSize: 22 }}>Capitalisations en direct</div>
+                  <div className="section-note">Clique sur la colonne "Cap. Boursière" pour trier</div>
                 </div>
-
-                <div className="section-head" style={{ marginTop: 36 }}>
-                  <div className="section-title" style={{ fontSize: 22 }}>Top 5 des capitalisations</div>
-                  <div className="section-note">Séance du {capDate}</div>
-                </div>
-
-                <div className="cap-list">
-                  {capTop5.map((c, i) => {
-                    const max = capTop5[0].cap;
-                    const pct = (c.cap / max) * 100;
-                    return (
-                      <div className="cap-row" key={c.code}>
-                        <div className="cap-rank">{i + 1}</div>
-                        <div className="cap-name-block">
-                          <div className="fund-name">{c.nom}</div>
-                          <div className="fund-gerant">{c.secteur} &middot; {c.code}</div>
-                        </div>
-                        <div className="cap-bar-track">
-                          <div className="cap-bar-fill" style={{ width: `${pct}%` }} />
-                        </div>
-                        <div className="cap-value mono">{c.cap.toFixed(1)} Mrd DH</div>
-                      </div>
-                    );
-                  })}
+                <div className="opcvm-card" style={{ padding: "12px 8px", marginBottom: 20 }}>
+                  <TradingViewMarketCapScreener />
                 </div>
 
                 <p className="page-footnote">
-                  Séance du {capDate}. La répartition sectorielle exacte évolue en continu.
+                  Widget de données en direct (TradingView) — se met à jour automatiquement. Clique sur
+                  l'en-tête de colonne "Cap. Boursière" dans le tableau pour classer les valeurs par
+                  capitalisation, croissante ou décroissante.
                 </p>
               </div>
             )}
