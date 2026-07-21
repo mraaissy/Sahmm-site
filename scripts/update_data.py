@@ -79,11 +79,23 @@ def parse_index(html: str, label: str):
     """
     Cherche la valeur d'un indice (MASI ou MASI 20) juste après son label,
     au format "17 677,27" suivi d'une variation en %.
+
+    Attention : "MASI" est un sous-texte de "MASI 20", donc pour le label
+    "MASI" seul on exclut explicitement les occurrences suivies de "20".
     """
     text = re.sub(r"<[^>]+>", "\n", html)
-    idx = text.find(label)
-    if idx == -1:
+
+    if label == "MASI":
+        label_pattern = re.compile(r"MASI(?!\s*20)")
+    elif label == "MASI 20":
+        label_pattern = re.compile(r"MASI\s*20")
+    else:
+        label_pattern = re.compile(re.escape(label))
+
+    match_label = label_pattern.search(text)
+    if not match_label:
         return None
+    idx = match_label.end()
     window = text[idx: idx + 400]
     m = re.search(
         r"([\d]{1,3}(?:[ \u00a0]\d{3})*,\d{2})\s*[\r\n]+\s*([+-]?\d+[.,]\d+)\s*%",
