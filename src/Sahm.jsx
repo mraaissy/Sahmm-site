@@ -830,30 +830,30 @@ export default function Sahm() {
   return (
     <div className="sahm">
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,500;0,6..72,600;1,6..72,500&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
 
         .sahm {
-          --ink: #14262F;
-          --ink-soft: #4C6470;
-          --paper: #F6F4EE;
+          --ink: #1C242C;
+          --ink-soft: #5B6773;
+          --paper: #FAFAF9;
           --paper-raised: #FFFFFF;
-          --navy: #0D2B3A;
-          --navy-deep: #081C27;
-          --gold: #B08D3F;
-          --gold-soft: #E4D3A6;
-          --green: #1E7145;
-          --green-soft: #E5F0E8;
-          --red: #A83A3A;
+          --navy: #2B3A4A;
+          --navy-deep: #1F2A36;
+          --gold: #7C8896;
+          --gold-soft: #D8DBE0;
+          --green: #2E7D5B;
+          --green-soft: #E4F0EA;
+          --red: #B4453D;
           --red-soft: #F5E7E5;
-          --hairline: #DAD4C4;
-          font-family: 'IBM Plex Sans', sans-serif;
+          --hairline: #DDE1E5;
+          font-family: 'Inter', sans-serif;
           background: var(--paper);
           color: var(--ink);
           min-height: 100vh;
         }
         .sahm * { box-sizing: border-box; }
         .mono { font-family: 'IBM Plex Mono', monospace; }
-        .serif { font-family: 'Newsreader', serif; }
+        .serif { font-family: 'Space Grotesk', sans-serif; }
 
         /* ---- Ticker ---- */
         .ticker-wrap {
@@ -905,7 +905,7 @@ export default function Sahm() {
           display: flex;
           align-items: center;
           gap: 9px;
-          font-family: 'Newsreader', serif;
+          font-family: 'Space Grotesk', sans-serif;
           font-weight: 600;
           font-size: 19px;
           color: var(--navy);
@@ -915,7 +915,7 @@ export default function Sahm() {
           width: 28px; height: 28px;
           border-radius: 8px;
           background: var(--navy);
-          color: #F3EFE3;
+          color: #EEF1F4;
           display: flex; align-items: center; justify-content: center;
           font-family: 'IBM Plex Mono', monospace;
           font-weight: 700;
@@ -951,7 +951,7 @@ export default function Sahm() {
           align-items: center;
           gap: 6px;
           background: var(--navy);
-          color: #F3EFE3;
+          color: #EEF1F4;
           padding: 7px 14px;
           border-radius: 20px;
           font-size: 12.5px;
@@ -1067,7 +1067,7 @@ export default function Sahm() {
           width: 24px; height: 24px;
           border-radius: 50%;
           background: var(--navy);
-          color: #E4D3A6;
+          color: #D8DBE0;
           font-size: 9px;
           font-weight: 700;
           display: flex; align-items: center; justify-content: center;
@@ -1082,8 +1082,8 @@ export default function Sahm() {
 
         /* ---- Hero ---- */
         .hero {
-          background: linear-gradient(180deg, var(--navy) 0%, #123245 100%);
-          color: #F3EFE3;
+          background: linear-gradient(180deg, var(--navy) 0%, #1A2530 100%);
+          color: #EEF1F4;
           padding: 56px 0 60px;
         }
         .hero-centered { text-align: center; }
@@ -1122,7 +1122,7 @@ export default function Sahm() {
           line-height: 1.12;
           margin: 0 auto 16px;
           max-width: 780px;
-          color: #F8F5EC;
+          color: #EEF1F4;
         }
         .hero-subtitle {
           font-size: 16px;
@@ -1152,7 +1152,7 @@ export default function Sahm() {
         .hero-stat .value {
           font-size: 27px;
           font-weight: 600;
-          color: #F8F5EC;
+          color: #EEF1F4;
         }
         .hero-stat .label {
           font-size: 11px;
@@ -1200,7 +1200,7 @@ export default function Sahm() {
           gap: 10px;
         }
         .section-title {
-          font-family: 'Newsreader', serif;
+          font-family: 'Space Grotesk', sans-serif;
           font-size: 27px;
           font-weight: 600;
           color: var(--ink);
@@ -1280,7 +1280,7 @@ export default function Sahm() {
         .tab-btn.active {
           background: var(--navy);
           border-color: var(--navy);
-          color: #F3EFE3;
+          color: #EEF1F4;
         }
         .opcvm-card {
           background: var(--paper-raised);
@@ -1294,7 +1294,7 @@ export default function Sahm() {
           letter-spacing: 0.06em;
           color: var(--ink-soft);
           padding: 10px 18px;
-          background: #F0EDE3;
+          background: #EAEDEF;
         }
         .opcvm-card td {
           padding: 14px 18px;
@@ -1320,7 +1320,7 @@ export default function Sahm() {
         }
         .perf-cell.up { color: var(--green); }
         .perf-cell.down { color: var(--red); }
-        .perf-cell.flat { color: #B7B0A0; }
+        .perf-cell.flat { color: #9CA4AC; }
         .ytd-value {
           font-family: 'IBM Plex Mono', monospace;
           font-weight: 600;
@@ -1376,7 +1376,7 @@ export default function Sahm() {
         .opcvm-search {
           width: 100%;
           max-width: 420px;
-          font-family: 'IBM Plex Sans', sans-serif;
+          font-family: 'Inter', sans-serif;
           font-size: 14px;
           padding: 10px 16px;
           border: 1px solid var(--hairline);
@@ -1393,7 +1393,7 @@ export default function Sahm() {
           cursor: pointer;
         }
         .opcvm-row-clickable:hover {
-          background: #F5F2E9;
+          background: #EFF2F4;
         }
 
         .opcvm-back-link {
@@ -1454,7 +1454,7 @@ export default function Sahm() {
           padding: 22px 24px;
         }
         .learn-card h3 {
-          font-family: 'Newsreader', serif;
+          font-family: 'Space Grotesk', sans-serif;
           font-size: 18px;
           font-weight: 600;
           color: var(--navy);
@@ -1543,7 +1543,7 @@ export default function Sahm() {
         }
         .cap-bar-track {
           height: 8px;
-          background: #EAE6D8;
+          background: #E5E8EB;
           border-radius: 4px;
           overflow: hidden;
         }
@@ -1569,7 +1569,7 @@ export default function Sahm() {
           border-collapse: collapse;
         }
         .official-table thead th {
-          background: #F3F1EA;
+          background: #EDF0F2;
           text-align: left;
           font-size: 12.5px;
           font-weight: 700;
@@ -1582,11 +1582,11 @@ export default function Sahm() {
           padding: 13px 18px;
           font-size: 13.5px;
           color: var(--ink);
-          border-bottom: 1px solid #EFEBE0;
+          border-bottom: 1px solid #E7EAED;
           white-space: nowrap;
         }
         .official-table tbody tr:last-child td { border-bottom: none; }
-        .official-table tbody tr:hover { background: #FAF8F2; }
+        .official-table tbody tr:hover { background: #F4F6F7; }
         .official-emetteur { color: #2E5E8C; font-weight: 500; }
         .official-table td.muted { color: var(--ink-soft); font-style: italic; }
         .type-badge {
@@ -1635,7 +1635,7 @@ export default function Sahm() {
         }
         .ptf-field select,
         .ptf-field input {
-          font-family: 'IBM Plex Sans', sans-serif;
+          font-family: 'Inter', sans-serif;
           font-size: 14px;
           padding: 9px 12px;
           border: 1px solid var(--hairline);
@@ -1648,17 +1648,17 @@ export default function Sahm() {
           min-width: 140px;
         }
         .ptf-add-btn {
-          font-family: 'IBM Plex Sans', sans-serif;
+          font-family: 'Inter', sans-serif;
           font-weight: 600;
           font-size: 14px;
           background: var(--navy);
-          color: #F3EFE3;
+          color: #EEF1F4;
           border: none;
           border-radius: 8px;
           padding: 11px 22px;
           cursor: pointer;
         }
-        .ptf-add-btn:hover { background: #123245; }
+        .ptf-add-btn:hover { background: #1A2530; }
         .ptf-error {
           color: var(--red);
           font-size: 13px;
