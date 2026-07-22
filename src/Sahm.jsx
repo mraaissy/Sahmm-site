@@ -725,6 +725,22 @@ export default function Sahm() {
     return () => { cancelled = true; };
   }, []);
 
+  // Top OPCVM en direct (mis à jour toutes les 15 min par un robot GitHub,
+  // source API ASFIM)
+  const [opcvmData, setOpcvmData] = useState(null);
+  React.useEffect(() => {
+    let cancelled = false;
+    fetch("/data/opcvm.json", { cache: "no-store" })
+      .then((res) => (res.ok ? res.json() : null))
+      .then((data) => {
+        if (!cancelled && data) setOpcvmData(data);
+      })
+      .catch(() => {
+        // Pas grave — le site retombe sur les données statiques de secours
+      });
+    return () => { cancelled = true; };
+  }, []);
+
   // Portefeuille
   const [holdings, setHoldings] = useState([]);
   const [ptfLoading, setPtfLoading] = useState(true);
@@ -1799,7 +1815,7 @@ export default function Sahm() {
         <div className="container">
           <div className="section-head">
             <div className="section-title">Top 5 des OPCVM</div>
-            <div className="section-note">Au {opcvmSourceDate}</div>
+            <div className="section-note">Au {opcvmData?.source_date_label || opcvmSourceDate}</div>
           </div>
 
           <div className="tabs" style={{ marginBottom: 20 }}>
@@ -1828,7 +1844,7 @@ export default function Sahm() {
                     <td style={{ textAlign: "right" }}>2 ans</td>
                     <td style={{ textAlign: "right" }}>5 ans</td>
                   </tr>
-                  {opcvmFunds[tab].map((f) => (
+                  {(opcvmData?.categories?.[tab] || opcvmFunds[tab]).map((f) => (
                     <tr key={f.code}>
                       <td>
                         <div className="fund-name">{f.nom}</div>
@@ -1853,7 +1869,7 @@ export default function Sahm() {
             </div>
           </div>
           <p className="opcvm-footnote">
-            Situation au {opcvmSourceDate}. Performances passées, ne préjugent pas des performances
+            Situation au {opcvmData?.source_date_label || opcvmSourceDate}. Performances passées, ne préjugent pas des performances
             futures.
           </p>
         </div>
