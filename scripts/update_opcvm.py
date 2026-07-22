@@ -85,6 +85,19 @@ def pct(value):
     return round(value * 100, 2)
 
 
+def format_date_fr(date_str):
+    """Convertit '2026-07-21' en '21 juillet 2026'."""
+    months = [
+        "janvier", "février", "mars", "avril", "mai", "juin",
+        "juillet", "août", "septembre", "octobre", "novembre", "décembre",
+    ]
+    try:
+        dt = datetime.strptime(date_str, "%Y-%m-%d")
+        return f"{dt.day} {months[dt.month - 1]} {dt.year}"
+    except ValueError:
+        return date_str
+
+
 def main():
     try:
         latest_date = get_latest_date()
@@ -127,25 +140,27 @@ def main():
         )
         sys.exit(1)
 
-    # Top 5 par catégorie, trié par performance du jour décroissante
-    top5_by_category = {
-        label: sorted(funds, key=lambda f: f["jour"], reverse=True)[:5]
+    # Tous les fonds par catégorie, triés par performance du jour décroissante
+    # (le site affiche les 5 premiers sur l'accueil, et la liste complète
+    # sur la page dédiée "OPCVM")
+    sorted_by_category = {
+        label: sorted(funds, key=lambda f: f["jour"], reverse=True)
         for label, funds in funds_by_category.items()
     }
 
     data = {
         "updated_at": datetime.now(timezone.utc).isoformat(),
-        "source_date_label": latest_date,
+        "source_date_label": format_date_fr(latest_date),
         "source": "ASFIM (fundshare.asfim.ma) — Association des Sociétés de Gestion et Fonds d'Investissement Marocains",
-        "categories": top5_by_category,
+        "categories": sorted_by_category,
     }
 
     OUTPUT_PATH.parent.mkdir(parents=True, exist_ok=True)
     OUTPUT_PATH.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
-    total = sum(len(v) for v in top5_by_category.values())
+    total = sum(len(v) for v in sorted_by_category.values())
     print(
-        f"OK — {len(top5_by_category)} catégories, {total} fonds au total, "
-        f"situation au {latest_date}, écrit dans {OUTPUT_PATH}"
+        f"OK — {len(sorted_by_category)} catégories, {total} fonds au total, "
+        f"situation au {format_date_fr(latest_date)}, écrit dans {OUTPUT_PATH}"
     )
 
 

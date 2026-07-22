@@ -683,6 +683,8 @@ function PercentCell({ value }) {
 
 export default function Sahm() {
   const [tab, setTab] = useState(opcvmCategoryList[0]);
+  const [opcvmPageTab, setOpcvmPageTab] = useState(opcvmCategoryList[0]);
+  const [opcvmSearch, setOpcvmSearch] = useState("");
   const [page, setPage] = useState("accueil");
   const [dataTab, setDataTab] = useState("dividendes");
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
@@ -1369,6 +1371,22 @@ export default function Sahm() {
           max-width: 760px;
         }
 
+        .opcvm-search {
+          width: 100%;
+          max-width: 420px;
+          font-family: 'IBM Plex Sans', sans-serif;
+          font-size: 14px;
+          padding: 10px 16px;
+          border: 1px solid var(--hairline);
+          border-radius: 24px;
+          background: #fff;
+          color: var(--ink);
+        }
+        .opcvm-search:focus {
+          outline: none;
+          border-color: var(--navy);
+        }
+
         .learn-grid {
           display: grid;
           grid-template-columns: repeat(2, 1fr);
@@ -1646,6 +1664,7 @@ export default function Sahm() {
             <a className={`nav-link ${page === "accueil" ? "active" : ""}`} href="#" onClick={(e) => { e.preventDefault(); setPage("accueil"); }}>Accueil</a>
             <a className={`nav-link ${page === "apprendre" ? "active" : ""}`} href="#" onClick={(e) => { e.preventDefault(); setPage("apprendre"); }}>Apprendre sur la bourse</a>
             <a className={`nav-link ${page === "seance" ? "active" : ""}`} href="#" onClick={(e) => { e.preventDefault(); setPage("seance"); }}>Séance Boursière</a>
+            <a className={`nav-link ${page === "opcvm" ? "active" : ""}`} href="#" onClick={(e) => { e.preventDefault(); setPage("opcvm"); }}>OPCVM</a>
             <a className={`nav-link ${page === "data" ? "active" : ""}`} href="#" onClick={(e) => { e.preventDefault(); setPage("data"); }}>Data</a>
             <a className={`nav-link ${page === "portefeuille" ? "active" : ""}`} href="#" onClick={(e) => { e.preventDefault(); setPage("portefeuille"); }}>Mon Portefeuille</a>
           </div>
@@ -1680,6 +1699,7 @@ export default function Sahm() {
           <a className={`mobile-link ${page === "accueil" ? "active" : ""}`} href="#" onClick={(e) => { e.preventDefault(); setPage("accueil"); setMobileNavOpen(false); }}>Accueil</a>
           <a className={`mobile-link ${page === "apprendre" ? "active" : ""}`} href="#" onClick={(e) => { e.preventDefault(); setPage("apprendre"); setMobileNavOpen(false); }}>Apprendre sur la bourse</a>
           <a className={`mobile-link ${page === "seance" ? "active" : ""}`} href="#" onClick={(e) => { e.preventDefault(); setPage("seance"); setMobileNavOpen(false); }}>Séance Boursière</a>
+          <a className={`mobile-link ${page === "opcvm" ? "active" : ""}`} href="#" onClick={(e) => { e.preventDefault(); setPage("opcvm"); setMobileNavOpen(false); }}>OPCVM</a>
           <a className={`mobile-link ${page === "data" ? "active" : ""}`} href="#" onClick={(e) => { e.preventDefault(); setPage("data"); setMobileNavOpen(false); }}>Data</a>
           <a className={`mobile-link ${page === "portefeuille" ? "active" : ""}`} href="#" onClick={(e) => { e.preventDefault(); setPage("portefeuille"); setMobileNavOpen(false); }}>Mon Portefeuille</a>
           <div className="mobile-menu-footer">
@@ -1844,7 +1864,7 @@ export default function Sahm() {
                     <td style={{ textAlign: "right" }}>2 ans</td>
                     <td style={{ textAlign: "right" }}>5 ans</td>
                   </tr>
-                  {(opcvmData?.categories?.[tab] || opcvmFunds[tab]).map((f) => (
+                  {(opcvmData?.categories?.[tab]?.slice(0, 5) || opcvmFunds[tab]).map((f) => (
                     <tr key={f.code}>
                       <td>
                         <div className="fund-name">{f.nom}</div>
@@ -2045,6 +2065,109 @@ export default function Sahm() {
               Widget de données en direct (TradingView, marché Maroc) — se met à jour automatiquement.
               Les indices (MASI, MASI ESG, MASI 20), la capitalisation et le volume ci-dessus reflètent
               la dernière séance disponible au moment de la création de cette page, pas un flux en temps réel.
+            </p>
+          </div>
+        </section>
+      )}
+
+      {page === "opcvm" && (
+        <section className="page-shell">
+          <div className="container">
+            <div className="page-header">
+              <div className="eyebrow-mono">Fonds d'investissement</div>
+              <h1 className="page-title serif">Performance de tous les OPCVM</h1>
+              <p className="page-subtitle">
+                L'ensemble des fonds marocains, par catégorie, avec leur performance sur plusieurs
+                horizons — données réelles de l'ASFIM, actualisées automatiquement.
+              </p>
+            </div>
+
+            <div className="section-head">
+              <div className="section-note">
+                {opcvmData?.source_date_label
+                  ? `Situation au ${opcvmData.source_date_label}`
+                  : "Chargement des données en direct…"}
+              </div>
+            </div>
+
+            <div className="tabs" style={{ marginBottom: 16 }}>
+              {opcvmCategoryList.map((c) => (
+                <button
+                  key={c}
+                  className={`tab-btn ${opcvmPageTab === c ? "active" : ""}`}
+                  onClick={() => setOpcvmPageTab(c)}
+                >
+                  {c}
+                  {opcvmData?.categories?.[c] ? ` (${opcvmData.categories[c].length})` : ""}
+                </button>
+              ))}
+            </div>
+
+            <input
+              type="text"
+              className="opcvm-search"
+              placeholder="Rechercher un fonds par nom ou code ISIN..."
+              value={opcvmSearch}
+              onChange={(e) => setOpcvmSearch(e.target.value)}
+            />
+
+            {!opcvmData ? (
+              <p className="page-subtitle">Chargement des données en direct…</p>
+            ) : (
+              <div className="opcvm-card" style={{ marginTop: 16 }}>
+                <div className="opcvm-scroll">
+                  <table>
+                    <tbody>
+                      <tr className="opcvm-row-head">
+                        <td>Nom de l'OPCVM</td>
+                        <td style={{ textAlign: "right" }}>Valeur</td>
+                        <td style={{ textAlign: "right" }}>1 mois</td>
+                        <td style={{ textAlign: "right" }}>3 mois</td>
+                        <td style={{ textAlign: "right" }}>6 mois</td>
+                        <td style={{ textAlign: "right" }}>1 an</td>
+                        <td style={{ textAlign: "right" }}>2 ans</td>
+                        <td style={{ textAlign: "right" }}>5 ans</td>
+                      </tr>
+                      {(opcvmData.categories?.[opcvmPageTab] || [])
+                        .filter((f) => {
+                          const q = opcvmSearch.trim().toLowerCase();
+                          if (!q) return true;
+                          return (
+                            f.nom.toLowerCase().includes(q) ||
+                            (f.code || "").toLowerCase().includes(q)
+                          );
+                        })
+                        .map((f) => (
+                          <tr key={f.code || f.nom}>
+                            <td>
+                              <div className="fund-name">{f.nom}</div>
+                              <div className="fund-gerant">{f.code}</div>
+                            </td>
+                            <td style={{ textAlign: "right" }}>
+                              <div className="mono" style={{ fontWeight: 600 }}>{f.valeur} MAD</div>
+                              <div className={`fund-gerant ${f.jour >= 0 ? "up" : "down"}`}>
+                                {f.jour >= 0 ? "+" : ""}{f.jour.toFixed(2)}%/jour
+                              </div>
+                            </td>
+                            <PercentCell value={f.m1} />
+                            <PercentCell value={f.m3} />
+                            <PercentCell value={f.m6} />
+                            <PercentCell value={f.a1} />
+                            <PercentCell value={f.a2} />
+                            <PercentCell value={f.a5} />
+                          </tr>
+                        ))}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            )}
+
+            <p className="page-footnote">
+              Données réelles — source : ASFIM (Association des Sociétés de Gestion et Fonds
+              d'Investissement Marocains), via leur API publique. Actualisé automatiquement
+              plusieurs fois par jour. Performances passées, ne préjugent pas des performances
+              futures.
             </p>
           </div>
         </section>
