@@ -2170,12 +2170,12 @@ export default function Sahm() {
                 <table>
                   <tbody>
                     <tr className="opcvm-row-head">
+                      <td>Depuis janv.</td>
                       <td>1 jour</td>
                       <td>1 semaine</td>
                       <td>1 mois</td>
                       <td>3 mois</td>
                       <td>6 mois</td>
-                      <td>YTD</td>
                       <td>1 an</td>
                       <td>2 ans</td>
                       <td>3 ans</td>
@@ -2183,12 +2183,12 @@ export default function Sahm() {
                       <td>Depuis création</td>
                     </tr>
                     <tr>
+                      <PercentCell value={selectedOpcvm.ytd} />
                       <PercentCell value={selectedOpcvm.jour} />
                       <PercentCell value={selectedOpcvm.semaine} />
                       <PercentCell value={selectedOpcvm.m1} />
                       <PercentCell value={selectedOpcvm.m3} />
                       <PercentCell value={selectedOpcvm.m6} />
-                      <PercentCell value={selectedOpcvm.ytd} />
                       <PercentCell value={selectedOpcvm.a1} />
                       <PercentCell value={selectedOpcvm.a2} />
                       <PercentCell value={selectedOpcvm.a3} />
@@ -2290,9 +2290,9 @@ export default function Sahm() {
                         <td>Nom de l'OPCVM</td>
                         <td style={{ textAlign: "right" }}>Valeur</td>
                         <td style={{ textAlign: "right" }}>Encours (MAD)</td>
+                        <td style={{ textAlign: "right" }}>Depuis janv.</td>
                         <td style={{ textAlign: "right" }}>1 jour</td>
                         <td style={{ textAlign: "right" }}>1 semaine</td>
-                        <td style={{ textAlign: "right" }}>YTD</td>
                         <td style={{ textAlign: "right" }}>1 mois</td>
                         <td style={{ textAlign: "right" }}>3 mois</td>
                         <td style={{ textAlign: "right" }}>6 mois</td>
@@ -2326,9 +2326,9 @@ export default function Sahm() {
                             <td className="mono" style={{ textAlign: "right", color: "var(--ink-soft)" }}>
                               {f.encours != null ? f.encours.toLocaleString("fr-FR", { maximumFractionDigits: 0 }) : "—"}
                             </td>
+                            <PercentCell value={f.ytd} />
                             <PercentCell value={f.jour} />
                             <PercentCell value={f.semaine} />
-                            <PercentCell value={f.ytd} />
                             <PercentCell value={f.m1} />
                             <PercentCell value={f.m3} />
                             <PercentCell value={f.m6} />
