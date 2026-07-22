@@ -1,17 +1,24 @@
 #!/usr/bin/env python3
 """
-Récupère le palmarès (top hausses / top baisses) et le MASI depuis
-casablancabourse.com (site tiers indépendant, sans lien avec le site
-officiel casablanca-bourse.com — il le précise lui-même), et les écrit
-dans public/data/marche.json pour que le site les affiche.
+Récupère le palmarès (top hausses / top baisses) depuis casablancabourse.com
+(site tiers indépendant, sans lien avec le site officiel
+casablanca-bourse.com — il le précise lui-même), et les écrit dans
+public/data/palmares.json pour que le site les affiche.
+
+IMPORTANT : la page contient DEUX zones qui ressemblent à un palmarès :
+1. Un encart "Top Gagnants / Top Perdants" — repéré comme étant un bloc
+   FIGÉ (son propre horodatage affiché reste bloqué à une date ancienne,
+   jamais mise à jour). On ne l'utilise PAS.
+2. Le grand tableau de toutes les sociétés cotées (colonnes Entreprise,
+   Prix, Aujourd'hui), qui lui affiche "mis à jour chaque 15 minutes" et
+   dont l'horodatage bouge réellement. C'est CE tableau qu'on utilise :
+   on calcule nous-mêmes le top 5 hausses/baisses en triant sa colonne
+   "Aujourd'hui" (variation du jour), plutôt que de faire confiance à
+   l'encart pré-calculé qui s'est révélé être mort.
 
 Ce site n'interdit pas l'accès automatisé (contrairement à
-casablanca-bourse.com et Wafabourse) et annonce une mise à jour "chaque 15
-minutes" pour son classement — vérifié avant la mise en place de ce script.
-Le site précise aussi honnêtement que les cours peuvent être retardés de
-quelques minutes à plusieurs heures : on récupère donc aussi l'horodatage
-"Dernière mise à jour" qu'il affiche lui-même, pour rester honnête sur la
-fraîcheur réelle des données côté site.
+casablanca-bourse.com et Wafabourse) — vérifié avant la mise en place de ce
+script.
 
 Si la structure de la page change et que ce script ne trouve plus rien,
 il n'écrase PAS le fichier existant (pour éviter d'afficher un site vide) et
@@ -40,99 +47,129 @@ def fetch_soup() -> BeautifulSoup:
     return BeautifulSoup(resp.text, "html.parser")
 
 
-def clean_num(text: str) -> float:
-    text = text.replace("\u00a0", " ").replace(",", "").strip()
-    text = re.sub(r"[^\d.\-+]", "", text)
-    return float(text)
-
-
-def parse_top_table(soup: BeautifulSoup, heading_text: str):
+def find_main_table(soup: BeautifulSoup):
     """
-    Cherche un titre (h1-h4) contenant heading_text, puis le tableau HTML
-    le plus proche qui suit, et en extrait Entreprise / Var% / Cours.
+    Le tableau principal est celui qui a le plus de lignes (~80 sociétés),
+    et dont l'en-tête contient à la fois "Entreprise" et "Aujourd'hui".
+    On l'identifie ainsi plutôt que par une classe CSS, pour rester robuste
+    si le HTML change légèrement.
     """
-    heading = None
-    for tag in soup.find_all(re.compile("^h[1-4]$")):
-        if heading_text.lower() in tag.get_text(strip=True).lower():
-            heading = tag
-            break
-    if heading is None:
-        return []
+    best_table = None
+    best_row_count = 0
+    for table in soup.find_all("table"):
+        header_text = table.get_text(" ", strip=True)[:400].lower()
+        if "entreprise" not in header_text:
+            continue
+        if "aujourd" not in header_text:
+            continue
+        row_count = len(table.find_all("tr"))
+        if row_count > best_row_count:
+            best_row_count = row_count
+            best_table = table
+    return best_table
 
-    table = heading.find_next("table")
-    if table is None:
-        return []
 
+def parse_main_table(table):
     rows = []
     for tr in table.find_all("tr"):
-        cells = [td.get_text(strip=True) for td in tr.find_all(["td", "th"])]
-        if len(cells) < 3:
+        cells = tr.find_all(["td", "th"])
+        if len(cells) < 6:
             continue
-        name, var_text, cours_text = cells[0], cells[1], cells[2]
-        if not re.search(r"\d", var_text):
-            continue  # ligne d'en-tête
+
+        # Le nom de la société est dans la cellule qui contient un lien
+        # vers /XXX/action/capitalisation
+        name = None
+        for c in cells:
+            link = c.find("a", href=re.compile(r"/action/capitalisation"))
+            if link:
+                name = link.get_text(strip=True)
+                break
+        if not name:
+            continue
+
+        row_text = tr.get_text(" ", strip=True)
+
+        price_match = re.search(r"([\d\s\u00a0]+[.,]\d{2})\s*DH", row_text)
+        change_match = re.search(r"([↑↓]?\s*-?\d+(?:[.,]\d+)?)\s*%", row_text)
+        if not price_match or not change_match:
+            continue
+
+        price_raw = price_match.group(1).replace("\u00a0", "").replace(" ", "").replace(",", ".")
         try:
-            var = clean_num(var_text.replace("%", ""))
-            cours = clean_num(cours_text.replace("DH", ""))
+            price = float(price_raw)
         except ValueError:
             continue
-        rows.append({"name": name, "change_pct": var, "price": cours})
+
+        change_raw = change_match.group(1).replace("\u00a0", " ").strip()
+        is_down = "↓" in change_raw
+        change_num_str = re.sub(r"[^\d.,\-]", "", change_raw).replace(",", ".")
+        if not change_num_str:
+            continue
+        try:
+            change = float(change_num_str)
+        except ValueError:
+            continue
+        if is_down and change > 0:
+            change = -change
+
+        rows.append({"name": name, "price": price, "change_pct": change})
 
     return rows
 
 
 def parse_last_update(soup: BeautifulSoup):
+    """
+    Il y a plusieurs horodatages "Dernière mise à jour" sur la page (dont un
+    figé, dans l'encart mort). On prend le DERNIER trouvé dans le texte,
+    qui correspond à celui du grand tableau (placé après lui dans la page).
+    """
     text = soup.get_text()
-    m = re.search(r"Dernière mise à jour\s*:?\s*([A-Za-zéû]+ \d{1,2} [A-Za-zéû]+ \d{4} \d{1,2}:\d{2}:\d{2})", text)
-    return m.group(1) if m else None
-
-
-def parse_masi(soup: BeautifulSoup):
-    text = soup.get_text()
-    idx = text.find("MASI Index")
-    if idx == -1:
-        return None
-    window = text[idx: idx + 300]
-    for candidate in re.findall(r"[\d]{2}[\s\u00a0]?\d{3}[.,]\d{2}", window):
-        try:
-            return clean_num(candidate)
-        except ValueError:
-            continue
-    return None
+    matches = re.findall(
+        r"Dernière mise à jour\s*:?\s*([A-Za-zéû]+ \d{1,2} [A-Za-zéû]+ \d{4} \d{1,2}:\d{2}:\d{2})",
+        text,
+    )
+    return matches[-1] if matches else None
 
 
 def main():
     try:
         soup = fetch_soup()
-        hausses = parse_top_table(soup, "Top Gagnants")
-        baisses = parse_top_table(soup, "Top Perdants")
+        table = find_main_table(soup)
+        if table is None:
+            raise RuntimeError("Tableau principal introuvable sur la page")
+        all_rows = parse_main_table(table)
         last_update = parse_last_update(soup)
-        masi_value = parse_masi(soup)
     except Exception as exc:  # noqa: BLE001
         print(f"Erreur lors de la récupération/analyse : {exc}", file=sys.stderr)
         sys.exit(1)
 
-    if len(hausses) < 3 or len(baisses) < 3:
+    # On exclut les valeurs à 0% (non traitées dans la séance) du palmarès
+    moved_rows = [r for r in all_rows if abs(r["change_pct"]) > 0.001]
+
+    if len(moved_rows) < 10:
         print(
-            f"Données insuffisantes (hausses={len(hausses)}, baisses={len(baisses)}) — "
+            f"Données insuffisantes ({len(all_rows)} lignes totales, {len(moved_rows)} avec variation) — "
             "abandon sans écraser le fichier existant.",
             file=sys.stderr,
         )
         sys.exit(1)
 
+    sorted_rows = sorted(moved_rows, key=lambda r: r["change_pct"], reverse=True)
+    top_hausses = sorted_rows[:5]
+    top_baisses = list(reversed(sorted_rows[-5:]))
+
     data = {
         "updated_at": datetime.now(timezone.utc).isoformat(),
         "source_last_update_label": last_update,
-        "source": "casablancabourse.com (site tiers, cours retardés de quelques minutes à plusieurs heures)",
-        "masi_value": masi_value,
-        "top_hausses": hausses[:5],
-        "top_baisses": baisses[:5],
+        "source": "casablancabourse.com (site tiers, calculé à partir du tableau complet des sociétés cotées)",
+        "top_hausses": top_hausses,
+        "top_baisses": top_baisses,
     }
 
     OUTPUT_PATH.parent.mkdir(parents=True, exist_ok=True)
     OUTPUT_PATH.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
     print(
-        f"OK — {len(hausses)} hausses, {len(baisses)} baisses, "
+        f"OK — {len(all_rows)} sociétés lues, {len(moved_rows)} avec variation, "
         f"dernière mise à jour source : {last_update}, écrit dans {OUTPUT_PATH}"
     )
 
