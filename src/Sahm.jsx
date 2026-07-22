@@ -350,11 +350,12 @@ function TradingViewHotlist() {
       exchange: "CSEMA",
       showChart: false,
       locale: "fr",
+      largeChartUrl: "",
       isTransparent: true,
       showSymbolLogo: false,
-      showFloatingTooltip: false,
+      showFloatingTooltip: true,
       width: "100%",
-      height: 450,
+      height: "450",
     });
     ref.current.appendChild(script);
   }, []);
