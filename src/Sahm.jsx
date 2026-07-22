@@ -250,10 +250,10 @@ function TradingViewMarketOverview() {
         {
           title: "Indices",
           symbols: [
-            { s: "FOREXCOM:SPXUSD", d: "S&P 500" },
-            { s: "DJ:DJI", d: "Dow Jones" },
-            { s: "NASDAQ:IXIC", d: "Nasdaq Composite" },
-            { s: "EURONEXT:PX1", d: "CAC 40" },
+            { s: "TVC:SPX", d: "S&P 500" },
+            { s: "TVC:DJI", d: "Dow Jones" },
+            { s: "TVC:IXIC", d: "Nasdaq Composite" },
+            { s: "TVC:CAC40", d: "CAC 40" },
             { s: "XETR:DAX", d: "DAX" },
             { s: "TVC:UKX", d: "FTSE 100" },
             { s: "TVC:NI225", d: "Nikkei 225" },
@@ -1875,10 +1875,6 @@ export default function Sahm() {
           <div className="opcvm-card" style={{ padding: "12px 8px" }}>
             <TradingViewMarketOverview />
           </div>
-          <p className="page-footnote">
-            Widget de données en direct (TradingView) — inclut le MASI de la Bourse de Casablanca aux
-            côtés des indices internationaux. Se met à jour automatiquement, pas besoin de rafraîchir.
-          </p>
         </div>
       </section>
 
@@ -2116,12 +2112,6 @@ export default function Sahm() {
             <div className="opcvm-card" style={{ padding: "12px 8px" }}>
               <TradingViewAllStocksScreener />
             </div>
-
-            <p className="page-footnote">
-              Widget de données en direct (TradingView, marché Maroc) — se met à jour automatiquement.
-              Les indices (MASI, MASI ESG, MASI 20), la capitalisation et le volume ci-dessus reflètent
-              la dernière séance disponible au moment de la création de cette page, pas un flux en temps réel.
-            </p>
           </div>
         </section>
       )}
@@ -2244,12 +2234,6 @@ export default function Sahm() {
                 </div>
               </div>
             </div>
-
-            <p className="page-footnote">
-              Données réelles — source : ASFIM (Association des Sociétés de Gestion et Fonds
-              d'Investissement Marocains), via leur API publique. Performances passées, ne
-              préjugent pas des performances futures. Ceci n'est pas un conseil en investissement.
-            </p>
           </div>
         </section>
       )}
@@ -2359,13 +2343,6 @@ export default function Sahm() {
                 </div>
               </div>
             )}
-
-            <p className="page-footnote">
-              Données réelles — source : ASFIM (Association des Sociétés de Gestion et Fonds
-              d'Investissement Marocains), via leur API publique. Actualisé automatiquement
-              plusieurs fois par jour. Performances passées, ne préjugent pas des performances
-              futures.
-            </p>
           </div>
         </section>
       )}
@@ -2516,12 +2493,6 @@ export default function Sahm() {
                 <div className="opcvm-card" style={{ padding: "12px 8px", marginBottom: 20 }}>
                   <TradingViewMarketCapScreener />
                 </div>
-
-                <p className="page-footnote">
-                  Widget de données en direct (TradingView) — se met à jour automatiquement. Clique sur
-                  l'en-tête de colonne "Cap. Boursière" dans le tableau pour classer les valeurs par
-                  capitalisation, croissante ou décroissante.
-                </p>
               </div>
             )}
           </div>
