@@ -118,17 +118,44 @@ def main():
         if vl is None:
             continue
 
+        sdg = opcvm.get("sdg") or {}
+
         fund = {
             "code": opcvm.get("code_isin") or "",
+            "codeMaroclear": opcvm.get("code_maroclear") or "",
             "nom": opcvm.get("nom") or "",
             "valeur": f"{vl:,.2f}".replace(",", " ").replace(".", ","),
+            "encours": r.get("an"),
             "jour": pct(r.get("one_day")),
+            "semaine": pct(r.get("one_week")),
+            "ytd": pct(r.get("beginnig_of_year")),
             "m1": pct(r.get("one_month")),
             "m3": pct(r.get("three_months")),
             "m6": pct(r.get("six_months")),
             "a1": pct(r.get("one_year")),
             "a2": pct(r.get("two_years")),
+            "a3": pct(r.get("three_years")),
             "a5": pct(r.get("five_years")),
+            "sinceCreated": pct(r.get("since_created")),
+            "natureJuridique": opcvm.get("nature_juridique") or "",
+            "classification": opcvm.get("type") or "",
+            "periodicite": opcvm.get("periodicite") or "",
+            "affectationResultat": opcvm.get("affectation_du_resultat") or "",
+            "promoteur": opcvm.get("promoteur") or "",
+            "souscripteur": opcvm.get("souscripteur") or "",
+            "benchmark": opcvm.get("indice_de_benchmark") or "",
+            "sensibilite": opcvm.get("sensibilite") or "",
+            "depositaire": opcvm.get("le_depositaire") or "",
+            "droitsEntree": pct(opcvm.get("droits_entree")),
+            "droitsSortie": pct(opcvm.get("droits_sortie")),
+            "fraisGestion": pct(opcvm.get("frais_gestion")),
+            "societeGestion": {
+                "nom": sdg.get("nom") or "",
+                "adresse": sdg.get("adresse") or "",
+                "telephone": sdg.get("telephone") or "",
+                "directeur": sdg.get("nom_et_prenom") or "",
+                "fonction": sdg.get("fonction") or "",
+            },
         }
         funds_by_category.setdefault(label, []).append(fund)
 

@@ -676,15 +676,17 @@ function Variation({ value, size = "md" }) {
 }
 
 function PercentCell({ value }) {
-  const cls = value > 0 ? "up" : value < 0 ? "down" : "flat";
-  const sign = value > 0 ? "+" : "";
-  return <td className={`perf-cell ${cls}`}>{sign}{value.toFixed(2)}%</td>;
+  const v = value ?? 0;
+  const cls = v > 0 ? "up" : v < 0 ? "down" : "flat";
+  const sign = v > 0 ? "+" : "";
+  return <td className={`perf-cell ${cls}`}>{sign}{v.toFixed(2)}%</td>;
 }
 
 export default function Sahm() {
   const [tab, setTab] = useState(opcvmCategoryList[0]);
   const [opcvmPageTab, setOpcvmPageTab] = useState(opcvmCategoryList[0]);
   const [opcvmSearch, setOpcvmSearch] = useState("");
+  const [selectedOpcvm, setSelectedOpcvm] = useState(null);
   const [page, setPage] = useState("accueil");
   const [dataTab, setDataTab] = useState("dividendes");
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
@@ -1387,6 +1389,56 @@ export default function Sahm() {
           border-color: var(--navy);
         }
 
+        .opcvm-row-clickable {
+          cursor: pointer;
+        }
+        .opcvm-row-clickable:hover {
+          background: #F5F2E9;
+        }
+
+        .opcvm-back-link {
+          display: inline-block;
+          font-family: 'IBM Plex Mono', monospace;
+          font-size: 13px;
+          color: var(--ink-soft);
+          text-decoration: none;
+        }
+        .opcvm-back-link:hover { color: var(--navy); }
+
+        .opcvm-detail-price {
+          display: flex;
+          align-items: center;
+          gap: 14px;
+          flex-wrap: wrap;
+          font-size: 26px;
+          font-weight: 600;
+          margin-top: 6px;
+        }
+
+        .opcvm-detail-facts {
+          background: var(--paper-raised);
+          border: 1px solid var(--hairline);
+          border-radius: 12px;
+          overflow: hidden;
+        }
+        .opcvm-detail-facts > div {
+          display: flex;
+          justify-content: space-between;
+          gap: 16px;
+          padding: 13px 18px;
+          font-size: 13.5px;
+          border-bottom: 1px solid var(--hairline);
+        }
+        .opcvm-detail-facts > div:last-child { border-bottom: none; }
+        .opcvm-detail-facts > div > span:first-child {
+          color: var(--ink-soft);
+        }
+        .opcvm-detail-facts > div > span:last-child {
+          font-weight: 600;
+          color: var(--ink);
+          text-align: right;
+        }
+
         .learn-grid {
           display: grid;
           grid-template-columns: repeat(2, 1fr);
@@ -1865,7 +1917,11 @@ export default function Sahm() {
                     <td style={{ textAlign: "right" }}>5 ans</td>
                   </tr>
                   {(opcvmData?.categories?.[tab]?.slice(0, 5) || opcvmFunds[tab]).map((f) => (
-                    <tr key={f.code}>
+                    <tr
+                      key={f.code}
+                      className="opcvm-row-clickable"
+                      onClick={() => { setSelectedOpcvm(f); setPage("opcvm-detail"); }}
+                    >
                       <td>
                         <div className="fund-name">{f.nom}</div>
                         <div className="fund-gerant">{f.code}</div>
@@ -2070,6 +2126,134 @@ export default function Sahm() {
         </section>
       )}
 
+      {page === "opcvm-detail" && selectedOpcvm && (
+        <section className="page-shell">
+          <div className="container">
+            <a
+              href="#"
+              className="opcvm-back-link"
+              onClick={(e) => { e.preventDefault(); setPage("opcvm"); }}
+            >
+              ← Retour à la liste des OPCVM
+            </a>
+
+            <div className="page-header" style={{ marginTop: 18 }}>
+              <div className="eyebrow-mono">{selectedOpcvm.classification}</div>
+              <h1 className="page-title serif">{selectedOpcvm.nom}</h1>
+              <div className="opcvm-detail-price">
+                <span className="mono">{selectedOpcvm.valeur} MAD</span>
+                <Variation value={selectedOpcvm.jour} size="lg" />
+                <span className="section-note">variation du jour</span>
+              </div>
+            </div>
+
+            <div className="kpi-row" style={{ marginBottom: 32 }}>
+              <div className="kpi-cell">
+                <div className="kpi-value" style={{ color: (selectedOpcvm.ytd ?? 0) >= 0 ? "var(--green)" : "var(--red)" }}>
+                  {(selectedOpcvm.ytd ?? 0) >= 0 ? "+" : ""}{(selectedOpcvm.ytd ?? 0).toFixed(2)}%
+                </div>
+                <div className="kpi-label">Depuis le 1er janvier (YTD)</div>
+              </div>
+              <div className="kpi-cell">
+                <div className="kpi-value" style={{ color: (selectedOpcvm.a1 ?? 0) >= 0 ? "var(--green)" : "var(--red)" }}>
+                  {(selectedOpcvm.a1 ?? 0) >= 0 ? "+" : ""}{(selectedOpcvm.a1 ?? 0).toFixed(2)}%
+                </div>
+                <div className="kpi-label">Performance sur 1 an</div>
+              </div>
+              <div className="kpi-cell">
+                <div className="kpi-value">
+                  {selectedOpcvm.encours != null ? selectedOpcvm.encours.toLocaleString("fr-FR", { maximumFractionDigits: 0 }) : "—"}
+                </div>
+                <div className="kpi-label">Encours géré (MAD)</div>
+              </div>
+              <div className="kpi-cell">
+                <div className="kpi-value">{(selectedOpcvm.fraisGestion ?? 0).toFixed(2)}%</div>
+                <div className="kpi-label">Frais de gestion</div>
+              </div>
+            </div>
+
+            <div className="section-head">
+              <div className="section-title" style={{ fontSize: 22 }}>Performance par horizon</div>
+            </div>
+            <div className="opcvm-card" style={{ marginBottom: 32 }}>
+              <div className="opcvm-scroll">
+                <table>
+                  <tbody>
+                    <tr className="opcvm-row-head">
+                      <td>1 jour</td>
+                      <td>1 semaine</td>
+                      <td>1 mois</td>
+                      <td>3 mois</td>
+                      <td>6 mois</td>
+                      <td>YTD</td>
+                      <td>1 an</td>
+                      <td>2 ans</td>
+                      <td>3 ans</td>
+                      <td>5 ans</td>
+                      <td>Depuis création</td>
+                    </tr>
+                    <tr>
+                      <PercentCell value={selectedOpcvm.jour} />
+                      <PercentCell value={selectedOpcvm.semaine} />
+                      <PercentCell value={selectedOpcvm.m1} />
+                      <PercentCell value={selectedOpcvm.m3} />
+                      <PercentCell value={selectedOpcvm.m6} />
+                      <PercentCell value={selectedOpcvm.ytd} />
+                      <PercentCell value={selectedOpcvm.a1} />
+                      <PercentCell value={selectedOpcvm.a2} />
+                      <PercentCell value={selectedOpcvm.a3} />
+                      <PercentCell value={selectedOpcvm.a5} />
+                      <PercentCell value={selectedOpcvm.sinceCreated} />
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div className="two-col" style={{ marginBottom: 32 }}>
+              <div>
+                <div className="section-head">
+                  <div className="section-title" style={{ fontSize: 22 }}>Caractéristiques</div>
+                </div>
+                <div className="opcvm-detail-facts">
+                  <div><span>Code ISIN</span><span>{selectedOpcvm.code || "—"}</span></div>
+                  <div><span>Code Maroclear</span><span>{selectedOpcvm.codeMaroclear || "—"}</span></div>
+                  <div><span>Nature juridique</span><span>{selectedOpcvm.natureJuridique || "—"}</span></div>
+                  <div><span>Classification</span><span>{selectedOpcvm.classification || "—"}</span></div>
+                  <div><span>Périodicité de VL</span><span>{selectedOpcvm.periodicite || "—"}</span></div>
+                  <div><span>Affectation du résultat</span><span>{selectedOpcvm.affectationResultat || "—"}</span></div>
+                  <div><span>Souscripteurs</span><span>{selectedOpcvm.souscripteur || "—"}</span></div>
+                  <div><span>Profil investisseur</span><span>{selectedOpcvm.promoteur || "—"}</span></div>
+                  <div><span>Indice de référence</span><span>{selectedOpcvm.benchmark || "—"}</span></div>
+                  <div><span>Sensibilité (risque)</span><span>{selectedOpcvm.sensibilite || "—"}</span></div>
+                  <div><span>Dépositaire</span><span>{selectedOpcvm.depositaire || "—"}</span></div>
+                </div>
+              </div>
+              <div>
+                <div className="section-head">
+                  <div className="section-title" style={{ fontSize: 22 }}>Frais &amp; société de gestion</div>
+                </div>
+                <div className="opcvm-detail-facts">
+                  <div><span>Droits d'entrée</span><span>{(selectedOpcvm.droitsEntree ?? 0).toFixed(2)}%</span></div>
+                  <div><span>Droits de sortie</span><span>{(selectedOpcvm.droitsSortie ?? 0).toFixed(2)}%</span></div>
+                  <div><span>Frais de gestion</span><span>{(selectedOpcvm.fraisGestion ?? 0).toFixed(2)}%</span></div>
+                  <div><span>Société de gestion</span><span>{selectedOpcvm.societeGestion?.nom || "—"}</span></div>
+                  <div><span>Directeur général</span><span>{selectedOpcvm.societeGestion?.directeur || "—"}</span></div>
+                  <div><span>Téléphone</span><span>{selectedOpcvm.societeGestion?.telephone || "—"}</span></div>
+                  <div><span>Adresse</span><span>{selectedOpcvm.societeGestion?.adresse || "—"}</span></div>
+                </div>
+              </div>
+            </div>
+
+            <p className="page-footnote">
+              Données réelles — source : ASFIM (Association des Sociétés de Gestion et Fonds
+              d'Investissement Marocains), via leur API publique. Performances passées, ne
+              préjugent pas des performances futures. Ceci n'est pas un conseil en investissement.
+            </p>
+          </div>
+        </section>
+      )}
+
       {page === "opcvm" && (
         <section className="page-shell">
           <div className="container">
@@ -2121,11 +2305,16 @@ export default function Sahm() {
                       <tr className="opcvm-row-head">
                         <td>Nom de l'OPCVM</td>
                         <td style={{ textAlign: "right" }}>Valeur</td>
+                        <td style={{ textAlign: "right" }}>Encours (MAD)</td>
+                        <td style={{ textAlign: "right" }}>1 jour</td>
+                        <td style={{ textAlign: "right" }}>1 semaine</td>
+                        <td style={{ textAlign: "right" }}>YTD</td>
                         <td style={{ textAlign: "right" }}>1 mois</td>
                         <td style={{ textAlign: "right" }}>3 mois</td>
                         <td style={{ textAlign: "right" }}>6 mois</td>
                         <td style={{ textAlign: "right" }}>1 an</td>
                         <td style={{ textAlign: "right" }}>2 ans</td>
+                        <td style={{ textAlign: "right" }}>3 ans</td>
                         <td style={{ textAlign: "right" }}>5 ans</td>
                       </tr>
                       {(opcvmData.categories?.[opcvmPageTab] || [])
@@ -2138,22 +2327,30 @@ export default function Sahm() {
                           );
                         })
                         .map((f) => (
-                          <tr key={f.code || f.nom}>
+                          <tr
+                            key={f.code || f.nom}
+                            className="opcvm-row-clickable"
+                            onClick={() => { setSelectedOpcvm(f); setPage("opcvm-detail"); }}
+                          >
                             <td>
                               <div className="fund-name">{f.nom}</div>
                               <div className="fund-gerant">{f.code}</div>
                             </td>
-                            <td style={{ textAlign: "right" }}>
-                              <div className="mono" style={{ fontWeight: 600 }}>{f.valeur} MAD</div>
-                              <div className={`fund-gerant ${f.jour >= 0 ? "up" : "down"}`}>
-                                {f.jour >= 0 ? "+" : ""}{f.jour.toFixed(2)}%/jour
-                              </div>
+                            <td className="mono" style={{ textAlign: "right", fontWeight: 600 }}>
+                              {f.valeur} MAD
                             </td>
+                            <td className="mono" style={{ textAlign: "right", color: "var(--ink-soft)" }}>
+                              {f.encours != null ? f.encours.toLocaleString("fr-FR", { maximumFractionDigits: 0 }) : "—"}
+                            </td>
+                            <PercentCell value={f.jour} />
+                            <PercentCell value={f.semaine} />
+                            <PercentCell value={f.ytd} />
                             <PercentCell value={f.m1} />
                             <PercentCell value={f.m3} />
                             <PercentCell value={f.m6} />
                             <PercentCell value={f.a1} />
                             <PercentCell value={f.a2} />
+                            <PercentCell value={f.a3} />
                             <PercentCell value={f.a5} />
                           </tr>
                         ))}
