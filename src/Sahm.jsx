@@ -698,13 +698,29 @@ export default function Sahm() {
   const [marketData, setMarketData] = useState(null);
   React.useEffect(() => {
     let cancelled = false;
-    fetch("/data/marche.json", { cache: "no-store" })
+    fetch("/data/masi.json", { cache: "no-store" })
       .then((res) => (res.ok ? res.json() : null))
       .then((data) => {
         if (!cancelled && data) setMarketData(data);
       })
       .catch(() => {
         // Pas grave — le site retombe sur la donnée statique de secours
+      });
+    return () => { cancelled = true; };
+  }, []);
+
+  // Palmarès en direct (mis à jour toutes les 15 min par un robot GitHub,
+  // source casablancabourse.com — site tiers, cours parfois retardés)
+  const [palmaresData, setPalmaresData] = useState(null);
+  React.useEffect(() => {
+    let cancelled = false;
+    fetch("/data/palmares.json", { cache: "no-store" })
+      .then((res) => (res.ok ? res.json() : null))
+      .then((data) => {
+        if (!cancelled && data) setPalmaresData(data);
+      })
+      .catch(() => {
+        // Pas grave — le site retombe sur le widget TradingView
       });
     return () => { cancelled = true; };
   }, []);
@@ -1712,11 +1728,52 @@ export default function Sahm() {
         <div className="container">
           <div className="section-head">
             <div className="section-title">Palmarès de la séance</div>
-            <div className="section-note">Données en direct</div>
+            <div className="section-note">
+              {palmaresData?.source_last_update_label
+                ? `Source : ${palmaresData.source_last_update_label}`
+                : "Données en direct"}
+            </div>
           </div>
-          <div className="opcvm-card" style={{ padding: "12px 8px" }}>
-            <TradingViewHotlist />
-          </div>
+          {palmaresData ? (
+            <div className="palmares-grid">
+              <div className="palmares-card">
+                <div className="palmares-head gain">
+                  <TrendingUp size={16} /> Plus fortes hausses
+                </div>
+                <table>
+                  <tbody>
+                    {palmaresData.top_hausses.map((s) => (
+                      <tr key={s.name}>
+                        <td className="stock-code">{s.name}</td>
+                        <td className="stock-cours">{s.price.toLocaleString("fr-FR")} DH</td>
+                        <td><Variation value={s.change_pct} /></td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+              <div className="palmares-card">
+                <div className="palmares-head loss">
+                  <TrendingDown size={16} /> Plus fortes baisses
+                </div>
+                <table>
+                  <tbody>
+                    {palmaresData.top_baisses.map((s) => (
+                      <tr key={s.name}>
+                        <td className="stock-code">{s.name}</td>
+                        <td className="stock-cours">{s.price.toLocaleString("fr-FR")} DH</td>
+                        <td><Variation value={s.change_pct} /></td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          ) : (
+            <div className="opcvm-card" style={{ padding: "12px 8px" }}>
+              <TradingViewHotlist />
+            </div>
+          )}
         </div>
       </section>
 
@@ -1913,11 +1970,52 @@ export default function Sahm() {
 
             <div className="section-head">
               <div className="section-title" style={{ fontSize: 22 }}>Palmarès de la séance</div>
-              <div className="section-note">Données en direct</div>
+              <div className="section-note">
+                {palmaresData?.source_last_update_label
+                  ? `Source : ${palmaresData.source_last_update_label}`
+                  : "Données en direct"}
+              </div>
             </div>
-            <div className="opcvm-card" style={{ padding: "12px 8px", marginBottom: 36 }}>
-              <TradingViewHotlist />
-            </div>
+            {palmaresData ? (
+              <div className="palmares-grid" style={{ marginBottom: 36 }}>
+                <div className="palmares-card">
+                  <div className="palmares-head gain">
+                    <TrendingUp size={16} /> Plus fortes hausses
+                  </div>
+                  <table>
+                    <tbody>
+                      {palmaresData.top_hausses.map((s) => (
+                        <tr key={s.name}>
+                          <td className="stock-code">{s.name}</td>
+                          <td className="stock-cours">{s.price.toLocaleString("fr-FR")} DH</td>
+                          <td><Variation value={s.change_pct} /></td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+                <div className="palmares-card">
+                  <div className="palmares-head loss">
+                    <TrendingDown size={16} /> Plus fortes baisses
+                  </div>
+                  <table>
+                    <tbody>
+                      {palmaresData.top_baisses.map((s) => (
+                        <tr key={s.name}>
+                          <td className="stock-code">{s.name}</td>
+                          <td className="stock-cours">{s.price.toLocaleString("fr-FR")} DH</td>
+                          <td><Variation value={s.change_pct} /></td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            ) : (
+              <div className="opcvm-card" style={{ padding: "12px 8px", marginBottom: 36 }}>
+                <TradingViewHotlist />
+              </div>
+            )}
 
             <div className="section-head">
               <div className="section-title" style={{ fontSize: 22 }}>Toutes les valeurs cotées</div>

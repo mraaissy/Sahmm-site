@@ -30,10 +30,14 @@ jobs:
           python-version: "3.12"
 
       - name: Installer les dépendances Python
-        run: pip install requests
+        run: pip install requests beautifulsoup4
 
       - name: Récupérer le MASI (e-bourse.ma)
-        run: python scripts/update_data.py
+        run: python scripts/update_masi.py
+        continue-on-error: true
+
+      - name: Récupérer le palmarès (casablancabourse.com)
+        run: python scripts/update_palmares.py
         continue-on-error: true
 
       - name: Installer Node.js

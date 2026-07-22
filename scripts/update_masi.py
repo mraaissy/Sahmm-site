@@ -2,7 +2,7 @@
 """
 Récupère le MASI en direct depuis e-bourse.ma (plateforme officielle et
 éducative de la Bourse de Casablanca, partenaire TradingView), et l'écrit
-dans public/data/marche.json pour que le site l'affiche.
+dans public/data/masi.json pour que le site l'affiche.
 
 Ce site est officiellement exploité par la Bourse de Casablanca et n'interdit
 pas l'accès automatisé (contrairement à casablanca-bourse.com) — vérifié avant
@@ -26,7 +26,7 @@ from pathlib import Path
 import requests
 
 URL = "https://www.e-bourse.ma/"
-OUTPUT_PATH = Path(__file__).resolve().parent.parent / "public" / "data" / "marche.json"
+OUTPUT_PATH = Path(__file__).resolve().parent.parent / "public" / "data" / "masi.json"
 
 HEADERS = {
     "User-Agent": "Mozilla/5.0 (compatible; SahmSiteBot/1.0; +https://www.sahmm.ma)"
