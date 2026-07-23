@@ -250,12 +250,12 @@ function TradingViewMarketOverview() {
         {
           title: "Indices",
           symbols: [
-            { s: "TVC:SPX", d: "S&P 500" },
-            { s: "TVC:DJI", d: "Dow Jones" },
-            { s: "TVC:IXIC", d: "Nasdaq Composite" },
-            { s: "TVC:CAC40", d: "CAC 40" },
+            { s: "FOREXCOM:SPXUSD", d: "S&P 500" },
+            { s: "FOREXCOM:DJI", d: "Dow Jones" },
+            { s: "FOREXCOM:NSXUSD", d: "Nasdaq 100" },
+            { s: "FOREXCOM:FRXEUR", d: "CAC 40" },
             { s: "XETR:DAX", d: "DAX" },
-            { s: "TVC:UKX", d: "FTSE 100" },
+            { s: "FOREXCOM:UK100", d: "FTSE 100" },
             { s: "TVC:NI225", d: "Nikkei 225" },
             { s: "ASX:XJO", d: "S&P/ASX 200" },
             { s: "CSEMA:MASI", d: "MASI" },
