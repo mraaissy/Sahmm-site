@@ -1,31 +1,3038 @@
 {
-  "updated_at": "2026-07-23T00:00:00+00:00",
+  "updated_at": "2026-07-23T21:21:16.530318+00:00",
   "source": "casablancabourse.com (site tiers, non affilié au site officiel de la Bourse de Casablanca)",
   "companies": [
     {
-      "ticker": "BAL", "nom": "BALIMA", "secteur": "Placement Immobilier",
-      "prix": 200.00, "variation_jour": 3.09,
-      "capitalisation": 348800000, "per": 36.27, "rendement_dividende": 2.39,
-      "classement": 66, "chiffre_affaires": 52000000, "resultat_net": 9000000,
-      "marge_operationnelle": 19.2, "marge_nette": 89.7,
-      "nombre_actions": 1744000, "date_ipo": "05/07/1946",
-      "description": "Créée en 1928, Balima est une société immobilière qui gère l'acquisition, la vente, la revente, la location, la gérance, l'échange d'immeubles urbains et l'édification d'immeubles.",
+      "ticker": "ATW",
+      "nom": "ATTIJARIWAFA BANK",
+      "url": "https://www.casablancabourse.com/ATW/action/capitalisation/",
+      "capitalisation": 145220000000.0,
+      "per": 13.18,
+      "rendement_dividende": 3.26,
+      "classement": 1,
+      "marge_operationnelle": 46.0,
+      "marge_nette": 54.5,
+      "prix": 675.0,
+      "nombre_actions": 215.0,
+      "secteur": "Banques",
+      "variation_jour": -0.72,
+      "date_ipo": "13/08/1943",
       "actionnariat": [
-        { "nom": "MATHIAS Jaqueline", "pct": 29.9 },
-        { "nom": "Argan Invest", "pct": 22.4 },
-        { "nom": "Multitec Electronics NV", "pct": 21.7 },
-        { "nom": "Flottant en Bourse", "pct": 15.9 },
-        { "nom": "RMA Watanya", "pct": 10.0 }
+        {
+          "nom": "Structure Actionnariat AL MADA",
+          "pct": 46.5
+        },
+        {
+          "nom": "Flottant en Bourse",
+          "pct": 19.6
+        },
+        {
+          "nom": "Wafa Assurance",
+          "pct": 6.3
+        },
+        {
+          "nom": "MCMA-MAMDA",
+          "pct": 6.2
+        },
+        {
+          "nom": "RCAR",
+          "pct": 5.7
+        },
+        {
+          "nom": "Grupo Santander",
+          "pct": 5.1
+        },
+        {
+          "nom": "CIMR",
+          "pct": 4.1
+        },
+        {
+          "nom": "CMR",
+          "pct": 2.4
+        }
       ]
     },
-    { "ticker": "ATW", "nom": "ATTIJARIWAFA BANK", "secteur": "Banques", "prix": 675.00, "variation_jour": -0.72, "capitalisation": 145220000000 },
-    { "ticker": "MNG", "nom": "MANAGEM", "secteur": "Mines", "prix": 12675.00, "variation_jour": -0.20 },
-    { "ticker": "MSA", "nom": "MARSA MAROC", "secteur": "Transport et Logistique", "prix": 860.00, "variation_jour": -1.15 },
-    { "ticker": "IAM", "nom": "ITISSALAT AL MAGHRIB", "secteur": "Télécommunications", "prix": 91.00, "variation_jour": 0.42 },
-    { "ticker": "BCP", "nom": "BCP", "secteur": "Banques", "prix": 251.00, "variation_jour": 0.76, "capitalisation": 51030000000 },
-    { "ticker": "LHM", "nom": "HOLCIM MAROC", "secteur": "Ciment et Matériaux", "prix": 1760.00, "variation_jour": -1.07 },
-    { "ticker": "BOA", "nom": "BANK OF AFRICA", "secteur": "Banques", "prix": 190.10, "variation_jour": 0.11, "capitalisation": 39090000000 },
-    { "ticker": "ADH", "nom": "ADDOHA", "secteur": "Immobilier", "prix": 32.52, "variation_jour": 0.37 },
-    { "ticker": "CMA", "nom": "CIMENTS DU MAROC", "secteur": "Ciment et Matériaux", "prix": 1659.00, "variation_jour": -0.30 }
+    {
+      "ticker": "MNG",
+      "nom": "MANAGEM",
+      "url": "https://www.casablancabourse.com/MNG/action/capitalisation/",
+      "capitalisation": 126640000000.0,
+      "per": 34.17,
+      "rendement_dividende": 0.43,
+      "classement": 2,
+      "resultat_net": 514000000.0,
+      "marge_operationnelle": 13.9,
+      "marge_nette": 49.2,
+      "prix": 12675.0,
+      "nombre_actions": 9.0,
+      "secteur": "Mines",
+      "variation_jour": -0.2,
+      "date_ipo": "11/07/2000",
+      "actionnariat": [
+        {
+          "nom": "Structure Actionnariat AL MADA",
+          "pct": 81.4
+        },
+        {
+          "nom": "Flottant en Bourse",
+          "pct": 10.3
+        },
+        {
+          "nom": "CIMR",
+          "pct": 8.3
+        }
+      ]
+    },
+    {
+      "ticker": "MSA",
+      "nom": "SODEP-MARSA MAROC",
+      "url": "https://www.casablancabourse.com/MSA/action/capitalisation/",
+      "capitalisation": 63120000000.0,
+      "per": 23.97,
+      "rendement_dividende": 1.28,
+      "classement": 4,
+      "resultat_net": 852000000.0,
+      "marge_operationnelle": 36.0,
+      "marge_nette": 54.8,
+      "prix": 860.0,
+      "nombre_actions": 73.0,
+      "secteur": "Transport",
+      "variation_jour": -1.15,
+      "date_ipo": "19/07/2016",
+      "description": "Marsa Maroc est une société publique qui opère dans le domaine de la gestion et l’exploitation des ports commerciaux au Maroc. L’opérateur intervient dans l’ensemble de la chaîne de valeur portuaire, passant par la manutention de la marchandise entre le navire et le quai, le stockage, jusqu’au transport terrestre. Le Groupe Marsa Maroc est leader de son marché avec une part de marché agrégée de près de 45% et une présence dans l’ensemble des ports commerciaux marocains (près de 10 ports) à l’exception de celui de la ville de Tan Tan. Marsa Maroc est dirigée par M. Mohammed Abdeljalil. Capitalisation Dividendes",
+      "actionnariat": [
+        {
+          "nom": "Actionnariat Tanger Med Dev Log SA",
+          "pct": 35.0
+        },
+        {
+          "nom": "Flottant en Bourse",
+          "pct": 30.0
+        },
+        {
+          "nom": "Etat marocain",
+          "pct": 25.0
+        },
+        {
+          "nom": "CMR",
+          "pct": 3.3
+        },
+        {
+          "nom": "RCAR",
+          "pct": 3.3
+        },
+        {
+          "nom": "Wafa Assurance",
+          "pct": 3.3
+        }
+      ]
+    },
+    {
+      "ticker": "GTM",
+      "nom": "SGTM",
+      "url": "https://www.casablancabourse.com/GTM/action/capitalisation/",
+      "capitalisation": 41100000000.0,
+      "rendement_dividende": 1.75,
+      "classement": 8,
+      "resultat_net": 783000000.0,
+      "marge_operationnelle": 16.9,
+      "marge_nette": 7.1,
+      "prix": 685.0,
+      "nombre_actions": 60.0,
+      "secteur": "Bâtiment",
+      "variation_jour": -0.01,
+      "date_ipo": "16/12/2025",
+      "description": "SGTM est un groupe marocain leader dans le secteur du BTP et de la construction, couvrant l'ensemble de la chaîne de valeur : travaux d'infrastructure de transport, ouvrages d'art, construction dans les secteurs industriel et tertiaire, et projets d'envergure nationale. Le groupe intervient auprès d'une clientèle mixte, comprenant des donneurs d'ordre publics et des clients privés, et s'est imposé comme un acteur majeur du développement des infrastructures au Maroc. Capitalisation Dividendes",
+      "actionnariat": [
+        {
+          "nom": "Structure Actionnariat M'hammed KABBAJ",
+          "pct": 37.0
+        },
+        {
+          "nom": "AKMH INVEST",
+          "pct": 35.3
+        },
+        {
+          "nom": "Flottant en Bourse",
+          "pct": 20.0
+        },
+        {
+          "nom": "Mohammed KABBAJ",
+          "pct": 1.4
+        },
+        {
+          "nom": "Hamza KABBAJ",
+          "pct": 1.4
+        },
+        {
+          "nom": "Hicham KABBAJ",
+          "pct": 1.4
+        },
+        {
+          "nom": "Jihane KABBAJ",
+          "pct": 1.0
+        },
+        {
+          "nom": "Mohamed Ali KABBAJ",
+          "pct": 1.0
+        }
+      ]
+    },
+    {
+      "ticker": "TGC",
+      "nom": "TGCC S.A",
+      "url": "https://www.casablancabourse.com/TGC/action/capitalisation/",
+      "capitalisation": 23130000000.0,
+      "per": 16.17,
+      "rendement_dividende": 2.05,
+      "classement": 11,
+      "resultat_net": 363000000.0,
+      "marge_operationnelle": 8.5,
+      "marge_nette": 62.4,
+      "prix": 731.0,
+      "nombre_actions": 31.0,
+      "secteur": "Bâtiment",
+      "variation_jour": -1.22,
+      "date_ipo": "16/12/2021",
+      "actionnariat": [
+        {
+          "nom": "Structure Actionnariat Mohammed Bouzoubaa",
+          "pct": 74.0
+        },
+        {
+          "nom": "Flottant en Bourse",
+          "pct": 26.0
+        }
+      ]
+    },
+    {
+      "ticker": "IAM",
+      "nom": "Maroc Telecom",
+      "url": "https://www.casablancabourse.com/IAM/action/capitalisation/",
+      "capitalisation": 80000000000.0,
+      "per": 16.67,
+      "rendement_dividende": 4.4,
+      "classement": 3,
+      "marge_operationnelle": 31.9,
+      "marge_nette": 45.1,
+      "prix": 91.0,
+      "nombre_actions": 879.0,
+      "secteur": "Télécommunications",
+      "variation_jour": 0.42,
+      "date_ipo": "13/12/2004",
+      "description": "Maroc Télécom est l'opérateur téléphonique historique avec des parts de marché de 39% sur le Mobile, de 84,2% sur le Fixe et de 41,2% sur l'Internet*. Le Groupe ambitionne de poursuivre sa stratégie de baisse des prix et de diversification de ses offres promotionnelles afin de maintenir son leadership. Dirigé par M. Abdeslam AHIZOUNE, Maroc Télécom est présent également en Afrique à travers ses filiales au Mali, Gabon, Burkina Faso et en Mauritanie. Rachetée en 2014 par l’opérateur émirati Etisalat, suite à la cession des parts de Vivendi, Maroc Télécom est issue de la scission de l'Office National des Postes et Télécommunications suite à la promulgation de la loi 24-96 et des décrets d'application relatifs aux télécommunications. Le Groupe a concrétisé durant la même année l'acquisition des 6 filiales africaines d'Etisalat. Capitalisation Dividendes",
+      "actionnariat": [
+        {
+          "nom": "Structure Actionnariat SPT",
+          "pct": 53.0
+        },
+        {
+          "nom": "Etat marocain",
+          "pct": 22.0
+        },
+        {
+          "nom": "Flottant en Bourse",
+          "pct": 19.1
+        },
+        {
+          "nom": "RCAR",
+          "pct": 5.8
+        }
+      ]
+    },
+    {
+      "ticker": "AKT",
+      "nom": "Akdital",
+      "url": "https://www.casablancabourse.com/AKT/action/capitalisation/",
+      "capitalisation": 14340000000.0,
+      "per": 40.33,
+      "rendement_dividende": 1.24,
+      "classement": 14,
+      "resultat_net": 175000000.0,
+      "marge_operationnelle": 17.2,
+      "marge_nette": 53.2,
+      "prix": 1132.0,
+      "nombre_actions": 12.0,
+      "secteur": "Santé",
+      "variation_jour": -0.35,
+      "date_ipo": "14/12/2022",
+      "description": "Le groupe Akdital est un acteur de référence dans les soins de santé au Maroc et premier Groupe hospitalier de la Zone Mena avec plus de 10 ans d’expertise et de savoir-faire dans son secteur, Akdital détient une capacité litière significative représentant plus de 15% de l’offre nationale privée. Le Groupe dispose d’un réseau de 15 établissements, dont 8 à Casablanca, 2 à El Jadida, 2 à Agadir, 2 à Tanger et 1 à Safi qui offrent à leurs patients et aux médecins qui y exercent, l’intégralité des disciplines médicales. Capitalisation Dividendes",
+      "actionnariat": [
+        {
+          "nom": "Structure Actionnariat Flottant en Bourse",
+          "pct": 31.6
+        },
+        {
+          "nom": "Rochdi TALIB",
+          "pct": 12.6
+        },
+        {
+          "nom": "Ahmed AKDIM",
+          "pct": 12.1
+        },
+        {
+          "nom": "Brahim AKDIM",
+          "pct": 12.1
+        },
+        {
+          "nom": "MCII Al Razi",
+          "pct": 10.5
+        },
+        {
+          "nom": "Fatima AKDIM",
+          "pct": 9.5
+        },
+        {
+          "nom": "Jaouad ZAKARIA",
+          "pct": 5.8
+        },
+        {
+          "nom": "Mohammed EL MRINI",
+          "pct": 5.8
+        }
+      ]
+    },
+    {
+      "ticker": "BCP",
+      "nom": "Banque Centrale Populaire",
+      "url": "https://www.casablancabourse.com/BCP/action/capitalisation/",
+      "capitalisation": 51030000000.0,
+      "per": 16.08,
+      "rendement_dividende": 3.14,
+      "classement": 5,
+      "marge_operationnelle": 27.3,
+      "marge_nette": 55.9,
+      "prix": 251.0,
+      "nombre_actions": 203.0,
+      "secteur": "Banques",
+      "variation_jour": 0.76,
+      "date_ipo": "06/07/2004",
+      "actionnariat": [
+        {
+          "nom": "Structure Actionnariat BPR",
+          "pct": 35.3
+        },
+        {
+          "nom": "MCMA-MAMDA",
+          "pct": 16.8
+        },
+        {
+          "nom": "CIMR",
+          "pct": 14.9
+        },
+        {
+          "nom": "Flottant en Bourse",
+          "pct": 11.2
+        },
+        {
+          "nom": "RCAR",
+          "pct": 5.6
+        },
+        {
+          "nom": "MAC",
+          "pct": 4.3
+        },
+        {
+          "nom": "Personnel",
+          "pct": 4.3
+        },
+        {
+          "nom": "BPCE",
+          "pct": 4.1
+        }
+      ]
+    },
+    {
+      "ticker": "LHM",
+      "nom": "LAFARGEHOLCIM MAROC",
+      "url": "https://www.casablancabourse.com/LHM/action/capitalisation/",
+      "capitalisation": 41240000000.0,
+      "per": 29.05,
+      "rendement_dividende": 5.45,
+      "classement": 7,
+      "marge_operationnelle": 36.3,
+      "marge_nette": 52.0,
+      "prix": 1760.0,
+      "nombre_actions": 23.0,
+      "secteur": "Bâtiment",
+      "variation_jour": -1.07,
+      "date_ipo": "19/02/1997",
+      "actionnariat": [
+        {
+          "nom": "Structure Actionnariat Lafarge Maroc",
+          "pct": 64.7
+        },
+        {
+          "nom": "Flottant en Bourse",
+          "pct": 27.8
+        },
+        {
+          "nom": "Banque islamique pour le développement",
+          "pct": 7.0
+        },
+        {
+          "nom": "LafargeHolcim Maroc",
+          "pct": 0.5
+        }
+      ]
+    },
+    {
+      "ticker": "BOA",
+      "nom": "BANK OF AFRICA",
+      "url": "https://www.casablancabourse.com/BOA/action/capitalisation/",
+      "capitalisation": 39090000000.0,
+      "per": 14.36,
+      "rendement_dividende": 2.63,
+      "classement": 9,
+      "marge_operationnelle": 31.8,
+      "marge_nette": 49.3,
+      "prix": 190.1,
+      "nombre_actions": 205.0,
+      "secteur": "Banques",
+      "variation_jour": 0.11,
+      "date_ipo": "16/06/1975",
+      "description": "Filiale de O Capital Group, BMCE Bank opère aussi bien dans les activités bancaires que dans les autres métiers de la finance. Avec un réseau de 1 956 agences et plus de 6,5 millions de clients*, la banque est implantée dans 32 pays notamment à travers la prise de contrôle de Bank Of Africa (BOA) dont le Groupe est l’actionnaire majoritaire de référence. Le renforcement de la participation du Groupe dans le capital de BOA devrait également permettre de capter davantage le potentiel de croissance en Afrique et d’optimiser l’exploitation des synergies avec les différentes filiales africaines. BMCE Bank est dirigée par M. Othmane BENJELLOUN. En mars 2020, le Groupe a procédé au changement de sa dénomination sociale devenue 'Bank Of Africa', par abréviation 'BOA'. Capitalisation Dividendes",
+      "actionnariat": [
+        {
+          "nom": "Structure Actionnariat RMA Watanya",
+          "pct": 27.4
+        },
+        {
+          "nom": "Flottant en Bourse",
+          "pct": 16.2
+        },
+        {
+          "nom": "CDG",
+          "pct": 8.3
+        },
+        {
+          "nom": "O Capital Group",
+          "pct": 7.2
+        },
+        {
+          "nom": "British International Investment",
+          "pct": 5.4
+        },
+        {
+          "nom": "MCMA-MAMDA",
+          "pct": 5.0
+        },
+        {
+          "nom": "CIMR",
+          "pct": 3.9
+        },
+        {
+          "nom": "Personnel",
+          "pct": 1.1
+        }
+      ]
+    },
+    {
+      "ticker": "ADH",
+      "nom": "Douja Prom Addoha",
+      "url": "https://www.casablancabourse.com/ADH/action/capitalisation/",
+      "capitalisation": 13090000000.0,
+      "per": 35.83,
+      "rendement_dividende": 1.25,
+      "classement": 17,
+      "resultat_net": 175000000.0,
+      "marge_operationnelle": 6.7,
+      "marge_nette": 121.5,
+      "prix": 32.52,
+      "nombre_actions": 402.0,
+      "secteur": "Promotion Immobilière",
+      "variation_jour": 0.37,
+      "date_ipo": "06/07/2006",
+      "actionnariat": [
+        {
+          "nom": "Structure Actionnariat Famille SEFRIOUI",
+          "pct": 64.8
+        },
+        {
+          "nom": "Flottant en Bourse",
+          "pct": 30.2
+        },
+        {
+          "nom": "RCAR",
+          "pct": 5.1
+        }
+      ]
+    },
+    {
+      "ticker": "LBV",
+      "nom": "LABEL VIE",
+      "url": "https://www.casablancabourse.com/LBV/action/capitalisation/",
+      "capitalisation": 10360000000.0,
+      "per": 23.95,
+      "rendement_dividende": 3.29,
+      "classement": 20,
+      "resultat_net": 508000000.0,
+      "marge_operationnelle": 5.0,
+      "marge_nette": 63.9,
+      "prix": 3650.0,
+      "nombre_actions": 2.0,
+      "secteur": "Distributeurs",
+      "variation_jour": 0.0,
+      "date_ipo": "02/07/2008",
+      "actionnariat": [
+        {
+          "nom": "Structure Actionnariat Retail Holding",
+          "pct": 50.2
+        },
+        {
+          "nom": "Flottant en Bourse",
+          "pct": 40.0
+        },
+        {
+          "nom": "Sanlam Assurance",
+          "pct": 6.7
+        },
+        {
+          "nom": "Aljia Holding",
+          "pct": 3.2
+        }
+      ]
+    },
+    {
+      "ticker": "CMA",
+      "nom": "CIMENTS DU MAROC",
+      "url": "https://www.casablancabourse.com/CMA/action/capitalisation/",
+      "capitalisation": 23950000000.0,
+      "per": 25.0,
+      "rendement_dividende": 3.92,
+      "classement": 10,
+      "resultat_net": 970000000.0,
+      "marge_operationnelle": 33.0,
+      "marge_nette": 67.9,
+      "prix": 1659.0,
+      "nombre_actions": 14.0,
+      "secteur": "Bâtiment",
+      "variation_jour": -0.3,
+      "date_ipo": "24/06/1969",
+      "description": "Ciments du Maroc, filiale de HeidelbergCement Group, est le deuxième cimentier du Royaume et le premier opérateur dans le Béton Prêt à l’Emploi et les granulats. Avec une part de marché de près de 24% et une capacité de production de 6,1 millions de tonnes*, le dispositif industriel de Ciments du Maroc se constitue de 3 usines (Aït Baha, Safi et Marrakech) et 2 centres de broyage (Laâyoune et Jorf Lasfar), 5 carrières de granulats et de 21 centrales à béton implantées à travers les principales villes du pays. Dirigé par M. Matteo ROZZANIGO, le Groupe poursuit le développement d’un nouveau centre de broyage à Nador avec un démarrage prévu au deuxième semestre 2022. Capitalisation Dividendes",
+      "actionnariat": [
+        {
+          "nom": "Italcementi Fabbriche Riunite Cemento",
+          "pct": 47.5
+        },
+        {
+          "nom": "Flottant en Bourse",
+          "pct": 27.0
+        },
+        {
+          "nom": "CIMR",
+          "pct": 9.5
+        },
+        {
+          "nom": "CMR",
+          "pct": 6.5
+        },
+        {
+          "nom": "FIPAR Holding",
+          "pct": 5.9
+        },
+        {
+          "nom": "Procimar",
+          "pct": 3.5
+        }
+      ]
+    },
+    {
+      "ticker": "TQM",
+      "nom": "TAQA MOROCCO",
+      "url": "https://www.casablancabourse.com/TQM/action/capitalisation/",
+      "capitalisation": 41280000000.0,
+      "per": 25.0,
+      "rendement_dividende": 2.17,
+      "classement": 6,
+      "marge_operationnelle": 20.5,
+      "marge_nette": 38.3,
+      "prix": 1750.0,
+      "nombre_actions": 23.0,
+      "secteur": "Electricité",
+      "variation_jour": -1.02,
+      "date_ipo": "24/12/2013",
+      "description": "Filiale du groupe émirati TAQA depuis 2007, leader mondial de la production d’électricité, TAQA Morocco (ex JLEC) est le premier producteur d’électricité au Maroc avec une contribution de 38,5% à la consommation marocaine et une capacité installée de six unités produisant annuellement 2 056 MW. Plus grande centrale thermique à charbon indépendante de la région MENA, TAQA Morocco est également le principal fournisseur de l’Office National d’Électricité et de l’Eau Potable (ONEE). La société dispose d’un contrat de concession long terme (30 ans) avec l’ONEE. A cet effet, le premier contrat couvrant les unités de production 1 à 4 qui expire initialement en 2027, a été aligné sur le contrat des unités 5&6 qui arrive à échéance en 2044. Capitalisation Dividendes",
+      "actionnariat": [
+        {
+          "nom": "Abu Dhabi National Energy Company",
+          "pct": 85.8
+        },
+        {
+          "nom": "Flottant en Bourse",
+          "pct": 14.2
+        }
+      ]
+    },
+    {
+      "ticker": "HPS",
+      "nom": "HPS",
+      "url": "https://www.casablancabourse.com/HPS/action/capitalisation/",
+      "capitalisation": 417230000.0,
+      "per": 46.07,
+      "rendement_dividende": 1.35,
+      "classement": 63,
+      "resultat_net": 100000000.0,
+      "marge_operationnelle": 17.6,
+      "marge_nette": 50.9,
+      "prix": 593.0,
+      "nombre_actions": 703.0,
+      "secteur": "Technologie",
+      "variation_jour": -0.84,
+      "date_ipo": "27/12/2006",
+      "actionnariat": []
+    },
+    {
+      "ticker": "ADI",
+      "nom": "ALLIANCES",
+      "url": "https://www.casablancabourse.com/ADI/action/capitalisation/",
+      "capitalisation": 8080000000.0,
+      "per": 10.69,
+      "rendement_dividende": 1.09,
+      "classement": 25,
+      "resultat_net": 239000000.0,
+      "marge_operationnelle": 20.3,
+      "marge_nette": 58.3,
+      "prix": 366.05,
+      "nombre_actions": 22.0,
+      "secteur": "Promotion Immobilière",
+      "variation_jour": -1.07,
+      "date_ipo": "17/07/2008",
+      "actionnariat": [
+        {
+          "nom": "Actionnariat NAFAKH LAZRAQ ALAMI Mohamed",
+          "pct": 51.7
+        },
+        {
+          "nom": "Flottant en Bourse",
+          "pct": 23.3
+        },
+        {
+          "nom": "RCAR",
+          "pct": 8.4
+        },
+        {
+          "nom": "HOLPAR",
+          "pct": 4.4
+        },
+        {
+          "nom": "CMR",
+          "pct": 4.1
+        },
+        {
+          "nom": "SFI",
+          "pct": 3.0
+        },
+        {
+          "nom": "EL BELGHAMI Farida",
+          "pct": 1.8
+        },
+        {
+          "nom": "SCR",
+          "pct": 1.5
+        }
+      ]
+    },
+    {
+      "ticker": "CMG",
+      "nom": "CMGP GROUP",
+      "url": "https://www.casablancabourse.com/CMG/action/capitalisation/",
+      "capitalisation": 5360000000.0,
+      "rendement_dividende": 2.06,
+      "classement": 35,
+      "resultat_net": 123000000.0,
+      "marge_operationnelle": 12.4,
+      "marge_nette": 47.6,
+      "prix": 315.0,
+      "nombre_actions": 17.0,
+      "secteur": "Agriculture",
+      "variation_jour": 1.27,
+      "date_ipo": "16/12/2024",
+      "description": "CMGP GROUP est le leader incontournable au Maroc dans des secteurs essentiels liés à l’agriculture et au développement durable. L’entreprise joue un rôle central en proposant des solutions complètes et innovantes pour optimiser l’utilisation de l’eau à travers des systèmes d’irrigation performants, tout en accompagnant les agriculteurs avec une large gamme de produits agricoles comme les phytosanitaires, les engrais, les semences, ainsi que les plastiques et filets agricoles. Elle s’engage également dans le développement de solutions d’énergie solaire adaptées aux besoins spécifiques du secteur, tout en contribuant à la création et à la gestion d’infrastructures hydrauliques modernes. Capitalisation Dividendes",
+      "actionnariat": [
+        {
+          "nom": "Structure Actionnariat Flottant en Bourse",
+          "pct": 49.8
+        },
+        {
+          "nom": "ADP II Holding 10 Luxembourg",
+          "pct": 26.7
+        },
+        {
+          "nom": "Africa Agriculture",
+          "pct": 9.1
+        },
+        {
+          "nom": "FIPAR Holding",
+          "pct": 7.8
+        },
+        {
+          "nom": "MOAMAH Youssef",
+          "pct": 5.0
+        },
+        {
+          "nom": "ALLEON Jacques",
+          "pct": 1.0
+        },
+        {
+          "nom": "MPEF IV",
+          "pct": 0.5
+        }
+      ]
+    },
+    {
+      "ticker": "CFG",
+      "nom": "CFG BANK",
+      "url": "https://www.casablancabourse.com/CFG/action/capitalisation/",
+      "capitalisation": 7850000000.0,
+      "per": 30.11,
+      "rendement_dividende": 2.06,
+      "classement": 27,
+      "chiffre_affaires": 657000000.0,
+      "resultat_net": 166000000.0,
+      "marge_operationnelle": 30.2,
+      "marge_nette": 83.5,
+      "prix": 193.85,
+      "nombre_actions": 40.0,
+      "secteur": "Banques",
+      "variation_jour": 2.03,
+      "date_ipo": "18/12/2023",
+      "description": "CFG Bank est une banque marocaine fondée en 1992. Première banque d'affaires du Maroc, elle devient en 2015 une banque universelle qui offre des services au grand public. En 1992, après leur retour au Maroc, Adil Douiri et Amyn Alami cofondent la première banque d'affaires du Maroc, sous la dénomination Casablanca Finance Group. En novembre 2015, CFG Group devient CFG Bank.En Decembre 2023, CFG Bank est introduite à la bourse de Casablanca avec une augmentation de capital d’un montant de 600 millions de dirhams, soit 55 millions d'euros. Capitalisation Dividendes",
+      "actionnariat": [
+        {
+          "nom": "Structure Actionnariat Flottant en Bourse",
+          "pct": 36.6
+        },
+        {
+          "nom": "Collaborateurs actionnaires",
+          "pct": 18.4
+        },
+        {
+          "nom": "Mutatis",
+          "pct": 8.7
+        },
+        {
+          "nom": "RMA",
+          "pct": 7.2
+        },
+        {
+          "nom": "Société Prev Invest SA",
+          "pct": 5.3
+        },
+        {
+          "nom": "BENNANI Zouhair",
+          "pct": 4.8
+        },
+        {
+          "nom": "Majdaline Holding",
+          "pct": 4.4
+        },
+        {
+          "nom": "Bank Of Africa",
+          "pct": 4.1
+        }
+      ]
+    },
+    {
+      "ticker": "JET",
+      "nom": "JET CONTRACTORS",
+      "url": "https://www.casablancabourse.com/JET/action/capitalisation/",
+      "capitalisation": 6000000000.0,
+      "per": 11.18,
+      "rendement_dividende": 1.01,
+      "classement": 32,
+      "resultat_net": 69000000.0,
+      "marge_operationnelle": 7.3,
+      "marge_nette": 43.0,
+      "prix": 1980.0,
+      "nombre_actions": 3.0,
+      "secteur": "Bâtiment",
+      "variation_jour": -2.94,
+      "date_ipo": "09/12/2011",
+      "actionnariat": [
+        {
+          "nom": "Structure Actionnariat Flottant en Bourse",
+          "pct": 37.9
+        },
+        {
+          "nom": "AR Corporation",
+          "pct": 37.3
+        },
+        {
+          "nom": "RCAR",
+          "pct": 10.8
+        },
+        {
+          "nom": "TADLAOUI Omar Abdelkader",
+          "pct": 9.8
+        },
+        {
+          "nom": "DAOUDI Amine",
+          "pct": 4.2
+        }
+      ]
+    },
+    {
+      "ticker": "SMI",
+      "nom": "Smi",
+      "url": "https://www.casablancabourse.com/SMI/action/capitalisation/",
+      "capitalisation": 9890000000.0,
+      "per": 12.92,
+      "rendement_dividende": 2.5,
+      "classement": 23,
+      "resultat_net": 168000000.0,
+      "marge_operationnelle": 22.1,
+      "marge_nette": 71.6,
+      "prix": 6010.0,
+      "nombre_actions": 1.0,
+      "secteur": "Mines",
+      "variation_jour": -4.59,
+      "date_ipo": "18/06/1997",
+      "actionnariat": [
+        {
+          "nom": "Structure Actionnariat Managem",
+          "pct": 80.3
+        },
+        {
+          "nom": "Flottant en Bourse",
+          "pct": 14.7
+        },
+        {
+          "nom": "CIMR",
+          "pct": 5.0
+        }
+      ]
+    },
+    {
+      "ticker": "CIH",
+      "nom": "CIH BANK",
+      "url": "https://www.casablancabourse.com/CIH/action/capitalisation/",
+      "capitalisation": 10050000000.0,
+      "per": 15.09,
+      "rendement_dividende": 3.94,
+      "classement": 22,
+      "resultat_net": 710000000.0,
+      "marge_operationnelle": 26.8,
+      "marge_nette": 59.4,
+      "prix": 354.95,
+      "nombre_actions": 28.0,
+      "secteur": "Banques",
+      "variation_jour": 1.13,
+      "date_ipo": "23/06/1967",
+      "actionnariat": [
+        {
+          "nom": "Actionnariat Massira Capital Management",
+          "pct": 61.9
+        },
+        {
+          "nom": "Flottant en Bourse",
+          "pct": 16.2
+        },
+        {
+          "nom": "AtlantaSanad",
+          "pct": 12.1
+        },
+        {
+          "nom": "CDG",
+          "pct": 6.0
+        },
+        {
+          "nom": "RCAR",
+          "pct": 3.8
+        }
+      ]
+    },
+    {
+      "ticker": "ATL",
+      "nom": "Atlanta Sanad",
+      "url": "https://www.casablancabourse.com/ATL/action/capitalisation/",
+      "capitalisation": 7410000000.0,
+      "per": 1.19,
+      "rendement_dividende": 4.8,
+      "classement": 29,
+      "resultat_net": 438000000.0,
+      "marge_operationnelle": 10.8,
+      "marge_nette": 79.3,
+      "prix": 123.0,
+      "nombre_actions": 60.0,
+      "secteur": "Assurances",
+      "variation_jour": 0.41,
+      "date_ipo": "16/10/2007",
+      "actionnariat": [
+        {
+          "nom": "Holmarcom Insurance Activities S.A",
+          "pct": 55.9
+        },
+        {
+          "nom": "Flottant en Bourse",
+          "pct": 13.4
+        },
+        {
+          "nom": "Holmarcom",
+          "pct": 11.1
+        },
+        {
+          "nom": "CIH",
+          "pct": 10.0
+        },
+        {
+          "nom": "CDG",
+          "pct": 9.6
+        }
+      ]
+    },
+    {
+      "ticker": "VCN",
+      "nom": "Vicenne",
+      "url": "https://www.casablancabourse.com/VCN/action/capitalisation/",
+      "capitalisation": 3590000000.0,
+      "rendement_dividende": 2.41,
+      "classement": 40,
+      "prix": 350.0,
+      "nombre_actions": 10.0,
+      "secteur": "Santé",
+      "variation_jour": 2.56,
+      "date_ipo": "15/07/2025",
+      "description": "Vicenne (anciennement Best-Health) est l’un des acteurs majeurs au Maroc dans la fourniture d’équipements, de solutions et de services technologiques dédiés aux professionnels de la santé. Elle accompagne aussi bien les hôpitaux et cliniques que les cabinets médicaux, laboratoires et institutions publiques, dont le ministère de la Santé. Capitalisation Dividendes",
+      "actionnariat": []
+    },
+    {
+      "ticker": "DHO",
+      "nom": "DELTA HOLDING",
+      "url": "https://www.casablancabourse.com/DHO/action/capitalisation/",
+      "capitalisation": 4770000000.0,
+      "per": 16.14,
+      "rendement_dividende": 3.67,
+      "classement": 36,
+      "resultat_net": 189000000.0,
+      "marge_operationnelle": 10.0,
+      "marge_nette": 60.0,
+      "prix": 54.49,
+      "nombre_actions": 87.0,
+      "secteur": "Holdings",
+      "variation_jour": 0.61,
+      "date_ipo": "15/05/2008",
+      "actionnariat": [
+        {
+          "nom": "Structure Actionnariat HF International",
+          "pct": 69.6
+        },
+        {
+          "nom": "Flottant en Bourse",
+          "pct": 19.3
+        },
+        {
+          "nom": "CIMR",
+          "pct": 6.1
+        },
+        {
+          "nom": "RCAR",
+          "pct": 5.0
+        }
+      ]
+    },
+    {
+      "ticker": "CDM",
+      "nom": "Credit Du Maroc",
+      "url": "https://www.casablancabourse.com/CDM/action/capitalisation/",
+      "capitalisation": 10340000000.0,
+      "per": 17.25,
+      "rendement_dividende": 5.05,
+      "classement": 21,
+      "resultat_net": 503000000.0,
+      "marge_operationnelle": 30.2,
+      "marge_nette": 57.0,
+      "prix": 950.5,
+      "nombre_actions": 10.0,
+      "secteur": "Banques",
+      "variation_jour": -1.91,
+      "date_ipo": "03/05/1976",
+      "description": "Filiale du Groupe Crédit Agricole SA (France), Crédit du Maroc exerce trois principaux métiers que sont la banque de réseau, la banque de financement et d'investissement ainsi que la gestion d'actifs. Il est présent sur l'ensemble des marchés : Particuliers, MRE, Professionnels, Entreprises et grands comptes, Corporate. Positionné en tant que banque commerciale, Crédit du Maroc dispose d'un réseau de 345 agences et 2 539 collaborateurs. En 2011, la banque a procédé à la création du Pôle Agriculture et Agroalimentaire en adéquation avec la stratégie nationale sur ces secteurs. Dirigée par M. Bernard MUSELET, la banque a lancé en 2015 son activité d’affacturage dans le cadre de sa filiale Crédit du Maroc Leasing et Factoring. Capitalisation Dividendes",
+      "actionnariat": [
+        {
+          "nom": "Actionnariat Holmarcom Finance Company",
+          "pct": 50.9
+        },
+        {
+          "nom": "Crédit Agricole S.A",
+          "pct": 15.0
+        },
+        {
+          "nom": "AtlantaSanad",
+          "pct": 12.8
+        },
+        {
+          "nom": "Wafa Assurance",
+          "pct": 10.7
+        },
+        {
+          "nom": "Flottant en Bourse",
+          "pct": 10.6
+        }
+      ]
+    },
+    {
+      "ticker": "SBM",
+      "nom": "SOCIETE DES BOISSONS DU MAROC",
+      "url": "https://www.casablancabourse.com/SBM/action/capitalisation/",
+      "capitalisation": 5870000000.0,
+      "per": 10.02,
+      "rendement_dividende": 6.12,
+      "classement": 33,
+      "resultat_net": 637000000.0,
+      "marge_operationnelle": 20.4,
+      "marge_nette": 106.8,
+      "prix": 2074.0,
+      "nombre_actions": 2.0,
+      "secteur": "Boissons",
+      "variation_jour": 3.13,
+      "date_ipo": "13/08/1943",
+      "actionnariat": [
+        {
+          "nom": "Structure Actionnariat MDI",
+          "pct": 69.3
+        },
+        {
+          "nom": "Flottant en Bourse",
+          "pct": 15.5
+        },
+        {
+          "nom": "CIMR",
+          "pct": 11.5
+        },
+        {
+          "nom": "Heineken",
+          "pct": 2.2
+        },
+        {
+          "nom": "Bourchanin et Cie",
+          "pct": 0.9
+        },
+        {
+          "nom": "Safari",
+          "pct": 0.4
+        },
+        {
+          "nom": "Finta",
+          "pct": 0.2
+        }
+      ]
+    },
+    {
+      "ticker": "CAP",
+      "nom": "Cash Plus",
+      "url": "https://www.casablancabourse.com/CAP/action/capitalisation/",
+      "capitalisation": 6090000000.0,
+      "per": 16.5,
+      "rendement_dividende": 3.92,
+      "classement": 31,
+      "chiffre_affaires": 987000000.0,
+      "resultat_net": 274000000.0,
+      "marge_operationnelle": 48.8,
+      "marge_nette": 27.7,
+      "prix": 248.0,
+      "nombre_actions": 24.0,
+      "secteur": "Financement",
+      "variation_jour": -0.84,
+      "date_ipo": "08/12/2025",
+      "description": "Cash Plus est un groupe marocain leader dans les services financiers de proximité : transfert d’argent national et international, comptes de paiement, change, paiement de factures, recharges et services numériques. À travers un vaste réseau d’agences et de partenaires, Cash Plus contribue activement à l’inclusion financière au Maroc et au développement des services digitaux via son application Cash Plus Mobile. Capitalisation Dividendes",
+      "actionnariat": [
+        {
+          "nom": "Structure Actionnariat Famille AMAR",
+          "pct": 35.1
+        },
+        {
+          "nom": "Famille TAZI",
+          "pct": 35.1
+        },
+        {
+          "nom": "Flottant en Bourse",
+          "pct": 15.5
+        }
+      ]
+    },
+    {
+      "ticker": "BCI",
+      "nom": "BMCI",
+      "url": "https://www.casablancabourse.com/BCI/action/capitalisation/",
+      "capitalisation": 8050000000.000001,
+      "per": 41.86,
+      "rendement_dividende": 2.98,
+      "classement": 26,
+      "resultat_net": 171000000.0,
+      "marge_operationnelle": 17.9,
+      "marge_nette": 27.9,
+      "prix": 606.0,
+      "nombre_actions": 13.0,
+      "secteur": "Banques",
+      "variation_jour": -0.33,
+      "date_ipo": "28/02/1972",
+      "description": "La BMCI, dont l’actionnaire de référence est le Groupe BNP Paribas, exerce une activité de banque universelle qui s’adresse à tout type de clientèle : Particuliers, Professionnels, Grandes Entreprises et Institutionnels, PME-PMI. Dans le cadre de sa démarche qualité, la banque a obtenu en 2012 la certification ISO 9001 version 2008 pour l’ensemble des processus de son activité monétique (cartes et GAB). Dirigée par M. Philippe DUMEL, BMCI dispose d'un réseau de 354 agences et près de 2 900 collaborateurs*, en plus de 10 filiales spécialisées par métier. En 2014, BMCI a procédé à une opération de fusion-absorption de sa filiale BMCI Crédit Conso, permettant la rationalisation des charges et la simplification de la structure des deux sociétés. Capitalisation Dividendes",
+      "actionnariat": [
+        {
+          "nom": "BNP Paribas IRB Participations",
+          "pct": 66.7
+        },
+        {
+          "nom": "Flottant en Bourse",
+          "pct": 15.9
+        },
+        {
+          "nom": "AXA Assurance Maroc",
+          "pct": 8.9
+        },
+        {
+          "nom": "AtlantaSanad",
+          "pct": 8.4
+        }
+      ]
+    },
+    {
+      "ticker": "RIS",
+      "nom": "RISMA",
+      "url": "https://www.casablancabourse.com/RIS/action/capitalisation/",
+      "capitalisation": 4560000000.0,
+      "per": 12.18,
+      "rendement_dividende": 2.83,
+      "classement": 37,
+      "resultat_net": 244000000.0,
+      "marge_operationnelle": 21.3,
+      "marge_nette": 97.7,
+      "prix": 318.15,
+      "nombre_actions": 14.0,
+      "secteur": "Hôtels",
+      "variation_jour": 2.96,
+      "date_ipo": "15/05/2006",
+      "actionnariat": [
+        {
+          "nom": "Structure Actionnariat RMA Watanya",
+          "pct": 36.7
+        },
+        {
+          "nom": "Mutris SCA",
+          "pct": 33.3
+        },
+        {
+          "nom": "CIMR",
+          "pct": 12.3
+        },
+        {
+          "nom": "Flottant en Bourse",
+          "pct": 10.7
+        },
+        {
+          "nom": "Groupe MCMA-MAMDA",
+          "pct": 6.0
+        },
+        {
+          "nom": "CFG Group",
+          "pct": 0.9
+        }
+      ]
+    },
+    {
+      "ticker": "ATH",
+      "nom": "AUTO HALL",
+      "url": "https://www.casablancabourse.com/ATH/action/capitalisation/",
+      "capitalisation": 3320000000.0,
+      "per": 112.92,
+      "rendement_dividende": 3.03,
+      "classement": 41,
+      "resultat_net": 28000000.0,
+      "marge_operationnelle": 4.2,
+      "marge_nette": 13.4,
+      "prix": 66.0,
+      "nombre_actions": 50.0,
+      "secteur": "Distributeurs",
+      "variation_jour": 0.08,
+      "date_ipo": "04/09/1941",
+      "actionnariat": [
+        {
+          "nom": "Structure Actionnariat Amana",
+          "pct": 51.8
+        },
+        {
+          "nom": "Flottant en Bourse",
+          "pct": 22.5
+        },
+        {
+          "nom": "CIMR",
+          "pct": 15.0
+        },
+        {
+          "nom": "HAKAM Abdellatif Finance SA",
+          "pct": 10.4
+        },
+        {
+          "nom": "BENCHIMOL Salomon",
+          "pct": 0.2
+        },
+        {
+          "nom": "BENHAMMOU Karim",
+          "pct": 0.0
+        }
+      ]
+    },
+    {
+      "ticker": "SLF",
+      "nom": "SALAFIN",
+      "url": "https://www.casablancabourse.com/SLF/action/capitalisation/",
+      "capitalisation": 1340000000.0,
+      "per": 17.93,
+      "rendement_dividende": 6.98,
+      "classement": 50,
+      "chiffre_affaires": 396000000.0,
+      "resultat_net": 91000000.0,
+      "marge_operationnelle": 39.6,
+      "marge_nette": 57.7,
+      "prix": 430.0,
+      "nombre_actions": 3.0,
+      "secteur": "Financement",
+      "variation_jour": 0.0,
+      "date_ipo": "17/12/2007",
+      "actionnariat": [
+        {
+          "nom": "Structure Actionnariat Bank Of Africa",
+          "pct": 62.0
+        },
+        {
+          "nom": "Flottant en Bourse",
+          "pct": 14.4
+        },
+        {
+          "nom": "SAHAM Assurance",
+          "pct": 14.1
+        },
+        {
+          "nom": "RCAR",
+          "pct": 3.9
+        },
+        {
+          "nom": "SANAM Holding",
+          "pct": 3.6
+        },
+        {
+          "nom": "Personnel",
+          "pct": 2.0
+        }
+      ]
+    },
+    {
+      "ticker": "RDS",
+      "nom": "RES DAR SAADA",
+      "url": "https://www.casablancabourse.com/RDS/action/capitalisation/",
+      "capitalisation": 4420000000.0,
+      "rendement_dividende": 3.59,
+      "classement": 39,
+      "chiffre_affaires": 421000000.0,
+      "resultat_net": -67000000.0,
+      "marge_operationnelle": -6.9,
+      "marge_nette": 230.5,
+      "prix": 168.5,
+      "nombre_actions": 26.0,
+      "secteur": "Promotion Immobilière",
+      "variation_jour": 0.0,
+      "date_ipo": "18/12/2014",
+      "actionnariat": [
+        {
+          "nom": "Groupe Palmeraie Developpement",
+          "pct": 47.3
+        },
+        {
+          "nom": "Flottant en Bourse",
+          "pct": 38.3
+        },
+        {
+          "nom": "B Participation SARL",
+          "pct": 13.8
+        },
+        {
+          "nom": "North Africa Holding Company",
+          "pct": 0.6
+        }
+      ]
+    },
+    {
+      "ticker": "CSR",
+      "nom": "COSUMAR",
+      "url": "https://www.casablancabourse.com/CSR/action/capitalisation/",
+      "capitalisation": 17520000000.0,
+      "per": 18.22,
+      "rendement_dividende": 5.39,
+      "classement": 13,
+      "marge_operationnelle": 13.4,
+      "marge_nette": 73.4,
+      "prix": 185.45,
+      "nombre_actions": 94.0,
+      "secteur": "Agroalimentaire",
+      "variation_jour": 0.24,
+      "date_ipo": "03/06/1985",
+      "actionnariat": [
+        {
+          "nom": "Structure Actionnariat Flottant en Bourse",
+          "pct": 29.8
+        },
+        {
+          "nom": "CIMR",
+          "pct": 18.2
+        },
+        {
+          "nom": "MCMA-MAMDA",
+          "pct": 16.9
+        },
+        {
+          "nom": "RCAR",
+          "pct": 10.5
+        },
+        {
+          "nom": "Sucden Maroc SAS",
+          "pct": 8.0
+        },
+        {
+          "nom": "Wafa Assurance",
+          "pct": 7.3
+        },
+        {
+          "nom": "Mutuelle Attamine Chaabi",
+          "pct": 3.1
+        },
+        {
+          "nom": "CMR",
+          "pct": 2.8
+        }
+      ]
+    },
+    {
+      "ticker": "GAZ",
+      "nom": "Afriquia Gaz",
+      "url": "https://www.casablancabourse.com/GAZ/action/capitalisation/",
+      "capitalisation": 12620000000.0,
+      "per": 28.55,
+      "rendement_dividende": 4.77,
+      "classement": 18,
+      "resultat_net": 481000000.0,
+      "marge_operationnelle": 9.9,
+      "marge_nette": 59.1,
+      "prix": 3670.0,
+      "nombre_actions": 3.0,
+      "secteur": "Pétrole et Gaz",
+      "variation_jour": 0.27,
+      "date_ipo": "03/05/1999",
+      "actionnariat": [
+        {
+          "nom": "Structure Actionnariat Afriquia SMDC",
+          "pct": 38.0
+        },
+        {
+          "nom": "AKWA Holding",
+          "pct": 30.0
+        },
+        {
+          "nom": "Flottant en Bourse",
+          "pct": 21.8
+        },
+        {
+          "nom": "RMA Watanya",
+          "pct": 5.2
+        },
+        {
+          "nom": "Al Ajial Investment Fund Holding",
+          "pct": 5.0
+        }
+      ]
+    },
+    {
+      "ticker": "SAH",
+      "nom": "SANLAM MAROC",
+      "url": "https://www.casablancabourse.com/SAH/action/capitalisation/",
+      "capitalisation": 11900000000.0,
+      "per": 9.56,
+      "rendement_dividende": 3.39,
+      "classement": 19,
+      "resultat_net": 559000000.0,
+      "marge_operationnelle": 11.7,
+      "marge_nette": 77.4,
+      "prix": 2891.0,
+      "nombre_actions": 4.0,
+      "secteur": "Assurances",
+      "variation_jour": -0.17,
+      "date_ipo": "22/11/2010",
+      "actionnariat": [
+        {
+          "nom": "Structure Actionnariat Sanlam Pan Africa",
+          "pct": 85.6
+        },
+        {
+          "nom": "SANAM Holding",
+          "pct": 7.1
+        },
+        {
+          "nom": "Flottant en Bourse",
+          "pct": 5.1
+        },
+        {
+          "nom": "ALJ Said",
+          "pct": 2.2
+        }
+      ]
+    },
+    {
+      "ticker": "ARD",
+      "nom": "ARADEI CAPITAL",
+      "url": "https://www.casablancabourse.com/ARD/action/capitalisation/",
+      "capitalisation": 4520000000.0,
+      "per": 18.39,
+      "rendement_dividende": 5.41,
+      "classement": 38,
+      "chiffre_affaires": 583000000.0,
+      "resultat_net": 272000000.0,
+      "marge_operationnelle": 75.4,
+      "marge_nette": 61.7,
+      "prix": 425.0,
+      "nombre_actions": 10.0,
+      "secteur": "Placement Immobilier",
+      "variation_jour": -0.7,
+      "date_ipo": "14/12/2020",
+      "actionnariat": [
+        {
+          "nom": "Structure Actionnariat Label'Vie S.A",
+          "pct": 37.8
+        },
+        {
+          "nom": "Flottant en Bourse",
+          "pct": 27.1
+        },
+        {
+          "nom": "Government Employees Pension Fund",
+          "pct": 11.0
+        },
+        {
+          "nom": "Best Financière S.A",
+          "pct": 7.5
+        },
+        {
+          "nom": "FCEC SARL",
+          "pct": 6.9
+        },
+        {
+          "nom": "BERD",
+          "pct": 4.9
+        },
+        {
+          "nom": "BMCI",
+          "pct": 3.8
+        },
+        {
+          "nom": "Kasba Resorts SARL",
+          "pct": 0.7
+        }
+      ]
+    },
+    {
+      "ticker": "CRS",
+      "nom": "CARTIER SAADA",
+      "url": "https://www.casablancabourse.com/CRS/action/capitalisation/",
+      "capitalisation": 121100000.0,
+      "per": 14.67,
+      "rendement_dividende": 2.9,
+      "classement": 72,
+      "chiffre_affaires": 253000000.0,
+      "resultat_net": 8000000.0,
+      "marge_operationnelle": 5.5,
+      "marge_nette": 57.1,
+      "prix": 23.0,
+      "nombre_actions": 5.0,
+      "secteur": "Agroalimentaire",
+      "variation_jour": -0.43,
+      "date_ipo": "21/06/2006",
+      "actionnariat": [
+        {
+          "nom": "Structure Actionnariat Famille DEBBAGH",
+          "pct": 21.5
+        },
+        {
+          "nom": "CARTIER Pierre",
+          "pct": 15.7
+        },
+        {
+          "nom": "Flottant en Bourse",
+          "pct": 14.7
+        },
+        {
+          "nom": "BENIDER Omar",
+          "pct": 14.0
+        },
+        {
+          "nom": "Mario Camacho Foods",
+          "pct": 10.3
+        },
+        {
+          "nom": "MAAROUF Aicha",
+          "pct": 9.7
+        },
+        {
+          "nom": "DEBBAGH Hassan",
+          "pct": 7.5
+        },
+        {
+          "nom": "DELIEUZE Alexandre",
+          "pct": 6.6
+        }
+      ]
+    },
+    {
+      "ticker": "SOT",
+      "nom": "Sothema",
+      "url": "https://www.casablancabourse.com/SOT/action/capitalisation/",
+      "capitalisation": 13600000000.0,
+      "per": 26.05,
+      "rendement_dividende": 1.58,
+      "classement": 15,
+      "resultat_net": 263000000.0,
+      "marge_operationnelle": 17.4,
+      "marge_nette": 60.9,
+      "prix": 355.0,
+      "nombre_actions": 38.0,
+      "secteur": "Pharmaceutiques",
+      "variation_jour": 0.0,
+      "date_ipo": "21/02/2005",
+      "actionnariat": [
+        {
+          "nom": "Structure Actionnariat Famille TAZI",
+          "pct": 47.1
+        },
+        {
+          "nom": "Famille BERRADA",
+          "pct": 27.2
+        },
+        {
+          "nom": "TAHIRI Consort",
+          "pct": 5.6
+        },
+        {
+          "nom": "RMA Watanya",
+          "pct": 5.5
+        },
+        {
+          "nom": "CHAOUI Omar",
+          "pct": 5.3
+        },
+        {
+          "nom": "Flottant en Bourse",
+          "pct": 5.2
+        },
+        {
+          "nom": "DIOURI Amal",
+          "pct": 3.0
+        },
+        {
+          "nom": "SEFRIOUI Mohamed",
+          "pct": 1.2
+        }
+      ]
+    },
+    {
+      "ticker": "COL",
+      "nom": "COLORADO",
+      "url": "https://www.casablancabourse.com/COL/action/capitalisation/",
+      "capitalisation": 1240000000.0,
+      "per": 19.38,
+      "rendement_dividende": 4.55,
+      "classement": 54,
+      "chiffre_affaires": 611000000.0,
+      "resultat_net": 39000000.0,
+      "marge_operationnelle": 10.6,
+      "marge_nette": 59.5,
+      "prix": 77.0,
+      "nombre_actions": 16.0,
+      "secteur": "Bâtiment",
+      "variation_jour": -0.03,
+      "date_ipo": "27/10/2006",
+      "actionnariat": [
+        {
+          "nom": "Actionnariat Colbert Finances SA",
+          "pct": 71.9
+        },
+        {
+          "nom": "Flottant en Bourse",
+          "pct": 25.6
+        },
+        {
+          "nom": "Famille BERRADA",
+          "pct": 2.1
+        },
+        {
+          "nom": "DUCASTEL Josette",
+          "pct": 0.4
+        }
+      ]
+    },
+    {
+      "ticker": "SID",
+      "nom": "Sonasid",
+      "url": "https://www.casablancabourse.com/SID/action/capitalisation/",
+      "capitalisation": 7610000000.0,
+      "per": 39.52,
+      "rendement_dividende": 2.67,
+      "classement": 28,
+      "resultat_net": 65000000.0,
+      "marge_operationnelle": 2.3,
+      "marge_nette": 55.6,
+      "prix": 1950.0,
+      "nombre_actions": 3.0,
+      "secteur": "Bâtiment",
+      "variation_jour": 0.0,
+      "date_ipo": "02/07/1996",
+      "actionnariat": [
+        {
+          "nom": "Nouvelles Sidérurgies Industrielles",
+          "pct": 64.9
+        },
+        {
+          "nom": "Flottant en Bourse",
+          "pct": 30.0
+        },
+        {
+          "nom": "RCAR",
+          "pct": 5.1
+        }
+      ]
+    },
+    {
+      "ticker": "SNP",
+      "nom": "SNEP",
+      "url": "https://www.casablancabourse.com/SNP/action/capitalisation/",
+      "capitalisation": 755760000.0,
+      "rendement_dividende": 2.87,
+      "classement": 61,
+      "chiffre_affaires": 794000000.0,
+      "resultat_net": -47000000.0,
+      "marge_operationnelle": 1.8,
+      "marge_nette": -327.0,
+      "prix": 314.9,
+      "nombre_actions": 2.0,
+      "secteur": "Chimie",
+      "variation_jour": 3.59,
+      "date_ipo": "07/11/2007",
+      "actionnariat": [
+        {
+          "nom": "Structure Actionnariat YNNA Holding",
+          "pct": 62.9
+        },
+        {
+          "nom": "Flottant en Bourse",
+          "pct": 37.1
+        }
+      ]
+    },
+    {
+      "ticker": "SNA",
+      "nom": "STOKVIS NORD AFRIQUE",
+      "url": "https://www.casablancabourse.com/SNA/action/capitalisation/",
+      "capitalisation": 634370000.0,
+      "rendement_dividende": 1.74,
+      "classement": 62,
+      "chiffre_affaires": 150000000.0,
+      "resultat_net": -128000000.0,
+      "prix": 68.99,
+      "nombre_actions": 9.0,
+      "secteur": "Distributeurs",
+      "variation_jour": 0.0,
+      "date_ipo": "03/12/2007",
+      "actionnariat": [
+        {
+          "nom": "Structure Actionnariat SANASTOK",
+          "pct": 50.2
+        },
+        {
+          "nom": "Sanlam Maroc",
+          "pct": 33.0
+        },
+        {
+          "nom": "Flottant en Bourse",
+          "pct": 12.5
+        },
+        {
+          "nom": "Stokvis Nord Afrique",
+          "pct": 4.3
+        }
+      ]
+    },
+    {
+      "ticker": "MUT",
+      "nom": "MUTANDIS SCA",
+      "url": "https://www.casablancabourse.com/MUT/action/capitalisation/",
+      "capitalisation": 2130000000.0,
+      "per": 20.49,
+      "rendement_dividende": 4.57,
+      "classement": 44,
+      "resultat_net": 113000000.0,
+      "marge_operationnelle": 9.3,
+      "marge_nette": 49.5,
+      "prix": 230.0,
+      "nombre_actions": 9.0,
+      "secteur": "Agroalimentaire",
+      "variation_jour": 0.0,
+      "date_ipo": "18/12/2018",
+      "actionnariat": [
+        {
+          "nom": "Structure Actionnariat Flottant en Bourse",
+          "pct": 65.3
+        },
+        {
+          "nom": "BMCE Bank Of Africa",
+          "pct": 9.0
+        },
+        {
+          "nom": "DOUIRI Adil",
+          "pct": 7.1
+        },
+        {
+          "nom": "RMA Watanya",
+          "pct": 6.3
+        },
+        {
+          "nom": "Patrimoine Gestion et Placements",
+          "pct": 5.4
+        },
+        {
+          "nom": "Amethis Maghreb Fund I",
+          "pct": 4.9
+        },
+        {
+          "nom": "Best Financière S.A",
+          "pct": 2.0
+        }
+      ]
+    },
+    {
+      "ticker": "AFI",
+      "nom": "Afric Industries",
+      "url": "https://www.casablancabourse.com/AFI/action/capitalisation/",
+      "capitalisation": 94710000.0,
+      "per": 21.89,
+      "rendement_dividende": 6.16,
+      "classement": 74,
+      "chiffre_affaires": 43000000.0,
+      "resultat_net": 4000000.0,
+      "marge_operationnelle": 16.7,
+      "marge_nette": 62.0,
+      "prix": 324.9,
+      "nombre_actions": 291.0,
+      "secteur": "Bâtiment",
+      "variation_jour": 0.71,
+      "date_ipo": "05/01/2012",
+      "actionnariat": [
+        {
+          "nom": "Structure Actionnariat Aluminium du Maroc",
+          "pct": 51.0
+        },
+        {
+          "nom": "Flottant en Bourse",
+          "pct": 49.0
+        }
+      ]
+    },
+    {
+      "ticker": "MDP",
+      "nom": "MED PAPER",
+      "url": "https://www.casablancabourse.com/MDP/action/capitalisation/",
+      "capitalisation": 65860000.0,
+      "per": 17.08,
+      "classement": 75,
+      "chiffre_affaires": 108000000.0,
+      "resultat_net": 6000000.0,
+      "marge_operationnelle": 10.1,
+      "marge_nette": 52.9,
+      "prix": 25.5,
+      "nombre_actions": 2.0,
+      "secteur": "Papier",
+      "variation_jour": -1.92,
+      "date_ipo": "28/07/1998",
+      "description": "Fruit de la fusion-absorption par Papelera de Tetuan de Safripac en décembre 2008, Med Paper est spécialisée dans l’industrie papetière. Elle assure la transformation et la vente de papier et carton pour impression, édition et emballage. Dirigée par M. Mohsine SEFRIOUI, Med Paper est en cours de mise en place d’une nouvelle politique commerciale basée sur la diversification des produits et l’augmentation des ventes de papier transformé à plus forte valeur ajoutée au détriment du papier en bobine. La capacité de production peut atteindre 70.000 tonnes par an. L’essentiel de la production est écoulée sur le marché national avec une part d’exportations à destination de divers pays : Egypte, Mali, Belgique, Grèce. Capitalisation Dividendes",
+      "actionnariat": [
+        {
+          "nom": "Structure Actionnariat SEFRIOUI Mohsin",
+          "pct": 67.6
+        },
+        {
+          "nom": "Flottant en Bourse",
+          "pct": 24.4
+        },
+        {
+          "nom": "Aliken",
+          "pct": 5.8
+        },
+        {
+          "nom": "Famille SEFRIOUI",
+          "pct": 2.2
+        }
+      ]
+    },
+    {
+      "ticker": "WAA",
+      "nom": "WAFA ASSURANCE",
+      "url": "https://www.casablancabourse.com/WAA/action/capitalisation/",
+      "capitalisation": 18200000000.0,
+      "per": 20.88,
+      "rendement_dividende": 2.88,
+      "classement": 12,
+      "resultat_net": 671000000.0,
+      "marge_operationnelle": 7.1,
+      "marge_nette": 74.3,
+      "prix": 5200.0,
+      "nombre_actions": 3.0,
+      "secteur": "Assurances",
+      "variation_jour": 0.95,
+      "date_ipo": "13/07/1998",
+      "actionnariat": [
+        {
+          "nom": "Structure Actionnariat OGM",
+          "pct": 79.3
+        },
+        {
+          "nom": "Flottant en Bourse",
+          "pct": 20.7
+        }
+      ]
+    },
+    {
+      "ticker": "IMO",
+      "nom": "IMMORENTE INVEST",
+      "url": "https://www.casablancabourse.com/IMO/action/capitalisation/",
+      "capitalisation": 818650000.0,
+      "per": 19.79,
+      "rendement_dividende": 6.05,
+      "classement": 59,
+      "chiffre_affaires": 72000000.0,
+      "resultat_net": 43000000.0,
+      "marge_operationnelle": 68.4,
+      "marge_nette": 86.6,
+      "prix": 90.89,
+      "nombre_actions": 9.0,
+      "secteur": "Placement Immobilier",
+      "variation_jour": -0.01,
+      "date_ipo": "11/05/2018",
+      "actionnariat": [
+        {
+          "nom": "Structure Actionnariat Flottant en Bourse",
+          "pct": 66.9
+        },
+        {
+          "nom": "AXA Assurance Maroc",
+          "pct": 9.0
+        },
+        {
+          "nom": "Compagnie d'Assurance Transport",
+          "pct": 7.3
+        },
+        {
+          "nom": "CIMR",
+          "pct": 6.4
+        },
+        {
+          "nom": "SCR",
+          "pct": 5.7
+        },
+        {
+          "nom": "Allianz Maroc",
+          "pct": 4.8
+        }
+      ]
+    },
+    {
+      "ticker": "FBR",
+      "nom": "FENIE BROSSETTE",
+      "url": "https://www.casablancabourse.com/FBR/action/capitalisation/",
+      "capitalisation": 388530000.0,
+      "per": 18.86,
+      "rendement_dividende": 2.08,
+      "classement": 64,
+      "chiffre_affaires": 603000000.0,
+      "resultat_net": 7000000.0,
+      "marge_operationnelle": 2.8,
+      "marge_nette": 42.2,
+      "prix": 270.0,
+      "nombre_actions": 1.0,
+      "secteur": "Distributeurs",
+      "variation_jour": -3.05,
+      "date_ipo": "04/12/2006",
+      "actionnariat": [
+        {
+          "nom": "Structure Actionnariat Zellidja SA",
+          "pct": 57.1
+        },
+        {
+          "nom": "Flottant en Bourse",
+          "pct": 30.5
+        },
+        {
+          "nom": "ASMA Invest",
+          "pct": 12.3
+        },
+        {
+          "nom": "PECHINEY Rhenalu",
+          "pct": 0.1
+        }
+      ]
+    },
+    {
+      "ticker": "STR",
+      "nom": "STROC INDUSTRIE",
+      "url": "https://www.casablancabourse.com/STR/action/capitalisation/",
+      "capitalisation": 220360000.0,
+      "rendement_dividende": 2.63,
+      "classement": 70,
+      "chiffre_affaires": 87000000.0,
+      "resultat_net": -40000000.0,
+      "prix": 176.5,
+      "nombre_actions": 1.0,
+      "secteur": "Biens d'équipement",
+      "variation_jour": -0.81,
+      "date_ipo": "30/06/2011",
+      "actionnariat": [
+        {
+          "nom": "Actionnariat Al Istimrar Holding",
+          "pct": 55.6
+        },
+        {
+          "nom": "Flottant en Bourse",
+          "pct": 26.9
+        },
+        {
+          "nom": "ZIATT Nabil",
+          "pct": 14.6
+        },
+        {
+          "nom": "Famille ZIATT",
+          "pct": 2.8
+        }
+      ]
+    },
+    {
+      "ticker": "LES",
+      "nom": "LESIEUR CRISTAL",
+      "url": "https://www.casablancabourse.com/LES/action/capitalisation/",
+      "capitalisation": 8430000000.0,
+      "per": 2700.0,
+      "rendement_dividende": 1.07,
+      "classement": 24,
+      "resultat_net": 3000000.0,
+      "marge_operationnelle": 1.2,
+      "marge_nette": 3.4,
+      "prix": 305.0,
+      "nombre_actions": 27.0,
+      "secteur": "Agroalimentaire",
+      "variation_jour": 0.0,
+      "date_ipo": "07/12/1972",
+      "actionnariat": [
+        {
+          "nom": "Structure Actionnariat Oleosud",
+          "pct": 47.9
+        },
+        {
+          "nom": "Flottant en Bourse",
+          "pct": 18.1
+        },
+        {
+          "nom": "CIMR",
+          "pct": 9.2
+        },
+        {
+          "nom": "Groupe MCMA-MAMDA",
+          "pct": 8.7
+        },
+        {
+          "nom": "CMR",
+          "pct": 7.4
+        },
+        {
+          "nom": "Wafa Assurance",
+          "pct": 7.3
+        },
+        {
+          "nom": "Mutuelle Attamine Chaabi",
+          "pct": 1.4
+        }
+      ]
+    },
+    {
+      "ticker": "DWY",
+      "nom": "Disway",
+      "url": "https://www.casablancabourse.com/DWY/action/capitalisation/",
+      "capitalisation": 1460000000.0,
+      "per": 18.73,
+      "rendement_dividende": 5.67,
+      "classement": 48,
+      "resultat_net": 66000000.0,
+      "marge_operationnelle": 6.7,
+      "marge_nette": 51.9,
+      "prix": 775.9,
+      "nombre_actions": 1.0,
+      "secteur": "Technologie",
+      "variation_jour": 0.77,
+      "date_ipo": "28/02/2007",
+      "actionnariat": [
+        {
+          "nom": "Structure Actionnariat Flottant en Bourse",
+          "pct": 31.2
+        },
+        {
+          "nom": "HAKAM Abdellatif Finance SA",
+          "pct": 20.7
+        },
+        {
+          "nom": "RMA Watanya",
+          "pct": 10.0
+        },
+        {
+          "nom": "Millenium Ventures",
+          "pct": 9.6
+        },
+        {
+          "nom": "RADI BENJELLOUN Karim",
+          "pct": 7.5
+        },
+        {
+          "nom": "Groupe AZIM",
+          "pct": 7.4
+        },
+        {
+          "nom": "BELMAACHI Najib Hakim",
+          "pct": 6.0
+        },
+        {
+          "nom": "Groupe Anacleto",
+          "pct": 5.4
+        }
+      ]
+    },
+    {
+      "ticker": "TMA",
+      "nom": "TOTALENERGIES MARKETING MAROC",
+      "url": "https://www.casablancabourse.com/TMA/action/capitalisation/",
+      "capitalisation": 13350000000.0,
+      "per": 207.14,
+      "rendement_dividende": 6.01,
+      "classement": 16,
+      "resultat_net": 50000000.0,
+      "marge_operationnelle": 2.5,
+      "marge_nette": 12.0,
+      "prix": 1490.0,
+      "nombre_actions": 8.0,
+      "secteur": "Pétrole et Gaz",
+      "variation_jour": 1.36,
+      "date_ipo": "29/05/2015",
+      "actionnariat": [
+        {
+          "nom": "TotalEnergies Marketing Afrique",
+          "pct": 55.0
+        },
+        {
+          "nom": "Zahid International FZE",
+          "pct": 30.0
+        },
+        {
+          "nom": "Flottant en Bourse",
+          "pct": 15.0
+        }
+      ]
+    },
+    {
+      "ticker": "MIC",
+      "nom": "MICRODATA",
+      "url": "https://www.casablancabourse.com/MIC/action/capitalisation/",
+      "capitalisation": 1220000000.0,
+      "per": 17.65,
+      "rendement_dividende": 5.52,
+      "classement": 56,
+      "chiffre_affaires": 751000000.0,
+      "resultat_net": 57000000.0,
+      "marge_operationnelle": 12.0,
+      "marge_nette": 63.3,
+      "prix": 725.0,
+      "nombre_actions": 1.0,
+      "secteur": "Technologie",
+      "variation_jour": 0.15,
+      "date_ipo": "31/12/2007",
+      "actionnariat": [
+        {
+          "nom": "Structure Actionnariat AMOR Hassane",
+          "pct": 56.2
+        },
+        {
+          "nom": "Flottant en Bourse",
+          "pct": 38.8
+        },
+        {
+          "nom": "HAKAM Abdellatif Finance SA",
+          "pct": 5.0
+        }
+      ]
+    },
+    {
+      "ticker": "ALM",
+      "nom": "ALUMINIUM DU MAROC",
+      "url": "https://www.casablancabourse.com/ALM/action/capitalisation/",
+      "capitalisation": 813560000.0,
+      "per": 95.73,
+      "rendement_dividende": 6.3,
+      "classement": 60,
+      "resultat_net": 7000000.0,
+      "marge_operationnelle": 6.6,
+      "marge_nette": 7.9,
+      "prix": 1746.0,
+      "nombre_actions": 465.0,
+      "secteur": "Bâtiment",
+      "variation_jour": 0.63,
+      "date_ipo": "27/10/1998",
+      "actionnariat": [
+        {
+          "nom": "Structure Actionnariat Holding S.A",
+          "pct": 32.7
+        },
+        {
+          "nom": "Flottant en Bourse",
+          "pct": 19.6
+        },
+        {
+          "nom": "Sopinord",
+          "pct": 19.0
+        },
+        {
+          "nom": "EL AYOUBI Hamza",
+          "pct": 4.9
+        },
+        {
+          "nom": "Cofinord",
+          "pct": 4.5
+        },
+        {
+          "nom": "Alucoil S.A.U",
+          "pct": 3.6
+        },
+        {
+          "nom": "EL ALAMI Mohamed",
+          "pct": 3.5
+        },
+        {
+          "nom": "SEBTI Fettouma",
+          "pct": 2.9
+        }
+      ]
+    },
+    {
+      "ticker": "CTM",
+      "nom": "CTM",
+      "url": "https://www.casablancabourse.com/CTM/action/capitalisation/",
+      "capitalisation": 1060000000.0,
+      "per": 11.07,
+      "rendement_dividende": 3.01,
+      "classement": 57,
+      "chiffre_affaires": 656000000.0,
+      "resultat_net": 63000000.0,
+      "marge_operationnelle": 8.1,
+      "marge_nette": 118.8,
+      "prix": 865.0,
+      "nombre_actions": 1.0,
+      "secteur": "Transport",
+      "variation_jour": 0.0,
+      "date_ipo": "03/06/1993",
+      "description": "Filiale de O Capital Group (ex FinanceCom), CTM est le leader historique dans le secteur du transport routier des voyageurs depuis sa création en 1919. CTM opère également dans le transport touristique et le secteur de la Messagerie Express à travers ses filiales CTM Transport et CTM Messagerie. Dirigée par M. Ezzoubeir ERRHAIMINI, la société dispose d'une flotte de 230 autocars et de plus de 80 points de vente. CTM prévoit de renforcer les fondements de sa nouvelle stratégie de développement avec une attention particulière accordée au transport interurbain, le lancement de CTM Premium et le démarrage du nouveau centre de tri CTM Messagerie. Par ailleurs, CTM a procédé à la signature de conventions de partenariat avec le Sénégal et la Mauritanie pour l'ouverture des lignes Nouakchott et Dakar. Capitalisation Dividendes",
+      "actionnariat": [
+        {
+          "nom": "Structure Actionnariat RMA Watanya",
+          "pct": 49.5
+        },
+        {
+          "nom": "Joummani et Consorts",
+          "pct": 23.0
+        },
+        {
+          "nom": "Flottant en Bourse",
+          "pct": 21.3
+        },
+        {
+          "nom": "HAKAM Abdellatif Finance SA",
+          "pct": 5.0
+        },
+        {
+          "nom": "Interfina",
+          "pct": 1.2
+        }
+      ]
+    },
+    {
+      "ticker": "DYT",
+      "nom": "Disty Technologies",
+      "url": "https://www.casablancabourse.com/DYT/action/capitalisation/",
+      "capitalisation": 339360000.0,
+      "per": 10.18,
+      "rendement_dividende": 5.88,
+      "classement": 67,
+      "chiffre_affaires": 541000000.0,
+      "resultat_net": 19000000.0,
+      "marge_operationnelle": 5.4,
+      "marge_nette": 64.5,
+      "prix": 340.0,
+      "nombre_actions": 998.0,
+      "secteur": "Technologie",
+      "variation_jour": 2.41,
+      "date_ipo": "08/07/2022",
+      "description": "DISTY TECHNOLOGIES SA est un importateur et distributeur de matériel informatique. la société a lancé ses opérations début 2013 dans le secteur de la distribution des technologies de l’information autour d’unnombre réduit d’importateurs-distributeurs pour apporter un souffle nouveau au secteur des TI au Maroc. Aujourd'hui Disty Technologies opère  exclusivement, en mode indirect, auprès des professionnels des TI (revendeurs, intégrateurs, VARs, chaînes de distribution) et leur propose un accompagnement personnalisé tout au long du processus de vente. Capitalisation Dividendes",
+      "actionnariat": [
+        {
+          "nom": "Structure Actionnariat Flottant en Bourse",
+          "pct": 60.6
+        },
+        {
+          "nom": "Younès EL HIMDY",
+          "pct": 24.9
+        },
+        {
+          "nom": "PME Croissance",
+          "pct": 10.0
+        },
+        {
+          "nom": "Ahmed Reda CHAMI",
+          "pct": 4.5
+        }
+      ]
+    },
+    {
+      "ticker": "EQD",
+      "nom": "EQDOM",
+      "url": "https://www.casablancabourse.com/EQD/action/capitalisation/",
+      "capitalisation": 2570000000.0,
+      "per": 18.63,
+      "rendement_dividende": 3.7,
+      "classement": 42,
+      "chiffre_affaires": 553000000.0,
+      "resultat_net": 89000000.0,
+      "marge_operationnelle": 27.6,
+      "marge_nette": 58.0,
+      "prix": 1539.0,
+      "nombre_actions": 1.0,
+      "secteur": "Financement",
+      "variation_jour": -0.26,
+      "date_ipo": "21/09/1978",
+      "description": "Filiale du Groupe Société générale depuis 2002, Eqdom est une société spécialisée dans le crédit à la consommation destiné principalement à l'acquisition de véhicules ou d'équipements ménagers et le crédit personnel dont l'objet n'est pas spécifié. En moyenne, le prêt non affecté représente près de 80% de l’encours brut. Le maintien de la stratégie de diversification de la clientèle de la société a abouti à une structure plus équilibrée de son portefeuille qui englobe désormais les fonctionnaires, les employés du secteur privé, les retraités et les professions libérales. Capitalisation Dividendes",
+      "actionnariat": [
+        {
+          "nom": "Actionnariat SG Consumer Finance",
+          "pct": 35.0
+        },
+        {
+          "nom": "SGMB",
+          "pct": 18.8
+        },
+        {
+          "nom": "RCAR",
+          "pct": 16.9
+        },
+        {
+          "nom": "Flottant en Bourse",
+          "pct": 15.1
+        },
+        {
+          "nom": "CIMR",
+          "pct": 6.0
+        },
+        {
+          "nom": "SCR",
+          "pct": 5.2
+        },
+        {
+          "nom": "Investima",
+          "pct": 3.1
+        }
+      ]
+    },
+    {
+      "ticker": "ZDJ",
+      "nom": "ZELLIDJA S.A",
+      "url": "https://www.casablancabourse.com/ZDJ/action/capitalisation/",
+      "capitalisation": 105980000.0,
+      "rendement_dividende": 2.61,
+      "classement": 73,
+      "chiffre_affaires": 603000000.0,
+      "resultat_net": -1000000.0,
+      "marge_operationnelle": 2.5,
+      "marge_nette": -7.3,
+      "prix": 185.0,
+      "nombre_actions": 572.0,
+      "secteur": "Holdings",
+      "variation_jour": 2.78,
+      "date_ipo": "20/06/1955",
+      "description": "Filiale du Groupe SOMED, ZELLIDJA est une société de portefeuille qui oeuvre principalement dans les secteurs du BTP et de l’industrie, notamment à travers ses participations au capital de Fenie Brossette, Rebab Company et la Société des Fonderies de Plomb de Zelidja - SFPZ (en cours de liquidation). ZELLIDJA détient aussi la société Al Ain portant le projet immobilier Résidences Clémentines à Casablanca et détenant des terrains à Marrakech. Dirigée par M. Abdelmjid TAZLAOUI, ZELLIDJA opère également dans le secteur touristique (chaîne d'hôtels Almohades) à travers ses filiales Atlantis et la Société Financière d'Africa Palace Maroc - SFAPM. Capitalisation Dividendes",
+      "actionnariat": [
+        {
+          "nom": "Structure Actionnariat SOMED",
+          "pct": 69.5
+        },
+        {
+          "nom": "AXA Assurances Maroc",
+          "pct": 17.6
+        },
+        {
+          "nom": "Al Hoceinia SA",
+          "pct": 5.0
+        },
+        {
+          "nom": "Rebab Company",
+          "pct": 4.6
+        },
+        {
+          "nom": "Flottant en Bourse",
+          "pct": 3.3
+        }
+      ]
+    },
+    {
+      "ticker": "MLE",
+      "nom": "MAROC LEASING",
+      "url": "https://www.casablancabourse.com/MLE/action/capitalisation/",
+      "capitalisation": 1010000000.0,
+      "per": 9.6,
+      "rendement_dividende": 3.64,
+      "classement": 58,
+      "chiffre_affaires": 410000000.0,
+      "resultat_net": 104000000.0,
+      "marge_operationnelle": 44.3,
+      "marge_nette": 57.5,
+      "prix": 365.0,
+      "nombre_actions": 2.0,
+      "secteur": "Financement",
+      "variation_jour": -0.03,
+      "date_ipo": "27/02/1997",
+      "description": "Pionnier du crédit-bail au Maroc avec une expérience de plus de 45 ans, Maroc Leasing propose le financement par voie de location à bail de tous les biens mobiliers et immobiliers à usage professionnel, commercial ou industriel. Adossé au Groupe Banque Populaire, Maroc Leasing dispose du premier réseau de distribution au Maroc constitué par les agences des Banques Populaires Régionales (BPR). Dirigée par M. Adil RZAL, la société compte également dans son tour de table le Crédit Immobilier et Hôtelier. Une prise de participation qui pourrait se matérialiser par la dynamisation des activités de Maroc Leasing. Capitalisation Dividendes",
+      "actionnariat": [
+        {
+          "nom": "Structure Actionnariat BCP",
+          "pct": 53.1
+        },
+        {
+          "nom": "Holdparts",
+          "pct": 34.0
+        },
+        {
+          "nom": "Flottant en Bourse",
+          "pct": 7.1
+        },
+        {
+          "nom": "The Arab Investment Company SA",
+          "pct": 5.7
+        }
+      ]
+    },
+    {
+      "ticker": "PRO",
+      "nom": "PROMOPHARM S.A.",
+      "url": "https://www.casablancabourse.com/PRO/action/capitalisation/",
+      "capitalisation": 1340000000.0,
+      "per": 17.57,
+      "rendement_dividende": 2.24,
+      "classement": 51,
+      "chiffre_affaires": 806000000.0,
+      "resultat_net": 57000000.0,
+      "marge_operationnelle": 12.5,
+      "marge_nette": 56.5,
+      "prix": 1339.0,
+      "nombre_actions": 1.0,
+      "secteur": "Pharmaceutiques",
+      "variation_jour": -0.45,
+      "date_ipo": "15/06/2007",
+      "description": "Avec un portefeuille de près de 65 produits de marque, la Société de Promotion Pharmaceutique du Maghreb (Promopharm S.A.) est spécialisée dans la production et la commercialisation de produits parapharmaceutiques, de dermopharmacie et de cosmétologie. Dirigée par M. Abdelkarim KABECH, Promopharm est adossée, depuis fin 2011, au Groupe jordanien Hikma Pharmaceuticals PLC, qui détient actuellement près de 95% de la société marocaine. Promopharm projette de poursuivre son plan de développement, axé principalement sur le positionnement sur les médicaments génériques ainsi que sur le renforcement de ses écoulements sur le marché à l’export, capitalisant sur la notoriété de Hikma à l’international, notamment en Europe et aux Etats-Unis. Capitalisation Dividendes",
+      "actionnariat": [
+        {
+          "nom": "Actionnariat Hikma MENA Holdings Limited",
+          "pct": 94.1
+        },
+        {
+          "nom": "Flottant en Bourse",
+          "pct": 5.9
+        }
+      ]
+    },
+    {
+      "ticker": "S2M",
+      "nom": "S.M MONETIQUE",
+      "url": "https://www.casablancabourse.com/S2M/action/capitalisation/",
+      "capitalisation": 376800000.0,
+      "per": 6.79,
+      "rendement_dividende": 5.44,
+      "classement": 65,
+      "chiffre_affaires": 280000000.0,
+      "resultat_net": 22000000.0,
+      "marge_operationnelle": 13.4,
+      "marge_nette": 57.3,
+      "prix": 464.0,
+      "nombre_actions": 812.0,
+      "secteur": "Technologie",
+      "variation_jour": 1.75,
+      "date_ipo": "27/12/2011",
+      "actionnariat": [
+        {
+          "nom": "Structure Actionnariat SA MEDTECH",
+          "pct": 52.7
+        },
+        {
+          "nom": "Flottant en Bourse",
+          "pct": 24.3
+        },
+        {
+          "nom": "CHADHA Holding",
+          "pct": 15.8
+        },
+        {
+          "nom": "AMKD",
+          "pct": 4.5
+        },
+        {
+          "nom": "Personnel",
+          "pct": 2.8
+        }
+      ]
+    },
+    {
+      "ticker": "SRM",
+      "nom": "REALISATIONS MECANIQUES",
+      "url": "https://www.casablancabourse.com/SRM/action/capitalisation/",
+      "capitalisation": 147170000.0,
+      "rendement_dividende": 5.12,
+      "classement": 71,
+      "chiffre_affaires": 313000000.0,
+      "resultat_net": -9000000.0,
+      "marge_operationnelle": -0.2,
+      "marge_nette": 1246.0,
+      "prix": 459.9,
+      "nombre_actions": 320.0,
+      "secteur": "Distributeurs",
+      "variation_jour": 2.2,
+      "date_ipo": "12/12/2006",
+      "description": "Adossée au Groupe Premium depuis 1949, la Société de Réalisations Mécaniques (SRM) est spécialisée dans la distribution de biens d'équipements, matériels, fournitures et services dans les domaines du BTP et de la manutention. La stratégie de l'entreprise est d'apporter à ses clients des solutions clés en main (full-line) incorporant le conseil, les équipements et la maintenance. Dirigée par M. Sidi M'chich ALAMI HASSANI, la SRM a conclu des contrats avec Renault et SDMO, un des leaders mondiaux dans le domaine des groupes électrogènes. Capitalisation Dividendes",
+      "actionnariat": [
+        {
+          "nom": "Structure Actionnariat Groupe Premium",
+          "pct": 78.1
+        },
+        {
+          "nom": "Flottant en Bourse",
+          "pct": 16.5
+        },
+        {
+          "nom": "RCAR",
+          "pct": 5.4
+        }
+      ]
+    },
+    {
+      "ticker": "NKL",
+      "nom": "ENNAKL",
+      "url": "https://www.casablancabourse.com/NKL/action/capitalisation/",
+      "capitalisation": 1490000000.0,
+      "per": 6.89,
+      "rendement_dividende": 6.33,
+      "classement": 47,
+      "resultat_net": 134000000.0,
+      "marge_operationnelle": 9.0,
+      "marge_nette": 64.6,
+      "prix": 49.8,
+      "nombre_actions": 30.0,
+      "secteur": "Distributeurs",
+      "variation_jour": 1.63,
+      "date_ipo": "13/07/2010",
+      "actionnariat": [
+        {
+          "nom": "Structure Actionnariat PGI Holding",
+          "pct": 52.3
+        },
+        {
+          "nom": "Poulina Groupe Holding",
+          "pct": 29.6
+        },
+        {
+          "nom": "Flottant Bourse de Tunis",
+          "pct": 10.5
+        },
+        {
+          "nom": "Flottant Bourse de Casablanca",
+          "pct": 7.7
+        }
+      ]
+    },
+    {
+      "ticker": "BAL",
+      "nom": "BALIMA",
+      "url": "https://www.casablancabourse.com/BAL/action/capitalisation/",
+      "capitalisation": 348800000.0,
+      "per": 36.27,
+      "rendement_dividende": 2.39,
+      "classement": 66,
+      "chiffre_affaires": 52000000.0,
+      "resultat_net": 9000000.0,
+      "marge_operationnelle": 19.2,
+      "marge_nette": 89.7,
+      "prix": 200.0,
+      "nombre_actions": 1.0,
+      "secteur": "Placement Immobilier",
+      "variation_jour": 3.09,
+      "date_ipo": "05/07/1946",
+      "description": "Créée en 1928, Balima est une société immobilière qui gère l'acquisition, la vente, la revente, la location, la gérance, l'échange d'immeubles urbains et l’édification d'immeubles. Dirigée par Mme. Jacqueline MATHIAS, la société, sise à Rabat, semble tirer profit de la restructuration de son parc immobilier ainsi que de son orientation vers une niche à plus forte valeur ajoutée. En effet, Balima envisage de consolider son positionnement sur le segment tertiaire (commerce et bureaux), plus propice à l'investissement locatif. En parallèle, la société prévoit de constituer une réserve foncière à développer à court et à moyen terme. Dans cette optique, la société étudie plusieurs opportunités d'investissement en zone périurbaine, où le foncier demeure plus accessible qu'au centre-ville de Rabat. Capitalisation Dividendes",
+      "actionnariat": [
+        {
+          "nom": "Structure Actionnariat MATHIAS Jaqueline",
+          "pct": 29.9
+        },
+        {
+          "nom": "Argan Invest",
+          "pct": 22.4
+        },
+        {
+          "nom": "Multitec Electronics NV",
+          "pct": 21.7
+        },
+        {
+          "nom": "Flottant en Bourse",
+          "pct": 15.9
+        },
+        {
+          "nom": "RMA Watanya",
+          "pct": 10.0
+        }
+      ]
+    },
+    {
+      "ticker": "M2M",
+      "nom": "M2M GROUP",
+      "url": "https://www.casablancabourse.com/M2M/action/capitalisation/",
+      "capitalisation": 249330000.0,
+      "rendement_dividende": 5.32,
+      "classement": 69,
+      "chiffre_affaires": 79000000.0,
+      "resultat_net": -15000000.0,
+      "marge_operationnelle": -13.1,
+      "marge_nette": 143.0,
+      "prix": 384.9,
+      "nombre_actions": 647.0,
+      "secteur": "Technologie",
+      "variation_jour": 6.92,
+      "date_ipo": "04/07/2007",
+      "actionnariat": [
+        {
+          "nom": "Structure Actionnariat RMK SA",
+          "pct": 65.4
+        },
+        {
+          "nom": "Flottant en Bourse",
+          "pct": 26.2
+        },
+        {
+          "nom": "RMA Asset Management",
+          "pct": 8.3
+        }
+      ]
+    },
+    {
+      "ticker": "INV",
+      "nom": "INVOLYS",
+      "url": "https://www.casablancabourse.com/INV/action/capitalisation/",
+      "capitalisation": 48600000.0,
+      "per": 48.89,
+      "rendement_dividende": 4.72,
+      "classement": 77,
+      "chiffre_affaires": 37000000.0,
+      "resultat_net": 1000000.0,
+      "marge_operationnelle": 4.9,
+      "marge_nette": 38.9,
+      "prix": 127.0,
+      "nombre_actions": 382.0,
+      "secteur": "Technologie",
+      "variation_jour": 1.6,
+      "date_ipo": "14/12/2006",
+      "description": "Forte d'une expérience de plus de 35 ans, Involys consolide son positionnement en tant qu’acteur majeur dans le conseil, l’édition et l’intégration de solutions logicielles métiers. La société dispose d'une offre de progiciels intégrés, modulaires et organisés pour accompagner les projets stratégiques des entreprises et organismes publics notamment sur les domaines suivants : budgets et dépenses, patrimoine foncier, immobilier et mobilier, RH et paie... etc. Dirigée par M. Mountasser FASSI-FIHRI, ses produits sont implantés à travers plusieurs milliers de licences dans divers pays d'Europe, Afrique et Russie. Involys a décroché plusieurs marchés au Gabon et a décidé d'y implanter une filiale, la première en région subsaharienne et la deuxième à l’échelle continentale après la Tunisie. Capitalisation Dividendes",
+      "actionnariat": [
+        {
+          "nom": "Structure Actionnariat AM Invest Morocco",
+          "pct": 37.5
+        },
+        {
+          "nom": "Flottant en Bourse",
+          "pct": 34.8
+        },
+        {
+          "nom": "RACHDI Bachir",
+          "pct": 9.8
+        },
+        {
+          "nom": "BENNANI Omar",
+          "pct": 7.1
+        },
+        {
+          "nom": "EL OUARZAZI Héritiers",
+          "pct": 5.8
+        },
+        {
+          "nom": "LARAKI Walid",
+          "pct": 5.1
+        }
+      ]
+    },
+    {
+      "ticker": "REB",
+      "nom": "REBAB COMPANY",
+      "url": "https://www.casablancabourse.com/REB/action/capitalisation/",
+      "capitalisation": 16590000.0,
+      "per": 69.84,
+      "rendement_dividende": 2.1,
+      "classement": 80,
+      "chiffre_affaires": 0.0,
+      "resultat_net": 0.0,
+      "marge_operationnelle": -1205.5,
+      "marge_nette": -60.2,
+      "prix": 94.0,
+      "nombre_actions": 176.0,
+      "secteur": "Mines",
+      "variation_jour": 0.0,
+      "date_ipo": "12/11/1984",
+      "description": "Créée en 1946 sous la dénomination de Penarroya Maroc, Rebab Company SA Limited est une filiale du Fonds Abu Dhabi, institution nationale de développement mise en place par le gouvernement émirati. La société assure la recherche, la mise en valeur et l'exploitation de toutes mines, métalliques ou autres. Dirigée par M. Shabeeb AL DARMAKI, les principales filiales de Rebab Company sont Zellidja S.A., la société des Fonderies de Plomb de Zellidja, la société Delma et Daewoo Rabat. Par ailleurs, la société a acquis en 2011, 30% du capital de la société Narjis d’Investissements Touristiques SA, propriétaire d’un hôtel 4* à Fès inauguré sous l’enseigne Barcelo. Capitalisation Dividendes",
+      "actionnariat": [
+        {
+          "nom": "Structure Actionnariat Fonds Abu Dhabi",
+          "pct": 82.8
+        },
+        {
+          "nom": "Flottant en Bourse",
+          "pct": 9.3
+        },
+        {
+          "nom": "Zellidja SA",
+          "pct": 4.5
+        },
+        {
+          "nom": "SOMED",
+          "pct": 3.4
+        }
+      ]
+    },
+    {
+      "ticker": "MOX",
+      "nom": "MAGHREB OXYGENE",
+      "url": "https://www.casablancabourse.com/MOX/action/capitalisation/",
+      "capitalisation": 296520000.0,
+      "per": 19.66,
+      "rendement_dividende": 1.1,
+      "classement": 68,
+      "chiffre_affaires": 291000000.0,
+      "resultat_net": 10000000.0,
+      "marge_operationnelle": 1.4,
+      "marge_nette": 235.3,
+      "prix": 364.95,
+      "nombre_actions": 812.0,
+      "secteur": "Chimie",
+      "variation_jour": 0.0,
+      "date_ipo": "17/06/1999",
+      "description": "Fondée en 1977, la société Maghreb Oxygène produit, conditionne et commercialise des gaz industriels, médicaux, alimentaires et spéciaux. Elle opère également dans le négoce de produits et matériels de soudage, de l’équipement médical ainsi que dans l’ingénierie d’installation de canalisations de fluides industriels, médicaux et de laboratoire. En parallèle, Maghreb Oxygène a lancé en 2011 son activité « on-site » à travers SODEGIM (créée en joint-venture avec Air Liquide). Cette filiale a débuté la production du gaz d’argan devenant ainsi la première société à produire ce gaz au Maroc. Elle disposerait d’une capacité de production couvrant le totalité du marché local. Maghreb Oxygène est dirigée par M. Youssef GUENNOUN. Capitalisation Dividendes",
+      "actionnariat": [
+        {
+          "nom": "Structure Actionnariat AKWA Holding",
+          "pct": 62.5
+        },
+        {
+          "nom": "HAKAM Abdellatif Finance",
+          "pct": 20.0
+        },
+        {
+          "nom": "RMA Watanya",
+          "pct": 4.0
+        },
+        {
+          "nom": "Atlanta",
+          "pct": 4.0
+        },
+        {
+          "nom": "Famille AKHANNOUCH",
+          "pct": 3.3
+        },
+        {
+          "nom": "CDG",
+          "pct": 2.0
+        },
+        {
+          "nom": "WAKRIM Mehdi",
+          "pct": 1.9
+        },
+        {
+          "nom": "Flottant en Bourse",
+          "pct": 1.6
+        }
+      ]
+    },
+    {
+      "ticker": "DIS",
+      "nom": "DIAC SALAF",
+      "url": "https://www.casablancabourse.com/DIS/action/capitalisation/",
+      "capitalisation": 27650000.0,
+      "rendement_dividende": 7.0,
+      "classement": 78,
+      "prix": 26.25,
+      "nombre_actions": 1.0,
+      "secteur": "Financement",
+      "variation_jour": 0.0,
+      "date_ipo": "01/06/1962",
+      "description": "Créée en 1948, Diac Salaf est dédiée au crédit à la consommation de tous biens à usage industriel, domestique et ménager. Malgré son désengagement du crédit automobile en 1999 dans le but d'abaisser le montant de ses impayés, Diac Salaf a cessé sa production depuis 2004 et ce, suite à des difficultés financières. Dirigée par M. Abdelkrim BENCHERKI, Diac Salaf s’est vu retirer son agrément le 28 février 2013, après de longues tractations pour tenter de sauver la société. En juin 2013, Bank Al-Maghrib a désigné un liquidateur pour la société de financement, en procédure de liquidation judiciaire. Le mandat de l’expert judiciaire a été fixé à une année renouvelable. Capitalisation Dividendes",
+      "actionnariat": []
+    },
+    {
+      "ticker": "IBC",
+      "nom": "IB MAROC.COM",
+      "url": "https://www.casablancabourse.com/IBC/action/capitalisation/",
+      "capitalisation": 24300000.0,
+      "per": 0.0,
+      "rendement_dividende": 5.2,
+      "classement": 79,
+      "prix": 58.21,
+      "nombre_actions": 417.0,
+      "secteur": "Technologie",
+      "variation_jour": 0.0,
+      "date_ipo": "10/07/2001",
+      "actionnariat": [
+        {
+          "nom": "Structure Actionnariat IB Corp",
+          "pct": 56.7
+        },
+        {
+          "nom": "Flottant en Bourse",
+          "pct": 43.3
+        }
+      ]
+    },
+    {
+      "ticker": "SAM",
+      "nom": "Samir",
+      "url": "https://www.casablancabourse.com/SAM/action/capitalisation/",
+      "capitalisation": 1520000000.0,
+      "rendement_dividende": 3.02,
+      "classement": 46,
+      "prix": 127.8,
+      "nombre_actions": 11.0,
+      "secteur": "Pétrole et Gaz",
+      "variation_jour": 0.0,
+      "date_ipo": "19/03/1996",
+      "actionnariat": []
+    },
+    {
+      "ticker": "DLM",
+      "nom": "DELATTRE LEVIVIER MAROC",
+      "url": "https://www.casablancabourse.com/DLM/action/capitalisation/",
+      "capitalisation": 50000000.0,
+      "per": 0.0,
+      "rendement_dividende": 3.69,
+      "classement": 76,
+      "prix": 40.0,
+      "nombre_actions": 1.0,
+      "secteur": "Biens d'équipement",
+      "variation_jour": 0.0,
+      "date_ipo": "29/04/2008",
+      "actionnariat": []
+    },
+    {
+      "ticker": "OUL",
+      "nom": "OULMES",
+      "url": "https://www.casablancabourse.com/OUL/action/capitalisation/",
+      "capitalisation": 2280000000.0,
+      "per": 41.76,
+      "rendement_dividende": 3.48,
+      "classement": 43,
+      "resultat_net": 64000000.0,
+      "marge_operationnelle": 7.0,
+      "marge_nette": 34.9,
+      "prix": 1153.0,
+      "nombre_actions": 1.0,
+      "secteur": "Boissons",
+      "variation_jour": 0.0,
+      "date_ipo": "13/08/1943",
+      "actionnariat": [
+        {
+          "nom": "Structure Actionnariat AtlantaSanad",
+          "pct": 29.1
+        },
+        {
+          "nom": "Holmarcom",
+          "pct": 24.2
+        },
+        {
+          "nom": "Omnium Marocain d'Investissement",
+          "pct": 21.3
+        },
+        {
+          "nom": "Sochepar",
+          "pct": 11.2
+        },
+        {
+          "nom": "Flottant en Bourse",
+          "pct": 9.8
+        },
+        {
+          "nom": "Famille BENSALAH",
+          "pct": 4.3
+        }
+      ]
+    },
+    {
+      "ticker": "MAB",
+      "nom": "MAGHREBAIL",
+      "url": "https://www.casablancabourse.com/MAB/action/capitalisation/",
+      "capitalisation": 1250000000.0,
+      "per": 9.86,
+      "rendement_dividende": 5.89,
+      "classement": 53,
+      "chiffre_affaires": 332000000.0,
+      "resultat_net": 128000000.0,
+      "marge_operationnelle": 68.7,
+      "marge_nette": 56.0,
+      "prix": 900.0,
+      "nombre_actions": 1.0,
+      "secteur": "Financement",
+      "variation_jour": 0.0,
+      "date_ipo": "10/07/1997",
+      "description": "Filiale leasing du Groupe BMCE Bank, Maghrebail démarre ses activités en 1972. Elle est spécialisée dans le financement en leasing de biens mobiliers (biens d’équipements adaptés à tous les secteurs d'activité) et immobiliers destinés aux professionnels et aux entreprises du Maroc. Pour faire face à la forte montée du risque, Maghrebail poursuit le développement des synergies avec le Groupe BMCE qui devrait porter à près de 50-60% les réalisations intra-groupe. Dirigée par M. Azeddine Guessous, la société est également membre de la fédération européenne des associations nationales de leasing, Leaseurope. Capitalisation Dividendes",
+      "actionnariat": [
+        {
+          "nom": "Structure Actionnariat BMCE Bank",
+          "pct": 52.5
+        },
+        {
+          "nom": "RMA Watanya",
+          "pct": 28.0
+        },
+        {
+          "nom": "Flottant en Bourse",
+          "pct": 11.6
+        },
+        {
+          "nom": "Groupe MCMA-MAMDA",
+          "pct": 8.0
+        }
+      ]
+    },
+    {
+      "ticker": "CMT",
+      "nom": "MINIERE TOUISSIT",
+      "url": "https://www.casablancabourse.com/CMT/action/capitalisation/",
+      "capitalisation": 7310000000.0,
+      "per": 11.55,
+      "rendement_dividende": 0.94,
+      "classement": 30,
+      "chiffre_affaires": 592000000.0,
+      "resultat_net": 159000000.0,
+      "marge_operationnelle": 51.6,
+      "marge_nette": 51.9,
+      "prix": 4350.0,
+      "nombre_actions": 1.0,
+      "secteur": "Mines",
+      "variation_jour": 0.0,
+      "date_ipo": "04/06/2008",
+      "actionnariat": [
+        {
+          "nom": "Structure Actionnariat Flottant en Bourse",
+          "pct": 48.6
+        },
+        {
+          "nom": "OSEAD Maroc Mining",
+          "pct": 37.0
+        },
+        {
+          "nom": "CIMR",
+          "pct": 14.4
+        }
+      ]
+    },
+    {
+      "ticker": "AGM",
+      "nom": "AGMA",
+      "url": "https://www.casablancabourse.com/AGM/action/capitalisation/",
+      "capitalisation": 1370000000.0,
+      "per": 20.16,
+      "rendement_dividende": 4.52,
+      "classement": 49,
+      "chiffre_affaires": 161000000.0,
+      "resultat_net": 63000000.0,
+      "marge_operationnelle": 55.7,
+      "marge_nette": 70.7,
+      "prix": 6860.0,
+      "nombre_actions": 200.0,
+      "secteur": "Assurances",
+      "variation_jour": 0.0,
+      "date_ipo": "09/11/1998",
+      "actionnariat": [
+        {
+          "nom": "Structure Actionnariat ONA Courtage",
+          "pct": 50.0
+        },
+        {
+          "nom": "Flottant en Bourse",
+          "pct": 31.5
+        },
+        {
+          "nom": "Patrimoine Gestion et Placements",
+          "pct": 18.4
+        }
+      ]
+    },
+    {
+      "ticker": "NEJ",
+      "nom": "AUTO NEJMA",
+      "url": "https://www.casablancabourse.com/NEJ/action/capitalisation/",
+      "capitalisation": 5530000000.0,
+      "per": 16.02,
+      "rendement_dividende": 3.24,
+      "classement": 34,
+      "resultat_net": 158000000.0,
+      "marge_operationnelle": 11.6,
+      "marge_nette": 59.6,
+      "prix": 5400.0,
+      "nombre_actions": 1.0,
+      "secteur": "Distributeurs",
+      "variation_jour": 0.0,
+      "date_ipo": "03/05/1999",
+      "description": "Créée en 1963, Auto Nejma a pour objet l'importation et la commercialisation de véhicules et d'accessoires automobiles. Dirigé par M. Adil BENNANI, le Groupe est le distributeur exclusif des véhicules de tourisme et utilitaires Mercedes-Benz, SsangYong, Chrysler, Dodge et FAW. La société est en cours de renforcement de son réseau de distribution aussi bien en propre que via des concessionnaires indépendants. En 2013, Auto Nejma a conclu un partenariat de distribution avec le groupe indien Mahindra. Le management de la société a également annoncé le lancement d'une filière dédiée aux véhicules d’occasion. Capitalisation Dividendes",
+      "actionnariat": [
+        {
+          "nom": "Actionnariat HAKAM Abdellatif Finance SA",
+          "pct": 31.4
+        },
+        {
+          "nom": "MAD Invest",
+          "pct": 19.4
+        },
+        {
+          "nom": "FINAM SARL",
+          "pct": 14.3
+        },
+        {
+          "nom": "HAKAM El Abbes Participations",
+          "pct": 9.7
+        },
+        {
+          "nom": "ZAK Finance SARL",
+          "pct": 8.9
+        },
+        {
+          "nom": "BISMILLAH Holding",
+          "pct": 8.5
+        },
+        {
+          "nom": "LOUKSSOS Holding",
+          "pct": 4.6
+        },
+        {
+          "nom": "Flottant en Bourse",
+          "pct": 3.3
+        }
+      ]
+    },
+    {
+      "ticker": "UMR",
+      "nom": "Unimer",
+      "url": "https://www.casablancabourse.com/UMR/action/capitalisation/",
+      "capitalisation": 2020000000.0,
+      "rendement_dividende": 0.57,
+      "classement": 45,
+      "resultat_net": -34000000.0,
+      "marge_operationnelle": 3.3,
+      "marge_nette": -74.6,
+      "prix": 177.0,
+      "nombre_actions": 11.0,
+      "secteur": "Agroalimentaire",
+      "variation_jour": 0.0,
+      "date_ipo": "29/03/2001",
+      "actionnariat": [
+        {
+          "nom": "Structure Actionnariat SANAM Agro",
+          "pct": 53.0
+        },
+        {
+          "nom": "SANAM Holding",
+          "pct": 24.4
+        },
+        {
+          "nom": "Flottant en Bourse",
+          "pct": 15.3
+        },
+        {
+          "nom": "Sanlam Maroc",
+          "pct": 6.1
+        },
+        {
+          "nom": "Aljia Holding",
+          "pct": 1.2
+        }
+      ]
+    },
+    {
+      "ticker": "DRI",
+      "nom": "DARI COUSPATE",
+      "url": "https://www.casablancabourse.com/DRI/action/capitalisation/",
+      "capitalisation": 1250000000.0,
+      "per": 27.1,
+      "rendement_dividende": 3.51,
+      "classement": 52,
+      "chiffre_affaires": 874000000.0,
+      "resultat_net": 35000000.0,
+      "marge_operationnelle": 5.1,
+      "marge_nette": 79.2,
+      "prix": 4190.0,
+      "nombre_actions": 298.0,
+      "secteur": "Agroalimentaire",
+      "variation_jour": 0.0,
+      "date_ipo": "11/07/2005",
+      "actionnariat": [
+        {
+          "nom": "Structure Actionnariat Famille KHALIL",
+          "pct": 70.6
+        },
+        {
+          "nom": "Flottant en Bourse",
+          "pct": 29.4
+        }
+      ]
+    },
+    {
+      "ticker": "AFM",
+      "nom": "AFMA",
+      "url": "https://www.casablancabourse.com/AFM/action/capitalisation/",
+      "capitalisation": 1230000000.0,
+      "per": 20.0,
+      "rendement_dividende": 5.04,
+      "classement": 55,
+      "chiffre_affaires": 259000000.0,
+      "resultat_net": 60000000.0,
+      "marge_operationnelle": 40.9,
+      "marge_nette": 56.7,
+      "prix": 1231.0,
+      "nombre_actions": 1.0,
+      "secteur": "Assurances",
+      "variation_jour": 0.0,
+      "date_ipo": "15/12/2015",
+      "actionnariat": [
+        {
+          "nom": "Structure Actionnariat Groupe Ténor",
+          "pct": 52.6
+        },
+        {
+          "nom": "Flottant en Bourse",
+          "pct": 25.8
+        },
+        {
+          "nom": "CIMR",
+          "pct": 11.6
+        },
+        {
+          "nom": "FIPAR Holding",
+          "pct": 10.0
+        }
+      ]
+    }
   ]
 }
