@@ -62,10 +62,12 @@ def parse_company(ticker):
     soup = BeautifulSoup(resp.text, "html.parser")
     text = soup.get_text(" ", strip=True)
 
-    h1 = soup.find("h1")
     nom = None
-    if h1:
-        nom = re.sub(r"\s*Capitalisation.*$", "", h1.get_text(strip=True)).strip()
+    for h1 in soup.find_all("h1"):
+        h1_text = h1.get_text(strip=True)
+        if "Capitalisation à la Bourse de Casablanca" in h1_text:
+            nom = re.sub(r"\s*Capitalisation.*$", "", h1_text).strip()
+            break
 
     data = {"ticker": ticker, "nom": nom, "url": url}
 
