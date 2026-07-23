@@ -2288,8 +2288,8 @@ export default function Sahm() {
                     <tbody>
                       <tr className="opcvm-row-head">
                         <td>Nom de l'OPCVM</td>
-                        <td style={{ textAlign: "right" }}>Valeur</td>
                         <td style={{ textAlign: "right" }}>Encours (MAD)</td>
+                        <td style={{ textAlign: "right" }}>Valeur</td>
                         <td style={{ textAlign: "right" }}>Depuis janv.</td>
                         <td style={{ textAlign: "right" }}>1 jour</td>
                         <td style={{ textAlign: "right" }}>1 semaine</td>
@@ -2320,11 +2320,11 @@ export default function Sahm() {
                               <div className="fund-name">{f.nom}</div>
                               <div className="fund-gerant">{f.code}</div>
                             </td>
-                            <td className="mono" style={{ textAlign: "right", fontWeight: 600 }}>
-                              {f.valeur} MAD
-                            </td>
                             <td className="mono" style={{ textAlign: "right", color: "var(--ink-soft)" }}>
                               {f.encours != null ? f.encours.toLocaleString("fr-FR", { maximumFractionDigits: 0 }) : "—"}
+                            </td>
+                            <td className="mono" style={{ textAlign: "right", fontWeight: 600 }}>
+                              {f.valeur} MAD
                             </td>
                             <PercentCell value={f.ytd} />
                             <PercentCell value={f.jour} />
