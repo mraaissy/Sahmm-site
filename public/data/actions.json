@@ -1,0 +1,33 @@
+{
+  "updated_at": "2026-07-23T00:00:00+00:00",
+  "source": "casabourse.ma (site tiers, non affilié au site officiel de la Bourse de Casablanca)",
+  "companies": [
+    { "slug": "addoha", "nom": "Addoha", "ticker": "ADH", "secteur": "Immobilier", "prix": 33.45, "capitalisation": 13470000000, "per_ttm": 26.81, "dividende_rendement": 1.49 },
+    { "slug": "afma", "nom": "AFMA", "ticker": "AFM", "secteur": "Assurances", "prix": 1231.00, "capitalisation": 1230000000, "per_ttm": 16.99, "dividende_rendement": 5.04 },
+    { "slug": "afric-industries", "nom": "Afric Industries", "ticker": "AFI", "secteur": "Industrie", "prix": 323.05, "capitalisation": 94170000, "per_ttm": 12.70, "dividende_rendement": 6.19 },
+    { "slug": "afriquia-gaz", "nom": "Afriquia Gaz", "ticker": "GAZ", "secteur": "Énergie", "prix": 3660.00, "capitalisation": 12580000000, "per_ttm": 16.81, "dividende_rendement": 4.78 },
+    { "slug": "agma", "nom": "Agma", "ticker": "AGM", "secteur": "Assurances", "prix": 7170.00, "capitalisation": 1430000000, "per_ttm": 18.45, "dividende_rendement": 4.32 },
+    { "slug": "akdital", "nom": "Akdital", "ticker": "AKT", "secteur": "Santé", "prix": 1148.00, "capitalisation": 16250000000, "per_ttm": 33.08, "dividende_rendement": 1.22 },
+    { "slug": "alliances", "nom": "Alliances", "ticker": "ADI", "secteur": "Immobilier", "prix": 378.00, "capitalisation": 8350000000, "per_ttm": 21.16, "dividende_rendement": 1.06 },
+    { "slug": "aluminium-du-maroc", "nom": "Aluminium du Maroc", "ticker": "ALM", "secteur": "Industrie", "prix": 1819.00, "capitalisation": 847570000, "per_ttm": 14.30, "dividende_rendement": 6.05 },
+    { "slug": "aradei-capital", "nom": "Aradei Capital", "ticker": "ARD", "secteur": "OPCI", "prix": 420.00, "capitalisation": 5280000000, "per_ttm": 9.90, "dividende_rendement": 5.48 },
+    { "slug": "atlantasanad-assurance", "nom": "AtlantaSanad Assurance", "ticker": "ATL", "secteur": "Assurances", "prix": 123.00, "capitalisation": 7410000000, "per_ttm": 16.16, "dividende_rendement": 4.80 },
+    {
+      "slug": "attijariwafa-bank", "nom": "Attijariwafa bank", "ticker": "ATW", "secteur": "Banques",
+      "prix": 675.00, "variation_jour": -0.72, "capitalisation": 145220000000,
+      "per_ttm": 13.70, "per_forward": 12.83, "peg": 2.01,
+      "dividende_rendement": 3.26, "dividende_montant": 22.00, "payout_ratio": 44.65,
+      "tcac_ca": 5.67, "tcac_rn": 6.81,
+      "code_isin": "MA0000012445", "nombre_actions": 215140839,
+      "site_web": "https://www.attijariwafabank.com/",
+      "dividend_history": [
+        { "annee": "2025", "montant": 22.00, "type": "Ordinaire", "detachement": "08/07/2026", "paiement": "17/07/2026" },
+        { "annee": "2024", "montant": 19.00, "type": "Ordinaire", "detachement": "27/05/2025", "paiement": "05/06/2025" },
+        { "annee": "2023", "montant": 16.50, "type": "Ordinaire", "detachement": "10/07/2024", "paiement": "19/07/2024" },
+        { "annee": "2022", "montant": 15.50, "type": "Ordinaire", "detachement": "03/07/2023", "paiement": "12/07/2023" },
+        { "annee": "2021", "montant": 15.00, "type": "Ordinaire", "detachement": "05/07/2022", "paiement": "15/07/2022" }
+      ]
+    },
+    { "slug": "auto-hall", "nom": "Auto Hall", "ticker": "ATH", "secteur": "Automobile", "prix": 67.99, "capitalisation": 3420000000, "per_ttm": 34.76, "dividende_rendement": 2.94 }
+  ]
+}

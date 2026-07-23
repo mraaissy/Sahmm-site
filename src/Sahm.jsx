@@ -232,56 +232,43 @@ function TradingViewTickerTape() {
 function TradingViewMarketOverview() {
   const ref = useRef(null);
   useEffect(() => {
-    if (!ref.current || ref.current.querySelector("script")) return;
-    const script = document.createElement("script");
-    script.src = "https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js";
-    script.async = true;
-    script.innerHTML = JSON.stringify({
-      colorTheme: "light",
-      dateRange: "1D",
-      showChart: false,
-      locale: "fr",
-      isTransparent: true,
-      width: "100%",
-      height: "420",
-      plotLineColorGrowing: "rgba(30, 113, 69, 1)",
-      plotLineColorFalling: "rgba(168, 58, 58, 1)",
-      tabs: [
+    if (!ref.current || ref.current.querySelector("tv-market-overview")) return;
+
+    if (!document.querySelector('script[data-tv-market-overview="1"]')) {
+      const moduleScript = document.createElement("script");
+      moduleScript.type = "module";
+      moduleScript.src = "https://widgets.tradingview-widget.com/w/en/tv-market-overview.js";
+      moduleScript.setAttribute("data-tv-market-overview", "1");
+      document.head.appendChild(moduleScript);
+    }
+
+    const el = document.createElement("tv-market-overview");
+    el.setAttribute(
+      "symbol-sectors",
+      JSON.stringify([
         {
-          title: "Indices",
+          sectionName: "Indices",
           symbols: [
-            { s: "FOREXCOM:SPXUSD", d: "S&P 500" },
-            { s: "FOREXCOM:DJI", d: "Dow Jones" },
-            { s: "FOREXCOM:NSXUSD", d: "Nasdaq 100" },
-            { s: "FOREXCOM:FRXEUR", d: "CAC 40" },
-            { s: "XETR:DAX", d: "DAX" },
-            { s: "FOREXCOM:UK100", d: "FTSE 100" },
-            { s: "TVC:NI225", d: "Nikkei 225" },
-            { s: "ASX:XJO", d: "S&P/ASX 200" },
-            { s: "CSEMA:MASI", d: "MASI" },
+            "FOREXCOM:SPXUSD",
+            "FOREXCOM:DJI",
+            "FOREXCOM:NSXUSD",
+            "FOREXCOM:FRXEUR",
+            "XETR:DAX",
+            "FOREXCOM:UKXGBP",
+            "TVC:NI225",
+            "ASX:XJO",
+            "CSEMA:MASI",
           ],
-          originalTitle: "Indices",
         },
         {
-          title: "Matières 1ères",
-          symbols: [
-            { s: "TVC:GOLD", d: "Or" },
-            { s: "TVC:SILVER", d: "Argent" },
-            { s: "TVC:UKOIL", d: "Pétrole Brent" },
-            { s: "TVC:USOIL", d: "Pétrole WTI" },
-            { s: "NYMEX:NG1!", d: "Gaz naturel" },
-          ],
-          originalTitle: "Matières premières",
+          sectionName: "Matières 1ères",
+          symbols: ["TVC:GOLD", "TVC:SILVER", "TVC:UKOIL", "TVC:USOIL", "NYMEX:NG1!"],
         },
-      ],
-    });
-    ref.current.appendChild(script);
+      ])
+    );
+    ref.current.appendChild(el);
   }, []);
-  return (
-    <div className="tradingview-widget-container" ref={ref}>
-      <div className="tradingview-widget-container__widget"></div>
-    </div>
-  );
+  return <div className="tradingview-widget-container tv-market-overview-wrap" ref={ref}></div>;
 }
 
 function TradingViewMasiOverview() {
@@ -687,6 +674,19 @@ export default function Sahm() {
   const [opcvmPageTab, setOpcvmPageTab] = useState(opcvmCategoryList[0]);
   const [opcvmSearch, setOpcvmSearch] = useState("");
   const [selectedOpcvm, setSelectedOpcvm] = useState(null);
+  const [actionsData, setActionsData] = useState(null);
+  const [actionsSearch, setActionsSearch] = useState("");
+  const [selectedAction, setSelectedAction] = useState(null);
+  React.useEffect(() => {
+    let cancelled = false;
+    fetch("/data/actions.json", { cache: "no-store" })
+      .then((res) => (res.ok ? res.json() : null))
+      .then((data) => {
+        if (!cancelled && data) setActionsData(data);
+      })
+      .catch(() => {});
+    return () => { cancelled = true; };
+  }, []);
   const [page, setPage] = useState("accueil");
   const [dataTab, setDataTab] = useState("dividendes");
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
@@ -1690,6 +1690,13 @@ export default function Sahm() {
           min-width: 140px;
           max-width: 220px;
         }
+        .tv-market-overview-wrap {
+          width: 100%;
+        }
+        .tv-market-overview-wrap tv-market-overview {
+          display: block;
+          width: 100%;
+        }
 
         /* ---- Footer ---- */
         .footer {
@@ -1717,6 +1724,7 @@ export default function Sahm() {
             <a className={`nav-link ${page === "apprendre" ? "active" : ""}`} href="#" onClick={(e) => { e.preventDefault(); setPage("apprendre"); }}>Apprendre sur la bourse</a>
             <a className={`nav-link ${page === "seance" ? "active" : ""}`} href="#" onClick={(e) => { e.preventDefault(); setPage("seance"); }}>Séance Boursière</a>
             <a className={`nav-link ${page === "opcvm" ? "active" : ""}`} href="#" onClick={(e) => { e.preventDefault(); setPage("opcvm"); }}>OPCVM</a>
+            <a className={`nav-link ${page === "actions" ? "active" : ""}`} href="#" onClick={(e) => { e.preventDefault(); setPage("actions"); }}>Actions</a>
             <a className={`nav-link ${page === "data" ? "active" : ""}`} href="#" onClick={(e) => { e.preventDefault(); setPage("data"); }}>Data</a>
             <a className={`nav-link ${page === "portefeuille" ? "active" : ""}`} href="#" onClick={(e) => { e.preventDefault(); setPage("portefeuille"); }}>Mon Portefeuille</a>
           </div>
@@ -1752,6 +1760,7 @@ export default function Sahm() {
           <a className={`mobile-link ${page === "apprendre" ? "active" : ""}`} href="#" onClick={(e) => { e.preventDefault(); setPage("apprendre"); setMobileNavOpen(false); }}>Apprendre sur la bourse</a>
           <a className={`mobile-link ${page === "seance" ? "active" : ""}`} href="#" onClick={(e) => { e.preventDefault(); setPage("seance"); setMobileNavOpen(false); }}>Séance Boursière</a>
           <a className={`mobile-link ${page === "opcvm" ? "active" : ""}`} href="#" onClick={(e) => { e.preventDefault(); setPage("opcvm"); setMobileNavOpen(false); }}>OPCVM</a>
+          <a className={`mobile-link ${page === "actions" ? "active" : ""}`} href="#" onClick={(e) => { e.preventDefault(); setPage("actions"); setMobileNavOpen(false); }}>Actions</a>
           <a className={`mobile-link ${page === "data" ? "active" : ""}`} href="#" onClick={(e) => { e.preventDefault(); setPage("data"); setMobileNavOpen(false); }}>Data</a>
           <a className={`mobile-link ${page === "portefeuille" ? "active" : ""}`} href="#" onClick={(e) => { e.preventDefault(); setPage("portefeuille"); setMobileNavOpen(false); }}>Mon Portefeuille</a>
           <div className="mobile-menu-footer">
@@ -2112,6 +2121,167 @@ export default function Sahm() {
             <div className="opcvm-card" style={{ padding: "12px 8px" }}>
               <TradingViewAllStocksScreener />
             </div>
+          </div>
+        </section>
+      )}
+
+      {page === "actions-detail" && selectedAction && (
+        <section className="page-shell">
+          <div className="container">
+            <a
+              href="#"
+              className="opcvm-back-link"
+              onClick={(e) => { e.preventDefault(); setPage("actions"); }}
+            >
+              ← Retour à la liste des actions
+            </a>
+
+            <div className="page-header" style={{ marginTop: 18 }}>
+              <div className="eyebrow-mono">{selectedAction.secteur} &middot; {selectedAction.ticker}</div>
+              <h1 className="page-title serif">{selectedAction.nom}</h1>
+              <div className="opcvm-detail-price">
+                <span className="mono">
+                  {selectedAction.prix != null ? `${selectedAction.prix.toLocaleString("fr-FR")} MAD` : "—"}
+                </span>
+                {selectedAction.variation_jour != null && <Variation value={selectedAction.variation_jour} size="lg" />}
+              </div>
+            </div>
+
+            <div className="kpi-row" style={{ marginBottom: 32 }}>
+              <div className="kpi-cell">
+                <div className="kpi-value">
+                  {selectedAction.capitalisation != null
+                    ? `${(selectedAction.capitalisation / 1e9).toLocaleString("fr-FR", { maximumFractionDigits: 2 })} Mrd`
+                    : "—"}
+                </div>
+                <div className="kpi-label">Capitalisation (MAD)</div>
+              </div>
+              <div className="kpi-cell">
+                <div className="kpi-value">{selectedAction.per_ttm ?? "—"}</div>
+                <div className="kpi-label">P/E (TTM)</div>
+              </div>
+              <div className="kpi-cell">
+                <div className="kpi-value">{selectedAction.dividende_rendement != null ? `${selectedAction.dividende_rendement}%` : "—"}</div>
+                <div className="kpi-label">Rendement dividende</div>
+              </div>
+              <div className="kpi-cell">
+                <div className="kpi-value">{selectedAction.tcac_rn != null ? `${selectedAction.tcac_rn >= 0 ? "+" : ""}${selectedAction.tcac_rn}%` : "—"}</div>
+                <div className="kpi-label">Croissance résultat net (TCAC)</div>
+              </div>
+            </div>
+
+            <div className="two-col" style={{ marginBottom: 32 }}>
+              <div>
+                <div className="section-head">
+                  <div className="section-title" style={{ fontSize: 22 }}>Caractéristiques</div>
+                </div>
+                <div className="opcvm-detail-facts">
+                  <div><span>Code ISIN</span><span>{selectedAction.code_isin || "—"}</span></div>
+                  <div><span>Secteur</span><span>{selectedAction.secteur || "—"}</span></div>
+                  <div><span>Nombre d'actions</span><span>{selectedAction.nombre_actions != null ? selectedAction.nombre_actions.toLocaleString("fr-FR") : "—"}</span></div>
+                  <div><span>P/E prévisionnel</span><span>{selectedAction.per_forward ?? "—"}</span></div>
+                  <div><span>Ratio PEG</span><span>{selectedAction.peg ?? "—"}</span></div>
+                  <div><span>Croissance CA (TCAC)</span><span>{selectedAction.tcac_ca != null ? `${selectedAction.tcac_ca >= 0 ? "+" : ""}${selectedAction.tcac_ca}%` : "—"}</span></div>
+                  <div><span>Payout ratio</span><span>{selectedAction.payout_ratio != null ? `${selectedAction.payout_ratio}%` : "—"}</span></div>
+                  <div><span>Site web</span><span>{selectedAction.site_web ? <a href={selectedAction.site_web} target="_blank" rel="noopener noreferrer">Visiter le site</a> : "—"}</span></div>
+                </div>
+              </div>
+              <div>
+                <div className="section-head">
+                  <div className="section-title" style={{ fontSize: 22 }}>Historique des dividendes</div>
+                </div>
+                {selectedAction.dividend_history && selectedAction.dividend_history.length > 0 ? (
+                  <div className="opcvm-detail-facts">
+                    {selectedAction.dividend_history.map((d) => (
+                      <div key={d.annee}>
+                        <span>{d.annee} ({d.type})</span>
+                        <span>{d.montant != null ? `${d.montant.toLocaleString("fr-FR")} DH` : "—"}</span>
+                      </div>
+                    ))}
+                  </div>
+                ) : (
+                  <p className="page-subtitle">Historique non disponible pour cette valeur.</p>
+                )}
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {page === "actions" && (
+        <section className="page-shell">
+          <div className="container">
+            <div className="page-header">
+              <div className="eyebrow-mono">Sociétés cotées</div>
+              <h1 className="page-title serif">Actions de la Bourse de Casablanca</h1>
+              <p className="page-subtitle">
+                Les ~79 sociétés cotées, avec prix, capitalisation, P/E et rendement du dividende —
+                données réelles, actualisées automatiquement une fois par jour.
+              </p>
+            </div>
+
+            <input
+              type="text"
+              className="opcvm-search"
+              placeholder="Rechercher une société par nom ou ticker..."
+              value={actionsSearch}
+              onChange={(e) => setActionsSearch(e.target.value)}
+            />
+
+            {!actionsData ? (
+              <p className="page-subtitle" style={{ marginTop: 16 }}>Chargement des données…</p>
+            ) : (
+              <div className="opcvm-card" style={{ marginTop: 16 }}>
+                <div className="opcvm-scroll">
+                  <table>
+                    <tbody>
+                      <tr className="opcvm-row-head">
+                        <td>Société</td>
+                        <td>Secteur</td>
+                        <td style={{ textAlign: "right" }}>Prix</td>
+                        <td style={{ textAlign: "right" }}>Capitalisation</td>
+                        <td style={{ textAlign: "right" }}>P/E</td>
+                        <td style={{ textAlign: "right" }}>Dividende</td>
+                      </tr>
+                      {actionsData.companies
+                        .filter((c) => {
+                          const q = actionsSearch.trim().toLowerCase();
+                          if (!q) return true;
+                          return (
+                            c.nom.toLowerCase().includes(q) ||
+                            (c.ticker || "").toLowerCase().includes(q)
+                          );
+                        })
+                        .map((c) => (
+                          <tr
+                            key={c.slug}
+                            className="opcvm-row-clickable"
+                            onClick={() => { setSelectedAction(c); setPage("actions-detail"); }}
+                          >
+                            <td>
+                              <div className="fund-name">{c.nom}</div>
+                              <div className="fund-gerant">{c.ticker}</div>
+                            </td>
+                            <td style={{ color: "var(--ink-soft)", fontSize: 13 }}>{c.secteur || "—"}</td>
+                            <td className="mono" style={{ textAlign: "right", fontWeight: 600 }}>
+                              {c.prix != null ? `${c.prix.toLocaleString("fr-FR")} MAD` : "—"}
+                            </td>
+                            <td className="mono" style={{ textAlign: "right", color: "var(--ink-soft)" }}>
+                              {c.capitalisation != null ? `${(c.capitalisation / 1e9).toLocaleString("fr-FR", { maximumFractionDigits: 2 })} Mrd` : "—"}
+                            </td>
+                            <td className="mono" style={{ textAlign: "right", color: "var(--ink-soft)" }}>
+                              {c.per_ttm ?? "—"}
+                            </td>
+                            <td className="mono" style={{ textAlign: "right", color: "var(--ink-soft)" }}>
+                              {c.dividende_rendement != null ? `${c.dividende_rendement}%` : "—"}
+                            </td>
+                          </tr>
+                        ))}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            )}
           </div>
         </section>
       )}
