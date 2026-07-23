@@ -24,7 +24,7 @@ jobs:
       - name: Installer les dépendances
         run: pip install requests beautifulsoup4
 
-      - name: Récupérer les fiches Actions (casabourse.ma)
+      - name: Récupérer les fiches Actions (casablancabourse.com)
         run: python scripts/update_actions.py
 
       - name: Committer et pousser si changement
