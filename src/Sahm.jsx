@@ -2157,18 +2157,22 @@ export default function Sahm() {
                 <div className="kpi-label">Capitalisation (MAD)</div>
               </div>
               <div className="kpi-cell">
-                <div className="kpi-value">{selectedAction.per_ttm ?? "—"}</div>
-                <div className="kpi-label">P/E (TTM)</div>
+                <div className="kpi-value">{selectedAction.per ?? "—"}</div>
+                <div className="kpi-label">P/E Ratio</div>
               </div>
               <div className="kpi-cell">
-                <div className="kpi-value">{selectedAction.dividende_rendement != null ? `${selectedAction.dividende_rendement}%` : "—"}</div>
+                <div className="kpi-value">{selectedAction.rendement_dividende != null ? `${selectedAction.rendement_dividende}%` : "—"}</div>
                 <div className="kpi-label">Rendement dividende</div>
               </div>
               <div className="kpi-cell">
-                <div className="kpi-value">{selectedAction.tcac_rn != null ? `${selectedAction.tcac_rn >= 0 ? "+" : ""}${selectedAction.tcac_rn}%` : "—"}</div>
-                <div className="kpi-label">Croissance résultat net (TCAC)</div>
+                <div className="kpi-value">{selectedAction.classement != null ? `#${selectedAction.classement}` : "—"}</div>
+                <div className="kpi-label">Classement (capitalisation)</div>
               </div>
             </div>
+
+            {selectedAction.description && (
+              <p className="page-subtitle" style={{ marginBottom: 28, maxWidth: 760 }}>{selectedAction.description}</p>
+            )}
 
             <div className="two-col" style={{ marginBottom: 32 }}>
               <div>
@@ -2176,31 +2180,31 @@ export default function Sahm() {
                   <div className="section-title" style={{ fontSize: 22 }}>Caractéristiques</div>
                 </div>
                 <div className="opcvm-detail-facts">
-                  <div><span>Code ISIN</span><span>{selectedAction.code_isin || "—"}</span></div>
                   <div><span>Secteur</span><span>{selectedAction.secteur || "—"}</span></div>
+                  <div><span>Ticker</span><span>{selectedAction.ticker || "—"}</span></div>
+                  <div><span>Date IPO</span><span>{selectedAction.date_ipo || "—"}</span></div>
                   <div><span>Nombre d'actions</span><span>{selectedAction.nombre_actions != null ? selectedAction.nombre_actions.toLocaleString("fr-FR") : "—"}</span></div>
-                  <div><span>P/E prévisionnel</span><span>{selectedAction.per_forward ?? "—"}</span></div>
-                  <div><span>Ratio PEG</span><span>{selectedAction.peg ?? "—"}</span></div>
-                  <div><span>Croissance CA (TCAC)</span><span>{selectedAction.tcac_ca != null ? `${selectedAction.tcac_ca >= 0 ? "+" : ""}${selectedAction.tcac_ca}%` : "—"}</span></div>
-                  <div><span>Payout ratio</span><span>{selectedAction.payout_ratio != null ? `${selectedAction.payout_ratio}%` : "—"}</span></div>
-                  <div><span>Site web</span><span>{selectedAction.site_web ? <a href={selectedAction.site_web} target="_blank" rel="noopener noreferrer">Visiter le site</a> : "—"}</span></div>
+                  <div><span>Chiffre d'affaires</span><span>{selectedAction.chiffre_affaires != null ? `${(selectedAction.chiffre_affaires / 1e6).toLocaleString("fr-FR", { maximumFractionDigits: 1 })} MDH` : "—"}</span></div>
+                  <div><span>Résultat net</span><span>{selectedAction.resultat_net != null ? `${(selectedAction.resultat_net / 1e6).toLocaleString("fr-FR", { maximumFractionDigits: 1 })} MDH` : "—"}</span></div>
+                  <div><span>Marge opérationnelle</span><span>{selectedAction.marge_operationnelle != null ? `${selectedAction.marge_operationnelle}%` : "—"}</span></div>
+                  <div><span>Marge nette</span><span>{selectedAction.marge_nette != null ? `${selectedAction.marge_nette}%` : "—"}</span></div>
                 </div>
               </div>
               <div>
                 <div className="section-head">
-                  <div className="section-title" style={{ fontSize: 22 }}>Historique des dividendes</div>
+                  <div className="section-title" style={{ fontSize: 22 }}>Structure actionnariale</div>
                 </div>
-                {selectedAction.dividend_history && selectedAction.dividend_history.length > 0 ? (
+                {selectedAction.actionnariat && selectedAction.actionnariat.length > 0 ? (
                   <div className="opcvm-detail-facts">
-                    {selectedAction.dividend_history.map((d) => (
-                      <div key={d.annee}>
-                        <span>{d.annee} ({d.type})</span>
-                        <span>{d.montant != null ? `${d.montant.toLocaleString("fr-FR")} DH` : "—"}</span>
+                    {selectedAction.actionnariat.map((a) => (
+                      <div key={a.nom}>
+                        <span>{a.nom}</span>
+                        <span>{a.pct != null ? `${a.pct}%` : "—"}</span>
                       </div>
                     ))}
                   </div>
                 ) : (
-                  <p className="page-subtitle">Historique non disponible pour cette valeur.</p>
+                  <p className="page-subtitle">Structure actionnariale non disponible pour cette valeur.</p>
                 )}
               </div>
             </div>
@@ -2254,7 +2258,7 @@ export default function Sahm() {
                         })
                         .map((c) => (
                           <tr
-                            key={c.slug}
+                            key={c.ticker}
                             className="opcvm-row-clickable"
                             onClick={() => { setSelectedAction(c); setPage("actions-detail"); }}
                           >
@@ -2270,10 +2274,10 @@ export default function Sahm() {
                               {c.capitalisation != null ? `${(c.capitalisation / 1e9).toLocaleString("fr-FR", { maximumFractionDigits: 2 })} Mrd` : "—"}
                             </td>
                             <td className="mono" style={{ textAlign: "right", color: "var(--ink-soft)" }}>
-                              {c.per_ttm ?? "—"}
+                              {c.per ?? "—"}
                             </td>
                             <td className="mono" style={{ textAlign: "right", color: "var(--ink-soft)" }}>
-                              {c.dividende_rendement != null ? `${c.dividende_rendement}%` : "—"}
+                              {c.rendement_dividende != null ? `${c.rendement_dividende}%` : "—"}
                             </td>
                           </tr>
                         ))}

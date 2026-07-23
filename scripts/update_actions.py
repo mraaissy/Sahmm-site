@@ -1,17 +1,16 @@
 #!/usr/bin/env python3
 """
-Récupère la liste des ~79 sociétés cotées à la Bourse de Casablanca et leur
-fiche détaillée depuis casabourse.ma (site tiers, non affilié au site
-officiel), et écrit le résultat dans public/data/actions.json.
+Récupère la fiche de chaque société cotée à la Bourse de Casablanca depuis
+casablancabourse.com (le même site tiers que celui utilisé pour le
+palmarès — déjà connu pour être accessible aux robots), page
+/{TICKER}/action/capitalisation/, et écrit le résultat dans
+public/data/actions.json.
 
-Ce script fait ~80 requêtes (liste paginée + une page par société), donc il
-est volontairement exécuté une seule fois par jour (workflow séparé,
-update-actions.yml) plutôt que toutes les 15 min, par courtoisie envers le
-site source et parce que ces données fondamentales (P/E, dividendes,
-TCAC...) ne changent pas à la minute près.
+Ce script fait ~80 requêtes, donc il est volontairement exécuté une seule
+fois par jour (workflow update-actions.yml) plutôt que toutes les 15 min.
 
-Si la structure du site change et que ce script ne trouve plus rien, il
-n'écrase PAS le fichier existant et sort en erreur.
+Si la structure du site change et que ce script ne trouve plus rien pour
+une majorité de sociétés, il n'écrase PAS le fichier existant.
 """
 import json
 import re
@@ -23,207 +22,149 @@ from pathlib import Path
 import requests
 from bs4 import BeautifulSoup
 
-BASE = "https://casabourse.ma"
+BASE = "https://www.casablancabourse.com"
 OUTPUT_PATH = Path(__file__).resolve().parent.parent / "public" / "data" / "actions.json"
 
 HEADERS = {
     "User-Agent": "Mozilla/5.0 (compatible; SahmSiteBot/1.0; +https://www.sahmm.ma)"
 }
 
-
-def get_soup(url):
-    resp = requests.get(url, headers=HEADERS, timeout=25)
-    resp.raise_for_status()
-    return BeautifulSoup(resp.text, "html.parser")
+# Liste des tickers, relevée depuis le bandeau de cours affiché en haut de
+# chaque page du site (~79 sociétés cotées).
+TICKERS = [
+    "ATW", "MNG", "MSA", "GTM", "TGC", "IAM", "AKT", "BCP", "LHM", "BOA",
+    "ADH", "LBV", "CMA", "TQM", "HPS", "ADI", "CMG", "CFG", "JET", "SMI",
+    "CIH", "ATL", "VCN", "DHO", "CDM", "SBM", "CAP", "BCI", "RIS", "ATH",
+    "SLF", "RDS", "CSR", "GAZ", "SAH", "ARD", "CRS", "SOT", "COL", "SID",
+    "SNP", "SNA", "MUT", "AFI", "MDP", "WAA", "IMO", "FBR", "STR", "LES",
+    "DWY", "TMA", "MIC", "ALM", "CTM", "DYT", "EQD", "ZDJ", "MLE", "PRO",
+    "S2M", "SRM", "NKL", "BAL", "M2M", "INV", "REB", "MOX", "DIS", "IBC",
+    "SAM", "DLM", "OUL", "MAB", "CMT", "AGM", "NEJ", "UMR", "DRI", "AFM",
+]
 
 
 def clean_num(text):
     if text is None:
         return None
     text = text.replace("\u00a0", " ").replace(",", "").strip()
-    text = re.sub(r"[^\d.\-]", "", text)
-    if not text or text == "-":
-        return None
-    try:
-        return float(text)
-    except ValueError:
-        return None
-
-
-def parse_money_md(text):
-    """'13.47 Md MAD' -> 13470000000.0 (approx, en MAD)."""
-    if not text:
-        return None
-    m = re.search(r"([\d.,]+)\s*(Md|M|K)?", text)
+    m = re.match(r"(-?\d+(?:\.\d+)?)\s*(B|M|K)?", text)
     if not m:
         return None
-    value = clean_num(m.group(1))
-    if value is None:
-        return None
-    mult = {"Md": 1e9, "M": 1e6, "K": 1e3}.get(m.group(2), 1)
+    value = float(m.group(1))
+    mult = {"B": 1e9, "M": 1e6, "K": 1e3}.get(m.group(2), 1)
     return value * mult
 
 
-def list_companies():
-    """Parcourt les pages paginées /entreprises/ et /entreprises/page/N/."""
-    companies = []
-    page = 1
-    while True:
-        url = f"{BASE}/entreprises/" if page == 1 else f"{BASE}/entreprises/page/{page}/"
-        soup = get_soup(url)
-        cards = soup.select("a[href*='/entreprise/']")
-        found_this_page = 0
-        seen_slugs = set()
-        for link in soup.find_all("h3"):
-            a = link.find("a", href=re.compile(r"/entreprise/[^/]+/?$"))
-            if not a:
-                continue
-            href = a.get("href", "")
-            slug_match = re.search(r"/entreprise/([^/]+)/?$", href)
-            if not slug_match:
-                continue
-            slug = slug_match.group(1)
-            if slug in seen_slugs or slug == "t2s":
-                continue
-            seen_slugs.add(slug)
-            found_this_page += 1
-
-            # Le bloc de la carte est le parent proche du titre
-            card = link.find_parent()
-            card_text = card.get_text(" ", strip=True) if card else ""
-
-            ticker_match = re.search(r"\b([A-Z0-9]{2,5})\b\s+(?:[A-ZÉÈÀ][a-zéèàûôî]|OPCI)", card_text)
-
-            companies.append({
-                "slug": slug,
-                "nom": a.get_text(strip=True),
-                "url": href if href.startswith("http") else BASE + href,
-            })
-
-        if found_this_page == 0:
-            break
-        page += 1
-        if page > 10:  # garde-fou
-            break
-        time.sleep(0.3)
-
-    return companies
-
-
-def parse_detail(url):
-    soup = get_soup(url)
+def parse_company(ticker):
+    url = f"{BASE}/{ticker}/action/capitalisation/"
+    resp = requests.get(url, headers=HEADERS, timeout=25)
+    resp.raise_for_status()
+    soup = BeautifulSoup(resp.text, "html.parser")
     text = soup.get_text(" ", strip=True)
 
-    data = {}
+    h1 = soup.find("h1")
+    nom = None
+    if h1:
+        nom = re.sub(r"\s*Capitalisation.*$", "", h1.get_text(strip=True)).strip()
 
-    m = re.search(r"([A-Z0-9]{2,6})\s*\[?(?:Banques|Assurances|Immobilier|Industrie|Mines|Énergie|Distribution|Automobile|Agro-alimentaire|Technologies|Santé[^0-9]*|Transport et Logistique|OPCI|Services Financiers|Sylviculture et Papier|Télécommunications|Ciment et Matériaux|Divers)", text)
-    data["ticker"] = m.group(1) if m else None
+    data = {"ticker": ticker, "nom": nom, "url": url}
 
-    m = re.search(r"([\d\s\u00a0,.]+)\s*MAD\s*(-?\d+(?:[.,]\d+)?)%\s*Volume", text)
+    m = re.search(r"Capitalisation\s+([\d.,]+\s*[BMK]?)\s+P/E Ratio", text)
+    if m:
+        data["capitalisation"] = clean_num(m.group(1))
+
+    m = re.search(r"P/E Ratio\s+([\d.,]+)\s+Rendement Dividende", text)
+    if m:
+        data["per"] = clean_num(m.group(1))
+
+    m = re.search(r"Rendement Dividende\s+([\d.,]+)%\s+Classement", text)
+    if m:
+        data["rendement_dividende"] = clean_num(m.group(1))
+
+    m = re.search(r"Classement\s+#(\d+)", text)
+    if m:
+        data["classement"] = int(m.group(1))
+
+    m = re.search(r"Chiffre d'Affaires\s+([\d.,]+\s*MDH)", text)
+    if m:
+        data["chiffre_affaires"] = clean_num(m.group(1))
+
+    m = re.search(r"Résultat Net\s+([\d.,\-]+\s*MDH)", text)
+    if m:
+        data["resultat_net"] = clean_num(m.group(1))
+
+    m = re.search(r"Marge Opérationnelle\s+([\d.,\-]+)%", text)
+    if m:
+        data["marge_operationnelle"] = clean_num(m.group(1))
+
+    m = re.search(r"Marge Nette\s+([\d.,\-]+)%", text)
+    if m:
+        data["marge_nette"] = clean_num(m.group(1))
+
+    m = re.search(r"([\d\s.,]+)\s*DH\s+Prix de l'action", text)
     if m:
         data["prix"] = clean_num(m.group(1))
-        data["variation_jour"] = clean_num(m.group(2))
 
-    m = re.search(r"Capitalisation\s*([\d.,]+\s*(?:Md|M|K)?)\s*MAD", text)
+    m = re.search(r"([\d\s.,]+)\s+Nombre d'actions", text)
     if m:
-        data["capitalisation"] = parse_money_md(m.group(1))
+        data["nombre_actions"] = clean_num(m.group(1))
 
-    m = re.search(r"Rendement.{0,40}?(\d+(?:[.,]\d+)?)%\s*(\d+(?:[.,]\d+)?)\s*MAD", text)
+    m = re.search(r"Nombre d'actions\s+(.+?)\s+Secteur", text)
     if m:
-        data["dividende_rendement"] = clean_num(m.group(1))
-        data["dividende_montant"] = clean_num(m.group(2))
+        data["secteur"] = m.group(1).strip()
 
-    m = re.search(r"Payout Ratio\s*(\d+(?:[.,]\d+)?)%", text)
+    m = re.search(r"([\d.,\-]+)\s*%\s+Change \(1 jour\)", text)
     if m:
-        data["payout_ratio"] = clean_num(m.group(1))
+        data["variation_jour"] = clean_num(m.group(1))
 
-    m = re.search(r"Ratio P/E \(TTM\)\s*([\d.,]+)\s*\(Forward 202\d[A-Z]?:\s*([\d.,]+)\)", text)
+    m = re.search(r"Change \(1 jour\).+?(\d{2}/\d{2}/\d{4})\s+Date IPO", text)
     if m:
-        data["per_ttm"] = clean_num(m.group(1))
-        data["per_forward"] = clean_num(m.group(2))
+        data["date_ipo"] = m.group(1)
 
-    m = re.search(r"Ratio PEG\s*([\d.,]+)", text)
-    if m:
-        data["peg"] = clean_num(m.group(1))
+    # Description : paragraphe libre juste après "Date IPO"
+    idx = text.find("Date IPO")
+    if idx != -1:
+        desc_window = text[idx + len("Date IPO"):idx + 900]
+        m = re.match(r"\s*(.+?)\s*(?:-\s*\[Capitalisation\]|Capitalisation Boursière de)", desc_window)
+        if m:
+            data["description"] = m.group(1).strip()
 
-    m = re.search(r"Croissance du CA\s*\+?(-?[\d.,]+)%", text)
-    if m:
-        data["tcac_ca"] = clean_num(m.group(1))
-
-    m = re.search(r"Croissance Résultat Net\s*\+?(-?[\d.,]+)%", text)
-    if m:
-        data["tcac_rn"] = clean_num(m.group(1))
-
-    m = re.search(r"Code ISIN\s*([A-Z0-9]{10,12})", text)
-    if m:
-        data["code_isin"] = m.group(1)
-
-    m = re.search(r"Nombre d'Actions\s*([\d.,]+\s*(?:Md|M|K)?)", text)
-    if m:
-        data["nombre_actions"] = parse_money_md(m.group(1))
-
-    m = re.search(r"Site Web\s*Visiter le site", text)
-    site_link = soup.find("a", string=re.compile("Visiter le site"))
-    if site_link:
-        data["site_web"] = site_link.get("href")
-
-    # Historique des dividendes : table "Année | Montant | Type | Détachement | Paiement"
-    history = []
-    for table in soup.find_all("table"):
-        header = table.get_text(" ", strip=True)[:120].lower()
-        if "montant" in header and "détachement" in header:
-            for tr in table.find_all("tr"):
-                cells = [td.get_text(strip=True) for td in tr.find_all(["td", "th"])]
-                if len(cells) < 5 or not re.match(r"^\d{4}$", cells[0]):
-                    continue
-                history.append({
-                    "annee": cells[0],
-                    "montant": clean_num(cells[1]),
-                    "type": cells[2],
-                    "detachement": cells[3] if cells[3] != "—" else None,
-                    "paiement": cells[4] if cells[4] != "—" else None,
-                })
-            break
-    data["dividend_history"] = history
+    # Structure actionnariale : liste "Nom  XX.X%"
+    actionnariat = []
+    idx = text.find("Structure Actionnariat")
+    if idx != -1:
+        window = text[idx: idx + 600]
+        for am in re.finditer(r"([A-ZÀ-Ü][\w .\-'À-ÿ]{2,40}?)\s+(\d{1,2}(?:[.,]\d+)?)%", window):
+            actionnariat.append({"nom": am.group(1).strip(), "pct": clean_num(am.group(2))})
+    data["actionnariat"] = actionnariat[:8]
 
     return data
 
 
 def main():
-    try:
-        companies = list_companies()
-    except Exception as exc:  # noqa: BLE001
-        print(f"Erreur lors de la récupération de la liste : {exc}", file=sys.stderr)
-        sys.exit(1)
-
-    if len(companies) < 50:
-        print(f"Liste trop courte ({len(companies)} sociétés) — abandon.", file=sys.stderr)
-        sys.exit(1)
-
     results = []
     errors = 0
-    for c in companies:
+    for ticker in TICKERS:
         try:
-            detail = parse_detail(c["url"])
-            results.append({**c, **detail})
+            results.append(parse_company(ticker))
         except Exception as exc:  # noqa: BLE001
-            print(f"  ! échec sur {c['slug']}: {exc}", file=sys.stderr)
+            print(f"  ! échec sur {ticker}: {exc}", file=sys.stderr)
             errors += 1
-        time.sleep(0.4)
+        time.sleep(0.5)
 
     if len(results) < 50:
-        print(f"Trop peu de fiches récupérées ({len(results)}) — abandon.", file=sys.stderr)
+        print(f"Trop peu de fiches récupérées ({len(results)}/{len(TICKERS)}) — abandon.", file=sys.stderr)
         sys.exit(1)
 
     data = {
         "updated_at": datetime.now(timezone.utc).isoformat(),
-        "source": "casabourse.ma (site tiers, non affilié au site officiel de la Bourse de Casablanca)",
+        "source": "casablancabourse.com (site tiers, non affilié au site officiel de la Bourse de Casablanca)",
         "companies": results,
     }
 
     OUTPUT_PATH.parent.mkdir(parents=True, exist_ok=True)
     OUTPUT_PATH.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
-    print(f"OK — {len(results)} sociétés récupérées ({errors} échecs), écrit dans {OUTPUT_PATH}")
+    print(f"OK — {len(results)}/{len(TICKERS)} sociétés récupérées ({errors} échecs), écrit dans {OUTPUT_PATH}")
 
 
 if __name__ == "__main__":
