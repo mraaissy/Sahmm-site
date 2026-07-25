@@ -263,7 +263,7 @@ function TradingViewMarketOverview() {
         },
         {
           sectionName: "Matières 1ères",
-          symbols: ["TVC:GOLD", "TVC:SILVER", "TVC:UKOIL", "TVC:USOIL", "NYMEX:NG1!"],
+          symbols: ["TVC:GOLD", "TVC:SILVER", "TVC:UKOIL", "TVC:USOIL", "FOREXCOM:NATURALGAS"],
         },
       ])
     );
