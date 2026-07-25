@@ -2029,6 +2029,82 @@ export default function Sahm() {
         </div>
       </section>
 
+      {/* Capitalisation boursière */}
+      <section className="section">
+        <div className="container">
+          {!capData ? null : (
+            <div style={{ display: "grid", gridTemplateColumns: "1.1fr 1fr", gap: 28, alignItems: "start" }} className="cap-grid">
+              <div>
+                <div className="section-head">
+                  <div className="section-title" style={{ fontSize: 20 }}>Dix meilleures capitalisations</div>
+                </div>
+                <div className="official-table-card">
+                  <div className="opcvm-scroll">
+                    <table className="official-table">
+                      <thead>
+                        <tr>
+                          <th>Instrument</th>
+                          <th style={{ textAlign: "right" }}>Capitalisation (MAD)</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {capData.top10.map((c) => (
+                          <tr key={c.nom}>
+                            <td className="official-emetteur">{c.nom}</td>
+                            <td className="mono" style={{ textAlign: "right" }}>{c.capitalisation.toLocaleString("fr-FR")}</td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <div className="section-head">
+                  <div className="section-title" style={{ fontSize: 20 }}>Capitalisation globale</div>
+                </div>
+                <div className="kpi-cell" style={{ background: "var(--gold)", borderRadius: 12, padding: "18px 20px", marginBottom: 28 }}>
+                  <div className="kpi-value" style={{ color: "#fff", fontSize: 26 }}>{capData.global.toLocaleString("fr-FR")} MAD</div>
+                </div>
+
+                <div className="section-head">
+                  <div className="section-title" style={{ fontSize: 20 }}>Capitalisation sectorielle</div>
+                </div>
+                <div className="opcvm-card" style={{ padding: 20 }}>
+                  <ResponsiveContainer width="100%" height={220}>
+                    <PieChart>
+                      <Pie
+                        data={capData.secteurs}
+                        dataKey="pct"
+                        nameKey="nom"
+                        innerRadius={55}
+                        outerRadius={90}
+                        paddingAngle={2}
+                      >
+                        {capData.secteurs.map((_, i) => (
+                          <Cell key={i} fill={["#B4453D", "#3B6FA0", "#2E7D5B", "#7C8896", "#D8A23B"][i % 5]} />
+                        ))}
+                      </Pie>
+                      <Tooltip formatter={(v) => `${v}%`} />
+                    </PieChart>
+                  </ResponsiveContainer>
+                  <div style={{ display: "flex", flexDirection: "column", gap: 8, marginTop: 12 }}>
+                    {capData.secteurs.map((s, i) => (
+                      <div key={s.nom} style={{ display: "flex", alignItems: "center", gap: 8, fontSize: 13 }}>
+                        <span style={{ width: 10, height: 10, borderRadius: "50%", background: ["#B4453D", "#3B6FA0", "#2E7D5B", "#7C8896", "#D8A23B"][i % 5], flexShrink: 0 }} />
+                        <span style={{ color: "var(--ink)" }}>{s.nom}</span>
+                        <span style={{ color: "var(--ink-soft)", marginLeft: "auto" }}>{s.pct}%</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
+      </section>
+
       {/* Marchés mondiaux */}
       <section className="section">
         <div className="container">
@@ -2692,12 +2768,6 @@ export default function Sahm() {
               >
                 Calendrier de dividende
               </button>
-              <button
-                className={`tab-btn ${dataTab === "capitalisation" ? "active" : ""}`}
-                onClick={() => setDataTab("capitalisation")}
-              >
-                Capitalisation
-              </button>
             </div>
 
             {dataTab === "dividendes" && (
@@ -2771,85 +2841,6 @@ export default function Sahm() {
                   Générales. Montants en dirhams (DH) par action ; performances passées, ne
                   préjugent pas des performances futures.
                 </p>
-              </div>
-            )}
-
-            {dataTab === "capitalisation" && (
-              <div>
-                {!capData ? (
-                  <p className="page-subtitle">Chargement…</p>
-                ) : (
-                  <>
-                    <div style={{ display: "grid", gridTemplateColumns: "1.1fr 1fr", gap: 28, alignItems: "start" }} className="cap-grid">
-                      <div>
-                        <div className="section-head">
-                          <div className="section-title" style={{ fontSize: 20 }}>Dix meilleures capitalisations</div>
-                        </div>
-                        <div className="official-table-card">
-                          <div className="opcvm-scroll">
-                            <table className="official-table">
-                              <thead>
-                                <tr>
-                                  <th>Instrument</th>
-                                  <th style={{ textAlign: "right" }}>Capitalisation (MAD)</th>
-                                </tr>
-                              </thead>
-                              <tbody>
-                                {capData.top10.map((c) => (
-                                  <tr key={c.nom}>
-                                    <td className="official-emetteur">{c.nom}</td>
-                                    <td className="mono" style={{ textAlign: "right" }}>{c.capitalisation.toLocaleString("fr-FR")}</td>
-                                  </tr>
-                                ))}
-                              </tbody>
-                            </table>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div>
-                        <div className="section-head">
-                          <div className="section-title" style={{ fontSize: 20 }}>Capitalisation globale</div>
-                        </div>
-                        <div className="kpi-cell" style={{ background: "var(--gold)", borderRadius: 12, padding: "18px 20px", marginBottom: 28 }}>
-                          <div className="kpi-value" style={{ color: "#fff", fontSize: 26 }}>{capData.global.toLocaleString("fr-FR")} MAD</div>
-                        </div>
-
-                        <div className="section-head">
-                          <div className="section-title" style={{ fontSize: 20 }}>Capitalisation sectorielle</div>
-                        </div>
-                        <div className="opcvm-card" style={{ padding: 20 }}>
-                          <ResponsiveContainer width="100%" height={220}>
-                            <PieChart>
-                              <Pie
-                                data={capData.secteurs}
-                                dataKey="pct"
-                                nameKey="nom"
-                                innerRadius={55}
-                                outerRadius={90}
-                                paddingAngle={2}
-                              >
-                                {capData.secteurs.map((_, i) => (
-                                  <Cell key={i} fill={["#B4453D", "#3B6FA0", "#2E7D5B", "#7C8896", "#D8A23B"][i % 5]} />
-                                ))}
-                              </Pie>
-                              <Tooltip formatter={(v) => `${v}%`} />
-                            </PieChart>
-                          </ResponsiveContainer>
-                          <div style={{ display: "flex", flexDirection: "column", gap: 8, marginTop: 12 }}>
-                            {capData.secteurs.map((s, i) => (
-                              <div key={s.nom} style={{ display: "flex", alignItems: "center", gap: 8, fontSize: 13 }}>
-                                <span style={{ width: 10, height: 10, borderRadius: "50%", background: ["#B4453D", "#3B6FA0", "#2E7D5B", "#7C8896", "#D8A23B"][i % 5], flexShrink: 0 }} />
-                                <span style={{ color: "var(--ink)" }}>{s.nom}</span>
-                                <span style={{ color: "var(--ink-soft)", marginLeft: "auto" }}>{s.pct}%</span>
-                              </div>
-                            ))}
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </>
-                )}
               </div>
             )}
           </div>
