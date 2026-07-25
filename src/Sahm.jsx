@@ -1466,6 +1466,10 @@ export default function Sahm() {
           overflow-x: auto;
         }
         .opcvm-scroll table { min-width: 780px; }
+        .cap-table-scroll {
+          overflow-x: auto;
+        }
+        .cap-table-scroll table { width: 100%; }
         .perf-cell {
           font-family: 'IBM Plex Mono', monospace;
           font-size: 13px;
@@ -1889,6 +1893,14 @@ export default function Sahm() {
 
           /* Capitalisation globale : éviter le débordement du montant */
           .kpi-cell .kpi-value { word-break: break-word; }
+
+          /* Table des meilleures capitalisations : tenir sur l'écran sans scroll horizontal */
+          .cap-table-scroll .official-table th,
+          .cap-table-scroll .official-table td {
+            white-space: normal;
+            padding: 11px 12px;
+            font-size: 12.5px;
+          }
         }
 
         @media (max-width: 420px) {
@@ -2069,7 +2081,7 @@ export default function Sahm() {
                   <div className="section-title" style={{ fontSize: 20 }}>Dix meilleures capitalisations</div>
                 </div>
                 <div className="official-table-card">
-                  <div className="opcvm-scroll">
+                  <div className="cap-table-scroll">
                     <table className="official-table">
                       <thead>
                         <tr>
