@@ -2780,10 +2780,6 @@ export default function Sahm() {
                   <p className="page-subtitle">Chargement…</p>
                 ) : (
                   <>
-                    <div className="section-note" style={{ marginBottom: 20 }}>
-                      Données mises à jour manuellement · au {new Date(capData.date).toLocaleDateString("fr-FR", { day: "numeric", month: "long", year: "numeric" })}
-                    </div>
-
                     <div style={{ display: "grid", gridTemplateColumns: "1.1fr 1fr", gap: 28, alignItems: "start" }} className="cap-grid">
                       <div>
                         <div className="section-head">
@@ -2822,15 +2818,15 @@ export default function Sahm() {
                         <div className="section-head">
                           <div className="section-title" style={{ fontSize: 20 }}>Capitalisation sectorielle</div>
                         </div>
-                        <div className="opcvm-card" style={{ padding: 16 }}>
-                          <ResponsiveContainer width="100%" height={260}>
+                        <div className="opcvm-card" style={{ padding: 20 }}>
+                          <ResponsiveContainer width="100%" height={220}>
                             <PieChart>
                               <Pie
                                 data={capData.secteurs}
                                 dataKey="pct"
                                 nameKey="nom"
-                                innerRadius={60}
-                                outerRadius={95}
+                                innerRadius={55}
+                                outerRadius={90}
                                 paddingAngle={2}
                               >
                                 {capData.secteurs.map((_, i) => (
@@ -2838,16 +2834,20 @@ export default function Sahm() {
                                 ))}
                               </Pie>
                               <Tooltip formatter={(v) => `${v}%`} />
-                              <Legend layout="vertical" align="right" verticalAlign="middle" formatter={(v, entry) => `${v} (${entry.payload.pct}%)`} />
                             </PieChart>
                           </ResponsiveContainer>
+                          <div style={{ display: "flex", flexDirection: "column", gap: 8, marginTop: 12 }}>
+                            {capData.secteurs.map((s, i) => (
+                              <div key={s.nom} style={{ display: "flex", alignItems: "center", gap: 8, fontSize: 13 }}>
+                                <span style={{ width: 10, height: 10, borderRadius: "50%", background: ["#B4453D", "#3B6FA0", "#2E7D5B", "#7C8896", "#D8A23B"][i % 5], flexShrink: 0 }} />
+                                <span style={{ color: "var(--ink)" }}>{s.nom}</span>
+                                <span style={{ color: "var(--ink-soft)", marginLeft: "auto" }}>{s.pct}%</span>
+                              </div>
+                            ))}
+                          </div>
                         </div>
                       </div>
                     </div>
-
-                    <p className="page-footnote" style={{ marginTop: 28 }}>
-                      Capitalisations transmises manuellement, ne reflètent pas nécessairement le cours en temps réel.
-                    </p>
                   </>
                 )}
               </div>
