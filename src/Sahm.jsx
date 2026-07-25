@@ -1863,7 +1863,37 @@ export default function Sahm() {
         @media (max-width: 640px) {
           .stat-grid { grid-template-columns: 1fr; }
           .cap-grid { grid-template-columns: 1fr !important; }
-          .section-title { font-size: 22px; }
+          .section-title { font-size: 20px; }
+          .section-note { font-size: 11px; }
+          .section { padding: 34px 0; }
+
+          /* Hero */
+          .hero { padding: 32px 0 36px; }
+          .hero-badge { font-size: 12px; padding: 6px 14px; margin-bottom: 20px; }
+          .hero-title { font-size: 26px; margin-bottom: 12px; }
+          .hero-subtitle { font-size: 14px; margin-bottom: 30px; }
+          .hero-stats-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px 0;
+            width: 100%;
+          }
+          .hero-stat {
+            padding: 0 8px 14px !important;
+            border-right: none !important;
+            border-bottom: 1px solid rgba(255,255,255,0.14);
+          }
+          .hero-stat:nth-child(2n) { border-right: none; }
+          .hero-stat .value { font-size: 20px; }
+          .hero-live-masi { padding: 12px 12px 4px; margin-top: 24px; }
+
+          /* Capitalisation globale : éviter le débordement du montant */
+          .kpi-cell .kpi-value { word-break: break-word; }
+        }
+
+        @media (max-width: 420px) {
+          .hero-title { font-size: 22px; }
+          .kpi-cell .kpi-value { font-size: 20px !important; }
         }
       `}</style>
 
