@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { TrendingUp, TrendingDown, ArrowUpRight, ArrowDownRight, Search, Bell, Settings, User, Menu, X } from "lucide-react";
+import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer, Legend } from "recharts";
 
 
 const hausses = [
@@ -882,6 +883,19 @@ export default function Sahm() {
       .catch(() => {
         // Pas grave — le site retombe sur les données statiques de secours
       });
+    return () => { cancelled = true; };
+  }, []);
+
+  // Capitalisation boursière (mise à jour manuelle, transmise par capture d'écran)
+  const [capData, setCapData] = useState(null);
+  React.useEffect(() => {
+    let cancelled = false;
+    fetch("/data/capitalisation.json", { cache: "no-store" })
+      .then((res) => (res.ok ? res.json() : null))
+      .then((data) => {
+        if (!cancelled && data) setCapData(data);
+      })
+      .catch(() => {});
     return () => { cancelled = true; };
   }, []);
 
@@ -1848,6 +1862,7 @@ export default function Sahm() {
 
         @media (max-width: 640px) {
           .stat-grid { grid-template-columns: 1fr; }
+          .cap-grid { grid-template-columns: 1fr !important; }
           .section-title { font-size: 22px; }
         }
       `}</style>
@@ -2751,61 +2766,6 @@ export default function Sahm() {
                   </div>
                 </div>
 
-                {dividendYear === "2026" && (
-                  <>
-                    <div className="section-head" style={{ marginTop: 36 }}>
-                      <div className="section-title" style={{ fontSize: 22 }}>Sans dividende en 2026 ({dividendSansDividende2026.length} sociétés)</div>
-                    </div>
-                    <div className="chip-wrap">
-                      {dividendSansDividende2026.map((n) => (
-                        <span className="chip" key={n}>{n}</span>
-                      ))}
-                    </div>
-                  </>
-                )}
-
-                <div className="section-head" style={{ marginTop: 44 }}>
-                  <div className="section-title" style={{ fontSize: 22 }}>Historique — exercice 2025</div>
-                  <div className="section-note">Rendements réellement versés au titre de 2025</div>
-                </div>
-                <div className="kpi-row" style={{ marginBottom: 24 }}>
-                  <div className="kpi-cell">
-                    <div className="kpi-value">{dividend2025Stats.distributrices}/{dividend2025Stats.total}</div>
-                    <div className="kpi-label">Sociétés distributrices</div>
-                  </div>
-                  <div className="kpi-cell">
-                    <div className="kpi-value">{dividend2025Stats.rendementMoyen}%</div>
-                    <div className="kpi-label">Rendement moyen</div>
-                  </div>
-                  <div className="kpi-cell">
-                    <div className="kpi-value">{dividend2025Stats.montantMoyen} DH</div>
-                    <div className="kpi-label">Montant moyen</div>
-                  </div>
-                </div>
-                <div className="opcvm-card">
-                  <table>
-                    <tbody>
-                      <tr className="opcvm-row-head">
-                        <td>#</td>
-                        <td>Société</td>
-                        <td style={{ textAlign: "right" }}>Montant 2025</td>
-                        <td style={{ textAlign: "right" }}>Rendement 2025</td>
-                      </tr>
-                      {dividend2025Top.map((d, i) => (
-                        <tr key={d.code}>
-                          <td className="mono" style={{ color: "var(--gold)", fontWeight: 700 }}>{i + 1}</td>
-                          <td>
-                            <div className="fund-name">{d.nom}</div>
-                            <div className="fund-gerant">{d.code}</div>
-                          </td>
-                          <td className="mono" style={{ textAlign: "right", fontWeight: 600 }}>{d.montant.toFixed(2)} DH</td>
-                          <td className="perf-cell up" style={{ textAlign: "right" }}>{d.rendement.toFixed(2)}%</td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
-
                 <p className="page-footnote">
                   Calendrier 2025/2026. Les dates non confirmées le seront au fil des Assemblées
                   Générales. Montants en dirhams (DH) par action ; performances passées, ne
@@ -2816,13 +2776,80 @@ export default function Sahm() {
 
             {dataTab === "capitalisation" && (
               <div>
-                <div className="section-head">
-                  <div className="section-title" style={{ fontSize: 22 }}>Capitalisations en direct</div>
-                  <div className="section-note">Clique sur la colonne "Cap. Boursière" pour trier</div>
-                </div>
-                <div className="opcvm-card" style={{ padding: "12px 8px", marginBottom: 20 }}>
-                  <TradingViewMarketCapScreener />
-                </div>
+                {!capData ? (
+                  <p className="page-subtitle">Chargement…</p>
+                ) : (
+                  <>
+                    <div className="section-note" style={{ marginBottom: 20 }}>
+                      Données mises à jour manuellement · au {new Date(capData.date).toLocaleDateString("fr-FR", { day: "numeric", month: "long", year: "numeric" })}
+                    </div>
+
+                    <div style={{ display: "grid", gridTemplateColumns: "1.1fr 1fr", gap: 28, alignItems: "start" }} className="cap-grid">
+                      <div>
+                        <div className="section-head">
+                          <div className="section-title" style={{ fontSize: 20 }}>Dix meilleures capitalisations</div>
+                        </div>
+                        <div className="official-table-card">
+                          <div className="opcvm-scroll">
+                            <table className="official-table">
+                              <thead>
+                                <tr>
+                                  <th>Instrument</th>
+                                  <th style={{ textAlign: "right" }}>Capitalisation (MAD)</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                {capData.top10.map((c) => (
+                                  <tr key={c.nom}>
+                                    <td className="official-emetteur">{c.nom}</td>
+                                    <td className="mono" style={{ textAlign: "right" }}>{c.capitalisation.toLocaleString("fr-FR")}</td>
+                                  </tr>
+                                ))}
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div>
+                        <div className="section-head">
+                          <div className="section-title" style={{ fontSize: 20 }}>Capitalisation globale</div>
+                        </div>
+                        <div className="kpi-cell" style={{ background: "var(--gold)", borderRadius: 12, padding: "18px 20px", marginBottom: 28 }}>
+                          <div className="kpi-value" style={{ color: "#fff", fontSize: 26 }}>{capData.global.toLocaleString("fr-FR")} MAD</div>
+                        </div>
+
+                        <div className="section-head">
+                          <div className="section-title" style={{ fontSize: 20 }}>Capitalisation sectorielle</div>
+                        </div>
+                        <div className="opcvm-card" style={{ padding: 16 }}>
+                          <ResponsiveContainer width="100%" height={260}>
+                            <PieChart>
+                              <Pie
+                                data={capData.secteurs}
+                                dataKey="pct"
+                                nameKey="nom"
+                                innerRadius={60}
+                                outerRadius={95}
+                                paddingAngle={2}
+                              >
+                                {capData.secteurs.map((_, i) => (
+                                  <Cell key={i} fill={["#B4453D", "#3B6FA0", "#2E7D5B", "#7C8896", "#D8A23B"][i % 5]} />
+                                ))}
+                              </Pie>
+                              <Tooltip formatter={(v) => `${v}%`} />
+                              <Legend layout="vertical" align="right" verticalAlign="middle" formatter={(v, entry) => `${v} (${entry.payload.pct}%)`} />
+                            </PieChart>
+                          </ResponsiveContainer>
+                        </div>
+                      </div>
+                    </div>
+
+                    <p className="page-footnote" style={{ marginTop: 28 }}>
+                      Capitalisations transmises manuellement, ne reflètent pas nécessairement le cours en temps réel.
+                    </p>
+                  </>
+                )}
               </div>
             )}
           </div>

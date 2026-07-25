@@ -1,0 +1,23 @@
+{
+  "date": "2026-07-24",
+  "global": 1012309092823,
+  "top10": [
+    { "nom": "ATTIJARIWAFA BANK", "capitalisation": 148447178910 },
+    { "nom": "MANAGEM", "capitalisation": 148308450000 },
+    { "nom": "ITISSALAT AL-MAGHRIB", "capitalisation": 79988884986 },
+    { "nom": "SODEP-Marsa Maroc", "capitalisation": 64588128000 },
+    { "nom": "BCP", "capitalisation": 50208015207 },
+    { "nom": "BANK OF AFRICA", "capitalisation": 42668600349 },
+    { "nom": "TAQA MOROCCO", "capitalisation": 41704542256 },
+    { "nom": "Holcim Maroc S.A", "capitalisation": 41004670000 },
+    { "nom": "SGTM S.A", "capitalisation": 40800000000 },
+    { "nom": "TGCC S.A", "capitalisation": 25447492254 }
+  ],
+  "secteurs": [
+    { "nom": "Banques", "pct": 27.54 },
+    { "nom": "Mines", "pct": 16.36 },
+    { "nom": "Bâtiment et Matériaux de Construction", "pct": 14.54 },
+    { "nom": "Télécommunications", "pct": 7.90 },
+    { "nom": "Autres", "pct": 33.66 }
+  ]
+}
