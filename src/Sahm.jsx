@@ -256,7 +256,7 @@ function TradingViewMarketOverview() {
             "FOREXCOM:FRXEUR",
             "XETR:DAX",
             "FOREXCOM:UKXGBP",
-            "TVC:NI225",
+            "FOREXCOM:JPXJPY",
             "ASX:XJO",
             "CSEMA:MASI",
           ],
