@@ -1716,8 +1716,8 @@ export default function Sahm() {
       <nav className="navbar">
         <div className="navbar-left">
           <div className="nav-logo">
-            <span className="icon-badge">S</span>
-            sahm<span style={{ color: "var(--gold)" }}>.ma</span>
+            <span className="icon-badge">B</span>
+            BourseInfo<span style={{ color: "var(--gold)" }}>.ma</span>
           </div>
           <div className="nav-links-desktop">
             <a className={`nav-link ${page === "accueil" ? "active" : ""}`} href="#" onClick={(e) => { e.preventDefault(); setPage("accueil"); }}>Accueil</a>
@@ -2806,7 +2806,7 @@ export default function Sahm() {
       )}
 
       <footer className="footer">
-        Sahm — statut du marché calculé à partir des horaires réels de cotation (hors jours fériés marocains) &middot; non affilié à la Bourse de Casablanca
+        BourseInfo.ma — statut du marché calculé à partir des horaires réels de cotation (hors jours fériés marocains) &middot; non affilié à la Bourse de Casablanca
       </footer>
     </div>
   );
