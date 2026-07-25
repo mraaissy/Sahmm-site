@@ -527,64 +527,203 @@ const learnCards = [
 // (capture d'écran fournie par l'utilisateur, page "Calendrier des dividendes")
 // Exercice 2025, dividendes versés en 2026. Pour les sociétés dont la date officielle
 // n'a pas encore été communiquée, "À confirmer" est affiché plutôt qu'une date inventée.
-const dividendStats = { distributrices: 53, sansDividende: 29, rendementMoyen: 3.48, cumul: 2460, suivies: 82 };
+const dividendStats = { distributrices: 52, sansDividende: 29, rendementMoyen: 3.48, cumul: 2460, suivies: 82 };
 
 const dividend2026 = [
-  { emetteur: "AFRIQUIA GAZ", secteur: "Énergie", montant: 175.0, detachement: "24/03/2026", paiement: "02/04/2026", type: "Ordinaire" },
-  { emetteur: "MAGHREB OXYGENE", secteur: "Matériaux", montant: 4.0, detachement: "24/03/2026", paiement: "02/04/2026", type: "Ordinaire" },
-  { emetteur: "IMMORENTE INVEST", secteur: "Immobilier", montant: 1.0, detachement: "22/04/2026", paiement: "04/05/2026", type: "Ordinaire" },
-  { emetteur: "AUTO NEJMA", secteur: "Distribution", montant: 176.0, detachement: "30/04/2026", paiement: "11/05/2026", type: "Ordinaire" },
-  { emetteur: "AUTO HALL", secteur: "Distribution", montant: 2.0, detachement: "15/05/2026", paiement: "26/05/2026", type: "Ordinaire" },
-  { emetteur: "SOCIETE DES BOISSONS DU MAROC", secteur: "Agroalimentaire", montant: 107.0, detachement: "10/06/2026", paiement: "22/06/2026", type: "Ordinaire" },
-  { emetteur: "SOCIETE DES BOISSONS DU MAROC", secteur: "Agroalimentaire", montant: 20.0, detachement: "10/06/2026", paiement: "22/06/2026", type: "Exceptionnel" },
+  { emetteur: "MAGHREB OXYGENE", secteur: "Matériaux", montant: 4, detachement: "24/03/2026", paiement: "02/04/2026", type: "Ordinaire" },
+  { emetteur: "AFRIQUIA GAZ", secteur: "Énergie", montant: 175, detachement: "24/03/2026", paiement: "02/04/2026", type: "Ordinaire" },
+  { emetteur: "IMMORENTE INVEST", secteur: "Immobilier", montant: 1, detachement: "22/04/2026", paiement: "04/05/2026", type: "Ordinaire" },
+  { emetteur: "AUTO NEJMA", secteur: "Distribution", montant: 176, detachement: "30/04/2026", paiement: "11/05/2026", type: "Ordinaire" },
+  { emetteur: "AUTO HALL", secteur: "Distribution", montant: 2, detachement: "15/05/2026", paiement: "26/05/2026", type: "Ordinaire" },
+  { emetteur: "CREDIT DU MAROC", secteur: "Banques", montant: 48, detachement: "04/06/2026", paiement: "15/06/2026", type: "Ordinaire" },
   { emetteur: "CASH PLUS S.A", secteur: "Financement", montant: 9.73, detachement: "04/06/2026", paiement: "15/06/2026", type: "Ordinaire" },
-  { emetteur: "CREDIT DU MAROC", secteur: "Banques", montant: 48.0, detachement: "04/06/2026", paiement: "15/06/2026", type: "Ordinaire" },
-  { emetteur: "DELTA HOLDING", secteur: "Biens d'équipement", montant: 2.0, detachement: "13/07/2026", paiement: "22/07/2026", type: "Ordinaire" },
-  { emetteur: "AGMA", secteur: "Assurances", montant: 310.0, detachement: "À confirmer", paiement: "À confirmer", type: "Ordinaire" },
-  { emetteur: "WAFA ASSURANCE", secteur: "Assurances", montant: 150.0, detachement: "À confirmer", paiement: "À confirmer", type: "Ordinaire" },
-  { emetteur: "SMI", secteur: "Matériaux", montant: 150.0, detachement: "À confirmer", paiement: "À confirmer", type: "Ordinaire" },
-  { emetteur: "LABEL'VIE", secteur: "Distribution", montant: 120.0, detachement: "À confirmer", paiement: "À confirmer", type: "Ordinaire" },
-  { emetteur: "ALUMINIUM DU MAROC", secteur: "Biens d'équipement", montant: 110.0, detachement: "À confirmer", paiement: "À confirmer", type: "Ordinaire" },
-  { emetteur: "SANLAM MAROC", secteur: "Assurances", montant: 98.0, detachement: "À confirmer", paiement: "À confirmer", type: "Ordinaire" },
-  { emetteur: "LAFARGEHOLCIM MAROC", secteur: "Matériaux", montant: 96.0, detachement: "À confirmer", paiement: "À confirmer", type: "Ordinaire" },
-  { emetteur: "CIMENTS DU MAROC", secteur: "Matériaux", montant: 65.0, detachement: "À confirmer", paiement: "À confirmer", type: "Ordinaire" },
-  { emetteur: "AFMA", secteur: "Assurances", montant: 62.0, detachement: "À confirmer", paiement: "À confirmer", type: "Ordinaire" },
-  { emetteur: "EQDOM", secteur: "Financement", montant: 57.0, detachement: "À confirmer", paiement: "À confirmer", type: "Ordinaire" },
-  { emetteur: "MANAGEM", secteur: "Matériaux", montant: 55.0, detachement: "À confirmer", paiement: "À confirmer", type: "Ordinaire" },
-  { emetteur: "MAGHREBAIL", secteur: "Immobilier", montant: 53.0, detachement: "À confirmer", paiement: "À confirmer", type: "Ordinaire" },
-  { emetteur: "SONASID", secteur: "Matériaux", montant: 52.0, detachement: "À confirmer", paiement: "À confirmer", type: "Ordinaire" },
-  { emetteur: "DISWAY", secteur: "Technologie", montant: 44.0, detachement: "À confirmer", paiement: "À confirmer", type: "Ordinaire" },
-  { emetteur: "OULMES", secteur: "Agroalimentaire", montant: 40.15, detachement: "À confirmer", paiement: "À confirmer", type: "Ordinaire" },
-  { emetteur: "MICRODATA", secteur: "Logiciels", montant: 40.0, detachement: "À confirmer", paiement: "À confirmer", type: "Ordinaire" },
-  { emetteur: "TAQA MOROCCO", secteur: "Utilities", montant: 38.0, detachement: "À confirmer", paiement: "À confirmer", type: "Ordinaire" },
-  { emetteur: "SOTHEMA", secteur: "Pharmaceutiques", montant: 33.0, detachement: "À confirmer", paiement: "À confirmer", type: "Ordinaire" },
-  { emetteur: "SALAFIN", secteur: "Financement", montant: 30.0, detachement: "À confirmer", paiement: "À confirmer", type: "Ordinaire" },
-  { emetteur: "PROMOPHARM", secteur: "Pharmaceutiques", montant: 30.0, detachement: "À confirmer", paiement: "À confirmer", type: "Ordinaire" },
-  { emetteur: "CTM", secteur: "Transport", montant: 26.0, detachement: "À confirmer", paiement: "À confirmer", type: "Ordinaire" },
-  { emetteur: "ARADEI CAPITAL", secteur: "Immobilier", montant: 23.0, detachement: "À confirmer", paiement: "À confirmer", type: "Ordinaire" },
-  { emetteur: "ATTIJARIWAFA BANK", secteur: "Banques", montant: 22.0, detachement: "À confirmer", paiement: "À confirmer", type: "Ordinaire" },
-  { emetteur: "AFRIC INDUSTRIES", secteur: "Biens d'équipement", montant: 20.0, detachement: "À confirmer", paiement: "30/06/2026", type: "Ordinaire" },
-  { emetteur: "DISTY TECHNOLOGIES", secteur: "Technologie", montant: 20.0, detachement: "À confirmer", paiement: "À confirmer", type: "Ordinaire" },
-  { emetteur: "JET CONTRACTORS", secteur: "Biens d'équipement", montant: 20.0, detachement: "À confirmer", paiement: "À confirmer", type: "Ordinaire" },
-  { emetteur: "TGCC", secteur: "Biens d'équipement", montant: 15.0, detachement: "À confirmer", paiement: "À confirmer", type: "Ordinaire" },
-  { emetteur: "CIH BANK", secteur: "Banques", montant: 14.0, detachement: "À confirmer", paiement: "À confirmer", type: "Ordinaire" },
-  { emetteur: "AKDITAL", secteur: "Santé", montant: 14.0, detachement: "À confirmer", paiement: "À confirmer", type: "Ordinaire" },
-  { emetteur: "SGTM", secteur: "Biens d'équipement", montant: 12.0, detachement: "À confirmer", paiement: "À confirmer", type: "Ordinaire" },
-  { emetteur: "MARSA MAROC", secteur: "Transport", montant: 11.0, detachement: "À confirmer", paiement: "À confirmer", type: "Ordinaire" },
-  { emetteur: "MUTANDIS", secteur: "Agroalimentaire", montant: 10.5, detachement: "À confirmer", paiement: "À confirmer", type: "Ordinaire" },
-  { emetteur: "COSUMAR", secteur: "Agroalimentaire", montant: 10.0, detachement: "À confirmer", paiement: "À confirmer", type: "Ordinaire" },
-  { emetteur: "RISMA", secteur: "Services", montant: 9.0, detachement: "À confirmer", paiement: "À confirmer", type: "Ordinaire" },
-  { emetteur: "VICENNE", secteur: "Santé", montant: 8.44, detachement: "À confirmer", paiement: "À confirmer", type: "Ordinaire" },
-  { emetteur: "HPS", secteur: "Logiciels", montant: 8.0, detachement: "À confirmer", paiement: "À confirmer", type: "Ordinaire" },
-  { emetteur: "CMGP GROUP", secteur: "Agriculture", montant: 6.5, detachement: "À confirmer", paiement: "À confirmer", type: "Ordinaire" },
-  { emetteur: "ATLANTA SANAD", secteur: "Assurances", montant: 5.9, detachement: "À confirmer", paiement: "À confirmer", type: "Ordinaire" },
-  { emetteur: "BANK OF AFRICA", secteur: "Banques", montant: 5.0, detachement: "À confirmer", paiement: "À confirmer", type: "Ordinaire" },
-  { emetteur: "MAROC TELECOM", secteur: "Télécommunications", montant: 4.0, detachement: "À confirmer", paiement: "À confirmer", type: "Ordinaire" },
-  { emetteur: "CFG BANK", secteur: "Banques", montant: 4.0, detachement: "À confirmer", paiement: "À confirmer", type: "Ordinaire" },
-  { emetteur: "ALLIANCES", secteur: "Immobilier", montant: 4.0, detachement: "À confirmer", paiement: "À confirmer", type: "Ordinaire" },
-  { emetteur: "COLORADO", secteur: "Matériaux", montant: 3.5, detachement: "À confirmer", paiement: "À confirmer", type: "Ordinaire" },
-  { emetteur: "ENNAKL", secteur: "Distributeurs", montant: 3.15, detachement: "À confirmer", paiement: "À confirmer", type: "Ordinaire" },
+  { emetteur: "SALAFIN", secteur: "Financement", montant: 30, detachement: "04/06/2026", paiement: "12/06/2026", type: "Ordinaire" },
+  { emetteur: "SOCIETE DES BOISSONS DU MAROC", secteur: "Agroalimentaire", montant: 107, detachement: "10/06/2026", paiement: "22/06/2026", type: "Ordinaire" },
+  { emetteur: "SOCIETE DES BOISSONS DU MAROC", secteur: "Agroalimentaire", montant: 20, detachement: "10/06/2026", paiement: "22/06/2026", type: "Exceptionnel" },
+  { emetteur: "CFG BANK", secteur: "Banques", montant: 4, detachement: "10/06/2026", paiement: "22/06/2026", type: "Ordinaire" },
+  { emetteur: "Holcim Maroc S.A", secteur: "Matériaux", montant: 96, detachement: "12/06/2026", paiement: "24/06/2026", type: "Ordinaire" },
+  { emetteur: "WAFA ASSURANCE", secteur: "Assurances", montant: 150, detachement: "18/06/2026", paiement: "29/06/2026", type: "Ordinaire" },
+  { emetteur: "TOTALENERGIES MARKETING MAROC", secteur: "Distribution", montant: 89.57, detachement: "18/06/2026", paiement: "29/06/2026", type: "Ordinaire" },
+  { emetteur: "ATLANTASANAD", secteur: "Assurances", montant: 5.9, detachement: "19/06/2026", paiement: "30/06/2026", type: "Ordinaire" },
+  { emetteur: "ARADEI CAPITAL", secteur: "Immobilier", montant: 5.71, detachement: "19/06/2026", paiement: "30/06/2026", type: "Ordinaire" },
+  { emetteur: "ARADEI CAPITAL", secteur: "Immobilier", montant: 17.29, detachement: "19/06/2026", paiement: "30/06/2026", type: "Exceptionnel" },
+  { emetteur: "AFRIC INDUSTRIES SA", secteur: "Biens d'équipement", montant: 20, detachement: "19/06/2026", paiement: "30/06/2026", type: "Ordinaire" },
+  { emetteur: "SOCIETE LES EAUX MINERALES D'OULMES", secteur: "Agroalimentaire", montant: 40.15, detachement: "19/06/2026", paiement: "30/06/2026", type: "Ordinaire" },
+  { emetteur: "VICENNE", secteur: "Santé", montant: 8.44, detachement: "22/06/2026", paiement: "01/07/2026", type: "Ordinaire" },
+  { emetteur: "RISMA", secteur: "Services", montant: 9, detachement: "22/06/2026", paiement: "01/07/2026", type: "Ordinaire" },
+  { emetteur: "DISWAY", secteur: "Technologie", montant: 44, detachement: "24/06/2026", paiement: "03/07/2026", type: "Ordinaire" },
+  { emetteur: "IMMORENTE INVEST", secteur: "Immobilier", montant: 2.5, detachement: "24/06/2026", paiement: "03/07/2026", type: "Ordinaire" },
+  { emetteur: "DISTY TECHNOLOGIES", secteur: "Technologie", montant: 19.5, detachement: "26/06/2026", paiement: "07/07/2026", type: "Ordinaire" },
+  { emetteur: "LABEL VIE", secteur: "Distribution", montant: 120, detachement: "01/07/2026", paiement: "10/07/2026", type: "Ordinaire" },
+  { emetteur: "MUTANDIS SCA", secteur: "Agroalimentaire", montant: 10.5, detachement: "01/07/2026", paiement: "10/07/2026", type: "Ordinaire" },
+  { emetteur: "CREDIT IMMOBILIER ET HOTELIER", secteur: "Banques", montant: 14, detachement: "01/07/2026", paiement: "10/07/2026", type: "Ordinaire" },
+  { emetteur: "SOCIETE DE THERAPEUTIQUE MAROCAINE", secteur: "Pharmaceutiques", montant: 6.6, detachement: "01/07/2026", paiement: "10/07/2026", type: "Ordinaire" },
+  { emetteur: "CIMENTS DU MAROC", secteur: "Matériaux", montant: 65, detachement: "06/07/2026", paiement: "15/07/2026", type: "Ordinaire" },
+  { emetteur: "ENNAKL AUTOMOBILES", secteur: "Distributeurs", montant: 2.81, detachement: "06/07/2026", paiement: "15/07/2026", type: "Ordinaire" },
+  { emetteur: "ATTIJARIWAFA BANK", secteur: "Banques", montant: 22, detachement: "08/07/2026", paiement: "17/07/2026", type: "Ordinaire" },
+  { emetteur: "BANQUE CENTRALE POPULAIRE", secteur: "Banques", montant: 11, detachement: "09/07/2026", paiement: "20/07/2026", type: "Ordinaire" },
+  { emetteur: "DELTA HOLDING", secteur: "Biens d'équipement", montant: 2, detachement: "13/07/2026", paiement: "22/07/2026", type: "Ordinaire" },
+  { emetteur: "JET CONTRACTORS", secteur: "Biens d'équipement", montant: 20, detachement: "13/07/2026", paiement: "22/07/2026", type: "Ordinaire" },
+  { emetteur: "ALUMINIUM DU MAROC", secteur: "Biens d'équipement", montant: 110, detachement: "14/07/2026", paiement: "23/07/2026", type: "Ordinaire" },
+  { emetteur: "AGMA", secteur: "Assurances", montant: 310, detachement: "14/07/2026", paiement: "23/07/2026", type: "Ordinaire" },
+  { emetteur: "SOCIETE GENERALE DES TRAVAUX DU MAROC", secteur: "Biens d'équipement", montant: 12, detachement: "14/07/2026", paiement: "23/07/2026", type: "Ordinaire" },
+  { emetteur: "MANAGEM", secteur: "Matériaux", montant: 55, detachement: "15/07/2026", paiement: "24/07/2026", type: "Ordinaire" },
+  { emetteur: "SOCIETE METALLURGIQUE D'IMITER", secteur: "Matériaux", montant: 150, detachement: "15/07/2026", paiement: "24/07/2026", type: "Ordinaire" },
+  { emetteur: "HIGHTECH PAYMENT SYSTEMS", secteur: "Logiciels", montant: 8, detachement: "16/07/2026", paiement: "27/07/2026", type: "Ordinaire" },
+  { emetteur: "BANK OF AFRICA", secteur: "Banques", montant: 5, detachement: "16/07/2026", paiement: "27/07/2026", type: "Ordinaire" },
+  { emetteur: "BANQUE MAROCAINE POUR LE COMMERCE ET L'INDUSTRIE", secteur: "Banques", montant: 14, detachement: "17/07/2026", paiement: "28/07/2026", type: "Ordinaire" },
+  { emetteur: "MICRODATA", secteur: "Logiciels", montant: 40, detachement: "17/07/2026", paiement: "28/07/2026", type: "Ordinaire" },
+  { emetteur: "SOCIETE D'EXPLOITATION DES PORTS - MARSA MAROC", secteur: "Transport", montant: 11, detachement: "17/07/2026", paiement: "28/07/2026", type: "Ordinaire" },
+  { emetteur: "SOCIETE NATIONALE DE SIDERURGIE SA", secteur: "Matériaux", montant: 52, detachement: "20/07/2026", paiement: "29/07/2026", type: "Ordinaire" },
+  { emetteur: "ALLIANCES DEVELOPPEMENT IMMOBILIER SA", secteur: "Immobilier", montant: 4, detachement: "21/07/2026", paiement: "31/07/2026", type: "Ordinaire" },
+  { emetteur: "COSUMAR", secteur: "Agroalimentaire", montant: 9, detachement: "22/07/2026", paiement: "03/08/2026", type: "Ordinaire" },
+  { emetteur: "COSUMAR", secteur: "Agroalimentaire", montant: 1, detachement: "22/07/2026", paiement: "03/08/2026", type: "Exceptionnel" },
+  { emetteur: "EQDOM", secteur: "Financement", montant: 57, detachement: "23/07/2026", paiement: "04/08/2026", type: "Ordinaire" },
+  { emetteur: "BALIMA", secteur: "Immobilier", montant: 5.5, detachement: "24/07/2026", paiement: "05/08/2026", type: "Ordinaire" },
+  { emetteur: "DARI COUSPATE", secteur: "Agroalimentaire", montant: 140, detachement: "31/07/2026", paiement: "11/08/2026", type: "Ordinaire" },
+  { emetteur: "SANLAM MAROC", secteur: "Assurances", montant: 98, detachement: "19/08/2026", paiement: "03/09/2026", type: "Ordinaire" },
+  { emetteur: "MAGHREBAIL", secteur: "Immobilier", montant: 53, detachement: "28/08/2026", paiement: "08/09/2026", type: "Ordinaire" },
+  { emetteur: "ITISSALAT AL-MAGHRIB", secteur: "Télécommunications", montant: 4, detachement: "04/09/2026", paiement: "15/09/2026", type: "Ordinaire" },
+  { emetteur: "SOCIETE DE PROMOTION PHARMACEUTIQUE DU MAGHREB S.A", secteur: "Pharmaceutiques", montant: 30, detachement: "11/09/2026", paiement: "22/09/2026", type: "Ordinaire" },
+  { emetteur: "TAQA MOROCCO", secteur: "Utilities", montant: 38, detachement: "16/09/2026", paiement: "25/09/2026", type: "Ordinaire" },
 ];
+
+const dividend2025Full = [
+  { emetteur: "MAGHREB OXYGENE", secteur: "Matériaux", montant: 4, detachement: "25/03/2025", paiement: "08/04/2025", type: "Ordinaire" },
+  { emetteur: "AFRIQUIA GAZ", secteur: "Énergie", montant: 175, detachement: "25/03/2025", paiement: "08/04/2025", type: "Ordinaire" },
+  { emetteur: "IMMORENTE INVEST", secteur: "Immobilier", montant: 1, detachement: "18/04/2025", paiement: "29/04/2025", type: "Ordinaire" },
+  { emetteur: "AUTO NEJMA", secteur: "Distribution", montant: 120, detachement: "22/05/2025", paiement: "02/06/2025", type: "Ordinaire" },
+  { emetteur: "ENNAKL AUTOMOBILES", secteur: "Distributeurs", montant: 2.38, detachement: "27/05/2025", paiement: "05/06/2025", type: "Ordinaire" },
+  { emetteur: "ATTIJARIWAFA BANK", secteur: "Banques", montant: 19, detachement: "27/05/2025", paiement: "05/06/2025", type: "Ordinaire" },
+  { emetteur: "SALAFIN", secteur: "Financement", montant: 14.75, detachement: "06/06/2025", paiement: "17/06/2025", type: "Ordinaire" },
+  { emetteur: "SALAFIN", secteur: "Financement", montant: 14.75, detachement: "06/06/2025", paiement: "17/06/2025", type: "Exceptionnel" },
+  { emetteur: "SOCIETE DES BOISSONS DU MAROC", secteur: "Agroalimentaire", montant: 100, detachement: "10/06/2025", paiement: "19/06/2025", type: "Ordinaire" },
+  { emetteur: "AFRIC INDUSTRIES SA", secteur: "Biens d'équipement", montant: 22, detachement: "10/06/2025", paiement: "19/06/2025", type: "Ordinaire" },
+  { emetteur: "ATLANTASANAD", secteur: "Assurances", montant: 5.8, detachement: "10/06/2025", paiement: "19/06/2025", type: "Ordinaire" },
+  { emetteur: "AUTO HALL", secteur: "Distribution", montant: 2, detachement: "10/06/2025", paiement: "18/06/2025", type: "Ordinaire" },
+  { emetteur: "ARADEI CAPITAL", secteur: "Immobilier", montant: 10.43, detachement: "11/06/2025", paiement: "20/06/2025", type: "Ordinaire" },
+  { emetteur: "ARADEI CAPITAL", secteur: "Immobilier", montant: 11.57, detachement: "11/06/2025", paiement: "20/06/2025", type: "Exceptionnel" },
+  { emetteur: "COLORADO", secteur: "Chimie", montant: 2.6, detachement: "12/06/2025", paiement: "23/06/2025", type: "Ordinaire" },
+  { emetteur: "Holcim Maroc S.A", secteur: "Matériaux", montant: 70, detachement: "13/06/2025", paiement: "24/06/2025", type: "Ordinaire" },
+  { emetteur: "CFG BANK", secteur: "Banques", montant: 3.3, detachement: "13/06/2025", paiement: "24/06/2025", type: "Ordinaire" },
+  { emetteur: "BANQUE MAROCAINE POUR LE COMMERCE ET L'INDUSTRIE", secteur: "Banques", montant: 18, detachement: "16/06/2025", paiement: "25/06/2025", type: "Ordinaire" },
+  { emetteur: "WAFA ASSURANCE", secteur: "Assurances", montant: 140, detachement: "17/06/2025", paiement: "26/06/2025", type: "Ordinaire" },
+  { emetteur: "IMMORENTE INVEST", secteur: "Immobilier", montant: 2.2, detachement: "17/06/2025", paiement: "26/06/2025", type: "Ordinaire" },
+  { emetteur: "SOCIETE LES EAUX MINERALES D'OULMES", secteur: "Agroalimentaire", montant: 23, detachement: "18/06/2025", paiement: "30/06/2025", type: "Ordinaire" },
+  { emetteur: "TOTALENERGIES MARKETING MAROC", secteur: "Distribution", montant: 113, detachement: "19/06/2025", paiement: "30/06/2025", type: "Ordinaire" },
+  { emetteur: "SOCIETE DE THERAPEUTIQUE MAROCAINE", secteur: "Pharmaceutiques", montant: 28, detachement: "20/06/2025", paiement: "02/07/2025", type: "Ordinaire" },
+  { emetteur: "DISWAY", secteur: "Technologie", montant: 40, detachement: "30/06/2025", paiement: "09/07/2025", type: "Ordinaire" },
+  { emetteur: "MUTANDIS SCA", secteur: "Agroalimentaire", montant: 10.5, detachement: "30/06/2025", paiement: "09/07/2025", type: "Ordinaire" },
+  { emetteur: "LESIEUR CRISTAL", secteur: "Agroalimentaire", montant: 3, detachement: "30/06/2025", paiement: "09/07/2025", type: "Ordinaire" },
+  { emetteur: "CREDIT IMMOBILIER ET HOTELIER", secteur: "Banques", montant: 14, detachement: "30/06/2025", paiement: "09/07/2025", type: "Ordinaire" },
+  { emetteur: "SOCIETE METALLURGIQUE D'IMITER", secteur: "Matériaux", montant: 80, detachement: "30/06/2025", paiement: "08/07/2025", type: "Ordinaire" },
+  { emetteur: "MANAGEM", secteur: "Matériaux", montant: 40, detachement: "30/06/2025", paiement: "08/07/2025", type: "Ordinaire" },
+  { emetteur: "CREDIT DU MAROC", secteur: "Banques", montant: 41.7, detachement: "01/07/2025", paiement: "10/07/2025", type: "Ordinaire" },
+  { emetteur: "DISTY TECHNOLOGIES", secteur: "Technologie", montant: 16.5, detachement: "09/07/2025", paiement: "18/07/2025", type: "Ordinaire" },
+  { emetteur: "ALLIANCES DEVELOPPEMENT IMMOBILIER SA", secteur: "Immobilier", montant: 3.6, detachement: "10/07/2025", paiement: "21/07/2025", type: "Ordinaire" },
+  { emetteur: "DELTA HOLDING", secteur: "Biens d'équipement", montant: 2.25, detachement: "10/07/2025", paiement: "21/07/2025", type: "Ordinaire" },
+  { emetteur: "BANK OF AFRICA", secteur: "Banques", montant: 5, detachement: "10/07/2025", paiement: "21/07/2025", type: "Ordinaire" },
+  { emetteur: "ALUMINIUM DU MAROC", secteur: "Biens d'équipement", montant: 100, detachement: "11/07/2025", paiement: "22/07/2025", type: "Ordinaire" },
+  { emetteur: "AGMA", secteur: "Assurances", montant: 300, detachement: "15/07/2025", paiement: "24/07/2025", type: "Ordinaire" },
+  { emetteur: "BANQUE CENTRALE POPULAIRE", secteur: "Banques", montant: 10.5, detachement: "15/07/2025", paiement: "24/07/2025", type: "Ordinaire" },
+  { emetteur: "HIGHTECH PAYMENT SYSTEMS", secteur: "Logiciels", montant: 7, detachement: "16/07/2025", paiement: "25/07/2025", type: "Ordinaire" },
+  { emetteur: "SOCIETE D'EXPLOITATION DES PORTS - MARSA MAROC", secteur: "Transport", montant: 9.5, detachement: "17/07/2025", paiement: "28/07/2025", type: "Ordinaire" },
+  { emetteur: "CIMENTS DU MAROC", secteur: "Matériaux", montant: 60, detachement: "18/07/2025", paiement: "29/07/2025", type: "Ordinaire" },
+  { emetteur: "BALIMA", secteur: "Immobilier", montant: 5.5, detachement: "18/07/2025", paiement: "29/07/2025", type: "Ordinaire" },
+  { emetteur: "DARI COUSPATE", secteur: "Agroalimentaire", montant: 140, detachement: "18/07/2025", paiement: "29/07/2025", type: "Ordinaire" },
+  { emetteur: "JET CONTRACTORS", secteur: "Biens d'équipement", montant: 15, detachement: "18/07/2025", paiement: "29/07/2025", type: "Ordinaire" },
+  { emetteur: "MICRODATA", secteur: "Logiciels", montant: 40, detachement: "18/07/2025", paiement: "29/07/2025", type: "Ordinaire" },
+  { emetteur: "COSUMAR", secteur: "Agroalimentaire", montant: 10, detachement: "21/07/2025", paiement: "31/07/2025", type: "Ordinaire" },
+  { emetteur: "SOCIETE NATIONALE DE SIDERURGIE SA", secteur: "Matériaux", montant: 39, detachement: "21/07/2025", paiement: "31/07/2025", type: "Ordinaire" },
+  { emetteur: "LABEL VIE", secteur: "Distribution", montant: 110.57, detachement: "21/07/2025", paiement: "31/07/2025", type: "Ordinaire" },
+  { emetteur: "RISMA", secteur: "Services", montant: 7, detachement: "23/07/2025", paiement: "04/08/2025", type: "Ordinaire" },
+  { emetteur: "AKDITAL", secteur: "Santé", montant: 10, detachement: "24/07/2025", paiement: "05/08/2025", type: "Ordinaire" },
+  { emetteur: "TRAVAUX GENERAUX DE CONSTRUCTION DE CASABLANCA", secteur: "Biens d'équipement", montant: 11.5, detachement: "04/08/2025", paiement: "13/08/2025", type: "Ordinaire" },
+  { emetteur: "SANLAM MAROC", secteur: "Assurances", montant: 81, detachement: "25/08/2025", paiement: "03/09/2025", type: "Ordinaire" },
+  { emetteur: "MAGHREBAIL", secteur: "Immobilier", montant: 53, detachement: "27/08/2025", paiement: "08/09/2025", type: "Ordinaire" },
+  { emetteur: "ITISSALAT AL-MAGHRIB", secteur: "Télécommunications", montant: 1.43, detachement: "01/09/2025", paiement: "12/09/2025", type: "Ordinaire" },
+  { emetteur: "AFMA SA", secteur: "Assurances", montant: 60, detachement: "08/09/2025", paiement: "17/09/2025", type: "Ordinaire" },
+  { emetteur: "CMGP GROUP", secteur: "Agriculture", montant: 6.3, detachement: "16/09/2025", paiement: "25/09/2025", type: "Ordinaire" },
+  { emetteur: "TAQA MOROCCO", secteur: "Utilities", montant: 37, detachement: "16/09/2025", paiement: "25/09/2025", type: "Ordinaire" },
+  { emetteur: "MAROC LEASING", secteur: "Financement", montant: 14, detachement: "17/09/2025", paiement: "26/09/2025", type: "Ordinaire" },
+  { emetteur: "COMPAGNIE DE TRANSPORT AU MAROC", secteur: "Transport", montant: 25, detachement: "18/09/2025", paiement: "29/09/2025", type: "Ordinaire" },
+  { emetteur: "DOUJA PROMOTION GROUPE ADDOHA SA", secteur: "Immobilier", montant: 0.5, detachement: "19/09/2025", paiement: "30/09/2025", type: "Ordinaire" },
+  { emetteur: "IMMORENTE INVEST", secteur: "Immobilier", montant: 1, detachement: "23/09/2025", paiement: "02/10/2025", type: "Ordinaire" },
+  { emetteur: "TOTALENERGIES MARKETING MAROC", secteur: "Distribution", montant: 67, detachement: "02/12/2025", paiement: "11/12/2025", type: "Exceptionnel" },
+  { emetteur: "IMMORENTE INVEST", secteur: "Immobilier", montant: 1, detachement: "10/12/2025", paiement: "19/12/2025", type: "Ordinaire" },
+];
+
+const dividend2024Full = [
+  { emetteur: "AFRIQUIA GAZ", secteur: "Énergie", montant: 140, detachement: "02/04/2024", paiement: "16/04/2024", type: "Ordinaire" },
+  { emetteur: "MAGHREB OXYGENE", secteur: "Matériaux", montant: 4, detachement: "03/04/2024", paiement: "16/04/2024", type: "Ordinaire" },
+  { emetteur: "IMMORENTE INVEST", secteur: "Immobilier", montant: 1, detachement: "22/04/2024", paiement: "30/04/2024", type: "Ordinaire" },
+  { emetteur: "AUTO NEJMA", secteur: "Distribution", montant: 94, detachement: "23/05/2024", paiement: "03/06/2024", type: "Ordinaire" },
+  { emetteur: "SALAFIN", secteur: "Financement", montant: 14.25, detachement: "27/05/2024", paiement: "05/06/2024", type: "Ordinaire" },
+  { emetteur: "SALAFIN", secteur: "Financement", montant: 14.25, detachement: "27/05/2024", paiement: "05/06/2024", type: "Exceptionnel" },
+  { emetteur: "SOCIETE DES BOISSONS DU MAROC", secteur: "Agroalimentaire", montant: 160, detachement: "06/06/2024", paiement: "20/06/2024", type: "Ordinaire" },
+  { emetteur: "COLORADO", secteur: "Chimie", montant: 2.25, detachement: "06/06/2024", paiement: "20/06/2024", type: "Ordinaire" },
+  { emetteur: "Holcim Maroc S.A", secteur: "Matériaux", montant: 66, detachement: "06/06/2024", paiement: "20/06/2024", type: "Ordinaire" },
+  { emetteur: "IMMORENTE INVEST", secteur: "Immobilier", montant: 2.2, detachement: "11/06/2024", paiement: "24/06/2024", type: "Ordinaire" },
+  { emetteur: "WAFA ASSURANCE", secteur: "Assurances", montant: 140, detachement: "11/06/2024", paiement: "26/06/2024", type: "Ordinaire" },
+  { emetteur: "CFG BANK", secteur: "Banques", montant: 3.3, detachement: "11/06/2024", paiement: "24/06/2024", type: "Ordinaire" },
+  { emetteur: "TOTALENERGIES MARKETING MAROC", secteur: "Distribution", montant: 56, detachement: "19/06/2024", paiement: "27/06/2024", type: "Ordinaire" },
+  { emetteur: "AUTO HALL", secteur: "Distribution", montant: 2, detachement: "20/06/2024", paiement: "01/07/2024", type: "Ordinaire" },
+  { emetteur: "ATLANTASANAD", secteur: "Assurances", montant: 5.7, detachement: "20/06/2024", paiement: "28/06/2024", type: "Ordinaire" },
+  { emetteur: "EQDOM", secteur: "Financement", montant: 55, detachement: "20/06/2024", paiement: "01/07/2024", type: "Ordinaire" },
+  { emetteur: "SOCIETE METALLURGIQUE D'IMITER", secteur: "Matériaux", montant: 80, detachement: "20/06/2024", paiement: "01/07/2024", type: "Ordinaire" },
+  { emetteur: "LABEL VIE", secteur: "Distribution", montant: 96.75, detachement: "20/06/2024", paiement: "01/07/2024", type: "Ordinaire" },
+  { emetteur: "MANAGEM", secteur: "Matériaux", montant: 30, detachement: "20/06/2024", paiement: "01/07/2024", type: "Ordinaire" },
+  { emetteur: "TAQA MOROCCO", secteur: "Utilities", montant: 35, detachement: "20/06/2024", paiement: "28/06/2024", type: "Ordinaire" },
+  { emetteur: "SOCIETE DE THERAPEUTIQUE MAROCAINE", secteur: "Pharmaceutiques", montant: 17, detachement: "21/06/2024", paiement: "02/07/2024", type: "Ordinaire" },
+  { emetteur: "DISWAY", secteur: "Technologie", montant: 35, detachement: "25/06/2024", paiement: "04/07/2024", type: "Ordinaire" },
+  { emetteur: "LESIEUR CRISTAL", secteur: "Agroalimentaire", montant: 2, detachement: "26/06/2024", paiement: "05/07/2024", type: "Ordinaire" },
+  { emetteur: "SOCIETE LES EAUX MINERALES D'OULMES", secteur: "Agroalimentaire", montant: 22, detachement: "26/06/2024", paiement: "05/07/2024", type: "Ordinaire" },
+  { emetteur: "MUTANDIS SCA", secteur: "Agroalimentaire", montant: 10.5, detachement: "27/06/2024", paiement: "10/07/2024", type: "Ordinaire" },
+  { emetteur: "CIMENTS DU MAROC", secteur: "Matériaux", montant: 60, detachement: "02/07/2024", paiement: "15/07/2024", type: "Ordinaire" },
+  { emetteur: "CIMENTS DU MAROC", secteur: "Matériaux", montant: 10, detachement: "02/07/2024", paiement: "15/07/2024", type: "Exceptionnel" },
+  { emetteur: "JET CONTRACTORS", secteur: "Biens d'équipement", montant: 7, detachement: "09/07/2024", paiement: "18/07/2024", type: "Ordinaire" },
+  { emetteur: "DISTY TECHNOLOGIES", secteur: "Technologie", montant: 15, detachement: "09/07/2024", paiement: "18/07/2024", type: "Ordinaire" },
+  { emetteur: "CREDIT DU MAROC", secteur: "Banques", montant: 34.2, detachement: "09/07/2024", paiement: "18/07/2024", type: "Ordinaire" },
+  { emetteur: "CREDIT IMMOBILIER ET HOTELIER", secteur: "Banques", montant: 14, detachement: "09/07/2024", paiement: "18/07/2024", type: "Ordinaire" },
+  { emetteur: "DELTA HOLDING", secteur: "Biens d'équipement", montant: 1.5, detachement: "10/07/2024", paiement: "19/07/2024", type: "Ordinaire" },
+  { emetteur: "ENNAKL AUTOMOBILES", secteur: "Distributeurs", montant: 1.99, detachement: "10/07/2024", paiement: "19/07/2024", type: "Ordinaire" },
+  { emetteur: "ATTIJARIWAFA BANK", secteur: "Banques", montant: 16.5, detachement: "10/07/2024", paiement: "19/07/2024", type: "Ordinaire" },
+  { emetteur: "ALLIANCES DEVELOPPEMENT IMMOBILIER SA", secteur: "Immobilier", montant: 3, detachement: "11/07/2024", paiement: "22/07/2024", type: "Ordinaire" },
+  { emetteur: "COSUMAR", secteur: "Agroalimentaire", montant: 7, detachement: "11/07/2024", paiement: "22/07/2024", type: "Ordinaire" },
+  { emetteur: "COSUMAR", secteur: "Agroalimentaire", montant: 3, detachement: "11/07/2024", paiement: "22/07/2024", type: "Exceptionnel" },
+  { emetteur: "SOCIETE NATIONALE DE SIDERURGIE SA", secteur: "Matériaux", montant: 21, detachement: "12/07/2024", paiement: "23/07/2024", type: "Ordinaire" },
+  { emetteur: "TRAVAUX GENERAUX DE CONSTRUCTION DE CASABLANCA", secteur: "Biens d'équipement", montant: 7.5, detachement: "12/07/2024", paiement: "23/07/2024", type: "Ordinaire" },
+  { emetteur: "MICRODATA", secteur: "Logiciels", montant: 34, detachement: "15/07/2024", paiement: "24/07/2024", type: "Ordinaire" },
+  { emetteur: "BALIMA", secteur: "Immobilier", montant: 5.5, detachement: "16/07/2024", paiement: "25/07/2024", type: "Ordinaire" },
+  { emetteur: "AFRIC INDUSTRIES SA", secteur: "Biens d'équipement", montant: 20, detachement: "16/07/2024", paiement: "25/07/2024", type: "Ordinaire" },
+  { emetteur: "AGMA", secteur: "Assurances", montant: 275, detachement: "16/07/2024", paiement: "25/07/2024", type: "Ordinaire" },
+  { emetteur: "HIGHTECH PAYMENT SYSTEMS", secteur: "Logiciels", montant: 6.8, detachement: "17/07/2024", paiement: "26/07/2024", type: "Ordinaire" },
+  { emetteur: "BANK OF AFRICA", secteur: "Banques", montant: 4, detachement: "17/07/2024", paiement: "26/07/2024", type: "Ordinaire" },
+  { emetteur: "BANQUE MAROCAINE POUR LE COMMERCE ET L'INDUSTRIE", secteur: "Banques", montant: 18, detachement: "17/07/2024", paiement: "26/07/2024", type: "Ordinaire" },
+  { emetteur: "ARADEI CAPITAL", secteur: "Immobilier", montant: 5.88, detachement: "18/07/2024", paiement: "29/07/2024", type: "Ordinaire" },
+  { emetteur: "ARADEI CAPITAL", secteur: "Immobilier", montant: 14.59, detachement: "18/07/2024", paiement: "29/07/2024", type: "Exceptionnel" },
+  { emetteur: "RISMA", secteur: "Services", montant: 6, detachement: "18/07/2024", paiement: "29/07/2024", type: "Ordinaire" },
+  { emetteur: "DARI COUSPATE", secteur: "Agroalimentaire", montant: 120, detachement: "18/07/2024", paiement: "29/07/2024", type: "Ordinaire" },
+  { emetteur: "BANQUE CENTRALE POPULAIRE", secteur: "Banques", montant: 10, detachement: "19/07/2024", paiement: "31/07/2024", type: "Ordinaire" },
+  { emetteur: "SOCIETE D'EXPLOITATION DES PORTS - MARSA MAROC", secteur: "Transport", montant: 8.5, detachement: "24/07/2024", paiement: "07/08/2024", type: "Ordinaire" },
+  { emetteur: "AKDITAL", secteur: "Santé", montant: 6, detachement: "31/07/2024", paiement: "09/08/2024", type: "Ordinaire" },
+  { emetteur: "ALUMINIUM DU MAROC", secteur: "Biens d'équipement", montant: 90, detachement: "01/08/2024", paiement: "09/08/2024", type: "Ordinaire" },
+  { emetteur: "MAGHREBAIL", secteur: "Immobilier", montant: 50, detachement: "06/08/2024", paiement: "15/08/2024", type: "Ordinaire" },
+  { emetteur: "SANLAM MAROC", secteur: "Assurances", montant: 77, detachement: "22/08/2024", paiement: "30/08/2024", type: "Ordinaire" },
+  { emetteur: "AFMA SA", secteur: "Assurances", montant: 55, detachement: "03/09/2024", paiement: "12/09/2024", type: "Ordinaire" },
+  { emetteur: "ITISSALAT AL-MAGHRIB", secteur: "Télécommunications", montant: 4.2, detachement: "03/09/2024", paiement: "12/09/2024", type: "Ordinaire" },
+  { emetteur: "UNIMER", secteur: "Agroalimentaire", montant: 1, detachement: "09/09/2024", paiement: "20/09/2024", type: "Ordinaire" },
+  { emetteur: "COMPAGNIE DE TRANSPORT AU MAROC", secteur: "Transport", montant: 15, detachement: "10/09/2024", paiement: "23/09/2024", type: "Ordinaire" },
+  { emetteur: "MAROC LEASING", secteur: "Financement", montant: 14, detachement: "18/09/2024", paiement: "27/09/2024", type: "Ordinaire" },
+  { emetteur: "IMMORENTE INVEST", secteur: "Immobilier", montant: 1, detachement: "19/09/2024", paiement: "30/09/2024", type: "Ordinaire" },
+  { emetteur: "IMMORENTE INVEST", secteur: "Immobilier", montant: 1, detachement: "11/12/2024", paiement: "20/12/2024", type: "Ordinaire" },
+];
+
+const dividendByYear = {
+  "2026": { data: dividend2026, label: "Calendrier des dividendes 2026", note: "Exercice 2025 · versements en 2026" },
+  "2025": { data: dividend2025Full, label: "Calendrier des dividendes 2025", note: "Exercice 2024 · versements en 2025" },
+  "2024": { data: dividend2024Full, label: "Calendrier des dividendes 2024", note: "Exercice 2023 · versements en 2024" },
+};
 
 const dividendSansDividende2026 = [
   "BALIMA", "BMCI", "Banque Centrale Populaire", "Cartier Saada", "Dari Couspate", "Delattre Levivier Maroc",
@@ -689,6 +828,7 @@ export default function Sahm() {
   }, []);
   const [page, setPage] = useState("accueil");
   const [dataTab, setDataTab] = useState("dividendes");
+  const [dividendYear, setDividendYear] = useState("2026");
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
   const [marketStatus, setMarketStatus] = useState(() => getCasablancaMarketStatus());
 
@@ -1725,7 +1865,7 @@ export default function Sahm() {
             <a className={`nav-link ${page === "seance" ? "active" : ""}`} href="#" onClick={(e) => { e.preventDefault(); setPage("seance"); }}>Séance Boursière</a>
             <a className={`nav-link ${page === "opcvm" ? "active" : ""}`} href="#" onClick={(e) => { e.preventDefault(); setPage("opcvm"); }}>OPCVM</a>
             <a className={`nav-link ${page === "actions" ? "active" : ""}`} href="#" onClick={(e) => { e.preventDefault(); setPage("actions"); }}>Actions</a>
-            <a className={`nav-link ${page === "data" ? "active" : ""}`} href="#" onClick={(e) => { e.preventDefault(); setPage("data"); }}>Data</a>
+            <a className={`nav-link ${page === "data" ? "active" : ""}`} href="#" onClick={(e) => { e.preventDefault(); setPage("data"); }}>Calendrier Dividende</a>
             <a className={`nav-link ${page === "portefeuille" ? "active" : ""}`} href="#" onClick={(e) => { e.preventDefault(); setPage("portefeuille"); }}>Mon Portefeuille</a>
           </div>
         </div>
@@ -1761,7 +1901,7 @@ export default function Sahm() {
           <a className={`mobile-link ${page === "seance" ? "active" : ""}`} href="#" onClick={(e) => { e.preventDefault(); setPage("seance"); setMobileNavOpen(false); }}>Séance Boursière</a>
           <a className={`mobile-link ${page === "opcvm" ? "active" : ""}`} href="#" onClick={(e) => { e.preventDefault(); setPage("opcvm"); setMobileNavOpen(false); }}>OPCVM</a>
           <a className={`mobile-link ${page === "actions" ? "active" : ""}`} href="#" onClick={(e) => { e.preventDefault(); setPage("actions"); setMobileNavOpen(false); }}>Actions</a>
-          <a className={`mobile-link ${page === "data" ? "active" : ""}`} href="#" onClick={(e) => { e.preventDefault(); setPage("data"); setMobileNavOpen(false); }}>Data</a>
+          <a className={`mobile-link ${page === "data" ? "active" : ""}`} href="#" onClick={(e) => { e.preventDefault(); setPage("data"); setMobileNavOpen(false); }}>Calendrier Dividende</a>
           <a className={`mobile-link ${page === "portefeuille" ? "active" : ""}`} href="#" onClick={(e) => { e.preventDefault(); setPage("portefeuille"); setMobileNavOpen(false); }}>Mon Portefeuille</a>
           <div className="mobile-menu-footer">
             <button className="icon-btn"><Settings size={16} /></button>
@@ -2526,7 +2666,7 @@ export default function Sahm() {
           <div className="container">
             <div className="page-header">
               <div className="eyebrow-mono">Données de marché</div>
-              <h1 className="page-title serif">Data</h1>
+              <h1 className="page-title serif">Calendrier Dividende</h1>
               <p className="page-subtitle">Calendrier des dividendes et capitalisation des sociétés cotées.</p>
             </div>
 
@@ -2566,9 +2706,21 @@ export default function Sahm() {
                   </div>
                 </div>
 
-                <div className="section-head" style={{ marginTop: 36 }}>
-                  <div className="section-title" style={{ fontSize: 22 }}>Calendrier des dividendes 2025</div>
-                  <div className="section-note">Exercice 2025 · versements en 2026 · {dividend2026.length} lignes</div>
+                <div className="tabs" style={{ marginTop: 36, marginBottom: 0 }}>
+                  {["2026", "2025", "2024"].map((y) => (
+                    <button
+                      key={y}
+                      className={`tab-btn ${dividendYear === y ? "active" : ""}`}
+                      onClick={() => setDividendYear(y)}
+                    >
+                      {y}
+                    </button>
+                  ))}
+                </div>
+
+                <div className="section-head" style={{ marginTop: 20 }}>
+                  <div className="section-title" style={{ fontSize: 22 }}>{dividendByYear[dividendYear].label}</div>
+                  <div className="section-note">{dividendByYear[dividendYear].note} · {dividendByYear[dividendYear].data.length} lignes</div>
                 </div>
                 <div className="official-table-card">
                   <div className="opcvm-scroll">
@@ -2583,7 +2735,7 @@ export default function Sahm() {
                         </tr>
                       </thead>
                       <tbody>
-                        {dividend2026.map((d, i) => (
+                        {dividendByYear[dividendYear].data.map((d, i) => (
                           <tr key={d.emetteur + i}>
                             <td className="official-emetteur">{d.emetteur}</td>
                             <td className="mono" style={{ textAlign: "right" }}>{d.montant.toFixed(2)}</td>
@@ -2599,14 +2751,18 @@ export default function Sahm() {
                   </div>
                 </div>
 
-                <div className="section-head" style={{ marginTop: 36 }}>
-                  <div className="section-title" style={{ fontSize: 22 }}>Sans dividende en 2026 ({dividendSansDividende2026.length} sociétés)</div>
-                </div>
-                <div className="chip-wrap">
-                  {dividendSansDividende2026.map((n) => (
-                    <span className="chip" key={n}>{n}</span>
-                  ))}
-                </div>
+                {dividendYear === "2026" && (
+                  <>
+                    <div className="section-head" style={{ marginTop: 36 }}>
+                      <div className="section-title" style={{ fontSize: 22 }}>Sans dividende en 2026 ({dividendSansDividende2026.length} sociétés)</div>
+                    </div>
+                    <div className="chip-wrap">
+                      {dividendSansDividende2026.map((n) => (
+                        <span className="chip" key={n}>{n}</span>
+                      ))}
+                    </div>
+                  </>
+                )}
 
                 <div className="section-head" style={{ marginTop: 44 }}>
                   <div className="section-title" style={{ fontSize: 22 }}>Historique — exercice 2025</div>
