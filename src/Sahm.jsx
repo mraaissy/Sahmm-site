@@ -1931,11 +1931,6 @@ export default function Sahm() {
           Rechercher une entreprise...
         </div>
         <div className="navbar-right nav-right-desktop">
-          <div className="badge-new">
-            <span className="pill-tag">NOUVEAU</span>
-            <Bell size={13} />
-            T2S IPO
-          </div>
           <button className="icon-btn"><Settings size={16} /></button>
           <div className="account-pill">
             <span className="avatar"><User size={14} /></span>
