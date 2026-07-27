@@ -2005,10 +2005,6 @@ export default function Sahm() {
               <div className="label">Capitalisation</div>
             </div>
           </div>
-          <div className="hero-live-masi">
-            <div className="mini-head" style={{ color: "#8DA0A8" }}>MASI en direct</div>
-            <TradingViewMasiOverview />
-          </div>
         </div>
       </section>
 
