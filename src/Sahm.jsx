@@ -87,9 +87,9 @@ const opcvmCategoryList = Object.keys(opcvmFunds);
 // accessible) — séance du mardi 7 juillet 2026
 const seanceDate = "lundi 20 juillet 2026";
 const seanceIndices = [
-  { nom: "MASI", valeur: "17 539,62", var: -0.22, ytd: -6.93 },
-  { nom: "MASI ESG", valeur: "1 243,72", var: -0.06, ytd: null },
-  { nom: "MASI 20", valeur: "1 301,16", var: -0.11, ytd: -12.42 },
+  { nom: "MASI", valeur: "17 810,91", var: -0.36, ytd: -5.49 },
+  { nom: "MASI ESG", valeur: "1 278,90", var: -0.46, ytd: 2.19 },
+  { nom: "MASI 20", valeur: "1 312,68", var: -0.07, ytd: -11.64 },
 ];
 const seanceStats = {
   capitalisation: "1 028,64 MMDH",
