@@ -2292,16 +2292,30 @@ export default function Sahm() {
               </div>
               <div className="opcvm-card" style={{ padding: "18px 22px" }}>
                 <div className="mini-head">Meilleure hausse / plus forte baisse</div>
-                <div style={{ display: "flex", gap: 22, marginTop: 6 }}>
-                  <div>
-                    <div className="kpi-value" style={{ color: "var(--green)", fontSize: 20 }}>+{seanceHausses[0].var.toFixed(2)}%</div>
-                    <div className="fund-gerant">{seanceHausses[0].nom}</div>
-                  </div>
-                  <div>
-                    <div className="kpi-value" style={{ color: "var(--red)", fontSize: 20 }}>{seanceBaisses[0].var.toFixed(2)}%</div>
-                    <div className="fund-gerant">{seanceBaisses[0].nom}</div>
-                  </div>
-                </div>
+                {(() => {
+                  const list = actionsData?.companies?.filter((c) => typeof c.variation_jour === "number") || [];
+                  if (!list.length) {
+                    return <div className="fund-gerant" style={{ marginTop: 10 }}>Données indisponibles</div>;
+                  }
+                  const meilleureHausse = list.reduce((a, b) => (b.variation_jour > a.variation_jour ? b : a));
+                  const plusForteBaisse = list.reduce((a, b) => (b.variation_jour < a.variation_jour ? b : a));
+                  return (
+                    <div style={{ display: "flex", gap: 22, marginTop: 6 }}>
+                      <div>
+                        <div className="kpi-value" style={{ color: "var(--green)", fontSize: 20 }}>
+                          {meilleureHausse.variation_jour >= 0 ? "+" : ""}{meilleureHausse.variation_jour.toFixed(2)}%
+                        </div>
+                        <div className="fund-gerant">{meilleureHausse.nom}</div>
+                      </div>
+                      <div>
+                        <div className="kpi-value" style={{ color: "var(--red)", fontSize: 20 }}>
+                          {plusForteBaisse.variation_jour >= 0 ? "+" : ""}{plusForteBaisse.variation_jour.toFixed(2)}%
+                        </div>
+                        <div className="fund-gerant">{plusForteBaisse.nom}</div>
+                      </div>
+                    </div>
+                  );
+                })()}
               </div>
             </div>
 
