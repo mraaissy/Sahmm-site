@@ -92,9 +92,9 @@ const seanceIndices = [
   { nom: "MASI 20", valeur: "1 301,16", var: -0.11, ytd: -12.42 },
 ];
 const seanceStats = {
-  capitalisation: "1 002,85 MMDH",
-  volume: "87,97 MDH",
-  volumeCentral: "87,97 MDH",
+  capitalisation: "1 028,64 MMDH",
+  volume: "152,63 MDH",
+  volumeCentral: "152,63 MDH",
   volumeBlocs: "0 MDH (aucun échange sur le marché de blocs)",
   hausses: null,
   baisses: null,
