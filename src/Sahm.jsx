@@ -2406,9 +2406,6 @@ export default function Sahm() {
 
             <div className="section-head">
               <div className="section-title" style={{ fontSize: 22 }}>Toutes les valeurs cotées</div>
-              <div className="section-note">
-                {seanceBourseData?.updated_label ? `Mis à jour le ${seanceBourseData.updated_label}` : "Chargement…"}
-              </div>
             </div>
             {!seanceBourseData ? (
               <p className="page-subtitle">Chargement…</p>
