@@ -87,14 +87,14 @@ const opcvmCategoryList = Object.keys(opcvmFunds);
 // accessible) — séance du mardi 7 juillet 2026
 const seanceDate = "lundi 20 juillet 2026";
 const seanceIndices = [
-  { nom: "MASI", valeur: "17 810,91", var: -0.36, ytd: -5.49 },
-  { nom: "MASI ESG", valeur: "1 278,90", var: -0.46, ytd: 2.19 },
-  { nom: "MASI 20", valeur: "1 312,68", var: -0.07, ytd: -11.64 },
+  { nom: "MASI", valeur: "17 804,82", var: 0.02, ytd: -5.53 },
+  { nom: "MASI ESG", valeur: "1 278,14", var: 0.41, ytd: 2.13 },
+  { nom: "MASI 20", valeur: "1 312,66", var: 0.07, ytd: -11.64 },
 ];
 const seanceStats = {
   capitalisation: "1 028,64 MMDH",
-  volume: "152,63 MDH",
-  volumeCentral: "152,63 MDH",
+  volume: "9,57 MDH",
+  volumeCentral: "9,57 MDH",
   volumeBlocs: "0 MDH (aucun échange sur le marché de blocs)",
   hausses: null,
   baisses: null,
@@ -2293,25 +2293,24 @@ export default function Sahm() {
               <div className="opcvm-card" style={{ padding: "18px 22px" }}>
                 <div className="mini-head">Meilleure hausse / plus forte baisse</div>
                 {(() => {
-                  const list = actionsData?.companies?.filter((c) => typeof c.variation_jour === "number") || [];
-                  if (!list.length) {
+                  const meilleureHausse = palmaresData?.top_hausses?.[0];
+                  const plusForteBaisse = palmaresData?.top_baisses?.[0];
+                  if (!meilleureHausse || !plusForteBaisse) {
                     return <div className="fund-gerant" style={{ marginTop: 10 }}>Données indisponibles</div>;
                   }
-                  const meilleureHausse = list.reduce((a, b) => (b.variation_jour > a.variation_jour ? b : a));
-                  const plusForteBaisse = list.reduce((a, b) => (b.variation_jour < a.variation_jour ? b : a));
                   return (
                     <div style={{ display: "flex", gap: 22, marginTop: 6 }}>
                       <div>
                         <div className="kpi-value" style={{ color: "var(--green)", fontSize: 20 }}>
-                          {meilleureHausse.variation_jour >= 0 ? "+" : ""}{meilleureHausse.variation_jour.toFixed(2)}%
+                          {meilleureHausse.change_pct >= 0 ? "+" : ""}{meilleureHausse.change_pct.toFixed(2)}%
                         </div>
-                        <div className="fund-gerant">{meilleureHausse.nom}</div>
+                        <div className="fund-gerant">{meilleureHausse.name}</div>
                       </div>
                       <div>
                         <div className="kpi-value" style={{ color: "var(--red)", fontSize: 20 }}>
-                          {plusForteBaisse.variation_jour >= 0 ? "+" : ""}{plusForteBaisse.variation_jour.toFixed(2)}%
+                          {plusForteBaisse.change_pct >= 0 ? "+" : ""}{plusForteBaisse.change_pct.toFixed(2)}%
                         </div>
-                        <div className="fund-gerant">{plusForteBaisse.nom}</div>
+                        <div className="fund-gerant">{plusForteBaisse.name}</div>
                       </div>
                     </div>
                   );
