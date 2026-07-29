@@ -2431,7 +2431,7 @@ export default function Sahm() {
                       </tr>
                     </thead>
                     <tbody>
-                      {seanceBourseData.companies.map((c) => {
+                      {[...seanceBourseData.companies].sort((a, b) => a.instrument.localeCompare(b.instrument, "fr")).map((c) => {
                         const isUp = typeof c.variation_pct === "string" && c.variation_pct.trim().startsWith("-") === false && !c.variation_pct.startsWith("0,00");
                         const isDown = typeof c.variation_pct === "string" && c.variation_pct.trim().startsWith("-");
                         return (
