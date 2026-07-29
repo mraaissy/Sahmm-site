@@ -26,8 +26,9 @@ const ticker = [
   { code: "SNA", var: -2.9 }, { code: "RIS", var: -2.1 }, { code: "DHO", var: -1.8 },
 ];
 
-// Top 5 des OPCVM par catégorie — données réelles publiées par OPCVM Today
-// (source : opcvmtoday.com, situation au 2 juillet 2026)
+// Top 5 des OPCVM par catégorie — données de secours (utilisées uniquement si le
+// robot GitHub Actions n'a pas encore pu récupérer les données live). La source
+// réelle et actualisée toutes les 15 min est l'ASFIM (fundshare.asfim.ma).
 const opcvmSourceDate = "16 juillet 2026";
 const opcvmFunds = {
   Actions: [
