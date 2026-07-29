@@ -87,14 +87,14 @@ const opcvmCategoryList = Object.keys(opcvmFunds);
 // accessible) — séance du mardi 7 juillet 2026
 const seanceDate = new Date().toLocaleDateString("fr-FR", { weekday: "long", day: "numeric", month: "long", year: "numeric" });
 const seanceIndices = [
-  { nom: "MASI", valeur: "17 741,52", var: -0.33, ytd: -5.86 },
-  { nom: "MASI ESG", valeur: "1 269,06", var: -0.30, ytd: 1.40 },
-  { nom: "MASI 20", valeur: "1 310,16", var: -0.12, ytd: -11.81 },
+  { nom: "MASI", valeur: "17 739,77", var: -0.34, ytd: -5.87 },
+  { nom: "MASI ESG", valeur: "1 268,86", var: -0.32, ytd: 1.38 },
+  { nom: "MASI 20", valeur: "1 307,76", var: -0.30, ytd: -11.97 },
 ];
 const seanceStats = {
   capitalisation: "1 028,64 MMDH",
-  volume: "91,41 MDH",
-  volumeCentral: "91,41 MDH",
+  volume: "165,27 MDH",
+  volumeCentral: "165,27 MDH",
   volumeBlocs: "0 MDH (aucun échange sur le marché de blocs)",
   hausses: null,
   baisses: null,
