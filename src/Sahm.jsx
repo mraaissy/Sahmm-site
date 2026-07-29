@@ -899,6 +899,19 @@ export default function Sahm() {
     return () => { cancelled = true; };
   }, []);
 
+  // Séance boursière — tableau complet (mise à jour manuelle via fichier Excel)
+  const [seanceBourseData, setSeanceBourseData] = useState(null);
+  React.useEffect(() => {
+    let cancelled = false;
+    fetch("/data/seance_bourse.json", { cache: "no-store" })
+      .then((res) => (res.ok ? res.json() : null))
+      .then((data) => {
+        if (!cancelled && data) setSeanceBourseData(data);
+      })
+      .catch(() => {});
+    return () => { cancelled = true; };
+  }, []);
+
   // Portefeuille
   const [holdings, setHoldings] = useState([]);
   const [ptfLoading, setPtfLoading] = useState(true);
@@ -2393,11 +2406,60 @@ export default function Sahm() {
 
             <div className="section-head">
               <div className="section-title" style={{ fontSize: 22 }}>Toutes les valeurs cotées</div>
-              <div className="section-note">Données en direct</div>
+              <div className="section-note">
+                {seanceBourseData?.updated_label ? `Mis à jour le ${seanceBourseData.updated_label}` : "Chargement…"}
+              </div>
             </div>
-            <div className="opcvm-card" style={{ padding: "12px 8px" }}>
-              <TradingViewAllStocksScreener />
-            </div>
+            {!seanceBourseData ? (
+              <p className="page-subtitle">Chargement…</p>
+            ) : (
+              <div className="opcvm-card" style={{ padding: "12px 8px" }}>
+                <div className="opcvm-scroll">
+                  <table className="official-table" style={{ minWidth: 1400 }}>
+                    <thead>
+                      <tr>
+                        <th>Instrument</th>
+                        <th style={{ textAlign: "right" }}>Cours réf.</th>
+                        <th style={{ textAlign: "right" }}>Ouverture</th>
+                        <th style={{ textAlign: "right" }}>Dernier cours</th>
+                        <th style={{ textAlign: "right" }}>Quantité</th>
+                        <th style={{ textAlign: "right" }}>Volume</th>
+                        <th style={{ textAlign: "right" }}>Variation</th>
+                        <th style={{ textAlign: "right" }}>+ haut</th>
+                        <th style={{ textAlign: "right" }}>+ bas</th>
+                        <th style={{ textAlign: "right" }}>Meilleur achat</th>
+                        <th style={{ textAlign: "right" }}>Meilleur vente</th>
+                        <th style={{ textAlign: "right" }}>Capitalisation</th>
+                        <th style={{ textAlign: "right" }}>Transactions</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {seanceBourseData.companies.map((c) => {
+                        const isUp = typeof c.variation_pct === "string" && c.variation_pct.trim().startsWith("-") === false && !c.variation_pct.startsWith("0,00");
+                        const isDown = typeof c.variation_pct === "string" && c.variation_pct.trim().startsWith("-");
+                        return (
+                          <tr key={c.instrument}>
+                            <td className="official-emetteur">{c.instrument}</td>
+                            <td className="mono" style={{ textAlign: "right" }}>{c.cours_ref}</td>
+                            <td className="mono" style={{ textAlign: "right" }}>{c.ouverture}</td>
+                            <td className="mono" style={{ textAlign: "right" }}>{c.dernier_cours}</td>
+                            <td className="mono" style={{ textAlign: "right" }}>{c.quantite}</td>
+                            <td className="mono" style={{ textAlign: "right" }}>{c.volume}</td>
+                            <td className="mono" style={{ textAlign: "right", color: isDown ? "var(--red)" : isUp ? "var(--green)" : "inherit", fontWeight: 600 }}>{c.variation_pct}</td>
+                            <td className="mono" style={{ textAlign: "right" }}>{c.haut}</td>
+                            <td className="mono" style={{ textAlign: "right" }}>{c.bas}</td>
+                            <td className="mono" style={{ textAlign: "right" }}>{c.meilleur_achat}</td>
+                            <td className="mono" style={{ textAlign: "right" }}>{c.meilleur_vente}</td>
+                            <td className="mono" style={{ textAlign: "right" }}>{c.capitalisation}</td>
+                            <td className="mono" style={{ textAlign: "right" }}>{c.nb_transactions}</td>
+                          </tr>
+                        );
+                      })}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            )}
           </div>
         </section>
       )}
