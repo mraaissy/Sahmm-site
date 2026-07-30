@@ -82,11 +82,49 @@ const opcvmCategoryList = Object.keys(opcvmFunds);
 // Limite assumée : ne tient pas compte du calendrier des jours fériés marocains,
 // qui n'est pas disponible via une source accessible automatiquement.
 // Détail de la séance boursière — données réelles de clôture
+// Jours fériés marocains (Bourse de Casablanca fermée) — dates civiles fixes +
+// dates religieuses estimées (calendrier lunaire, confirmées par le Ministère
+// des Habous à l'approche de chaque fête ; à ajuster de +/-1 jour si besoin).
+const MOROCCO_HOLIDAYS_2026 = [
+  "2026-01-01", // Nouvel An
+  "2026-01-11", // Manifeste de l'Indépendance
+  "2026-01-14", // Nouvel An Amazigh (Yennayer)
+  "2026-03-20", // Aïd al-Fitr (1er jour, estimé)
+  "2026-03-21", // Aïd al-Fitr (2e jour, estimé)
+  "2026-05-01", // Fête du Travail
+  "2026-05-27", // Aïd al-Adha (1er jour, estimé)
+  "2026-05-28", // Aïd al-Adha (2e jour, estimé)
+  "2026-06-17", // 1er Moharram — Nouvel An Hégirien (estimé)
+  "2026-07-30", // Fête du Trône
+  "2026-08-14", // Récupération Oued Ed-Dahab
+  "2026-08-20", // Révolution du Roi et du Peuple
+  "2026-08-21", // Fête de la Jeunesse
+  "2026-08-26", // Aïd Al Mawlid Annabaoui (estimé)
+  "2026-10-31", // Aïd Al Wahda (Fête de l'Unité)
+  "2026-11-06", // Anniversaire de la Marche Verte
+  "2026-11-18", // Fête de l'Indépendance
+];
+
+// Calcule le libellé de la dernière séance de cotation réelle (saute les
+// week-ends et jours fériés marocains) au lieu d'afficher bêtement la date du jour.
+function getLastTradingDayLabel() {
+  const d = new Date();
+  for (let i = 0; i < 14; i++) {
+    const iso = d.toISOString().slice(0, 10);
+    const isWeekend = d.getDay() === 0 || d.getDay() === 6;
+    if (!isWeekend && !MOROCCO_HOLIDAYS_2026.includes(iso)) {
+      return d.toLocaleDateString("fr-FR", { weekday: "long", day: "numeric", month: "long", year: "numeric" });
+    }
+    d.setDate(d.getDate() - 1);
+  }
+  return new Date().toLocaleDateString("fr-FR", { weekday: "long", day: "numeric", month: "long", year: "numeric" });
+}
+
 // (source : Médias24 et Boursenews, relayant les chiffres officiels de la Bourse de
 // Casablanca — le site casablanca-bourse.com bloquant l'accès automatisé, ces médias
 // financiers qui reprennent ses publications officielles sont la source la plus fiable
 // accessible) — séance du mardi 7 juillet 2026
-const seanceDate = new Date().toLocaleDateString("fr-FR", { weekday: "long", day: "numeric", month: "long", year: "numeric" });
+const seanceDate = getLastTradingDayLabel();
 const seanceIndices = [
   { nom: "MASI", valeur: "17 739,77", var: -0.34, ytd: -5.87 },
   { nom: "MASI ESG", valeur: "1 268,86", var: -0.32, ytd: 1.38 },
@@ -163,7 +201,7 @@ function TradingViewTickerTape() {
         { proName: "CSEMA:CRS", title: "CRS" },
         { proName: "CSEMA:CSR", title: "CSR" },
         { proName: "CSEMA:CTM", title: "CTM" },
-        { proName: "CSEMA:DARI", title: "DARI" },
+        { proName: "CSEMA:DRI", title: "DRI" },
         { proName: "CSEMA:DHO", title: "DHO" },
         { proName: "CSEMA:DIS", title: "DIS" },
         { proName: "CSEMA:DLM", title: "DLM" },
@@ -441,29 +479,36 @@ function TradingViewAllStocksScreener() {
   );
 }
 
+// Jours fériés marocains déjà déclarés plus haut (MOROCCO_HOLIDAYS_2026) —
+// réutilisés ici pour le calcul du statut ouvert/fermé du marché en direct.
 function getCasablancaMarketStatus() {
   const now = new Date();
   const parts = new Intl.DateTimeFormat("en-US", {
     timeZone: "Africa/Casablanca",
     weekday: "short",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
     hour: "2-digit",
     minute: "2-digit",
     hour12: false,
   }).formatToParts(now);
   const get = (type) => parts.find((p) => p.type === type)?.value;
   const weekday = get("weekday");
+  const isoDate = `${get("year")}-${get("month")}-${get("day")}`;
   const hour = parseInt(get("hour"), 10);
   const minute = parseInt(get("minute"), 10);
   const minutesNow = hour * 60 + minute;
 
   const isWeekday = !["Sat", "Sun"].includes(weekday);
+  const isHoliday = MOROCCO_HOLIDAYS_2026.includes(isoDate);
   const openTime = 9 * 60; // 09h00
   const closeTime = 15 * 60 + 30; // 15h30
-  const isOpen = isWeekday && minutesNow >= openTime && minutesNow < closeTime;
+  const isOpen = isWeekday && !isHoliday && minutesNow >= openTime && minutesNow < closeTime;
 
   const hh = String(hour).padStart(2, "0");
   const mm = String(minute).padStart(2, "0");
-  return { isOpen, timeLabel: `${hh}:${mm}` };
+  return { isOpen, isHoliday, timeLabel: `${hh}:${mm}` };
 }
 
 // Indices boursiers internationaux — instantané réel, source investing.com (début juillet 2026)
@@ -1989,7 +2034,7 @@ export default function Sahm() {
         <div className="container">
           <div className={`hero-badge ${marketStatus.isOpen ? "market-open" : ""}`}>
             <span className="dot" />
-            {marketStatus.isOpen ? "Marché Ouvert" : "Marché Fermé"}
+            {marketStatus.isOpen ? "Marché Ouvert" : marketStatus.isHoliday ? "Jour férié — Marché Fermé" : "Marché Fermé"}
             <span className="hero-badge-time">{marketStatus.timeLabel}</span>
           </div>
           <h1 className="hero-title serif">Votre référence pour les marchés financiers marocains</h1>
