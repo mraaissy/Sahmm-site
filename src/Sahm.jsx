@@ -911,6 +911,7 @@ export default function Sahm() {
   }, []);
 
   const [historiqueData, setHistoriqueData] = useState(null);
+  const [histRange, setHistRange] = useState("1A");
   React.useEffect(() => {
     let cancelled = false;
     fetch("/data/historique.json", { cache: "no-store" })
@@ -2648,15 +2649,57 @@ export default function Sahm() {
             </div>
             <div className="opcvm-card" style={{ padding: 20, marginBottom: 32 }}>
               {historiqueData && historiqueData[selectedAction.ticker] && historiqueData[selectedAction.ticker].length > 1 ? (
-                <ResponsiveContainer width="100%" height={260}>
-                  <LineChart data={historiqueData[selectedAction.ticker]}>
-                    <CartesianGrid stroke="var(--hairline)" strokeDasharray="3 3" />
-                    <XAxis dataKey="date" tick={{ fontSize: 11, fill: "var(--ink-soft)" }} />
-                    <YAxis tick={{ fontSize: 11, fill: "var(--ink-soft)" }} domain={["auto", "auto"]} />
-                    <Tooltip formatter={(v) => `${v} MAD`} />
-                    <Line type="monotone" dataKey="prix" stroke="var(--gold)" strokeWidth={2} dot={false} />
-                  </LineChart>
-                </ResponsiveContainer>
+                (() => {
+                  const full = historiqueData[selectedAction.ticker];
+                  const ranges = { "3M": 90, "6M": 182, "1A": 365, "3A": 1095, "Tout": null };
+                  const range = histRange in ranges ? histRange : "1A";
+                  const lastDate = new Date(full[full.length - 1].date);
+                  const data = ranges[range] == null
+                    ? full
+                    : full.filter((d) => (lastDate - new Date(d.date)) / 86400000 <= ranges[range]);
+                  const tickEvery = Math.max(1, Math.floor(data.length / 6));
+                  return (
+                    <>
+                      <div style={{ display: "flex", gap: 6, marginBottom: 14, flexWrap: "wrap" }}>
+                        {Object.keys(ranges).map((r) => (
+                          <button
+                            key={r}
+                            onClick={() => setHistRange(r)}
+                            style={{
+                              fontSize: 12, padding: "5px 12px", borderRadius: 14,
+                              border: "1px solid var(--hairline)",
+                              background: range === r ? "var(--gold)" : "transparent",
+                              color: range === r ? "#fff" : "var(--ink-soft)",
+                              cursor: "pointer", fontFamily: "inherit",
+                            }}
+                          >
+                            {r}
+                          </button>
+                        ))}
+                      </div>
+                      <ResponsiveContainer width="100%" height={260}>
+                        <LineChart data={data}>
+                          <CartesianGrid stroke="var(--hairline)" strokeDasharray="3 3" />
+                          <XAxis
+                            dataKey="date"
+                            tick={{ fontSize: 11, fill: "var(--ink-soft)" }}
+                            interval={tickEvery}
+                            tickFormatter={(v) => {
+                              const d = new Date(v);
+                              return d.toLocaleDateString("fr-FR", { month: "short", year: "2-digit" });
+                            }}
+                          />
+                          <YAxis tick={{ fontSize: 11, fill: "var(--ink-soft)" }} domain={["auto", "auto"]} width={54} />
+                          <Tooltip
+                            formatter={(v) => [`${v.toLocaleString("fr-FR")} MAD`, "Cours"]}
+                            labelFormatter={(v) => new Date(v).toLocaleDateString("fr-FR", { day: "2-digit", month: "long", year: "numeric" })}
+                          />
+                          <Line type="monotone" dataKey="prix" stroke="var(--gold)" strokeWidth={2} dot={false} />
+                        </LineChart>
+                      </ResponsiveContainer>
+                    </>
+                  );
+                })()
               ) : (
                 <p className="fund-gerant" style={{ padding: "24px 4px" }}>
                   Historique des cours pas encore disponible pour cette valeur. Il sera affiché ici dès que les données seront transmises.
