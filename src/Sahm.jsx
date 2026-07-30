@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
-import { TrendingUp, TrendingDown, ArrowUpRight, ArrowDownRight, Search, Bell, Settings, User, Menu, X } from "lucide-react";
-import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer, Legend } from "recharts";
+import { TrendingUp, TrendingDown, ArrowUpRight, ArrowDownRight, Search, Bell, Settings, User, Menu, X, Moon, Sun, Star, Download, ArrowUpDown } from "lucide-react";
+import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer, Legend, LineChart, Line, XAxis, YAxis, CartesianGrid } from "recharts";
 
 
 const hausses = [
@@ -863,12 +863,60 @@ export default function Sahm() {
   const [actionsData, setActionsData] = useState(null);
   const [actionsSearch, setActionsSearch] = useState("");
   const [selectedAction, setSelectedAction] = useState(null);
+
+  // Mode sombre
+  const [darkMode, setDarkMode] = useState(() => {
+    try { return localStorage.getItem("sahm-theme") === "dark"; } catch { return false; }
+  });
+  React.useEffect(() => {
+    try { localStorage.setItem("sahm-theme", darkMode ? "dark" : "light"); } catch {}
+  }, [darkMode]);
+
+  // Favoris (watchlist)
+  const [favoris, setFavoris] = useState(() => {
+    try { return JSON.parse(localStorage.getItem("sahm-favoris") || "[]"); } catch { return []; }
+  });
+  React.useEffect(() => {
+    try { localStorage.setItem("sahm-favoris", JSON.stringify(favoris)); } catch {}
+  }, [favoris]);
+  const toggleFavori = (ticker) => {
+    setFavoris((prev) => prev.includes(ticker) ? prev.filter((t) => t !== ticker) : [...prev, ticker]);
+  };
+  const [showFavorisOnly, setShowFavorisOnly] = useState(false);
+
+  // Comparateur d'actions
+  const [compareTickers, setCompareTickers] = useState(["", "", ""]);
+
+  // Tri du tableau des actions (PER, rendement, capitalisation…)
+  const [actionsSortKey, setActionsSortKey] = useState(null);
+  const [actionsSortDir, setActionsSortDir] = useState("desc");
+  const toggleActionsSort = (key) => {
+    if (actionsSortKey === key) {
+      setActionsSortDir((d) => (d === "desc" ? "asc" : "desc"));
+    } else {
+      setActionsSortKey(key);
+      setActionsSortDir("desc");
+    }
+  };
+
   React.useEffect(() => {
     let cancelled = false;
     fetch("/data/actions.json", { cache: "no-store" })
       .then((res) => (res.ok ? res.json() : null))
       .then((data) => {
         if (!cancelled && data) setActionsData(data);
+      })
+      .catch(() => {});
+    return () => { cancelled = true; };
+  }, []);
+
+  const [historiqueData, setHistoriqueData] = useState(null);
+  React.useEffect(() => {
+    let cancelled = false;
+    fetch("/data/historique.json", { cache: "no-store" })
+      .then((res) => (res.ok ? res.json() : null))
+      .then((data) => {
+        if (!cancelled && data) setHistoriqueData(data);
       })
       .catch(() => {});
     return () => { cancelled = true; };
@@ -1041,7 +1089,7 @@ export default function Sahm() {
   const ptfTotalPVPct = ptfTotalCout > 0 ? (ptfTotalPV / ptfTotalCout) * 100 : 0;
 
   return (
-    <div className="sahm">
+    <div className={`sahm ${darkMode ? "dark" : ""}`}>
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
 
@@ -1063,6 +1111,22 @@ export default function Sahm() {
           background: var(--paper);
           color: var(--ink);
           min-height: 100vh;
+          transition: background 0.2s ease, color 0.2s ease;
+        }
+        .sahm.dark {
+          --ink: #EDEFF1;
+          --ink-soft: #9DA8B2;
+          --paper: #10151A;
+          --paper-raised: #1A2129;
+          --navy: #0D1217;
+          --navy-deep: #090D11;
+          --gold: #9AA6B0;
+          --gold-soft: #2A333C;
+          --green: #4CAF83;
+          --green-soft: #16302A;
+          --red: #E0776E;
+          --red-soft: #331E1D;
+          --hairline: #2A333C;
         }
         .sahm * { box-sizing: border-box; }
         .mono { font-family: 'IBM Plex Mono', monospace; }
@@ -1100,7 +1164,7 @@ export default function Sahm() {
 
         /* ---- Navbar ---- */
         .navbar {
-          background: #fff;
+          background: var(--paper-raised);
           border-bottom: 1px solid var(--hairline);
           padding: 14px 5vw;
           display: flex;
@@ -1183,7 +1247,7 @@ export default function Sahm() {
           width: 36px; height: 36px;
           border-radius: 50%;
           display: flex; align-items: center; justify-content: center;
-          background: #fff;
+          background: var(--paper-raised);
           color: var(--ink-soft);
           border: 1px solid var(--hairline);
           cursor: pointer;
@@ -1240,7 +1304,7 @@ export default function Sahm() {
           .mobile-menu {
             display: flex;
             flex-direction: column;
-            background: #fff;
+            background: var(--paper-raised);
             border-bottom: 1px solid var(--hairline);
             padding: 16px 5vw 20px;
           }
@@ -1263,7 +1327,7 @@ export default function Sahm() {
 
         /* ---- Ticker (light) ---- */
         .ticker-wrap-light {
-          background: #fff;
+          background: var(--paper-raised);
           border-bottom: 1px solid var(--hairline);
           overflow: hidden;
           white-space: nowrap;
@@ -1598,7 +1662,7 @@ export default function Sahm() {
           padding: 10px 16px;
           border: 1px solid var(--hairline);
           border-radius: 24px;
-          background: #fff;
+          background: var(--paper-raised);
           color: var(--ink);
         }
         .opcvm-search:focus {
@@ -1776,7 +1840,7 @@ export default function Sahm() {
         }
 
         .official-table-card {
-          background: #fff;
+          background: var(--paper-raised);
           border: 1px solid var(--hairline);
           border-radius: 10px;
           overflow: hidden;
@@ -1803,7 +1867,7 @@ export default function Sahm() {
           white-space: nowrap;
         }
         .official-table tbody tr:last-child td { border-bottom: none; }
-        .official-table tbody tr:hover { background: #F4F6F7; }
+        .official-table tbody tr:hover { background: var(--gold-soft); }
         .official-emetteur { color: #2E5E8C; font-weight: 500; }
         .official-table td.muted { color: var(--ink-soft); font-style: italic; }
         .type-badge {
@@ -1857,7 +1921,7 @@ export default function Sahm() {
           padding: 9px 12px;
           border: 1px solid var(--hairline);
           border-radius: 8px;
-          background: #fff;
+          background: var(--paper-raised);
           color: var(--ink);
           min-width: 160px;
         }
@@ -1926,6 +1990,7 @@ export default function Sahm() {
         @media (max-width: 640px) {
           .stat-grid { grid-template-columns: 1fr; }
           .cap-grid { grid-template-columns: 1fr !important; }
+          .compare-select-grid { grid-template-columns: 1fr !important; }
           .section-title { font-size: 20px; }
           .section-note { font-size: 11px; }
           .section { padding: 34px 0; }
@@ -1966,6 +2031,15 @@ export default function Sahm() {
           .hero-title { font-size: 22px; }
           .kpi-cell .kpi-value { font-size: 20px !important; }
         }
+
+        @media print {
+          .navbar, .ticker-wrap-light, .mobile-menu, .footer, .nav-burger, .no-print,
+          .hero-badge, .tabs { display: none !important; }
+          .sahm { background: #fff !important; color: #000 !important; }
+          .page-shell { padding-top: 0 !important; }
+          .official-table-card, .opcvm-card { box-shadow: none !important; border: 1px solid #ccc !important; }
+          a { text-decoration: none !important; color: inherit !important; }
+        }
       `}</style>
 
       {/* Navbar */}
@@ -1981,6 +2055,7 @@ export default function Sahm() {
             <a className={`nav-link ${page === "seance" ? "active" : ""}`} href="#" onClick={(e) => { e.preventDefault(); setPage("seance"); }}>Séance Boursière</a>
             <a className={`nav-link ${page === "opcvm" ? "active" : ""}`} href="#" onClick={(e) => { e.preventDefault(); setPage("opcvm"); }}>OPCVM</a>
             <a className={`nav-link ${page === "actions" ? "active" : ""}`} href="#" onClick={(e) => { e.preventDefault(); setPage("actions"); }}>Actions</a>
+            <a className={`nav-link ${page === "comparateur" ? "active" : ""}`} href="#" onClick={(e) => { e.preventDefault(); setPage("comparateur"); }}>Comparateur</a>
             <a className={`nav-link ${page === "data" ? "active" : ""}`} href="#" onClick={(e) => { e.preventDefault(); setPage("data"); }}>Calendrier Dividende</a>
             <a className={`nav-link ${page === "portefeuille" ? "active" : ""}`} href="#" onClick={(e) => { e.preventDefault(); setPage("portefeuille"); }}>Mon Portefeuille</a>
           </div>
@@ -1990,6 +2065,9 @@ export default function Sahm() {
           Rechercher une entreprise...
         </div>
         <div className="navbar-right nav-right-desktop">
+          <button className="icon-btn" onClick={() => setDarkMode((v) => !v)} aria-label="Basculer le mode sombre">
+            {darkMode ? <Sun size={16} /> : <Moon size={16} />}
+          </button>
           <button className="icon-btn"><Settings size={16} /></button>
           <div className="account-pill">
             <span className="avatar"><User size={14} /></span>
@@ -2012,9 +2090,13 @@ export default function Sahm() {
           <a className={`mobile-link ${page === "seance" ? "active" : ""}`} href="#" onClick={(e) => { e.preventDefault(); setPage("seance"); setMobileNavOpen(false); }}>Séance Boursière</a>
           <a className={`mobile-link ${page === "opcvm" ? "active" : ""}`} href="#" onClick={(e) => { e.preventDefault(); setPage("opcvm"); setMobileNavOpen(false); }}>OPCVM</a>
           <a className={`mobile-link ${page === "actions" ? "active" : ""}`} href="#" onClick={(e) => { e.preventDefault(); setPage("actions"); setMobileNavOpen(false); }}>Actions</a>
+          <a className={`mobile-link ${page === "comparateur" ? "active" : ""}`} href="#" onClick={(e) => { e.preventDefault(); setPage("comparateur"); setMobileNavOpen(false); }}>Comparateur</a>
           <a className={`mobile-link ${page === "data" ? "active" : ""}`} href="#" onClick={(e) => { e.preventDefault(); setPage("data"); setMobileNavOpen(false); }}>Calendrier Dividende</a>
           <a className={`mobile-link ${page === "portefeuille" ? "active" : ""}`} href="#" onClick={(e) => { e.preventDefault(); setPage("portefeuille"); setMobileNavOpen(false); }}>Mon Portefeuille</a>
           <div className="mobile-menu-footer">
+            <button className="icon-btn" onClick={() => setDarkMode((v) => !v)} aria-label="Basculer le mode sombre">
+              {darkMode ? <Sun size={16} /> : <Moon size={16} />}
+            </button>
             <button className="icon-btn"><Settings size={16} /></button>
             <div className="account-pill">
               <span className="avatar"><User size={14} /></span>
@@ -2519,7 +2601,16 @@ export default function Sahm() {
             </a>
 
             <div className="page-header" style={{ marginTop: 18 }}>
-              <div className="eyebrow-mono">{selectedAction.secteur} &middot; {selectedAction.ticker}</div>
+              <div className="eyebrow-mono" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 12 }}>
+                <span>{selectedAction.secteur} &middot; {selectedAction.ticker}</span>
+                <button
+                  onClick={() => toggleFavori(selectedAction.ticker)}
+                  style={{ display: "flex", alignItems: "center", gap: 6, background: "none", border: "1px solid var(--hairline)", borderRadius: 20, padding: "6px 14px", cursor: "pointer", color: "var(--ink)", fontSize: 13, fontFamily: "inherit" }}
+                >
+                  <Star size={14} color={favoris.includes(selectedAction.ticker) ? "var(--gold)" : "var(--ink-soft)"} fill={favoris.includes(selectedAction.ticker) ? "var(--gold)" : "none"} />
+                  {favoris.includes(selectedAction.ticker) ? "Dans mes favoris" : "Ajouter aux favoris"}
+                </button>
+              </div>
               <h1 className="page-title serif">{selectedAction.nom}</h1>
               <div className="opcvm-detail-price">
                 <span className="mono">
@@ -2550,6 +2641,27 @@ export default function Sahm() {
                 <div className="kpi-value">{selectedAction.classement != null ? `#${selectedAction.classement}` : "—"}</div>
                 <div className="kpi-label">Classement (capitalisation)</div>
               </div>
+            </div>
+
+            <div className="section-head">
+              <div className="section-title" style={{ fontSize: 20 }}>Évolution du cours</div>
+            </div>
+            <div className="opcvm-card" style={{ padding: 20, marginBottom: 32 }}>
+              {historiqueData && historiqueData[selectedAction.ticker] && historiqueData[selectedAction.ticker].length > 1 ? (
+                <ResponsiveContainer width="100%" height={260}>
+                  <LineChart data={historiqueData[selectedAction.ticker]}>
+                    <CartesianGrid stroke="var(--hairline)" strokeDasharray="3 3" />
+                    <XAxis dataKey="date" tick={{ fontSize: 11, fill: "var(--ink-soft)" }} />
+                    <YAxis tick={{ fontSize: 11, fill: "var(--ink-soft)" }} domain={["auto", "auto"]} />
+                    <Tooltip formatter={(v) => `${v} MAD`} />
+                    <Line type="monotone" dataKey="prix" stroke="var(--gold)" strokeWidth={2} dot={false} />
+                  </LineChart>
+                </ResponsiveContainer>
+              ) : (
+                <p className="fund-gerant" style={{ padding: "24px 4px" }}>
+                  Historique des cours pas encore disponible pour cette valeur. Il sera affiché ici dès que les données seront transmises.
+                </p>
+              )}
             </div>
 
             {selectedAction.description && (
@@ -2594,6 +2706,107 @@ export default function Sahm() {
         </section>
       )}
 
+      {page === "comparateur" && (
+        <section className="page-shell">
+          <div className="container">
+            <div className="page-header">
+              <div className="eyebrow-mono">Analyse comparative</div>
+              <h1 className="page-title serif">Comparateur d'actions</h1>
+              <p className="page-subtitle">
+                Sélectionnez jusqu'à 3 sociétés pour comparer leurs principaux indicateurs côte à côte.
+              </p>
+            </div>
+
+            {!actionsData ? (
+              <p className="page-subtitle" style={{ marginTop: 16 }}>Chargement des données…</p>
+            ) : (
+              <>
+                <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 16, marginBottom: 32 }} className="compare-select-grid">
+                  {[0, 1, 2].map((i) => (
+                    <select
+                      key={i}
+                      value={compareTickers[i]}
+                      onChange={(e) => {
+                        const next = [...compareTickers];
+                        next[i] = e.target.value;
+                        setCompareTickers(next);
+                      }}
+                      style={{ fontSize: 14, padding: "10px 12px", border: "1px solid var(--hairline)", borderRadius: 8, background: "var(--paper-raised)", color: "var(--ink)", fontFamily: "inherit" }}
+                    >
+                      <option value="">— Choisir une société {i + 1} —</option>
+                      {actionsData.companies.map((c) => (
+                        <option key={c.ticker} value={c.ticker}>{c.nom} ({c.ticker})</option>
+                      ))}
+                    </select>
+                  ))}
+                </div>
+
+                {(() => {
+                  const selected = compareTickers
+                    .filter(Boolean)
+                    .map((t) => actionsData.companies.find((c) => c.ticker === t))
+                    .filter(Boolean);
+
+                  if (selected.length < 2) {
+                    return (
+                      <p className="page-subtitle">Choisissez au moins 2 sociétés pour lancer la comparaison.</p>
+                    );
+                  }
+
+                  const rows = [
+                    { label: "Secteur", get: (c) => c.secteur || "—" },
+                    { label: "Prix", get: (c) => (c.prix != null ? `${c.prix.toLocaleString("fr-FR")} MAD` : "—") },
+                    { label: "Variation du jour", get: (c) => (c.variation_jour != null ? `${c.variation_jour >= 0 ? "+" : ""}${c.variation_jour.toFixed(2)}%` : "—"), color: (c) => (c.variation_jour >= 0 ? "var(--green)" : "var(--red)") },
+                    { label: "Capitalisation", get: (c) => (c.capitalisation != null ? `${(c.capitalisation / 1e9).toLocaleString("fr-FR", { maximumFractionDigits: 2 })} Mrd MAD` : "—") },
+                    { label: "P/E (PER)", get: (c) => c.per ?? "—" },
+                    { label: "Rendement dividende", get: (c) => (c.rendement_dividende != null ? `${c.rendement_dividende}%` : "—") },
+                    { label: "Chiffre d'affaires", get: (c) => (c.chiffre_affaires != null ? `${(c.chiffre_affaires / 1e6).toLocaleString("fr-FR", { maximumFractionDigits: 1 })} MDH` : "—") },
+                    { label: "Résultat net", get: (c) => (c.resultat_net != null ? `${(c.resultat_net / 1e6).toLocaleString("fr-FR", { maximumFractionDigits: 1 })} MDH` : "—") },
+                    { label: "Marge opérationnelle", get: (c) => (c.marge_operationnelle != null ? `${c.marge_operationnelle}%` : "—") },
+                    { label: "Marge nette", get: (c) => (c.marge_nette != null ? `${c.marge_nette}%` : "—") },
+                    { label: "Classement (capitalisation)", get: (c) => (c.classement != null ? `#${c.classement}` : "—") },
+                    { label: "Date IPO", get: (c) => c.date_ipo || "—" },
+                  ];
+
+                  return (
+                    <div className="official-table-card">
+                      <div className="opcvm-scroll">
+                        <table className="official-table">
+                          <thead>
+                            <tr>
+                              <th>Indicateur</th>
+                              {selected.map((c) => (
+                                <th key={c.ticker} style={{ textAlign: "right" }}>{c.nom}</th>
+                              ))}
+                            </tr>
+                          </thead>
+                          <tbody>
+                            {rows.map((row) => (
+                              <tr key={row.label}>
+                                <td className="official-emetteur">{row.label}</td>
+                                {selected.map((c) => (
+                                  <td
+                                    key={c.ticker}
+                                    className="mono"
+                                    style={{ textAlign: "right", color: row.color ? row.color(c) : undefined }}
+                                  >
+                                    {row.get(c)}
+                                  </td>
+                                ))}
+                              </tr>
+                            ))}
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  );
+                })()}
+              </>
+            )}
+          </div>
+        </section>
+      )}
+
       {page === "actions" && (
         <section className="page-shell">
           <div className="container">
@@ -2606,13 +2819,24 @@ export default function Sahm() {
               </p>
             </div>
 
-            <input
-              type="text"
-              className="opcvm-search"
-              placeholder="Rechercher une société par nom ou ticker..."
-              value={actionsSearch}
-              onChange={(e) => setActionsSearch(e.target.value)}
-            />
+            <div style={{ display: "flex", gap: 12, alignItems: "center", flexWrap: "wrap" }}>
+              <input
+                type="text"
+                className="opcvm-search"
+                placeholder="Rechercher une société par nom ou ticker..."
+                value={actionsSearch}
+                onChange={(e) => setActionsSearch(e.target.value)}
+                style={{ flex: 1, minWidth: 220 }}
+              />
+              <button
+                className={`tab-btn ${showFavorisOnly ? "active" : ""}`}
+                onClick={() => setShowFavorisOnly((v) => !v)}
+                style={{ display: "flex", alignItems: "center", gap: 6, whiteSpace: "nowrap" }}
+              >
+                <Star size={14} fill={showFavorisOnly ? "currentColor" : "none"} />
+                Favoris {favoris.length > 0 ? `(${favoris.length})` : ""}
+              </button>
+            </div>
 
             {!actionsData ? (
               <p className="page-subtitle" style={{ marginTop: 16 }}>Chargement des données…</p>
@@ -2622,43 +2846,64 @@ export default function Sahm() {
                   <table>
                     <tbody>
                       <tr className="opcvm-row-head">
+                        <td style={{ width: 34 }}></td>
                         <td>Société</td>
                         <td>Secteur</td>
-                        <td style={{ textAlign: "right" }}>Prix</td>
-                        <td style={{ textAlign: "right" }}>Capitalisation</td>
-                        <td style={{ textAlign: "right" }}>P/E</td>
-                        <td style={{ textAlign: "right" }}>Dividende</td>
+                        <td style={{ textAlign: "right", cursor: "pointer" }} onClick={() => toggleActionsSort("prix")}>
+                          Prix <ArrowUpDown size={11} style={{ verticalAlign: -1, opacity: actionsSortKey === "prix" ? 1 : 0.35 }} />
+                        </td>
+                        <td style={{ textAlign: "right", cursor: "pointer" }} onClick={() => toggleActionsSort("capitalisation")}>
+                          Capitalisation <ArrowUpDown size={11} style={{ verticalAlign: -1, opacity: actionsSortKey === "capitalisation" ? 1 : 0.35 }} />
+                        </td>
+                        <td style={{ textAlign: "right", cursor: "pointer" }} onClick={() => toggleActionsSort("per")}>
+                          P/E <ArrowUpDown size={11} style={{ verticalAlign: -1, opacity: actionsSortKey === "per" ? 1 : 0.35 }} />
+                        </td>
+                        <td style={{ textAlign: "right", cursor: "pointer" }} onClick={() => toggleActionsSort("rendement_dividende")}>
+                          Dividende <ArrowUpDown size={11} style={{ verticalAlign: -1, opacity: actionsSortKey === "rendement_dividende" ? 1 : 0.35 }} />
+                        </td>
                       </tr>
                       {actionsData.companies
                         .filter((c) => {
                           const q = actionsSearch.trim().toLowerCase();
-                          if (!q) return true;
-                          return (
-                            c.nom.toLowerCase().includes(q) ||
-                            (c.ticker || "").toLowerCase().includes(q)
-                          );
+                          if (q && !(c.nom.toLowerCase().includes(q) || (c.ticker || "").toLowerCase().includes(q))) return false;
+                          if (showFavorisOnly && !favoris.includes(c.ticker)) return false;
+                          return true;
+                        })
+                        .sort((a, b) => {
+                          if (!actionsSortKey) return 0;
+                          const av = a[actionsSortKey];
+                          const bv = b[actionsSortKey];
+                          if (av == null) return 1;
+                          if (bv == null) return -1;
+                          return actionsSortDir === "asc" ? av - bv : bv - av;
                         })
                         .map((c) => (
                           <tr
                             key={c.ticker}
                             className="opcvm-row-clickable"
-                            onClick={() => { setSelectedAction(c); setPage("actions-detail"); }}
                           >
-                            <td>
+                            <td onClick={(e) => { e.stopPropagation(); toggleFavori(c.ticker); }} style={{ cursor: "pointer", width: 34 }}>
+                              <Star
+                                size={16}
+                                color={favoris.includes(c.ticker) ? "var(--gold)" : "var(--hairline)"}
+                                fill={favoris.includes(c.ticker) ? "var(--gold)" : "none"}
+                              />
+                            </td>
+                            <td onClick={() => { setSelectedAction(c); setPage("actions-detail"); }}>
                               <div className="fund-name">{c.nom}</div>
                               <div className="fund-gerant">{c.ticker}</div>
                             </td>
-                            <td style={{ color: "var(--ink-soft)", fontSize: 13 }}>{c.secteur || "—"}</td>
-                            <td className="mono" style={{ textAlign: "right", fontWeight: 600 }}>
+                            <td onClick={() => { setSelectedAction(c); setPage("actions-detail"); }} style={{ color: "var(--ink-soft)", fontSize: 13 }}>{c.secteur || "—"}</td>
+                            <td onClick={() => { setSelectedAction(c); setPage("actions-detail"); }} className="mono" style={{ textAlign: "right", fontWeight: 600 }}>
                               {c.prix != null ? `${c.prix.toLocaleString("fr-FR")} MAD` : "—"}
                             </td>
-                            <td className="mono" style={{ textAlign: "right", color: "var(--ink-soft)" }}>
+                            <td onClick={() => { setSelectedAction(c); setPage("actions-detail"); }} className="mono" style={{ textAlign: "right", color: "var(--ink-soft)" }}>
                               {c.capitalisation != null ? `${(c.capitalisation / 1e9).toLocaleString("fr-FR", { maximumFractionDigits: 2 })} Mrd` : "—"}
                             </td>
-                            <td className="mono" style={{ textAlign: "right", color: "var(--ink-soft)" }}>
+                            <td onClick={() => { setSelectedAction(c); setPage("actions-detail"); }} className="mono" style={{ textAlign: "right", color: "var(--ink-soft)" }}>
                               {c.per ?? "—"}
                             </td>
-                            <td className="mono" style={{ textAlign: "right", color: "var(--ink-soft)" }}>
+                            <td onClick={() => { setSelectedAction(c); setPage("actions-detail"); }} className="mono" style={{ textAlign: "right", color: "var(--ink-soft)" }}>
                               {c.rendement_dividende != null ? `${c.rendement_dividende}%` : "—"}
                             </td>
                           </tr>
@@ -2906,10 +3151,15 @@ export default function Sahm() {
       {page === "data" && (
         <section className="page-shell">
           <div className="container">
-            <div className="page-header">
-              <div className="eyebrow-mono">Données de marché</div>
-              <h1 className="page-title serif">Calendrier Dividende</h1>
-              <p className="page-subtitle">Calendrier des dividendes et capitalisation des sociétés cotées.</p>
+            <div className="page-header" style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", gap: 16, flexWrap: "wrap" }}>
+              <div>
+                <div className="eyebrow-mono">Données de marché</div>
+                <h1 className="page-title serif">Calendrier Dividende</h1>
+                <p className="page-subtitle">Calendrier des dividendes et capitalisation des sociétés cotées.</p>
+              </div>
+              <button className="tab-btn no-print" onClick={() => window.print()} style={{ display: "flex", alignItems: "center", gap: 6, whiteSpace: "nowrap" }}>
+                <Download size={14} /> Exporter en PDF
+              </button>
             </div>
 
             <div className="tabs" style={{ marginBottom: 28 }}>
@@ -3001,16 +3251,21 @@ export default function Sahm() {
       {page === "portefeuille" && (
         <section className="page-shell">
           <div className="container">
-            <div className="page-header">
-              <div className="eyebrow-mono">Simulateur</div>
-              <h1 className="page-title serif">Gérer votre portefeuille en temps réel</h1>
-              <p className="page-subtitle">
-                Ajoutez les valeurs qui composent votre portefeuille pour suivre sa valeur, votre
-                plus-value ou moins-value. Le calcul utilise un cours enregistré (mis à jour
-                manuellement), mais chaque ligne affiche aussi son <strong>cours en direct via
-                TradingView</strong> pour comparaison ; vos lignes sont enregistrées uniquement
-                dans votre navigateur, elles ne sont pas visibles par les autres visiteurs.
-              </p>
+            <div className="page-header" style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", gap: 16, flexWrap: "wrap" }}>
+              <div>
+                <div className="eyebrow-mono">Simulateur</div>
+                <h1 className="page-title serif">Gérer votre portefeuille en temps réel</h1>
+                <p className="page-subtitle">
+                  Ajoutez les valeurs qui composent votre portefeuille pour suivre sa valeur, votre
+                  plus-value ou moins-value. Le calcul utilise un cours enregistré (mis à jour
+                  manuellement), mais chaque ligne affiche aussi son <strong>cours en direct via
+                  TradingView</strong> pour comparaison ; vos lignes sont enregistrées uniquement
+                  dans votre navigateur, elles ne sont pas visibles par les autres visiteurs.
+                </p>
+              </div>
+              <button className="tab-btn no-print" onClick={() => window.print()} style={{ display: "flex", alignItems: "center", gap: 6, whiteSpace: "nowrap" }}>
+                <Download size={14} /> Exporter en PDF
+              </button>
             </div>
 
             <div className="ptf-form">

@@ -1,0 +1,4 @@
+{
+  "_note": "Historique des cours par ticker. Format : { \"TICKER\": [ { \"date\": \"2026-01-05\", \"prix\": 123.45 }, ... ] }. À alimenter manuellement (comme capitalisation.json) ou via un export du fournisseur de données.",
+  "IAM": []
+}
