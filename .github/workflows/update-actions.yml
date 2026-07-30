@@ -1,9 +1,9 @@
 name: Actualiser les fiches Actions (quotidien)
 
 on:
-  schedule:
-    # Une fois par jour à 6h00 UTC (7h00 heure du Maroc)
-    - cron: "0 6 * * *"
+  # Planification automatique désactivée : les données sont figées.
+  # Pour relancer manuellement une actualisation, allez dans l'onglet
+  # "Actions" du dépôt GitHub → ce workflow → bouton "Run workflow".
   workflow_dispatch:
 
 permissions:
