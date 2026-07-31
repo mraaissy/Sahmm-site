@@ -942,7 +942,50 @@ export default function Sahm() {
       });
     return () => { cancelled = true; };
   }, [selectedAction]);
-  const [page, setPage] = useState("accueil");
+  const VALID_PAGES = ["accueil", "apprendre", "seance", "opcvm", "actions", "comparateur", "data", "portefeuille", "actions-detail", "opcvm-detail"];
+  const [page, setPage] = useState(() => {
+    try {
+      const h = window.location.hash.replace("#", "").split("/")[0];
+      return VALID_PAGES.includes(h) ? h : "accueil";
+    } catch { return "accueil"; }
+  });
+
+  // Garde l'URL synchronisée avec la page affichée (survit au F5, et le
+  // bouton précédent/suivant du navigateur fonctionne).
+  React.useEffect(() => {
+    try {
+      let hash = `#${page}`;
+      if (page === "actions-detail" && selectedAction?.ticker) hash += `/${selectedAction.ticker}`;
+      if (window.location.hash !== hash) window.history.replaceState(null, "", hash);
+    } catch {}
+  }, [page, selectedAction]);
+
+  React.useEffect(() => {
+    const onHashChange = () => {
+      const parts = window.location.hash.replace("#", "").split("/");
+      if (VALID_PAGES.includes(parts[0])) setPage(parts[0]);
+    };
+    window.addEventListener("hashchange", onHashChange);
+    return () => window.removeEventListener("hashchange", onHashChange);
+  }, []);
+
+  // Restaure la fiche action précise si l'URL pointe dessus après un F5
+  React.useEffect(() => {
+    if (!actionsData?.companies) return;
+    const parts = window.location.hash.replace("#", "").split("/");
+    if (parts[0] === "actions-detail" && parts[1] && !selectedAction) {
+      const found = actionsData.companies.find((c) => c.ticker === parts[1]);
+      if (found) setSelectedAction(found);
+      else setPage("actions");
+    }
+  }, [actionsData]);
+
+  React.useEffect(() => {
+    if (page === "opcvm-detail" && !selectedOpcvm) {
+      setPage("opcvm");
+    }
+  }, [page, selectedOpcvm]);
+
   const [dataTab, setDataTab] = useState("dividendes");
   const [dividendYear, setDividendYear] = useState("2026");
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
@@ -2584,7 +2627,7 @@ export default function Sahm() {
                         const isUp = typeof c.variation_pct === "string" && c.variation_pct.trim().startsWith("-") === false && !c.variation_pct.startsWith("0,00");
                         const isDown = typeof c.variation_pct === "string" && c.variation_pct.trim().startsWith("-");
                         return (
-                          <tr key={c.instrument}>
+                          <tr key={c.instrument} onClick={() => goToActionByName(c.instrument)} style={{ cursor: "pointer" }}>
                             <td className="official-emetteur">{c.instrument}</td>
                             <td className="mono" style={{ textAlign: "right" }}>{c.cours_ref}</td>
                             <td className="mono" style={{ textAlign: "right" }}>{c.ouverture}</td>
