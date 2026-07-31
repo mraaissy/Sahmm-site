@@ -910,18 +910,22 @@ export default function Sahm() {
     return () => { cancelled = true; };
   }, []);
 
-  const [historiqueData, setHistoriqueData] = useState(null);
+  const [historiqueCache, setHistoriqueCache] = useState({});
   const [histRange, setHistRange] = useState("1A");
   React.useEffect(() => {
+    const ticker = selectedAction?.ticker;
+    if (!ticker || historiqueCache[ticker] !== undefined) return;
     let cancelled = false;
-    fetch("/data/historique.json", { cache: "no-store" })
+    fetch(`/data/historique/${ticker}.json`, { cache: "no-store" })
       .then((res) => (res.ok ? res.json() : null))
       .then((data) => {
-        if (!cancelled && data) setHistoriqueData(data);
+        if (!cancelled) setHistoriqueCache((prev) => ({ ...prev, [ticker]: data || [] }));
       })
-      .catch(() => {});
+      .catch(() => {
+        if (!cancelled) setHistoriqueCache((prev) => ({ ...prev, [ticker]: [] }));
+      });
     return () => { cancelled = true; };
-  }, []);
+  }, [selectedAction]);
   const [page, setPage] = useState("accueil");
   const [dataTab, setDataTab] = useState("dividendes");
   const [dividendYear, setDividendYear] = useState("2026");
@@ -2648,9 +2652,11 @@ export default function Sahm() {
               <div className="section-title" style={{ fontSize: 20 }}>Évolution du cours</div>
             </div>
             <div className="opcvm-card" style={{ padding: 20, marginBottom: 32 }}>
-              {historiqueData && historiqueData[selectedAction.ticker] && historiqueData[selectedAction.ticker].length > 1 ? (
+              {historiqueCache[selectedAction.ticker] === undefined ? (
+                <p className="fund-gerant" style={{ padding: "24px 4px" }}>Chargement de l'historique…</p>
+              ) : historiqueCache[selectedAction.ticker] && historiqueCache[selectedAction.ticker].length > 1 ? (
                 (() => {
-                  const full = historiqueData[selectedAction.ticker];
+                  const full = historiqueCache[selectedAction.ticker];
                   const ranges = { "3M": 90, "6M": 182, "1A": 365, "3A": 1095, "Tout": null };
                   const range = histRange in ranges ? histRange : "1A";
                   const lastDate = new Date(full[full.length - 1].date);
