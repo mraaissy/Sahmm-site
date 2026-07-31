@@ -882,6 +882,22 @@ export default function Sahm() {
   const toggleFavori = (ticker) => {
     setFavoris((prev) => prev.includes(ticker) ? prev.filter((t) => t !== ticker) : [...prev, ticker]);
   };
+
+  // Navigue vers la fiche détail d'une action à partir de son nom (palmarès, etc.)
+  const goToActionByName = (name) => {
+    if (!actionsData?.companies || !name) return;
+    const norm = (s) => s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9]/g, "");
+    const target = norm(name);
+    const found = actionsData.companies.find((c) => {
+      const cn = norm(c.nom);
+      return cn === target || cn.includes(target) || target.includes(cn);
+    });
+    if (found) {
+      setSelectedAction(found);
+      setPage("actions-detail");
+      window.scrollTo(0, 0);
+    }
+  };
   const [showFavorisOnly, setShowFavorisOnly] = useState(false);
 
   // Comparateur d'actions
@@ -2174,7 +2190,7 @@ export default function Sahm() {
                 <table>
                   <tbody>
                     {palmaresData.top_hausses.map((s) => (
-                      <tr key={s.name}>
+                      <tr key={s.name} onClick={() => goToActionByName(s.name)} style={{ cursor: "pointer" }}>
                         <td className="stock-code">{s.name}</td>
                         <td className="stock-cours">{s.price.toLocaleString("fr-FR")} DH</td>
                         <td><Variation value={s.change_pct} /></td>
@@ -2190,7 +2206,7 @@ export default function Sahm() {
                 <table>
                   <tbody>
                     {palmaresData.top_baisses.map((s) => (
-                      <tr key={s.name}>
+                      <tr key={s.name} onClick={() => goToActionByName(s.name)} style={{ cursor: "pointer" }}>
                         <td className="stock-code">{s.name}</td>
                         <td className="stock-cours">{s.price.toLocaleString("fr-FR")} DH</td>
                         <td><Variation value={s.change_pct} /></td>
@@ -2505,7 +2521,7 @@ export default function Sahm() {
                   <table>
                     <tbody>
                       {palmaresData.top_hausses.map((s) => (
-                        <tr key={s.name}>
+                        <tr key={s.name} onClick={() => goToActionByName(s.name)} style={{ cursor: "pointer" }}>
                           <td className="stock-code">{s.name}</td>
                           <td className="stock-cours">{s.price.toLocaleString("fr-FR")} DH</td>
                           <td><Variation value={s.change_pct} /></td>
@@ -2521,7 +2537,7 @@ export default function Sahm() {
                   <table>
                     <tbody>
                       {palmaresData.top_baisses.map((s) => (
-                        <tr key={s.name}>
+                        <tr key={s.name} onClick={() => goToActionByName(s.name)} style={{ cursor: "pointer" }}>
                           <td className="stock-code">{s.name}</td>
                           <td className="stock-cours">{s.price.toLocaleString("fr-FR")} DH</td>
                           <td><Variation value={s.change_pct} /></td>
