@@ -1210,13 +1210,32 @@ export default function Sahm() {
     }
   }
 
+  // Cherche le dernier cours réel (source: séance boursière, mise à jour manuelle
+  // quotidienne) correspondant à un code du portefeuille.
+  function getDernierCoursSeance(code) {
+    if (!seanceBourseData?.companies) return null;
+    const stock = stocksUniverse.find((s) => s.code === code);
+    if (!stock) return null;
+    const norm = (s) => s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9]/g, "");
+    const target = norm(stock.nom);
+    const found = seanceBourseData.companies.find((c) => {
+      const cn = norm(c.instrument);
+      return cn === target || cn.includes(target) || target.includes(cn);
+    });
+    if (!found || found.dernier_cours == null) return null;
+    const val = parseFloat(String(found.dernier_cours).replace(/[\s\u00a0]/g, "").replace(",", "."));
+    return isNaN(val) ? null : val;
+  }
+
   const ptfRows = holdings.map((h) => {
     const stock = stocksUniverse.find((s) => s.code === h.code) || { cours: h.prixAchat };
-    const valeur = stock.cours * h.quantite;
+    const coursSeance = getDernierCoursSeance(h.code);
+    const coursUtilise = coursSeance != null ? coursSeance : stock.cours;
+    const valeur = coursUtilise * h.quantite;
     const cout = h.prixAchat * h.quantite;
     const pv = valeur - cout;
     const pvPct = cout > 0 ? (pv / cout) * 100 : 0;
-    return { ...h, cours: stock.cours, valeur, cout, pv, pvPct };
+    return { ...h, cours: coursUtilise, coursSource: coursSeance != null ? "seance" : "reference", valeur, cout, pv, pvPct };
   });
   const ptfTotalValeur = ptfRows.reduce((s, r) => s + r.valeur, 0);
   const ptfTotalCout = ptfRows.reduce((s, r) => s + r.cout, 0);
@@ -3436,10 +3455,9 @@ export default function Sahm() {
                 <h1 className="page-title serif">Gérer votre portefeuille en temps réel</h1>
                 <p className="page-subtitle">
                   Créez un compte gratuit pour construire un ou plusieurs portefeuilles virtuels et
-                  suivre leur performance. Le calcul utilise un cours enregistré (mis à jour
-                  manuellement), mais chaque ligne affiche aussi son <strong>cours en direct via
-                  TradingView</strong> pour comparaison ; vos données sont liées à votre compte et
-                  vous les retrouvez sur n'importe quel appareil.
+                  suivre leur performance. Le calcul utilise le <strong>dernier cours de la séance
+                  boursière</strong>, actualisé manuellement chaque jour ; vos données sont liées à
+                  votre compte et vous les retrouvez sur n'importe quel appareil.
                 </p>
               </div>
               {user && (
@@ -3569,8 +3587,7 @@ export default function Sahm() {
                           <td>Valeur</td>
                           <td style={{ textAlign: "right" }}>Quantité</td>
                           <td style={{ textAlign: "right" }}>Prix d'achat</td>
-                          <td style={{ textAlign: "right" }}>Cours enregistré</td>
-                          <td style={{ minWidth: 150 }}>Cours en direct (TradingView)</td>
+                          <td style={{ textAlign: "right" }}>Dernier cours (séance)</td>
                           <td style={{ textAlign: "right" }}>Valeur actuelle</td>
                           <td style={{ textAlign: "right" }}>Plus/moins-value</td>
                           <td></td>
@@ -3583,9 +3600,11 @@ export default function Sahm() {
                             </td>
                             <td className="mono" style={{ textAlign: "right" }}>{r.quantite}</td>
                             <td className="mono" style={{ textAlign: "right" }}>{r.prixAchat.toFixed(2)} DH</td>
-                            <td className="mono" style={{ textAlign: "right" }}>{r.cours.toFixed(2)} DH</td>
-                            <td>
-                              <TradingViewSingleQuote symbol={r.code} />
+                            <td className="mono" style={{ textAlign: "right" }}>
+                              {r.cours.toFixed(2)} DH
+                              {r.coursSource === "reference" && (
+                                <div style={{ fontSize: 10.5, color: "var(--ink-soft)", fontWeight: 400 }}>cours de référence</div>
+                              )}
                             </td>
                             <td className="mono" style={{ textAlign: "right", fontWeight: 600 }}>
                               {r.valeur.toLocaleString("fr-FR", { maximumFractionDigits: 0 })} DH
@@ -3611,10 +3630,10 @@ export default function Sahm() {
             )}
 
             <p className="page-footnote">
-              Simulateur à but pédagogique — le calcul de plus/moins-value se base sur un cours
-              enregistré (pas un flux en continu, il ne bouge pas tout seul), tandis que la colonne
-              "Cours en direct" reflète le vrai marché via TradingView. Vos données sont liées à
-              votre compte et ne sont partagées avec personne d'autre.
+              Simulateur à but pédagogique — le calcul de plus/moins-value se base sur le dernier
+              cours de la séance boursière (actualisé manuellement chaque jour, pas un flux en
+              continu). Vos données sont liées à votre compte et ne sont partagées avec personne
+              d'autre.
             </p>
           </div>
         </section>
