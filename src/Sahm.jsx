@@ -1128,6 +1128,14 @@ export default function Sahm() {
   }
 
   // Portefeuille
+  // Univers de sociétés utilisé par le formulaire : dérivé des vraies données
+  // (actionsData, les ~80 sociétés réelles) une fois chargées, avec repli sur
+  // l'ancienne liste statique le temps du chargement initial.
+  const stockUniverse =
+    actionsData?.companies?.length
+      ? actionsData.companies.map((c) => ({ code: c.ticker, nom: c.nom, cours: c.prix ?? 0 })).sort((a, b) => a.nom.localeCompare(b.nom))
+      : stocksUniverse;
+
   const [holdings, setHoldings] = useState([]);
   const [ptfLoading, setPtfLoading] = useState(true);
   const [ptfError, setPtfError] = useState(null);
@@ -1135,6 +1143,14 @@ export default function Sahm() {
   const [formQte, setFormQte] = useState("");
   const [formPrix, setFormPrix] = useState("");
   const [formError, setFormError] = useState(null);
+
+  // Une fois les vraies données chargées, si le code sélectionné par défaut
+  // n'existe pas dans la vraie liste, bascule sur la première société réelle.
+  React.useEffect(() => {
+    if (actionsData?.companies?.length && !actionsData.companies.some((c) => c.ticker === formCode)) {
+      setFormCode(actionsData.companies[0].ticker);
+    }
+  }, [actionsData]);
 
   React.useEffect(() => {
     if (!user) {
@@ -1179,7 +1195,7 @@ export default function Sahm() {
         return;
       }
       setFormError(null);
-      const stock = stocksUniverse.find((s) => s.code === formCode) || stocksUniverse[0];
+      const stock = stockUniverse.find((s) => s.code === formCode) || stockUniverse[0];
       const { data, error } = await supabase
         .from("portfolio_holdings")
         .insert({ user_id: user.id, code: stock.code, nom: stock.nom, quantite: qte, prix_achat: prix })
@@ -1215,7 +1231,7 @@ export default function Sahm() {
   // quotidienne) correspondant à un code du portefeuille.
   function getDernierCoursSeance(code) {
     if (!seanceBourseData?.companies) return null;
-    const stock = stocksUniverse.find((s) => s.code === code);
+    const stock = stockUniverse.find((s) => s.code === code);
     if (!stock) return null;
     const norm = (s) => s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9]/g, "");
     const target = norm(stock.nom);
@@ -1229,7 +1245,7 @@ export default function Sahm() {
   }
 
   const ptfRows = holdings.map((h) => {
-    const stock = stocksUniverse.find((s) => s.code === h.code) || { cours: h.prixAchat };
+    const stock = stockUniverse.find((s) => s.code === h.code) || { cours: h.prixAchat };
     const coursSeance = getDernierCoursSeance(h.code);
     const coursUtilise = coursSeance != null ? coursSeance : stock.cours;
     const valeur = coursUtilise * h.quantite;
@@ -3548,7 +3564,7 @@ export default function Sahm() {
               <div className="ptf-field">
                 <label>Valeur</label>
                 <select value={formCode} onChange={(e) => setFormCode(e.target.value)}>
-                  {stocksUniverse.map((s) => (
+                  {stockUniverse.map((s) => (
                     <option key={s.code} value={s.code}>{s.nom} ({s.code})</option>
                   ))}
                 </select>
