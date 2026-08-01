@@ -2223,9 +2223,14 @@ export default function Sahm() {
             {darkMode ? <Sun size={16} /> : <Moon size={16} />}
           </button>
           <button className="icon-btn"><Settings size={16} /></button>
-          <div className="account-pill">
+          <div
+            className="account-pill"
+            onClick={() => setPage("portefeuille")}
+            style={{ cursor: "pointer" }}
+            title={user ? user.email : "Se connecter"}
+          >
             <span className="avatar"><User size={14} /></span>
-            Mon Compte
+            {user ? user.email.split("@")[0] : "Mon Compte"}
           </div>
         </div>
         <button className="nav-burger" onClick={() => setMobileNavOpen((v) => !v)} aria-label="Menu">
@@ -2252,9 +2257,13 @@ export default function Sahm() {
               {darkMode ? <Sun size={16} /> : <Moon size={16} />}
             </button>
             <button className="icon-btn"><Settings size={16} /></button>
-            <div className="account-pill">
+            <div
+              className="account-pill"
+              onClick={() => { setPage("portefeuille"); setMobileNavOpen(false); }}
+              style={{ cursor: "pointer" }}
+            >
               <span className="avatar"><User size={14} /></span>
-              Mon Compte
+              {user ? user.email.split("@")[0] : "Mon Compte"}
             </div>
           </div>
         </div>
