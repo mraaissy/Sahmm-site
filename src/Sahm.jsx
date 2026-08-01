@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import { TrendingUp, TrendingDown, ArrowUpRight, ArrowDownRight, Search, Bell, Settings, User, Menu, X, Moon, Sun, Star, Download, ArrowUpDown } from "lucide-react";
+import { TrendingUp, TrendingDown, ArrowUpRight, ArrowDownRight, Search, Bell, Settings, User, Menu, X, Moon, Sun, Star, Download, ArrowUpDown, Eye, EyeOff } from "lucide-react";
 import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer, Legend, LineChart, Line, XAxis, YAxis, CartesianGrid } from "recharts";
 import { supabase } from "./supabaseClient";
 
@@ -1080,6 +1080,7 @@ export default function Sahm() {
   const [authError, setAuthError] = useState(null);
   const [authMessage, setAuthMessage] = useState(null);
   const [authBusy, setAuthBusy] = useState(false);
+  const [showAuthPassword, setShowAuthPassword] = useState(false);
 
   React.useEffect(() => {
     let cancelled = false;
@@ -3504,10 +3505,25 @@ export default function Sahm() {
                   </div>
                   <div className="ptf-field">
                     <label>Mot de passe</label>
-                    <input
-                      type="password" required minLength={6} placeholder="6 caractères minimum"
-                      value={authPassword} onChange={(e) => setAuthPassword(e.target.value)}
-                    />
+                    <div style={{ position: "relative" }}>
+                      <input
+                        type={showAuthPassword ? "text" : "password"} required minLength={6} placeholder="6 caractères minimum"
+                        value={authPassword} onChange={(e) => setAuthPassword(e.target.value)}
+                        style={{ paddingRight: 40, width: "100%" }}
+                      />
+                      <button
+                        type="button"
+                        onClick={() => setShowAuthPassword((v) => !v)}
+                        aria-label={showAuthPassword ? "Masquer le mot de passe" : "Afficher le mot de passe"}
+                        style={{
+                          position: "absolute", right: 10, top: "50%", transform: "translateY(-50%)",
+                          background: "none", border: "none", cursor: "pointer", color: "var(--ink-soft)",
+                          display: "flex", alignItems: "center", padding: 4,
+                        }}
+                      >
+                        {showAuthPassword ? <EyeOff size={16} /> : <Eye size={16} />}
+                      </button>
+                    </div>
                   </div>
                   {authError && <p className="ptf-error">{authError}</p>}
                   {authMessage && <p className="page-subtitle" style={{ color: "var(--green)" }}>{authMessage}</p>}
