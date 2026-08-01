@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { TrendingUp, TrendingDown, ArrowUpRight, ArrowDownRight, Search, Bell, Settings, User, Menu, X, Moon, Sun, Star, Download, ArrowUpDown } from "lucide-react";
 import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer, Legend, LineChart, Line, XAxis, YAxis, CartesianGrid } from "recharts";
+import { supabase } from "./supabaseClient";
 
 
 const hausses = [
@@ -1070,6 +1071,61 @@ export default function Sahm() {
     return () => { cancelled = true; };
   }, []);
 
+  // Authentification (Supabase) — pour "Mon Portefeuille"
+  const [user, setUser] = useState(null);
+  const [authLoading, setAuthLoading] = useState(true);
+  const [authMode, setAuthMode] = useState("signin"); // "signin" | "signup"
+  const [authEmail, setAuthEmail] = useState("");
+  const [authPassword, setAuthPassword] = useState("");
+  const [authError, setAuthError] = useState(null);
+  const [authMessage, setAuthMessage] = useState(null);
+  const [authBusy, setAuthBusy] = useState(false);
+
+  React.useEffect(() => {
+    let cancelled = false;
+    supabase.auth.getSession().then(({ data }) => {
+      if (!cancelled) {
+        setUser(data.session?.user || null);
+        setAuthLoading(false);
+      }
+    });
+    const { data: listener } = supabase.auth.onAuthStateChange((_event, session) => {
+      setUser(session?.user || null);
+    });
+    return () => {
+      cancelled = true;
+      listener.subscription.unsubscribe();
+    };
+  }, []);
+
+  async function handleAuthSubmit(e) {
+    e.preventDefault();
+    setAuthError(null);
+    setAuthMessage(null);
+    setAuthBusy(true);
+    try {
+      if (authMode === "signup") {
+        const { error } = await supabase.auth.signUp({ email: authEmail, password: authPassword });
+        if (error) throw error;
+        setAuthMessage("Compte créé ! Si la confirmation par e-mail est activée, vérifiez votre boîte mail, sinon vous êtes déjà connecté(e).");
+        setAuthMode("signin");
+      } else {
+        const { error } = await supabase.auth.signInWithPassword({ email: authEmail, password: authPassword });
+        if (error) throw error;
+      }
+      setAuthPassword("");
+    } catch (err) {
+      setAuthError(err.message || "Une erreur est survenue.");
+    } finally {
+      setAuthBusy(false);
+    }
+  }
+
+  async function handleSignOut() {
+    await supabase.auth.signOut();
+    setHoldings([]);
+  }
+
   // Portefeuille
   const [holdings, setHoldings] = useState([]);
   const [ptfLoading, setPtfLoading] = useState(true);
@@ -1080,40 +1136,40 @@ export default function Sahm() {
   const [formError, setFormError] = useState(null);
 
   React.useEffect(() => {
-    let cancelled = false;
-    (async () => {
-      try {
-        if (typeof window === "undefined" || !window.storage) return;
-        const res = await window.storage.get("portfolio:holdings", false);
-        if (!cancelled && res && res.value) {
-          setHoldings(JSON.parse(res.value));
-        }
-      } catch (e) {
-        // Pas encore de portefeuille enregistré — état vide normal
-      } finally {
-        if (!cancelled) setPtfLoading(false);
-      }
-    })();
-    return () => { cancelled = true; };
-  }, []);
-
-  async function saveHoldings(next) {
-    setHoldings(next);
-    if (typeof window === "undefined" || !window.storage) {
-      setPtfError(null);
+    if (!user) {
+      setHoldings([]);
+      setPtfLoading(false);
       return;
     }
-    try {
-      const res = await window.storage.set("portfolio:holdings", JSON.stringify(next), false);
-      if (!res) setPtfError("La sauvegarde a échoué. Réessaie.");
-      else setPtfError(null);
-    } catch (e) {
-      setPtfError("La sauvegarde a échoué. Réessaie.");
-    }
-  }
+    let cancelled = false;
+    setPtfLoading(true);
+    supabase
+      .from("portfolio_holdings")
+      .select("*")
+      .eq("user_id", user.id)
+      .order("created_at", { ascending: true })
+      .then(({ data, error }) => {
+        if (cancelled) return;
+        if (error) setPtfError("Impossible de charger votre portefeuille.");
+        else {
+          setPtfError(null);
+          setHoldings(
+            (data || []).map((h) => ({
+              id: h.id, code: h.code, nom: h.nom, quantite: h.quantite, prixAchat: h.prix_achat,
+            }))
+          );
+        }
+        setPtfLoading(false);
+      });
+    return () => { cancelled = true; };
+  }, [user]);
 
-  function addHolding(e) {
+  async function addHolding(e) {
     if (e && e.preventDefault) e.preventDefault();
+    if (!user) {
+      setFormError("Connectez-vous pour ajouter une valeur à votre portefeuille.");
+      return;
+    }
     try {
       const qte = parseFloat(String(formQte).replace(",", "."));
       const prix = parseFloat(String(formPrix).replace(",", "."));
@@ -1123,11 +1179,20 @@ export default function Sahm() {
       }
       setFormError(null);
       const stock = stocksUniverse.find((s) => s.code === formCode) || stocksUniverse[0];
-      const next = [
-        ...holdings,
-        { id: `${Date.now()}`, code: stock.code, nom: stock.nom, quantite: qte, prixAchat: prix },
-      ];
-      saveHoldings(next);
+      const { data, error } = await supabase
+        .from("portfolio_holdings")
+        .insert({ user_id: user.id, code: stock.code, nom: stock.nom, quantite: qte, prix_achat: prix })
+        .select()
+        .single();
+      if (error) {
+        setPtfError("La sauvegarde a échoué. Réessaie.");
+        return;
+      }
+      setPtfError(null);
+      setHoldings((prev) => [
+        ...prev,
+        { id: data.id, code: data.code, nom: data.nom, quantite: data.quantite, prixAchat: data.prix_achat },
+      ]);
       setFormQte("");
       setFormPrix("");
     } catch (err) {
@@ -1135,8 +1200,14 @@ export default function Sahm() {
     }
   }
 
-  function removeHolding(id) {
-    saveHoldings(holdings.filter((h) => h.id !== id));
+  async function removeHolding(id) {
+    const prev = holdings;
+    setHoldings(holdings.filter((h) => h.id !== id));
+    const { error } = await supabase.from("portfolio_holdings").delete().eq("id", id);
+    if (error) {
+      setPtfError("La suppression a échoué. Réessaie.");
+      setHoldings(prev);
+    }
   }
 
   const ptfRows = holdings.map((h) => {
@@ -3364,17 +3435,71 @@ export default function Sahm() {
                 <div className="eyebrow-mono">Simulateur</div>
                 <h1 className="page-title serif">Gérer votre portefeuille en temps réel</h1>
                 <p className="page-subtitle">
-                  Ajoutez les valeurs qui composent votre portefeuille pour suivre sa valeur, votre
-                  plus-value ou moins-value. Le calcul utilise un cours enregistré (mis à jour
+                  Créez un compte gratuit pour construire un ou plusieurs portefeuilles virtuels et
+                  suivre leur performance. Le calcul utilise un cours enregistré (mis à jour
                   manuellement), mais chaque ligne affiche aussi son <strong>cours en direct via
-                  TradingView</strong> pour comparaison ; vos lignes sont enregistrées uniquement
-                  dans votre navigateur, elles ne sont pas visibles par les autres visiteurs.
+                  TradingView</strong> pour comparaison ; vos données sont liées à votre compte et
+                  vous les retrouvez sur n'importe quel appareil.
                 </p>
               </div>
-              <button className="tab-btn no-print" onClick={() => window.print()} style={{ display: "flex", alignItems: "center", gap: 6, whiteSpace: "nowrap" }}>
-                <Download size={14} /> Exporter en PDF
-              </button>
+              {user && (
+                <button className="tab-btn no-print" onClick={() => window.print()} style={{ display: "flex", alignItems: "center", gap: 6, whiteSpace: "nowrap" }}>
+                  <Download size={14} /> Exporter en PDF
+                </button>
+              )}
             </div>
+
+            {authLoading ? (
+              <p className="page-subtitle">Chargement…</p>
+            ) : !user ? (
+              <div className="opcvm-card" style={{ maxWidth: 420, padding: 28, margin: "24px 0" }}>
+                <div className="tabs" style={{ marginBottom: 20 }}>
+                  <button
+                    className={`tab-btn ${authMode === "signin" ? "active" : ""}`}
+                    onClick={() => { setAuthMode("signin"); setAuthError(null); setAuthMessage(null); }}
+                  >
+                    Se connecter
+                  </button>
+                  <button
+                    className={`tab-btn ${authMode === "signup" ? "active" : ""}`}
+                    onClick={() => { setAuthMode("signup"); setAuthError(null); setAuthMessage(null); }}
+                  >
+                    Créer un compte
+                  </button>
+                </div>
+                <form onSubmit={handleAuthSubmit} style={{ display: "flex", flexDirection: "column", gap: 14 }}>
+                  <div className="ptf-field">
+                    <label>Adresse e-mail</label>
+                    <input
+                      type="email" required placeholder="vous@exemple.com"
+                      value={authEmail} onChange={(e) => setAuthEmail(e.target.value)}
+                    />
+                  </div>
+                  <div className="ptf-field">
+                    <label>Mot de passe</label>
+                    <input
+                      type="password" required minLength={6} placeholder="6 caractères minimum"
+                      value={authPassword} onChange={(e) => setAuthPassword(e.target.value)}
+                    />
+                  </div>
+                  {authError && <p className="ptf-error">{authError}</p>}
+                  {authMessage && <p className="page-subtitle" style={{ color: "var(--green)" }}>{authMessage}</p>}
+                  <button type="submit" className="ptf-add-btn" disabled={authBusy}>
+                    {authBusy ? "Un instant…" : authMode === "signup" ? "Créer mon compte" : "Se connecter"}
+                  </button>
+                </form>
+              </div>
+            ) : (
+              <>
+                <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 12, flexWrap: "wrap", margin: "8px 0 20px" }}>
+                  <div className="section-note">Connecté(e) en tant que <strong style={{ color: "var(--ink)" }}>{user.email}</strong></div>
+                  <button
+                    onClick={handleSignOut}
+                    style={{ fontSize: 13, background: "none", border: "1px solid var(--hairline)", borderRadius: 20, padding: "6px 14px", cursor: "pointer", color: "var(--ink-soft)", fontFamily: "inherit" }}
+                  >
+                    Se déconnecter
+                  </button>
+                </div>
 
             <div className="ptf-form">
               <div className="ptf-field">
@@ -3482,12 +3607,14 @@ export default function Sahm() {
                 </div>
               </>
             )}
+              </>
+            )}
 
             <p className="page-footnote">
               Simulateur à but pédagogique — le calcul de plus/moins-value se base sur un cours
               enregistré (pas un flux en continu, il ne bouge pas tout seul), tandis que la colonne
-              "Cours en direct" reflète le vrai marché via TradingView. Vos données sont stockées
-              localement pour cette session de navigation et ne sont partagées avec personne.
+              "Cours en direct" reflète le vrai marché via TradingView. Vos données sont liées à
+              votre compte et ne sont partagées avec personne d'autre.
             </p>
           </div>
         </section>
