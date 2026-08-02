@@ -2397,7 +2397,7 @@ export default function Sahm() {
       </section>
 
       {/* Résumé de la séance */}
-      <section className="section" style={{ paddingBottom: 0 }}>
+      <section className="section">
         <div className="container">
           {(() => {
             const masi = seanceIndices.find((i) => i.nom === "MASI");
