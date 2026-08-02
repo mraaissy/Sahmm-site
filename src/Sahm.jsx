@@ -2453,9 +2453,7 @@ export default function Sahm() {
           <div className="section-head">
             <div className="section-title">Palmarès de la séance</div>
             <div className="section-note">
-              {palmaresData?.source_last_update_label
-                ? `Source : ${palmaresData.source_last_update_label}`
-                : "Données en direct"}
+              Données en direct
             </div>
           </div>
           {palmaresData ? (
@@ -2784,9 +2782,7 @@ export default function Sahm() {
             <div className="section-head">
               <div className="section-title" style={{ fontSize: 22 }}>Palmarès de la séance</div>
               <div className="section-note">
-                {palmaresData?.source_last_update_label
-                  ? `Source : ${palmaresData.source_last_update_label}`
-                  : "Données en direct"}
+                Données en direct
               </div>
             </div>
             {palmaresData ? (
