@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import { TrendingUp, TrendingDown, ArrowUpRight, ArrowDownRight, Search, Bell, Settings, User, Menu, X, Moon, Sun, Star, Download, ArrowUpDown, Eye, EyeOff } from "lucide-react";
+import { TrendingUp, TrendingDown, ArrowUpRight, ArrowDownRight, Search, Bell, Settings, User, Menu, X, Star, Download, ArrowUpDown, Eye, EyeOff } from "lucide-react";
 import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer, Legend, LineChart, Line, XAxis, YAxis, CartesianGrid } from "recharts";
 import { supabase } from "./supabaseClient";
 
@@ -866,14 +866,6 @@ export default function Sahm() {
   const [actionsSearch, setActionsSearch] = useState("");
   const [selectedAction, setSelectedAction] = useState(null);
 
-  // Mode sombre
-  const [darkMode, setDarkMode] = useState(() => {
-    try { return localStorage.getItem("sahm-theme") === "dark"; } catch { return false; }
-  });
-  React.useEffect(() => {
-    try { localStorage.setItem("sahm-theme", darkMode ? "dark" : "light"); } catch {}
-  }, [darkMode]);
-
   // Favoris (watchlist)
   const [favoris, setFavoris] = useState(() => {
     try { return JSON.parse(localStorage.getItem("sahm-favoris") || "[]"); } catch { return []; }
@@ -1262,7 +1254,7 @@ export default function Sahm() {
   const ptfTotalPVPct = ptfTotalCout > 0 ? (ptfTotalPV / ptfTotalCout) * 100 : 0;
 
   return (
-    <div className={`sahm ${darkMode ? "dark" : ""}`}>
+    <div className="sahm">
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
 
@@ -1284,22 +1276,6 @@ export default function Sahm() {
           background: var(--paper);
           color: var(--ink);
           min-height: 100vh;
-          transition: background 0.2s ease, color 0.2s ease;
-        }
-        .sahm.dark {
-          --ink: #EDEFF1;
-          --ink-soft: #9DA8B2;
-          --paper: #10151A;
-          --paper-raised: #1A2129;
-          --navy: #0D1217;
-          --navy-deep: #090D11;
-          --gold: #9AA6B0;
-          --gold-soft: #2A333C;
-          --green: #4CAF83;
-          --green-soft: #16302A;
-          --red: #E0776E;
-          --red-soft: #331E1D;
-          --hairline: #2A333C;
         }
         .sahm * { box-sizing: border-box; }
         .mono { font-family: 'IBM Plex Mono', monospace; }
@@ -2104,6 +2080,8 @@ export default function Sahm() {
           border: 1px solid var(--hairline);
           border-radius: 10px;
           padding: 16px 20px;
+          max-width: 720px;
+          margin: 0 auto;
         }
         .resume-jour-titre {
           font-size: 13.5px;
@@ -2331,9 +2309,6 @@ export default function Sahm() {
           Rechercher une entreprise...
         </div>
         <div className="navbar-right nav-right-desktop">
-          <button className="icon-btn" onClick={() => setDarkMode((v) => !v)} aria-label="Basculer le mode sombre">
-            {darkMode ? <Sun size={16} /> : <Moon size={16} />}
-          </button>
           <button className="icon-btn"><Settings size={16} /></button>
           <div
             className="account-pill"
@@ -2365,9 +2340,6 @@ export default function Sahm() {
           <a className={`mobile-link ${page === "data" ? "active" : ""}`} href="#" onClick={(e) => { e.preventDefault(); setPage("data"); setMobileNavOpen(false); }}>Calendrier Dividende</a>
           <a className={`mobile-link ${page === "portefeuille" ? "active" : ""}`} href="#" onClick={(e) => { e.preventDefault(); setPage("portefeuille"); setMobileNavOpen(false); }}>Mon Portefeuille</a>
           <div className="mobile-menu-footer">
-            <button className="icon-btn" onClick={() => setDarkMode((v) => !v)} aria-label="Basculer le mode sombre">
-              {darkMode ? <Sun size={16} /> : <Moon size={16} />}
-            </button>
             <button className="icon-btn"><Settings size={16} /></button>
             <div
               className="account-pill"
