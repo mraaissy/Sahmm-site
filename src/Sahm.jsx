@@ -1052,6 +1052,19 @@ export default function Sahm() {
     return () => { cancelled = true; };
   }, []);
 
+  // Instruments les plus actifs par volume (mise à jour manuelle)
+  const [volumesData, setVolumesData] = useState(null);
+  React.useEffect(() => {
+    let cancelled = false;
+    fetch("/data/volumes_actifs.json", { cache: "no-store" })
+      .then((res) => (res.ok ? res.json() : null))
+      .then((data) => {
+        if (!cancelled && data) setVolumesData(data);
+      })
+      .catch(() => {});
+    return () => { cancelled = true; };
+  }, []);
+
   // Séance boursière — tableau complet (mise à jour manuelle via fichier Excel)
   const [seanceBourseData, setSeanceBourseData] = useState(null);
   React.useEffect(() => {
@@ -2430,6 +2443,34 @@ export default function Sahm() {
               </div>
             );
           })()}
+
+          {volumesData && (
+            <div style={{ maxWidth: 720, margin: "20px auto 0" }}>
+              <div className="section-head" style={{ marginBottom: 10 }}>
+                <div className="section-title" style={{ fontSize: 16 }}>Les 10 instruments les plus actifs</div>
+              </div>
+              <div className="official-table-card">
+                <div className="cap-table-scroll">
+                  <table className="official-table">
+                    <thead>
+                      <tr>
+                        <th>Instrument</th>
+                        <th style={{ textAlign: "right" }}>Volume</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {volumesData.instruments.map((v) => (
+                        <tr key={v.nom}>
+                          <td className="official-emetteur">{v.nom}</td>
+                          <td className="mono" style={{ textAlign: "right" }}>{v.volume.toLocaleString("fr-FR")}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          )}
         </div>
       </section>
 

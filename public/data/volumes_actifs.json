@@ -1,0 +1,15 @@
+{
+  "date": "2026-07-31",
+  "instruments": [
+    { "nom": "MANAGEM", "volume": 21810503 },
+    { "nom": "DOUJA PROMOTION GROUPE ADDOHA SA", "volume": 10771795 },
+    { "nom": "T2S GROUP HOLDING", "volume": 9941723 },
+    { "nom": "ATTIJARIWAFA BANK", "volume": 9938179 },
+    { "nom": "ITISSALAT AL-MAGHRIB", "volume": 9308376 },
+    { "nom": "TRAVAUX GENERAUX DE CONSTRUCTION DE CASABLANCA", "volume": 5271832 },
+    { "nom": "SOCIETE GENERALE DES TRAVAUX DU MAROC", "volume": 4568605 },
+    { "nom": "CIMENTS DU MAROC", "volume": 2679629 },
+    { "nom": "VICENNE", "volume": 2508443 },
+    { "nom": "SOCIETE D'EXPLOITATION DES PORTS - MARSA MAROC", "volume": 2220019 }
+  ]
+}
