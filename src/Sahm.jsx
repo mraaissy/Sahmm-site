@@ -856,6 +856,7 @@ function PercentCell({ value }) {
   return <td className={`perf-cell ${cls}`}>{sign}{v.toFixed(2)}%</td>;
 }
 
+
 export default function Sahm() {
   const [tab, setTab] = useState(opcvmCategoryList[0]);
   const [opcvmPageTab, setOpcvmPageTab] = useState(opcvmCategoryList[0]);
@@ -2064,6 +2065,31 @@ export default function Sahm() {
           padding: 6px 14px;
         }
 
+        .resume-jour {
+          display: flex;
+          align-items: flex-start;
+          gap: 14px;
+          background: var(--paper-raised);
+          border: 1px solid var(--hairline);
+          border-radius: 10px;
+          padding: 16px 20px;
+          margin: -8px 0 8px;
+        }
+        .resume-jour-titre {
+          font-size: 13.5px;
+          font-weight: 700;
+          margin-bottom: 4px;
+        }
+        .resume-jour-texte {
+          font-size: 13.5px;
+          color: var(--ink-soft);
+          line-height: 1.6;
+        }
+        @media (max-width: 640px) {
+          .resume-jour { padding: 14px 16px; }
+          .resume-jour-titre, .resume-jour-texte { font-size: 13px; }
+        }
+
         .ptf-form {
           display: flex;
           align-items: flex-end;
@@ -2326,6 +2352,41 @@ export default function Sahm() {
               <div className="label">Capitalisation</div>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Résumé du jour */}
+      <section className="section" style={{ paddingTop: 0, paddingBottom: 0 }}>
+        <div className="container">
+          {(() => {
+            const masi = seanceIndices.find((i) => i.nom === "MASI");
+            const list = actionsData?.companies?.filter((c) => typeof c.variation_jour === "number") || [];
+            const hausse = list.length ? list.reduce((a, b) => (b.variation_jour > a.variation_jour ? b : a)) : null;
+            const baisse = list.length ? list.reduce((a, b) => (b.variation_jour < a.variation_jour ? b : a)) : null;
+            if (!masi) return null;
+            const enHausse = masi.var >= 0;
+            const seanceQualifiee = Math.abs(masi.var) >= 1 ? (enHausse ? "Forte séance" : "Séance difficile") : "Séance calme";
+            return (
+              <div
+                className="resume-jour"
+                style={{ borderLeft: `4px solid ${enHausse ? "var(--green)" : "var(--red)"}` }}
+              >
+                {enHausse ? <TrendingUp size={20} color="var(--green)" style={{ flexShrink: 0 }} /> : <TrendingDown size={20} color="var(--red)" style={{ flexShrink: 0 }} />}
+                <div>
+                  <div className="resume-jour-titre">
+                    Aujourd'hui sur la Bourse de Casablanca <span style={{ color: "var(--ink-soft)", fontWeight: 400 }}>· {seanceQualifiee}</span>
+                  </div>
+                  <div className="resume-jour-texte">
+                    Le MASI {enHausse ? "progresse" : "recule"} de {Math.abs(masi.var).toFixed(2)}% à {masi.valeur} points.
+                    {" "}Volume échangé : {seanceStats.volumeCentral}.
+                    {hausse && baisse && (
+                      <> {hausse.nom} signe la plus forte hausse ({hausse.variation_jour >= 0 ? "+" : ""}{hausse.variation_jour.toFixed(2)}%), {baisse.nom} la plus forte baisse ({baisse.variation_jour.toFixed(2)}%).</>
+                    )}
+                  </div>
+                </div>
+              </div>
+            );
+          })()}
         </div>
       </section>
 
