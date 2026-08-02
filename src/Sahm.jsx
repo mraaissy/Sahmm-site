@@ -991,6 +991,7 @@ export default function Sahm() {
   const [dataTab, setDataTab] = useState("dividendes");
   const [dividendYear, setDividendYear] = useState("2026");
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
+  const [allPagesOpen, setAllPagesOpen] = useState(false);
   const [marketStatus, setMarketStatus] = useState(() => getCasablancaMarketStatus());
 
   React.useEffect(() => {
@@ -2065,6 +2066,36 @@ export default function Sahm() {
           padding: 6px 14px;
         }
 
+        .all-pages-menu {
+          position: absolute;
+          top: calc(100% + 8px);
+          left: 0;
+          background: var(--paper-raised);
+          border: 1px solid var(--hairline);
+          border-radius: 10px;
+          box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+          padding: 8px;
+          display: flex;
+          flex-direction: column;
+          min-width: 220px;
+          z-index: 50;
+        }
+        .all-pages-link {
+          display: block;
+          padding: 9px 12px;
+          border-radius: 6px;
+          font-size: 13.5px;
+          color: var(--ink);
+          text-decoration: none;
+        }
+        .all-pages-link:hover {
+          background: var(--gold-soft);
+        }
+        .all-pages-link.active {
+          color: var(--gold);
+          font-weight: 700;
+        }
+
         .resume-jour {
           display: flex;
           align-items: flex-start;
@@ -2073,7 +2104,6 @@ export default function Sahm() {
           border: 1px solid var(--hairline);
           border-radius: 10px;
           padding: 16px 20px;
-          margin: -8px 0 8px;
         }
         .resume-jour-titre {
           font-size: 13.5px;
@@ -2242,6 +2272,45 @@ export default function Sahm() {
       {/* Navbar */}
       <nav className="navbar">
         <div className="navbar-left">
+          <div style={{ position: "relative" }}>
+            <button
+              className="icon-btn"
+              onClick={() => setAllPagesOpen((v) => !v)}
+              aria-label="Toutes les pages"
+              title="Toutes les pages"
+            >
+              <Menu size={18} />
+            </button>
+            {allPagesOpen && (
+              <>
+                <div
+                  onClick={() => setAllPagesOpen(false)}
+                  style={{ position: "fixed", inset: 0, zIndex: 40 }}
+                />
+                <div className="all-pages-menu">
+                  {[
+                    { key: "accueil", label: "Accueil" },
+                    { key: "apprendre", label: "Apprendre sur la bourse" },
+                    { key: "seance", label: "Séance Boursière" },
+                    { key: "opcvm", label: "OPCVM" },
+                    { key: "actions", label: "Actions" },
+                    { key: "comparateur", label: "Comparateur" },
+                    { key: "data", label: "Calendrier Dividende" },
+                    { key: "portefeuille", label: "Mon Portefeuille" },
+                  ].map((p) => (
+                    <a
+                      key={p.key}
+                      href="#"
+                      className={`all-pages-link ${page === p.key ? "active" : ""}`}
+                      onClick={(e) => { e.preventDefault(); setPage(p.key); setAllPagesOpen(false); }}
+                    >
+                      {p.label}
+                    </a>
+                  ))}
+                </div>
+              </>
+            )}
+          </div>
           <div className="nav-logo">
             <span className="icon-badge">B</span>
             BourseInfo<span style={{ color: "var(--gold)" }}>.ma</span>
@@ -2355,8 +2424,8 @@ export default function Sahm() {
         </div>
       </section>
 
-      {/* Résumé du jour */}
-      <section className="section" style={{ paddingTop: 0, paddingBottom: 0 }}>
+      {/* Résumé de la séance */}
+      <section className="section" style={{ paddingBottom: 0 }}>
         <div className="container">
           {(() => {
             const masi = seanceIndices.find((i) => i.nom === "MASI");
@@ -2366,6 +2435,8 @@ export default function Sahm() {
             if (!masi) return null;
             const enHausse = masi.var >= 0;
             const seanceQualifiee = Math.abs(masi.var) >= 1 ? (enHausse ? "Forte séance" : "Séance difficile") : "Séance calme";
+            const dateSeance = seanceBourseData?.updated_label
+              || new Date().toLocaleDateString("fr-FR", { day: "numeric", month: "long", year: "numeric" });
             return (
               <div
                 className="resume-jour"
@@ -2374,7 +2445,7 @@ export default function Sahm() {
                 {enHausse ? <TrendingUp size={20} color="var(--green)" style={{ flexShrink: 0 }} /> : <TrendingDown size={20} color="var(--red)" style={{ flexShrink: 0 }} />}
                 <div>
                   <div className="resume-jour-titre">
-                    Aujourd'hui sur la Bourse de Casablanca <span style={{ color: "var(--ink-soft)", fontWeight: 400 }}>· {seanceQualifiee}</span>
+                    Résumé de la séance du {dateSeance} <span style={{ color: "var(--ink-soft)", fontWeight: 400 }}>· {seanceQualifiee}</span>
                   </div>
                   <div className="resume-jour-texte">
                     Le MASI {enHausse ? "progresse" : "recule"} de {Math.abs(masi.var).toFixed(2)}% à {masi.valeur} points.
