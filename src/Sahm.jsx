@@ -1351,14 +1351,9 @@ export default function Sahm() {
           white-space: nowrap;
         }
         .icon-badge {
-          width: 28px; height: 28px;
-          border-radius: 8px;
-          background: var(--navy);
-          color: #EEF1F4;
-          display: flex; align-items: center; justify-content: center;
-          font-family: 'IBM Plex Mono', monospace;
-          font-weight: 700;
-          font-size: 13px;
+          height: 32px;
+          width: auto;
+          object-fit: contain;
         }
         .nav-link {
           font-size: 14.5px;
@@ -2303,7 +2298,7 @@ export default function Sahm() {
             )}
           </div>
           <div className="nav-logo">
-            <span className="icon-badge">B</span>
+            <img src="/assets/logo-icon.png" alt="BourseInfo.ma" className="icon-badge" />
             BourseInfo<span style={{ color: "var(--gold)" }}>.ma</span>
           </div>
           <div className="nav-links-desktop">
