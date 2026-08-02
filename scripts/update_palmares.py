@@ -61,11 +61,12 @@ def clean_num(text: str) -> float:
 
 
 def parse_datetime_fr(label):
-    """Parse 'jeudi 23 juillet 2026 15:22:00' (ou sans les secondes) en datetime."""
+    """Parse 'jeudi 23 juillet 2026 15:22:00' ou 'vendredi 31 juillet 2026
+    16h:30:00' (le grand tableau écrit l'heure avec un \"h\") en datetime."""
     if not label:
         return None
     m = re.search(
-        r"(\d{1,2}) ([a-zéû]+) (\d{4}) (\d{1,2}):(\d{2})(?::(\d{2}))?",
+        r"(\d{1,2}) ([a-zéû]+) (\d{4}) (\d{1,2})h?:(\d{2})(?::(\d{2}))?",
         label.lower(),
     )
     if not m:
@@ -82,10 +83,12 @@ def parse_datetime_fr(label):
 
 def get_all_update_labels(soup: BeautifulSoup):
     """Renvoie tous les horodatages 'Dernière mise à jour' trouvés, dans
-    l'ordre où ils apparaissent sur la page."""
+    l'ordre où ils apparaissent sur la page. Le grand tableau écrit l'heure
+    avec un \"h\" ('16h:30:00'), l'encart Top Gagnants/Perdants sans ('16:56')
+    — les deux formats sont acceptés."""
     text = soup.get_text()
     return re.findall(
-        r"Dernière mise à jour\s*:?\s*([A-Za-zéû]+ \d{1,2} [A-Za-zéû]+ \d{4} \d{1,2}:\d{2}(?::\d{2})?)",
+        r"Dernière mise à jour\s*:?\s*([A-Za-zéû]+ \d{1,2} [A-Za-zéû]+ \d{4} \d{1,2}h?:\d{2}(?::\d{2})?)",
         text,
     )
 

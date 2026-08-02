@@ -1,0 +1,38 @@
+name: Alimenter l'historique des cours depuis la séance
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "public/data/seance_bourse.json"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  merge:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Récupérer le code
+        uses: actions/checkout@v4
+
+      - name: Installer Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Fusionner la séance dans l'historique par ticker
+        run: python scripts/merge_seance_to_historique.py
+
+      - name: Committer et pousser si changement
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add public/data/historique.json public/data/historique/
+          if ! git diff --cached --quiet; then
+            git commit -m "Ajouter le point de la seance a l'historique des cours [skip ci]"
+            git push
+          else
+            echo "Rien de nouveau a committer."
+          fi
