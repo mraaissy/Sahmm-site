@@ -1351,7 +1351,7 @@ export default function Sahm() {
           white-space: nowrap;
         }
         .icon-badge {
-          height: 32px;
+          height: 38px;
           width: auto;
           object-fit: contain;
         }
