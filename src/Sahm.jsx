@@ -2092,8 +2092,8 @@ export default function Sahm() {
           background: var(--paper-raised);
           border: 1px solid var(--hairline);
           border-radius: 10px;
-          padding: 16px 20px;
-          max-width: 720px;
+          padding: 18px 24px;
+          max-width: 820px;
           margin: 0 auto;
         }
         .resume-jour-titre {
@@ -2422,6 +2422,7 @@ export default function Sahm() {
             const seanceQualifiee = Math.abs(masi.var) >= 1 ? (enHausse ? "Forte séance" : "Séance difficile") : "Séance calme";
             const dateSeance = seanceBourseData?.updated_label
               || new Date().toLocaleDateString("fr-FR", { day: "numeric", month: "long", year: "numeric" });
+            const topActifs = volumesData?.instruments?.slice(0, 3) || [];
             return (
               <div
                 className="resume-jour"
@@ -2433,44 +2434,21 @@ export default function Sahm() {
                     Résumé de la séance du {dateSeance} <span style={{ color: "var(--ink-soft)", fontWeight: 400 }}>· {seanceQualifiee}</span>
                   </div>
                   <div className="resume-jour-texte">
-                    Le MASI {enHausse ? "progresse" : "recule"} de {Math.abs(masi.var).toFixed(2)}% à {masi.valeur} points.
-                    {" "}Volume échangé : {seanceStats.volumeCentral}.
+                    Le MASI {enHausse ? "progresse" : "recule"} de {Math.abs(masi.var).toFixed(2)}% à {masi.valeur} points,
+                    {" "}pour un volume total échangé de {seanceStats.volumeCentral}.
                     {hausse && baisse && (
-                      <> {hausse.nom} signe la plus forte hausse ({hausse.variation_jour >= 0 ? "+" : ""}{hausse.variation_jour.toFixed(2)}%), {baisse.nom} la plus forte baisse ({baisse.variation_jour.toFixed(2)}%).</>
+                      <> {hausse.nom} signe la plus forte hausse de la séance ({hausse.variation_jour >= 0 ? "+" : ""}{hausse.variation_jour.toFixed(2)}%),
+                      {" "}tandis que {baisse.nom} enregistre la plus forte baisse ({baisse.variation_jour.toFixed(2)}%).</>
+                    )}
+                    {topActifs.length === 3 && (
+                      <> Côté volumes, {topActifs[0].nom} domine les échanges avec {topActifs[0].volume.toLocaleString("fr-FR")} titres traités,
+                      {" "}devant {topActifs[1].nom} ({topActifs[1].volume.toLocaleString("fr-FR")}) et {topActifs[2].nom} ({topActifs[2].volume.toLocaleString("fr-FR")}).</>
                     )}
                   </div>
                 </div>
               </div>
             );
           })()}
-
-          {volumesData && (
-            <div style={{ maxWidth: 720, margin: "20px auto 0" }}>
-              <div className="section-head" style={{ marginBottom: 10 }}>
-                <div className="section-title" style={{ fontSize: 16 }}>Les 10 instruments les plus actifs</div>
-              </div>
-              <div className="official-table-card">
-                <div className="cap-table-scroll">
-                  <table className="official-table">
-                    <thead>
-                      <tr>
-                        <th>Instrument</th>
-                        <th style={{ textAlign: "right" }}>Volume</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {volumesData.instruments.map((v) => (
-                        <tr key={v.nom}>
-                          <td className="official-emetteur">{v.nom}</td>
-                          <td className="mono" style={{ textAlign: "right" }}>{v.volume.toLocaleString("fr-FR")}</td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </div>
-          )}
         </div>
       </section>
 
