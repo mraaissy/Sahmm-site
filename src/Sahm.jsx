@@ -2298,7 +2298,7 @@ export default function Sahm() {
             )}
           </div>
           <div className="nav-logo">
-            <img src="/assets/logo-icon.png" alt="BourseInfo.ma" className="icon-badge" />
+            <img src="/assets/logo-icon.png?v=2" alt="BourseInfo.ma" className="icon-badge" />
             BourseInfo<span style={{ color: "var(--gold)" }}>.ma</span>
           </div>
           <div className="nav-links-desktop">
