@@ -2069,56 +2069,6 @@ export default function Sahm() {
           padding: 6px 14px;
         }
 
-        .vedettes-scroll {
-          display: flex;
-          gap: 12px;
-          overflow-x: auto;
-          padding-bottom: 6px;
-          -webkit-overflow-scrolling: touch;
-          scrollbar-width: thin;
-        }
-        .vedette-card {
-          flex: 0 0 auto;
-          width: 168px;
-          background: var(--paper-raised);
-          border: 1px solid var(--hairline);
-          border-radius: 10px;
-          padding: 14px 16px;
-          cursor: pointer;
-          transition: transform 0.15s ease, box-shadow 0.15s ease;
-        }
-        .vedette-card:hover {
-          transform: translateY(-2px);
-          box-shadow: 0 6px 16px rgba(0,0,0,0.08);
-        }
-        .vedette-ticker {
-          font-family: 'IBM Plex Mono', monospace;
-          font-size: 11px;
-          font-weight: 700;
-          color: var(--gold);
-          margin-bottom: 4px;
-        }
-        .vedette-nom {
-          font-size: 12.5px;
-          font-weight: 600;
-          color: var(--ink);
-          line-height: 1.3;
-          margin-bottom: 10px;
-          min-height: 32px;
-        }
-        .vedette-prix {
-          font-family: 'IBM Plex Mono', monospace;
-          font-size: 14px;
-          font-weight: 700;
-          margin-bottom: 4px;
-        }
-        .vedette-var {
-          font-size: 12px;
-          font-weight: 600;
-        }
-        .vedette-var.up { color: var(--green); }
-        .vedette-var.down { color: var(--red); }
-
         .all-pages-menu {
           position: absolute;
           top: calc(100% + 8px);
@@ -2508,43 +2458,6 @@ export default function Sahm() {
         </div>
       </section>
 
-      {/* Actions vedettes */}
-      <section className="section" style={{ paddingTop: 0 }}>
-        <div className="container">
-          <div className="section-head">
-            <div className="section-title" style={{ fontSize: 18 }}>Actions vedettes de la Bourse de Casablanca</div>
-            <div className="section-note">Cours en direct des valeurs les plus suivies. Cliquez pour l'analyse complète.</div>
-          </div>
-          {!actionsData ? (
-            <p className="page-subtitle">Chargement…</p>
-          ) : (
-            <div className="vedettes-scroll">
-              {[
-                "ATW", "IAM", "BCP", "BOA", "CIH", "LBV", "TGC", "HPS", "GTM",
-                "AFM", "MSA", "AKT", "MNG", "TMA", "LHM", "CMA", "ADH", "ADI",
-              ]
-                .map((code) => actionsData.companies.find((c) => c.ticker === code))
-                .filter(Boolean)
-                .map((c) => (
-                  <div
-                    key={c.ticker}
-                    className="vedette-card"
-                    onClick={() => { setSelectedAction(c); setPage("actions-detail"); window.scrollTo(0, 0); }}
-                  >
-                    <div className="vedette-ticker">{c.ticker}</div>
-                    <div className="vedette-nom">{c.nom}</div>
-                    <div className="vedette-prix">{c.prix != null ? `${c.prix.toLocaleString("fr-FR")} MAD` : "—"}</div>
-                    {c.variation_jour != null && (
-                      <div className={`vedette-var ${c.variation_jour >= 0 ? "up" : "down"}`}>
-                        {c.variation_jour >= 0 ? "+" : ""}{c.variation_jour.toFixed(2)}%
-                      </div>
-                    )}
-                  </div>
-                ))}
-            </div>
-          )}
-        </div>
-      </section>
 
       {/* Palmarès */}
       <section className="section">
