@@ -1,72 +1,23 @@
 {
-  "date": "2026-07-30",
-  "global": 1030775922267,
+  "date": "2026-08-03",
+  "global": 1032124717257,
   "top10": [
-    {
-      "nom": "MANAGEM",
-      "capitalisation": 156495076440
-    },
-    {
-      "nom": "ATTIJARIWAFA BANK",
-      "capitalisation": 147371474715
-    },
-    {
-      "nom": "ITISSALAT AL-MAGHRIB",
-      "capitalisation": 81316318950
-    },
-    {
-      "nom": "SODEP-Marsa Maroc",
-      "capitalisation": 63120216000
-    },
-    {
-      "nom": "BCP",
-      "capitalisation": 50421493304
-    },
-    {
-      "nom": "Holcim Maroc S.A",
-      "capitalisation": 41449863560
-    },
-    {
-      "nom": "BANK OF AFRICA",
-      "capitalisation": 41412993628
-    },
-    {
-      "nom": "TAQA MOROCCO",
-      "capitalisation": 41279948500
-    },
-    {
-      "nom": "SGTM S.A",
-      "capitalisation": 40500000000
-    },
-    {
-      "nom": "TGCC S.A",
-      "capitalisation": 25659005680
-    }
+    { "nom": "MANAGEM", "capitalisation": 155427255600 },
+    { "nom": "ATTIJARIWAFA BANK", "capitalisation": 147177847959 },
+    { "nom": "ITISSALAT AL-MAGHRIB", "capitalisation": 82547052426 },
+    { "nom": "SODEP-Marsa Maroc", "capitalisation": 62973424800 },
+    { "nom": "BCP", "capitalisation": 50553646411 },
+    { "nom": "BANK OF AFRICA", "capitalisation": 41412993628 },
+    { "nom": "Holcim Maroc S.A", "capitalisation": 41403001080 },
+    { "nom": "TAQA MOROCCO", "capitalisation": 41279948500 },
+    { "nom": "SGTM S.A", "capitalisation": 40200000000 },
+    { "nom": "TGCC S.A", "capitalisation": 25697147445 }
   ],
   "secteurs": [
-    {
-      "nom": "Banques",
-      "pct": 26.94
-    },
-    {
-      "nom": "Mines",
-      "pct": 16.84
-    },
-    {
-      "nom": "Bâtiment et Matériaux de Construction",
-      "pct": 14.32
-    },
-    {
-      "nom": "Télécommunications",
-      "pct": 7.89
-    },
-    {
-      "nom": "Services de transport",
-      "pct": 6.12
-    },
-    {
-      "nom": "Autres",
-      "pct": 27.89
-    }
+    { "nom": "Banques", "pct": 27.54 },
+    { "nom": "Mines", "pct": 16.36 },
+    { "nom": "Bâtiment et Matériaux de Construction", "pct": 14.54 },
+    { "nom": "Télécommunications", "pct": 7.90 },
+    { "nom": "Autres", "pct": 33.66 }
   ]
 }
