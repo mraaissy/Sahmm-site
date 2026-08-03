@@ -146,16 +146,16 @@ const seanceStats = {
 // qui eux restent en direct). À mettre à jour une fois par jour, en fin de
 // séance, avec les vrais chiffres de clôture transmis manuellement.
 const derniereCloture = {
-  date: "31 juillet 2026",
-  masiValeur: "17 843,70",
-  masiVar: 0.59,
-  volume: "102,77 MDH",
-  meilleureHausse: { nom: "ZELLIDJA S.A", var: 9.98 },
-  plusForteBaisse: { nom: "MICRODATA", var: -3.22 },
+  date: "3 août 2026",
+  masiValeur: "17 876,25",
+  masiVar: 0.18,
+  volume: "1 414,06 MDH",
+  meilleureHausse: { nom: "ZELLIDJA S.A", var: 9.82 },
+  plusForteBaisse: { nom: "COLORADO", var: -2.51 },
   topActifs: [
-    { nom: "MANAGEM", volume: 21810503 },
-    { nom: "DOUJA PROMOTION GROUPE ADDOHA SA", volume: 10771795 },
-    { nom: "T2S GROUP HOLDING", volume: 9941723 },
+    { nom: "DOUJA PROMOTION GROUPE ADDOHA SA", volume: 16494680 },
+    { nom: "T2S GROUP HOLDING", volume: 14817576 },
+    { nom: "ITISSALAT AL-MAGHRIB", volume: 7494999 },
   ],
 };
 
