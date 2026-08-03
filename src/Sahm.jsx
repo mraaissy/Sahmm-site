@@ -127,19 +127,38 @@ function getLastTradingDayLabel() {
 // accessible) — séance du mardi 7 juillet 2026
 const seanceDate = getLastTradingDayLabel();
 const seanceIndices = [
-  { nom: "MASI", valeur: "17 843,70", var: 0.59, ytd: -5.32 },
-  { nom: "MASI ESG", valeur: "1 277,66", var: 0.69, ytd: 2.09 },
-  { nom: "MASI 20", valeur: "1 317,55", var: 0.75, ytd: -11.31 },
+  { nom: "MASI", valeur: "17 883,29", var: 0.22, ytd: -5.11 },
+  { nom: "MASI ESG", valeur: "1 283,23", var: 0.44, ytd: 2.53 },
+  { nom: "MASI 20", valeur: "1 318,82", var: 0.10, ytd: -11.23 },
 ];
 const seanceStats = {
-  capitalisation: "1 030,78 MMDH",
-  volume: "102,77 MDH",
-  volumeCentral: "102,77 MDH",
+  capitalisation: "1 030,65 MMDH",
+  volume: "7,01 MDH",
+  volumeCentral: "7,01 MDH",
   volumeBlocs: "0 MDH (aucun échange sur le marché de blocs)",
   hausses: null,
   baisses: null,
   inchangees: null,
 };
+
+// Dernière séance CLOTUREE — figé volontairement, ne bouge pas avec les
+// données intrajournalières (seanceIndices/seanceStats/palmares ci-dessus,
+// qui eux restent en direct). À mettre à jour une fois par jour, en fin de
+// séance, avec les vrais chiffres de clôture transmis manuellement.
+const derniereCloture = {
+  date: "31 juillet 2026",
+  masiValeur: "17 843,70",
+  masiVar: 0.59,
+  volume: "102,77 MDH",
+  meilleureHausse: { nom: "ZELLIDJA S.A", var: 9.98 },
+  plusForteBaisse: { nom: "MICRODATA", var: -3.22 },
+  topActifs: [
+    { nom: "MANAGEM", volume: 21810503 },
+    { nom: "DOUJA PROMOTION GROUPE ADDOHA SA", volume: 10771795 },
+    { nom: "T2S GROUP HOLDING", volume: 9941723 },
+  ],
+};
+
 const seanceHausses = [
   { code: "REB", nom: "Rebab Company", var: 6.00, cours: "93,29" },
   { code: "BAL", nom: "Balima", var: 5.99, cours: "199,90" },
@@ -2404,20 +2423,14 @@ export default function Sahm() {
         </div>
       </section>
 
-      {/* Résumé de la séance */}
+      {/* Résumé de la séance — figé sur la dernière clôture, ne bouge pas
+          avec les données intrajournalières affichées ailleurs sur le site */}
       <section className="section">
         <div className="container">
           {(() => {
-            const masi = seanceIndices.find((i) => i.nom === "MASI");
-            const list = actionsData?.companies?.filter((c) => typeof c.variation_jour === "number") || [];
-            const hausse = list.length ? list.reduce((a, b) => (b.variation_jour > a.variation_jour ? b : a)) : null;
-            const baisse = list.length ? list.reduce((a, b) => (b.variation_jour < a.variation_jour ? b : a)) : null;
-            if (!masi) return null;
-            const enHausse = masi.var >= 0;
-            const seanceQualifiee = Math.abs(masi.var) >= 1 ? (enHausse ? "Forte séance" : "Séance difficile") : "Séance calme";
-            const dateSeance = seanceBourseData?.updated_label
-              || new Date().toLocaleDateString("fr-FR", { day: "numeric", month: "long", year: "numeric" });
-            const topActifs = volumesData?.instruments?.slice(0, 3) || [];
+            const c = derniereCloture;
+            const enHausse = c.masiVar >= 0;
+            const seanceQualifiee = Math.abs(c.masiVar) >= 1 ? (enHausse ? "Forte séance" : "Séance difficile") : "Séance calme";
             return (
               <div
                 className="resume-jour"
@@ -2426,18 +2439,16 @@ export default function Sahm() {
                 {enHausse ? <TrendingUp size={20} color="var(--green)" style={{ flexShrink: 0 }} /> : <TrendingDown size={20} color="var(--red)" style={{ flexShrink: 0 }} />}
                 <div>
                   <div className="resume-jour-titre">
-                    Résumé de la séance du {dateSeance} <span style={{ color: "var(--ink-soft)", fontWeight: 400 }}>· {seanceQualifiee}</span>
+                    Résumé de la séance du {c.date} <span style={{ color: "var(--ink-soft)", fontWeight: 400 }}>· {seanceQualifiee}</span>
                   </div>
                   <div className="resume-jour-texte">
-                    Le MASI {enHausse ? "progresse" : "recule"} de {Math.abs(masi.var).toFixed(2)}% à {masi.valeur} points,
-                    {" "}pour un volume total échangé de {seanceStats.volumeCentral}.
-                    {hausse && baisse && (
-                      <> {hausse.nom} signe la plus forte hausse de la séance ({hausse.variation_jour >= 0 ? "+" : ""}{hausse.variation_jour.toFixed(2)}%),
-                      {" "}tandis que {baisse.nom} enregistre la plus forte baisse ({baisse.variation_jour.toFixed(2)}%).</>
-                    )}
-                    {topActifs.length === 3 && (
-                      <> Côté volumes, {topActifs[0].nom} domine les échanges avec {topActifs[0].volume.toLocaleString("fr-FR")} titres traités,
-                      {" "}devant {topActifs[1].nom} ({topActifs[1].volume.toLocaleString("fr-FR")}) et {topActifs[2].nom} ({topActifs[2].volume.toLocaleString("fr-FR")}).</>
+                    Le MASI {enHausse ? "progresse" : "recule"} de {Math.abs(c.masiVar).toFixed(2)}% à {c.masiValeur} points,
+                    {" "}pour un volume total échangé de {c.volume}.
+                    {" "}{c.meilleureHausse.nom} signe la plus forte hausse de la séance ({c.meilleureHausse.var >= 0 ? "+" : ""}{c.meilleureHausse.var.toFixed(2)}%),
+                    {" "}tandis que {c.plusForteBaisse.nom} enregistre la plus forte baisse ({c.plusForteBaisse.var.toFixed(2)}%).
+                    {c.topActifs?.length === 3 && (
+                      <> Côté volumes, {c.topActifs[0].nom} avait dominé les échanges avec {c.topActifs[0].volume.toLocaleString("fr-FR")} titres traités,
+                      {" "}devant {c.topActifs[1].nom} ({c.topActifs[1].volume.toLocaleString("fr-FR")}) et {c.topActifs[2].nom} ({c.topActifs[2].volume.toLocaleString("fr-FR")}).</>
                     )}
                   </div>
                 </div>
