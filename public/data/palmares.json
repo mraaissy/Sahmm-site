@@ -1,19 +1,19 @@
 {
-  "updated_at": "2026-08-03T09:26:00+00:00",
-  "source_last_update_label": "lundi 3 août 2026 09:26:00",
+  "updated_at": "2026-08-03T00:00:00+00:00",
+  "source_last_update_label": "lundi 3 août 2026",
   "source": "casablancabourse.com (site tiers, calculé depuis le tableau complet)",
   "top_hausses": [
-    { "name": "ZELLIDJA S.A", "change_pct": 8.51, "price": 290.00 },
+    { "name": "ZELLIDJA S.A", "change_pct": 9.82, "price": 293.50 },
     { "name": "MICRODATA", "change_pct": 4.20, "price": 746.30 },
     { "name": "MED PAPER", "change_pct": 3.79, "price": 25.74 },
-    { "name": "MUTANDIS SCA", "change_pct": 3.05, "price": 233.00 },
-    { "name": "HPS", "change_pct": 2.36, "price": 608.00 }
+    { "name": "SMI", "change_pct": 2.09, "price": 6060.00 },
+    { "name": "LABEL VIE", "change_pct": 1.92, "price": 3720.00 }
   ],
   "top_baisses": [
-    { "name": "FENIE BROSSETTE", "change_pct": -3.40, "price": 264.00 },
-    { "name": "CARTIER SAADA", "change_pct": -3.19, "price": 22.15 },
-    { "name": "DISWAY", "change_pct": -2.21, "price": 753.00 },
-    { "name": "CDM", "change_pct": -2.11, "price": 973.00 },
-    { "name": "ENNAKL", "change_pct": -1.84, "price": 48.10 }
+    { "name": "COLORADO", "change_pct": -2.51, "price": 77.02 },
+    { "name": "CDM", "change_pct": -2.21, "price": 972.00 },
+    { "name": "TOTALENERGIES MARKETING MAROC", "change_pct": -1.63, "price": 1505.00 },
+    { "name": "IB MAROC.COM", "change_pct": -1.28, "price": 60.20 },
+    { "name": "ENNAKL", "change_pct": -1.02, "price": 48.50 }
   ]
 }
