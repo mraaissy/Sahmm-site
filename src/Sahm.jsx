@@ -127,14 +127,14 @@ function getLastTradingDayLabel() {
 // accessible) — séance du mardi 7 juillet 2026
 const seanceDate = getLastTradingDayLabel();
 const seanceIndices = [
-  { nom: "MASI", valeur: "17 876,25", var: 0.18, ytd: -5.15 },
-  { nom: "MASI ESG", valeur: "1 279,26", var: 0.13, ytd: 2.22 },
-  { nom: "MASI 20", valeur: "1 320,67", var: 0.24, ytd: -11.10 },
+  { nom: "MASI", valeur: "18 063,39", var: 1.05, ytd: -4.15 },
+  { nom: "MASI ESG", valeur: "1 308,40", var: 2.28, ytd: 4.54 },
+  { nom: "MASI 20", valeur: "1 322,82", var: 0.16, ytd: -10.96 },
 ];
 const seanceStats = {
-  capitalisation: "1 032,12 MMDH",
-  volume: "1 414,06 MDH",
-  volumeCentral: "1 414,06 MDH",
+  capitalisation: "1 051,20 MMDH",
+  volume: "1 255,16 MDH",
+  volumeCentral: "1 255,16 MDH",
   volumeBlocs: "0 MDH (aucun échange sur le marché de blocs)",
   hausses: null,
   baisses: null,
@@ -146,16 +146,16 @@ const seanceStats = {
 // qui eux restent en direct). À mettre à jour une fois par jour, en fin de
 // séance, avec les vrais chiffres de clôture transmis manuellement.
 const derniereCloture = {
-  date: "3 août 2026",
-  masiValeur: "17 876,25",
-  masiVar: 0.18,
-  volume: "1 414,06 MDH",
-  meilleureHausse: { nom: "ZELLIDJA S.A", var: 9.82 },
-  plusForteBaisse: { nom: "COLORADO", var: -2.51 },
+  date: "4 août 2026",
+  masiValeur: "18 063,39",
+  masiVar: 1.05,
+  volume: "1 255,16 MDH",
+  meilleureHausse: { nom: "MANAGEM", var: 9.92 },
+  plusForteBaisse: { nom: "CTM", var: -2.68 },
   topActifs: [
-    { nom: "DOUJA PROMOTION GROUPE ADDOHA SA", volume: 16494680 },
-    { nom: "T2S GROUP HOLDING", volume: 14817576 },
-    { nom: "ITISSALAT AL-MAGHRIB", volume: 7494999 },
+    { nom: "DOUJA PROMOTION GROUPE ADDOHA SA", volume: 67579524 },
+    { nom: "MANAGEM", volume: 62088811 },
+    { nom: "LABEL VIE", volume: 29808439 },
   ],
 };
 

@@ -1,19 +1,19 @@
 {
-  "updated_at": "2026-08-03T00:00:00+00:00",
-  "source_last_update_label": "lundi 3 août 2026",
+  "updated_at": "2026-08-04T00:00:00+00:00",
+  "source_last_update_label": "mardi 4 août 2026",
   "source": "casablancabourse.com (site tiers, calculé depuis le tableau complet)",
   "top_hausses": [
-    { "name": "ZELLIDJA S.A", "change_pct": 9.82, "price": 293.50 },
-    { "name": "MICRODATA", "change_pct": 4.20, "price": 746.30 },
-    { "name": "MED PAPER", "change_pct": 3.79, "price": 25.74 },
-    { "name": "SMI", "change_pct": 2.09, "price": 6060.00 },
-    { "name": "LABEL VIE", "change_pct": 1.92, "price": 3720.00 }
+    { "name": "MANAGEM", "change_pct": 9.92, "price": 1440.00 },
+    { "name": "ZELLIDJA S.A", "change_pct": 9.88, "price": 323.00 },
+    { "name": "MAGHREB OXYGENE", "change_pct": 8.22, "price": 401.00 },
+    { "name": "REBAB COMPANY", "change_pct": 5.96, "price": 102.20 },
+    { "name": "UNIMER", "change_pct": 5.09, "price": 175.50 }
   ],
   "top_baisses": [
-    { "name": "COLORADO", "change_pct": -2.51, "price": 77.02 },
-    { "name": "CDM", "change_pct": -2.21, "price": 972.00 },
-    { "name": "TOTALENERGIES MARKETING MAROC", "change_pct": -1.63, "price": 1505.00 },
-    { "name": "IB MAROC.COM", "change_pct": -1.28, "price": 60.20 },
-    { "name": "ENNAKL", "change_pct": -1.02, "price": 48.50 }
+    { "name": "CTM", "change_pct": -2.68, "price": 855.00 },
+    { "name": "COLORADO", "change_pct": -2.38, "price": 77.50 },
+    { "name": "CDM", "change_pct": -2.21, "price": 975.00 },
+    { "name": "MICRODATA", "change_pct": -2.18, "price": 730.00 },
+    { "name": "TOTALENERGIES MARKETING MAROC", "change_pct": -1.89, "price": 1505.00 }
   ]
 }
