@@ -127,14 +127,14 @@ function getLastTradingDayLabel() {
 // accessible) — séance du mardi 7 juillet 2026
 const seanceDate = getLastTradingDayLabel();
 const seanceIndices = [
-  { nom: "MASI", valeur: "18 250,53", var: 1.04, ytd: -3.16 },
-  { nom: "MASI ESG", valeur: "1 337,01", var: 2.19, ytd: 6.83 },
-  { nom: "MASI 20", valeur: "1 325,97", var: 0.24, ytd: -10.75 },
+  { nom: "MASI", valeur: "18 329,91", var: 1.48, ytd: -2.74 },
+  { nom: "MASI ESG", valeur: "1 345,23", var: 2.81, ytd: 7.49 },
+  { nom: "MASI 20", valeur: "1 330,43", var: 0.58, ytd: -10.45 },
 ];
 const seanceStats = {
-  capitalisation: "1 062,66 MMDH",
-  volume: "82,26 MDH",
-  volumeCentral: "82,26 MDH",
+  capitalisation: "1 073,72 MMDH",
+  volume: "157,08 MDH",
+  volumeCentral: "157,08 MDH",
   volumeBlocs: "0 MDH (aucun échange sur le marché de blocs)",
   hausses: null,
   baisses: null,
@@ -146,16 +146,16 @@ const seanceStats = {
 // qui eux restent en direct). À mettre à jour une fois par jour, en fin de
 // séance, avec les vrais chiffres de clôture transmis manuellement.
 const derniereCloture = {
-  date: "4 août 2026",
-  masiValeur: "18 063,39",
-  masiVar: 1.05,
-  volume: "1 255,16 MDH",
-  meilleureHausse: { nom: "MANAGEM", var: 9.92 },
-  plusForteBaisse: { nom: "CTM", var: -2.68 },
+  date: "6 août 2026",
+  masiValeur: "18 329,91",
+  masiVar: 1.48,
+  volume: "157,08 MDH",
+  meilleureHausse: { nom: "FENIE BROSSETTE", var: 9.98 },
+  plusForteBaisse: { nom: "IB MAROC.COM", var: -5.43 },
   topActifs: [
-    { nom: "DOUJA PROMOTION GROUPE ADDOHA SA", volume: 67579524 },
-    { nom: "MANAGEM", volume: 62088811 },
-    { nom: "LABEL VIE", volume: 29808439 },
+    { nom: "MANAGEM", volume: 45445788 },
+    { nom: "SOCIETE D'EXPLOITATION DES PORTS - MARSA MAROC", volume: 20725986 },
+    { nom: "ITISSALAT AL-MAGHRIB", volume: 12183262 },
   ],
 };
 
