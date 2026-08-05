@@ -1749,13 +1749,10 @@ export default function Sahm() {
           .palmares-grid { grid-template-columns: 1fr; }
         }
         /* Sur l'accueil, le palmarès partage l'espace avec le fil d'actualité :
-           on empile systématiquement les 2 cartes pour éviter que les
-           pourcentages soient coupés. */
+           on empile systématiquement les 2 cartes, peu importe la largeur
+           d'écran, pour éviter que les pourcentages soient coupés. */
         .palmares-grid-narrow {
-          grid-template-columns: 1fr;
-        }
-        @media (min-width: 1200px) {
-          .palmares-grid-narrow { grid-template-columns: 1fr 1fr; }
+          grid-template-columns: 1fr !important;
         }
         .palmares-card {
           background: var(--paper-raised);
