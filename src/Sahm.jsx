@@ -1748,6 +1748,15 @@ export default function Sahm() {
         @media (max-width: 780px) {
           .palmares-grid { grid-template-columns: 1fr; }
         }
+        /* Sur l'accueil, le palmarès partage l'espace avec le fil d'actualité :
+           on empile systématiquement les 2 cartes pour éviter que les
+           pourcentages soient coupés. */
+        .palmares-grid-narrow {
+          grid-template-columns: 1fr;
+        }
+        @media (min-width: 1200px) {
+          .palmares-grid-narrow { grid-template-columns: 1fr 1fr; }
+        }
         .palmares-card {
           background: var(--paper-raised);
           border: 1px solid var(--hairline);
@@ -2624,7 +2633,7 @@ export default function Sahm() {
                 </div>
               </div>
               {palmaresData ? (
-                <div className="palmares-grid">
+                <div className="palmares-grid palmares-grid-narrow">
                   <div className="palmares-card">
                     <div className="palmares-head gain">
                       <TrendingUp size={16} /> Plus fortes hausses
