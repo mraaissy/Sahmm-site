@@ -159,6 +159,74 @@ const derniereCloture = {
   ],
 };
 
+// Fil d'actualité — "The Morning Brief". Chaque entrée est transmise
+// manuellement (texte complet) et affichée en un seul bloc, du plus récent
+// au plus ancien. Le premier élément du tableau est le plus récent.
+const morningBriefs = [
+  {
+    date: "2026-08-05",
+    pdfUrl: "/assets/briefs/2026-08-05.pdf",
+    dateLabel: "05/08/2026",
+    titre: "Le MASI franchit les 18 000 points — forte séance",
+    resumeCourt:
+      "Managem signe la plus forte hausse (+9,92%) et publie un CA en hausse de 166% au S1. Wall Street signe de nouveaux records, le Nikkei et le Kospi rebondissent fortement.",
+    sections: [
+      {
+        titre: "MARCHÉ MAROCAIN",
+        items: [
+          {
+            tag: "MAROC | BOURSE DE CASABLANCA",
+            titre: "Le MASI franchit les 18.000 points — forte séance",
+            texte:
+              "Résumé de la séance du 4 août 2026 : le MASI progresse de 1,05% à 18.063,39 points, pour un volume total échangé de 1.255,16 MDH. Managem signe la plus forte hausse de la séance (+9,92%), tandis que CTM enregistre la plus forte baisse (-2,68%). Côté volumes, Douja Promotion Groupe Addoha domine les échanges avec 67,58 millions de titres traités, devant Managem (62,09 millions) et Label Vie (29,81 millions).",
+          },
+        ],
+      },
+      {
+        titre: "RÉSULTATS DES SOCIÉTÉS COTÉES",
+        items: [
+          {
+            tag: "MAROC | MANAGEM",
+            titre: "Le chiffre d'affaires plus que double au S1 2026",
+            texte:
+              "Managem publie un chiffre d'affaires consolidé de 11,76 MMDH au premier semestre 2026, contre 4,42 MMDH un an plus tôt (+166%), porté par la montée en puissance des mines de Tizert et de Boto. L'endettement consolidé recule de plus de 20% depuis janvier, à 9,96 MMDH.",
+          },
+          {
+            tag: "MAROC | SOTHEMA",
+            titre: "Chiffre d'affaires en hausse de 16% au S1 2026",
+            texte:
+              "Sothema affiche un chiffre d'affaires consolidé de 1.795 MDH au premier semestre 2026 (+16%), après un deuxième trimestre à 917 MDH (+19%). Les investissements du T2 progressent de 79% à 34 MDH.",
+          },
+          {
+            tag: "MAROC | DISWAY",
+            titre: "Chiffre d'affaires en progression de 14,4% au S1 2026",
+            texte:
+              "Disway enregistre au premier semestre 2026 un chiffre d'affaires consolidé de 1.089 MDH, en hausse de 14,4%, après un T2 2026 à 591 MDH (+9,5%).",
+          },
+        ],
+      },
+      {
+        titre: "MARCHÉS INTERNATIONAUX",
+        items: [
+          {
+            tag: "USA & EUROPE | WALL STREET",
+            titre: "Nouveaux records pour le Dow Jones et le S&P 500",
+            texte:
+              "Mardi, le Dow Jones a gagné 1,71% à 54.085,88 points et le S&P 500 1,79% à 7.736,52 points, deux clôtures record, tandis que le Nasdaq s'est envolé de 2,59%. À Paris, le CAC 40 a lui aussi signé un record à 8.666,63 points (+0,61%). La baisse du pétrole, sur fond d'espoirs de reprise du dialogue entre Washington et Téhéran, et de bons résultats d'entreprises ont porté les indices.",
+          },
+          {
+            tag: "ASIE | NIKKEI & KOSPI",
+            titre: "Fort rebond des places asiatiques ce mercredi",
+            texte:
+              "Dans le sillage des records de Wall Street, le Nikkei japonais gagne environ 3,0% et le Kospi sud-coréen près de 4,1% ce matin, portés par l'optimisme sur la tech et le repli des cours du pétrole. L'or progresse en parallèle à 4.130 dollars l'once.",
+          },
+        ],
+      },
+    ],
+  },
+];
+
+
 const seanceHausses = [
   { code: "REB", nom: "Rebab Company", var: 6.00, cours: "93,29" },
   { code: "BAL", nom: "Balima", var: 5.99, cours: "199,90" },
@@ -955,7 +1023,7 @@ export default function Sahm() {
       });
     return () => { cancelled = true; };
   }, [selectedAction]);
-  const VALID_PAGES = ["accueil", "apprendre", "seance", "opcvm", "actions", "comparateur", "data", "portefeuille", "actions-detail", "opcvm-detail"];
+  const VALID_PAGES = ["accueil", "apprendre", "seance", "opcvm", "actions", "comparateur", "data", "portefeuille", "actions-detail", "opcvm-detail", "brief-detail"];
   const [page, setPage] = useState(() => {
     try {
       const h = window.location.hash.replace("#", "").split("/")[0];
@@ -998,6 +1066,13 @@ export default function Sahm() {
       setPage("opcvm");
     }
   }, [page, selectedOpcvm]);
+
+  const [selectedBrief, setSelectedBrief] = useState(null);
+  React.useEffect(() => {
+    if (page === "brief-detail" && !selectedBrief) {
+      setPage("accueil");
+    }
+  }, [page, selectedBrief]);
 
   const [dataTab, setDataTab] = useState("dividendes");
   const [dividendYear, setDividendYear] = useState("2026");
@@ -2099,6 +2174,87 @@ export default function Sahm() {
           font-weight: 700;
         }
 
+        .homepage-grid {
+          display: grid;
+          grid-template-columns: 1.7fr 1fr;
+          gap: 32px;
+          align-items: start;
+        }
+        .homepage-sidebar {
+          position: sticky;
+          top: 90px;
+        }
+        @media (max-width: 900px) {
+          .homepage-grid { grid-template-columns: 1fr; }
+          .homepage-sidebar { position: static; }
+        }
+
+        .brief-card {
+          background: var(--paper-raised);
+          border: 1px solid var(--hairline);
+          border-radius: 10px;
+          padding: 16px;
+          margin-bottom: 14px;
+          cursor: pointer;
+          transition: transform 0.15s ease, box-shadow 0.15s ease;
+        }
+        .brief-card:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+        }
+        .brief-badge {
+          background: var(--navy);
+          color: #fff;
+          font-size: 10px;
+          font-weight: 700;
+          padding: 3px 9px;
+          border-radius: 10px;
+          letter-spacing: 0.3px;
+          white-space: nowrap;
+        }
+        .brief-badge-lg {
+          font-size: 12px;
+          padding: 5px 12px;
+          border-radius: 12px;
+        }
+        .brief-titre {
+          font-size: 13.5px;
+          font-weight: 700;
+          line-height: 1.35;
+          margin-bottom: 8px;
+        }
+        .brief-resume {
+          font-size: 11.5px;
+          color: var(--ink-soft);
+          line-height: 1.55;
+          margin-bottom: 10px;
+        }
+        .brief-lien {
+          font-size: 11.5px;
+          color: var(--gold);
+          font-weight: 600;
+        }
+        .brief-header {
+          background: var(--navy);
+          color: #fff;
+          padding: 24px 28px;
+          border-radius: 10px;
+        }
+        .brief-header-top {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 16px;
+          flex-wrap: wrap;
+        }
+        .brief-header-logo {
+          background: #fff;
+          color: var(--ink);
+          border-radius: 8px;
+          padding: 8px 14px;
+          font-size: 13px;
+        }
+
         .resume-jour {
           display: flex;
           align-items: flex-start;
@@ -2423,91 +2579,113 @@ export default function Sahm() {
         </div>
       </section>
 
-      {/* Résumé de la séance — figé sur la dernière clôture, ne bouge pas
-          avec les données intrajournalières affichées ailleurs sur le site */}
+      {/* Résumé de la séance + Palmarès (colonne principale) + Fil d'actualité (colonne latérale) */}
       <section className="section">
         <div className="container">
-          {(() => {
-            const c = derniereCloture;
-            const enHausse = c.masiVar >= 0;
-            const seanceQualifiee = Math.abs(c.masiVar) >= 1 ? (enHausse ? "Forte séance" : "Séance difficile") : "Séance calme";
-            return (
-              <div
-                className="resume-jour"
-                style={{ borderLeft: `4px solid ${enHausse ? "var(--green)" : "var(--red)"}` }}
-              >
-                {enHausse ? <TrendingUp size={20} color="var(--green)" style={{ flexShrink: 0 }} /> : <TrendingDown size={20} color="var(--red)" style={{ flexShrink: 0 }} />}
-                <div>
-                  <div className="resume-jour-titre">
-                    Résumé de la séance du {c.date} <span style={{ color: "var(--ink-soft)", fontWeight: 400 }}>· {seanceQualifiee}</span>
+          <div className="homepage-grid">
+            <div className="homepage-main">
+
+              {/* Résumé de la séance — figé sur la dernière clôture, ne bouge pas
+                  avec les données intrajournalières affichées ailleurs sur le site */}
+              {(() => {
+                const c = derniereCloture;
+                const enHausse = c.masiVar >= 0;
+                const seanceQualifiee = Math.abs(c.masiVar) >= 1 ? (enHausse ? "Forte séance" : "Séance difficile") : "Séance calme";
+                return (
+                  <div
+                    className="resume-jour"
+                    style={{ borderLeft: `4px solid ${enHausse ? "var(--green)" : "var(--red)"}`, marginBottom: 28 }}
+                  >
+                    {enHausse ? <TrendingUp size={20} color="var(--green)" style={{ flexShrink: 0 }} /> : <TrendingDown size={20} color="var(--red)" style={{ flexShrink: 0 }} />}
+                    <div>
+                      <div className="resume-jour-titre">
+                        Résumé de la séance du {c.date} <span style={{ color: "var(--ink-soft)", fontWeight: 400 }}>· {seanceQualifiee}</span>
+                      </div>
+                      <div className="resume-jour-texte">
+                        Le MASI {enHausse ? "progresse" : "recule"} de {Math.abs(c.masiVar).toFixed(2)}% à {c.masiValeur} points,
+                        {" "}pour un volume total échangé de {c.volume}.
+                        {" "}{c.meilleureHausse.nom} signe la plus forte hausse de la séance ({c.meilleureHausse.var >= 0 ? "+" : ""}{c.meilleureHausse.var.toFixed(2)}%),
+                        {" "}tandis que {c.plusForteBaisse.nom} enregistre la plus forte baisse ({c.plusForteBaisse.var.toFixed(2)}%).
+                        {c.topActifs?.length === 3 && (
+                          <> Côté volumes, {c.topActifs[0].nom} avait dominé les échanges avec {c.topActifs[0].volume.toLocaleString("fr-FR")} titres traités,
+                          {" "}devant {c.topActifs[1].nom} ({c.topActifs[1].volume.toLocaleString("fr-FR")}) et {c.topActifs[2].nom} ({c.topActifs[2].volume.toLocaleString("fr-FR")}).</>
+                        )}
+                      </div>
+                    </div>
                   </div>
-                  <div className="resume-jour-texte">
-                    Le MASI {enHausse ? "progresse" : "recule"} de {Math.abs(c.masiVar).toFixed(2)}% à {c.masiValeur} points,
-                    {" "}pour un volume total échangé de {c.volume}.
-                    {" "}{c.meilleureHausse.nom} signe la plus forte hausse de la séance ({c.meilleureHausse.var >= 0 ? "+" : ""}{c.meilleureHausse.var.toFixed(2)}%),
-                    {" "}tandis que {c.plusForteBaisse.nom} enregistre la plus forte baisse ({c.plusForteBaisse.var.toFixed(2)}%).
-                    {c.topActifs?.length === 3 && (
-                      <> Côté volumes, {c.topActifs[0].nom} avait dominé les échanges avec {c.topActifs[0].volume.toLocaleString("fr-FR")} titres traités,
-                      {" "}devant {c.topActifs[1].nom} ({c.topActifs[1].volume.toLocaleString("fr-FR")}) et {c.topActifs[2].nom} ({c.topActifs[2].volume.toLocaleString("fr-FR")}).</>
-                    )}
-                  </div>
+                );
+              })()}
+
+              {/* Palmarès */}
+              <div className="section-head">
+                <div className="section-title">Palmarès de la séance</div>
+                <div className="section-note">
+                  Données en direct
                 </div>
               </div>
-            );
-          })()}
-        </div>
-      </section>
-
-
-      {/* Palmarès */}
-      <section className="section">
-        <div className="container">
-          <div className="section-head">
-            <div className="section-title">Palmarès de la séance</div>
-            <div className="section-note">
-              Données en direct
+              {palmaresData ? (
+                <div className="palmares-grid">
+                  <div className="palmares-card">
+                    <div className="palmares-head gain">
+                      <TrendingUp size={16} /> Plus fortes hausses
+                    </div>
+                    <table>
+                      <tbody>
+                        {palmaresData.top_hausses.map((s) => (
+                          <tr key={s.name} onClick={() => goToActionByName(s.name)} style={{ cursor: "pointer" }}>
+                            <td className="stock-code">{s.name}</td>
+                            <td className="stock-cours">{s.price.toLocaleString("fr-FR")} DH</td>
+                            <td><Variation value={s.change_pct} /></td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                  <div className="palmares-card">
+                    <div className="palmares-head loss">
+                      <TrendingDown size={16} /> Plus fortes baisses
+                    </div>
+                    <table>
+                      <tbody>
+                        {palmaresData.top_baisses.map((s) => (
+                          <tr key={s.name} onClick={() => goToActionByName(s.name)} style={{ cursor: "pointer" }}>
+                            <td className="stock-code">{s.name}</td>
+                            <td className="stock-cours">{s.price.toLocaleString("fr-FR")} DH</td>
+                            <td><Variation value={s.change_pct} /></td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              ) : (
+                <div className="opcvm-card" style={{ padding: "12px 8px" }}>
+                  <TradingViewHotlist />
+                </div>
+              )}
             </div>
+
+            {/* Fil d'actualité */}
+            <div className="homepage-sidebar">
+              <div className="section-title" style={{ fontSize: 18, marginBottom: 14 }}>Fil d'actualité</div>
+              {morningBriefs.map((b) => (
+                <div
+                  key={b.date}
+                  className="brief-card"
+                  onClick={() => { setSelectedBrief(b); setPage("brief-detail"); window.scrollTo(0, 0); }}
+                >
+                  <div style={{ display: "flex", gap: 8, alignItems: "center", marginBottom: 8 }}>
+                    <span className="brief-badge">MORNING BRIEF</span>
+                    <span style={{ fontSize: 10.5, color: "var(--ink-soft)" }}>{b.dateLabel}</span>
+                  </div>
+                  <div className="brief-titre">{b.titre}</div>
+                  <div className="brief-resume">{b.resumeCourt}</div>
+                  <span className="brief-lien">Lire le brief complet →</span>
+                </div>
+              ))}
+            </div>
+
           </div>
-          {palmaresData ? (
-            <div className="palmares-grid">
-              <div className="palmares-card">
-                <div className="palmares-head gain">
-                  <TrendingUp size={16} /> Plus fortes hausses
-                </div>
-                <table>
-                  <tbody>
-                    {palmaresData.top_hausses.map((s) => (
-                      <tr key={s.name} onClick={() => goToActionByName(s.name)} style={{ cursor: "pointer" }}>
-                        <td className="stock-code">{s.name}</td>
-                        <td className="stock-cours">{s.price.toLocaleString("fr-FR")} DH</td>
-                        <td><Variation value={s.change_pct} /></td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-              <div className="palmares-card">
-                <div className="palmares-head loss">
-                  <TrendingDown size={16} /> Plus fortes baisses
-                </div>
-                <table>
-                  <tbody>
-                    {palmaresData.top_baisses.map((s) => (
-                      <tr key={s.name} onClick={() => goToActionByName(s.name)} style={{ cursor: "pointer" }}>
-                        <td className="stock-code">{s.name}</td>
-                        <td className="stock-cours">{s.price.toLocaleString("fr-FR")} DH</td>
-                        <td><Variation value={s.change_pct} /></td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          ) : (
-            <div className="opcvm-card" style={{ padding: "12px 8px" }}>
-              <TradingViewHotlist />
-            </div>
-          )}
         </div>
       </section>
 
@@ -3052,6 +3230,65 @@ export default function Sahm() {
                 )}
               </div>
             </div>
+          </div>
+        </section>
+      )}
+
+      {page === "brief-detail" && selectedBrief && (
+        <section className="page-shell">
+          <div className="container" style={{ maxWidth: 760 }}>
+            <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: 12, marginBottom: 20 }}>
+              <button
+                onClick={() => setPage("accueil")}
+                style={{ background: "none", border: "none", color: "var(--ink-soft)", cursor: "pointer", fontFamily: "inherit", fontSize: 13, padding: 0 }}
+              >
+                ← Retour à l'accueil
+              </button>
+              {selectedBrief.pdfUrl && (
+                <a
+                  href={selectedBrief.pdfUrl}
+                  download
+                  className="tab-btn"
+                  style={{ display: "flex", alignItems: "center", gap: 6, textDecoration: "none" }}
+                >
+                  <Download size={14} /> Télécharger en PDF
+                </a>
+              )}
+            </div>
+
+            <div className="brief-header">
+              <div className="brief-header-top">
+                <span className="brief-badge brief-badge-lg">THE MORNING BRIEF</span>
+                <div className="brief-header-logo">
+                  <span style={{ fontWeight: 700 }}>BourseInfo<span style={{ color: "var(--gold)" }}>.ma</span></span>
+                  <div style={{ fontSize: 11, color: "var(--ink-soft)" }}>Marchés financiers marocains</div>
+                </div>
+              </div>
+              <div style={{ fontSize: 12, color: "var(--gold)", marginTop: 14, letterSpacing: 0.5 }}>
+                | CASABLANCA | {selectedBrief.dateLabel}
+              </div>
+            </div>
+
+            {selectedBrief.sections.map((section, i) => (
+              <div key={i} style={{ marginTop: i === 0 ? 28 : 32 }}>
+                <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 14 }}>
+                  <span style={{ width: 14, height: 14, background: "var(--gold)", flexShrink: 0 }} />
+                  <div style={{ fontSize: 15, fontWeight: 700, letterSpacing: 0.3 }}>{section.titre}</div>
+                </div>
+                {section.items.map((item, j) => (
+                  <div key={j} style={{ marginBottom: 18 }}>
+                    <p style={{ margin: "0 0 4px", fontSize: 14 }}>
+                      <strong>{item.tag}</strong> | <strong>{item.titre}</strong>
+                    </p>
+                    <p style={{ margin: 0, fontSize: 14, lineHeight: 1.65, color: "var(--ink-soft)" }}>{item.texte}</p>
+                  </div>
+                ))}
+              </div>
+            ))}
+
+            <p className="page-footnote" style={{ marginTop: 32 }}>
+              Contenu à but informatif, ne constitue pas un conseil en investissement.
+            </p>
           </div>
         </section>
       )}
