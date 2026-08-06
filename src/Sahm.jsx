@@ -164,6 +164,67 @@ const derniereCloture = {
 // au plus ancien. Le premier élément du tableau est le plus récent.
 const morningBriefs = [
   {
+    date: "2026-08-06",
+    pdfUrl: "/assets/briefs/2026-08-06.pdf",
+    dateLabel: "06/08/2026",
+    titre: "Le MASI franchit les 18 300 points",
+    resumeCourt:
+      "Le MASI progresse de 1,48% à 18 329,91 points, porté par les secteurs Mines et Chimie. SNEP et Fenié Brossette signent les plus fortes hausses (+9,98%). Nouveau record pour Wall Street et le CAC 40, repli du Nikkei sur la tech.",
+    sections: [
+      {
+        titre: "MARCHÉ MAROCAIN",
+        items: [
+          {
+            tag: "MAROC | BOURSE DE CASABLANCA",
+            titre: "Le MASI franchit les 18.300 points",
+            texte:
+              "Résumé de la séance du 5 août 2026 : le MASI progresse de 1,48% à 18.329,91 points, porté par les secteurs Mines (+8,6%) et Chimie (+8,56%). Le volume s'établit à 157,11 MDH, dominé par Managem (45,44 MDH), Marsa Maroc (20,72 MDH) et Maroc Telecom (12,18 MDH). SNEP et Fenie Brossette signent les plus fortes hausses de la séance (+9,98%), Managem progresse de 9,93% à 1.583 DH. À l'inverse, IB Maroc.com recule de 5,43%.",
+          },
+        ],
+      },
+      {
+        titre: "RÉSULTATS DES SOCIÉTÉS COTÉES",
+        items: [
+          {
+            tag: "MAROC | ALUMINIUM DU MAROC",
+            titre: "Chiffre d'affaires en repli de 8% au S1 2026",
+            texte:
+              "Aluminium du Maroc affiche un chiffre d'affaires de 585,31 MDH au premier semestre 2026, en baisse de 8%, pénalisé par le ralentissement de la demande à l'export dans un contexte de tensions géopolitiques et de prix élevés de l'aluminium.",
+          },
+          {
+            tag: "MAROC | MANAGEM",
+            titre: "Le titre continue de grimper après des indicateurs S1 solides",
+            texte:
+              "Après un chiffre d'affaires consolidé de 11,76 MMDH au S1 2026 (+166%), Managem poursuit son envol en Bourse avec un nouveau gain de 9,93% mercredi, porté par la montée en puissance des mines de Tizert et de Boto.",
+          },
+        ],
+      },
+      {
+        titre: "MARCHÉS INTERNATIONAUX",
+        items: [
+          {
+            tag: "USA | WALL STREET",
+            titre: "Le Dow Jones décroche un 3e record, S&P et Nasdaq marquent une pause",
+            texte:
+              "Mercredi, le Dow Jones a progressé de 0,49% à 54.349,12 points, un troisième record de clôture d'affilée, tandis que le S&P 500 a cédé 0,17% et le Nasdaq 0,83%, les investisseurs marquant une pause dans l'attente d'un accord entre Washington et Téhéran sur la réouverture du détroit d'Ormuz.",
+          },
+          {
+            tag: "EUROPE | CAC 40",
+            titre: "Nouveau record pour la Bourse de Paris",
+            texte:
+              "Le CAC 40 a signé un nouveau record à la clôture, à 8.669,30 points (+0,03%), après avoir touché 8.693,89 points en séance, porté par l'espoir d'un apaisement au Moyen-Orient et par de solides résultats semestriels des entreprises du CAC, dont les bénéfices cumulés progressent de 44% sur un an.",
+          },
+          {
+            tag: "ASIE | NIKKEI",
+            titre: "Repli des valeurs technologiques ce jeudi matin",
+            texte:
+              "Le Nikkei recule d'environ 1,6% ce matin, pénalisé par la baisse des semi-conducteurs dans le sillage de l'indice américain Philadelphia Semiconductor (SOX), malgré une majorité de valeurs en hausse à la Bourse de Tokyo.",
+          },
+        ],
+      },
+    ],
+  },
+  {
     date: "2026-08-05",
     pdfUrl: "/assets/briefs/2026-08-05.pdf",
     dateLabel: "05/08/2026",
