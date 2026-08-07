@@ -164,6 +164,61 @@ const derniereCloture = {
 // au plus ancien. Le premier élément du tableau est le plus récent.
 const morningBriefs = [
   {
+    date: "2026-08-07",
+    pdfUrl: "/assets/briefs/2026-08-07.pdf",
+    dateLabel: "07/08/2026",
+    titre: "Le MASI se rapproche des 18 560 points",
+    resumeCourt:
+      "Le MASI enchaîne les records et gagne 0,43% à 18 558,83 points ce vendredi matin, pour une capitalisation dépassant 1 081,8 milliards de dirhams. Akdital ouvre son capital international à Arab Invest. Wall Street marque une pause, nouveau record pour le CAC 40.",
+    sections: [
+      {
+        titre: "MARCHÉ MAROCAIN",
+        items: [
+          {
+            tag: "MAROC | BOURSE DE CASABLANCA",
+            titre: "Le MASI se rapproche des 18.560 points",
+            texte:
+              "La séance de jeudi s'est clôturée en hausse, le MASI progressant de 0,82% à 18.479,44 points, porté par le MASI 20 (+0,85% à 1.341,75 pts) et le MASI ESG (+0,49% à 1.351,81 pts). Ce vendredi matin, l'indice poursuit sur sa lancée et gagne 0,43% à 18.558,83 points, pour une capitalisation boursière dépassant 1.081,8 milliards de dirhams.",
+          },
+        ],
+      },
+      {
+        titre: "ACTUALITÉS DES SOCIÉTÉS COTÉES",
+        items: [
+          {
+            tag: "MAROC | AKDITAL",
+            titre: "Arab Invest entre au capital de la holding internationale du groupe",
+            texte:
+              "Le groupe Akdital annonce l'entrée d'Arab Invest au capital de sa holding internationale basée à Riyad, via l'acquisition d'une participation de 15%. Cette opération vise à soutenir le financement de l'expansion régionale d'Akdital, avec un accent particulier sur l'Arabie saoudite, où le groupe développe actuellement quatre projets hospitaliers (deux à Riyad, un à La Mecque et un à Djeddah), avec l'ambition de dépasser 2.000 lits à l'international d'ici 2030.",
+          },
+        ],
+      },
+      {
+        titre: "MARCHÉS INTERNATIONAUX",
+        items: [
+          {
+            tag: "USA | WALL STREET",
+            titre: "Wall Street marque une pause après ses records",
+            texte:
+              "Jeudi, le Dow Jones a cédé 0,85% à 53.885,10 points, le S&P 500 0,18% à 7.709,96 points et le Nasdaq 0,06% à 26.348,35 points, plombés par la remontée du pétrole et des taux obligataires sur fond de regain d'incertitude au Moyen-Orient, malgré une saison de résultats d'entreprises toujours solide.",
+          },
+          {
+            tag: "EUROPE | CAC 40",
+            titre: "Nouveau record, la Bourse de Paris franchit les 8.700 points",
+            texte:
+              "Le CAC 40 a signé un troisième record de clôture consécutif jeudi, à 8.699,71 points (+0,35%), après avoir touché 8.742,53 points en séance, porté par l'espoir d'une désescalade au Moyen-Orient et par de solides résultats semestriels des entreprises du CAC.",
+          },
+          {
+            tag: "ASIE | NIKKEI & KOSPI",
+            titre: "Les marchés asiatiques marquent le pas ce vendredi",
+            texte:
+              "Le Nikkei recule d'environ 0,9% ce matin et le Kospi sud-coréen cède près de 0,8%, portant sa baisse hebdomadaire à plus de 5%, les valeurs technologiques restant sous pression dans l'attente du rapport américain sur l'emploi (nonfarm payrolls) attendu ce vendredi.",
+          },
+        ],
+      },
+    ],
+  },
+  {
     date: "2026-08-06",
     pdfUrl: "/assets/briefs/2026-08-06.pdf",
     dateLabel: "06/08/2026",
