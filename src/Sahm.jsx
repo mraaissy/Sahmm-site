@@ -127,9 +127,9 @@ function getLastTradingDayLabel() {
 // accessible) — séance du mardi 7 juillet 2026
 const seanceDate = getLastTradingDayLabel();
 const seanceIndices = [
-  { nom: "MASI", valeur: "18 667,37", var: 1.02, ytd: -2.74 },
-  { nom: "MASI ESG", valeur: "1 345,23", var: 2.81, ytd: 7.49 },
-  { nom: "MASI 20", valeur: "1 353,87", var: 0.90, ytd: -10.45 },
+  { nom: "MASI", valeur: "18 738,89", var: 1.40, ytd: -0.57 },
+  { nom: "MASI ESG", valeur: "1 372,74", var: 1.55, ytd: 9.68 },
+  { nom: "MASI 20", valeur: "1 359,14", var: 1.30, ytd: -8.52 },
 ];
 const seanceStats = {
   capitalisation: "1 073,72 MMDH",
