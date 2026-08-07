@@ -2377,32 +2377,6 @@ export default function Sahm() {
           font-size: 13px;
         }
 
-        .gradient-banner {
-          border-radius: 10px;
-          padding: 16px 18px;
-        }
-        .gradient-banner-blue {
-          background: linear-gradient(135deg, #2B3A4A, #3B6FA0);
-        }
-        .gradient-banner-gold {
-          background: linear-gradient(135deg, #7C5A2E, #D08A2E);
-        }
-        .gradient-banner-label {
-          font-size: 11px;
-          font-weight: 600;
-          color: rgba(255,255,255,0.75);
-          margin-bottom: 4px;
-        }
-        .gradient-banner-value {
-          font-size: 19px;
-          font-weight: 700;
-          color: #fff;
-          font-family: 'IBM Plex Mono', monospace;
-        }
-        @media (max-width: 640px) {
-          .gradient-banner-row { grid-template-columns: 1fr !important; }
-        }
-
         .resume-jour {
           display: flex;
           align-items: flex-start;
@@ -2872,15 +2846,8 @@ export default function Sahm() {
                 <div className="section-head">
                   <div className="section-title" style={{ fontSize: 20 }}>Capitalisation globale</div>
                 </div>
-                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12, marginBottom: 28 }} className="gradient-banner-row">
-                  <div className="gradient-banner gradient-banner-blue">
-                    <div className="gradient-banner-label">Volume global</div>
-                    <div className="gradient-banner-value">{seanceStats.volumeCentral}</div>
-                  </div>
-                  <div className="gradient-banner gradient-banner-gold">
-                    <div className="gradient-banner-label">Capitalisation boursière</div>
-                    <div className="gradient-banner-value">{capData.global.toLocaleString("fr-FR")} MAD</div>
-                  </div>
+                <div className="kpi-cell" style={{ background: "var(--gold)", borderRadius: 12, padding: "18px 20px", marginBottom: 28 }}>
+                  <div className="kpi-value" style={{ color: "#fff", fontSize: 26 }}>{capData.global.toLocaleString("fr-FR")} MAD</div>
                 </div>
 
                 <div className="section-head">
