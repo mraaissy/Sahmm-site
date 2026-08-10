@@ -1352,15 +1352,11 @@ export default function Sahm() {
     const data = maturitesListe.map((m) => {
       const a = precedent[m.key];
       const b = dernier[m.key];
-      return {
-        maturite: m.label,
-        base: Math.min(a, b),
-        range: Math.abs(b - a),
-        hausse: b >= a,
-        j1: a,
-        jour: b,
-      };
+      const variationPbs = (b - a) * 100; // 1% = 100 points de base
+      return { maturite: m.label, j1: a, jour: b, variationPbs };
     });
+    const maxAbsPbs = Math.max(1, ...data.map((d) => Math.abs(d.variationPbs)));
+
     return (
       <>
         <div className="section-head">
@@ -1371,33 +1367,58 @@ export default function Sahm() {
             {new Date(dernier.date).toLocaleDateString("fr-FR", { day: "numeric", month: "short", year: "numeric" })}
           </div>
         </div>
-        <div className="opcvm-card" style={{ padding: 20, marginBottom: 36 }}>
-          <ResponsiveContainer width="100%" height={260}>
-            <BarChart data={data}>
-              <CartesianGrid stroke="var(--hairline)" strokeDasharray="3 3" />
-              <XAxis dataKey="maturite" tick={{ fontSize: 11, fill: "var(--ink-soft)" }} />
-              <YAxis tick={{ fontSize: 11, fill: "var(--ink-soft)" }} unit="%" width={48} domain={["auto", "auto"]} />
-              <Tooltip
-                formatter={(v, name, props) => {
-                  const p = props.payload;
-                  return [`${p.j1.toFixed(3)}% → ${p.jour.toFixed(3)}%`, "Taux"];
-                }}
-              />
-              <Bar dataKey="base" stackId="a" fill="transparent" />
-              <Bar dataKey="range" stackId="a" radius={[3, 3, 3, 3]}>
-                {data.map((d, i) => (
-                  <Cell key={i} fill={d.hausse ? "var(--green)" : "var(--red)"} />
-                ))}
-              </Bar>
-            </BarChart>
-          </ResponsiveContainer>
-          <div style={{ display: "flex", gap: 16, marginTop: 10, fontSize: 11.5, color: "var(--ink-soft)" }}>
-            <span style={{ display: "flex", alignItems: "center", gap: 5 }}>
-              <span style={{ width: 9, height: 9, borderRadius: 2, background: "var(--green)" }} /> Taux en hausse
-            </span>
-            <span style={{ display: "flex", alignItems: "center", gap: 5 }}>
-              <span style={{ width: 9, height: 9, borderRadius: 2, background: "var(--red)" }} /> Taux en baisse
-            </span>
+        <div className="official-table-card" style={{ marginBottom: 36 }}>
+          <div className="cap-table-scroll">
+            <table className="official-table">
+              <thead>
+                <tr>
+                  <th>Maturité</th>
+                  <th style={{ textAlign: "right" }}>Taux J-1</th>
+                  <th style={{ textAlign: "right" }}>Taux J</th>
+                  <th style={{ minWidth: 180 }}>Variation</th>
+                </tr>
+              </thead>
+              <tbody>
+                {data.map((d) => {
+                  const hausse = d.variationPbs >= 0;
+                  const barWidthPct = (Math.abs(d.variationPbs) / maxAbsPbs) * 100;
+                  return (
+                    <tr key={d.maturite}>
+                      <td className="official-emetteur">{d.maturite}</td>
+                      <td className="mono" style={{ textAlign: "right", color: "var(--ink-soft)" }}>{d.j1.toFixed(3)}%</td>
+                      <td className="mono" style={{ textAlign: "right", fontWeight: 600 }}>{d.jour.toFixed(3)}%</td>
+                      <td>
+                        <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+                          <div style={{ flex: 1, height: 6, background: "var(--hairline)", borderRadius: 3, position: "relative", overflow: "hidden" }}>
+                            <div
+                              style={{
+                                position: "absolute", top: 0, bottom: 0,
+                                [hausse ? "left" : "right"]: "50%",
+                                width: `${barWidthPct / 2}%`,
+                                background: hausse ? "var(--green)" : "var(--red)",
+                                borderRadius: 3,
+                              }}
+                            />
+                            <div style={{ position: "absolute", left: "50%", top: 0, bottom: 0, width: 1, background: "var(--ink-soft)", opacity: 0.3 }} />
+                          </div>
+                          <span
+                            className="mono"
+                            style={{
+                              display: "flex", alignItems: "center", gap: 2,
+                              color: hausse ? "var(--green)" : "var(--red)",
+                              fontWeight: 700, fontSize: 12.5, minWidth: 64, justifyContent: "flex-end",
+                            }}
+                          >
+                            {hausse ? <ArrowUpRight size={13} /> : <ArrowDownRight size={13} />}
+                            {Math.abs(d.variationPbs).toFixed(1)} pbs
+                          </span>
+                        </div>
+                      </td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
           </div>
         </div>
       </>
