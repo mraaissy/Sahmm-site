@@ -3119,19 +3119,6 @@ export default function Sahm() {
         </section>
       )}
 
-      {/* Marchés mondiaux */}
-      <section className="section">
-        <div className="container">
-          <div className="section-head">
-            <div className="section-title">Marchés mondiaux</div>
-            <div className="section-note">Données en direct</div>
-          </div>
-          <div className="opcvm-card" style={{ padding: "12px 8px" }}>
-            <TradingViewMarketOverview />
-          </div>
-        </div>
-      </section>
-
       {/* OPCVM */}
       <section className="section" style={{ borderBottom: "none" }}>
         <div className="container">
@@ -3200,6 +3187,20 @@ export default function Sahm() {
           </p>
         </div>
       </section>
+
+      {/* Marchés mondiaux */}
+      <section className="section">
+        <div className="container">
+          <div className="section-head">
+            <div className="section-title">Marchés mondiaux</div>
+            <div className="section-note">Données en direct</div>
+          </div>
+          <div className="opcvm-card" style={{ padding: "12px 8px" }}>
+            <TradingViewMarketOverview />
+          </div>
+        </div>
+      </section>
+
 
       </>
       )}
