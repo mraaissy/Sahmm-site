@@ -1,19 +1,19 @@
 {
-  "updated_at": "2026-08-07T00:00:00+00:00",
-  "source_last_update_label": "vendredi 7 août 2026",
+  "updated_at": "2026-08-10T00:00:00+00:00",
+  "source_last_update_label": "lundi 10 août 2026",
   "source": "casablancabourse.com (site tiers, calculé depuis le tableau complet)",
   "top_hausses": [
-    { "name": "INVOLYS", "change_pct": 6.88, "price": 146.90 },
-    { "name": "FENIE BROSSETTE", "change_pct": 6.49, "price": 380.00 },
-    { "name": "SMI", "change_pct": 4.26, "price": 6780.00 },
-    { "name": "MANAGEM", "change_pct": 3.53, "price": 1644.00 },
-    { "name": "JET CONTRACTORS", "change_pct": 3.48, "price": 2173.00 }
+    { "name": "S.M MONETIQUE", "change_pct": 9.24, "price": 520.00 },
+    { "name": "SNEP", "change_pct": 6.59, "price": 388.00 },
+    { "name": "DISTY TECHNOLOGIES", "change_pct": 3.70, "price": 357.70 },
+    { "name": "AUTO HALL", "change_pct": 2.63, "price": 70.20 },
+    { "name": "M2M Group", "change_pct": 2.31, "price": 420.00 }
   ],
   "top_baisses": [
-    { "name": "ALUMINIUM DU MAROC", "change_pct": -2.25, "price": 1740.00 },
-    { "name": "MED PAPER", "change_pct": -1.87, "price": 25.22 },
-    { "name": "CASH PLUS S.A", "change_pct": -1.86, "price": 253.20 },
-    { "name": "ENNAKL", "change_pct": -1.72, "price": 49.00 },
-    { "name": "AFRIQUIA GAZ", "change_pct": -0.92, "price": 3652.00 }
+    { "name": "ZELLIDJA S.A", "change_pct": -5.77, "price": 325.10 },
+    { "name": "STROC INDUSTRIE", "change_pct": -4.54, "price": 187.00 },
+    { "name": "FENIE BROSSETTE", "change_pct": -2.83, "price": 371.20 },
+    { "name": "JET CONTRACTORS", "change_pct": -1.98, "price": 2126.00 },
+    { "name": "CFG BANK", "change_pct": -1.96, "price": 198.05 }
   ]
 }
