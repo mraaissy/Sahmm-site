@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { TrendingUp, TrendingDown, ArrowUpRight, ArrowDownRight, Search, Bell, Settings, User, Menu, X, Star, Download, ArrowUpDown, Eye, EyeOff } from "lucide-react";
-import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer, Legend, LineChart, Line, XAxis, YAxis, CartesianGrid } from "recharts";
+import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer, Legend, LineChart, Line, XAxis, YAxis, CartesianGrid, BarChart, Bar } from "recharts";
 import { supabase } from "./supabaseClient";
 
 
@@ -1329,6 +1329,129 @@ export default function Sahm() {
       .catch(() => {});
     return () => { cancelled = true; };
   }, []);
+
+  const maturitesListe = [
+    { key: "13S", label: "13 sem." },
+    { key: "26S", label: "26 sem." },
+    { key: "52S", label: "52 sem." },
+    { key: "2A", label: "2 ans" },
+    { key: "5A", label: "5 ans" },
+    { key: "10A", label: "10 ans" },
+    { key: "15A", label: "15 ans" },
+    { key: "20A", label: "20 ans" },
+    { key: "30A", label: "30 ans" },
+  ];
+
+  // Comparaison de la courbe des taux : dernière séance vs J-1, rendu façon
+  // "bougie" (barre flottante entre les deux valeurs, verte si le taux a
+  // monté, rouge si le taux a baissé).
+  function renderCourbeComparaison() {
+    if (!courbeTauxData || courbeTauxData.length < 2) return null;
+    const dernier = courbeTauxData[courbeTauxData.length - 1];
+    const precedent = courbeTauxData[courbeTauxData.length - 2];
+    const data = maturitesListe.map((m) => {
+      const a = precedent[m.key];
+      const b = dernier[m.key];
+      return {
+        maturite: m.label,
+        base: Math.min(a, b),
+        range: Math.abs(b - a),
+        hausse: b >= a,
+        j1: a,
+        jour: b,
+      };
+    });
+    return (
+      <>
+        <div className="section-head">
+          <div className="section-title" style={{ fontSize: 20 }}>Comparaison avec la séance précédente</div>
+          <div className="section-note">
+            {new Date(precedent.date).toLocaleDateString("fr-FR", { day: "numeric", month: "short" })}
+            {" → "}
+            {new Date(dernier.date).toLocaleDateString("fr-FR", { day: "numeric", month: "short", year: "numeric" })}
+          </div>
+        </div>
+        <div className="opcvm-card" style={{ padding: 20, marginBottom: 36 }}>
+          <ResponsiveContainer width="100%" height={260}>
+            <BarChart data={data}>
+              <CartesianGrid stroke="var(--hairline)" strokeDasharray="3 3" />
+              <XAxis dataKey="maturite" tick={{ fontSize: 11, fill: "var(--ink-soft)" }} />
+              <YAxis tick={{ fontSize: 11, fill: "var(--ink-soft)" }} unit="%" width={48} domain={["auto", "auto"]} />
+              <Tooltip
+                formatter={(v, name, props) => {
+                  const p = props.payload;
+                  return [`${p.j1.toFixed(3)}% → ${p.jour.toFixed(3)}%`, "Taux"];
+                }}
+              />
+              <Bar dataKey="base" stackId="a" fill="transparent" />
+              <Bar dataKey="range" stackId="a" radius={[3, 3, 3, 3]}>
+                {data.map((d, i) => (
+                  <Cell key={i} fill={d.hausse ? "var(--green)" : "var(--red)"} />
+                ))}
+              </Bar>
+            </BarChart>
+          </ResponsiveContainer>
+          <div style={{ display: "flex", gap: 16, marginTop: 10, fontSize: 11.5, color: "var(--ink-soft)" }}>
+            <span style={{ display: "flex", alignItems: "center", gap: 5 }}>
+              <span style={{ width: 9, height: 9, borderRadius: 2, background: "var(--green)" }} /> Taux en hausse
+            </span>
+            <span style={{ display: "flex", alignItems: "center", gap: 5 }}>
+              <span style={{ width: 9, height: 9, borderRadius: 2, background: "var(--red)" }} /> Taux en baisse
+            </span>
+          </div>
+        </div>
+      </>
+    );
+  }
+
+  // Évolution d'une maturité choisie dans le temps, sur tout l'historique disponible.
+  function renderEvolutionTaux() {
+    if (!courbeTauxData || courbeTauxData.length < 2) return null;
+    return (
+      <>
+        <div className="section-head">
+          <div className="section-title" style={{ fontSize: 20 }}>Évolution d'un taux dans le temps</div>
+          <div className="section-note">Depuis le {new Date(courbeTauxData[0].date).toLocaleDateString("fr-FR", { day: "numeric", month: "long", year: "numeric" })}</div>
+        </div>
+        <div style={{ display: "flex", gap: 6, flexWrap: "wrap", marginBottom: 16 }}>
+          {maturitesListe.map((m) => (
+            <button
+              key={m.key}
+              onClick={() => setCourbeTauxMaturite(m.key)}
+              style={{
+                fontSize: 12, padding: "6px 14px", borderRadius: 16,
+                border: "1px solid var(--hairline)",
+                background: courbeTauxMaturite === m.key ? "var(--gold)" : "transparent",
+                color: courbeTauxMaturite === m.key ? "#fff" : "var(--ink-soft)",
+                cursor: "pointer", fontFamily: "inherit",
+              }}
+            >
+              {m.label}
+            </button>
+          ))}
+        </div>
+        <div className="opcvm-card" style={{ padding: 20 }}>
+          <ResponsiveContainer width="100%" height={260}>
+            <LineChart data={courbeTauxData}>
+              <CartesianGrid stroke="var(--hairline)" strokeDasharray="3 3" />
+              <XAxis
+                dataKey="date"
+                tick={{ fontSize: 11, fill: "var(--ink-soft)" }}
+                interval={Math.max(1, Math.floor(courbeTauxData.length / 6))}
+                tickFormatter={(v) => new Date(v).toLocaleDateString("fr-FR", { month: "short", year: "2-digit" })}
+              />
+              <YAxis tick={{ fontSize: 11, fill: "var(--ink-soft)" }} unit="%" width={48} domain={["auto", "auto"]} />
+              <Tooltip
+                formatter={(v) => [`${v.toFixed(3)}%`, "Taux"]}
+                labelFormatter={(v) => new Date(v).toLocaleDateString("fr-FR", { day: "2-digit", month: "long", year: "numeric" })}
+              />
+              <Line type="monotone" dataKey={courbeTauxMaturite} stroke="var(--green)" strokeWidth={2} dot={false} />
+            </LineChart>
+          </ResponsiveContainer>
+        </div>
+      </>
+    );
+  }
 
   // Instruments les plus actifs par volume (mise à jour manuelle)
   const [volumesData, setVolumesData] = useState(null);
@@ -2957,6 +3080,24 @@ export default function Sahm() {
         </div>
       </section>
 
+      {/* Obligataire — comparaison et évolution des taux */}
+      {courbeTauxData && (
+        <section className="section">
+          <div className="container">
+            <div className="section-head">
+              <div className="section-title">Marché obligataire</div>
+              <div className="section-note">
+                <a href="#" onClick={(e) => { e.preventDefault(); setPage("obligataire"); }} style={{ color: "var(--gold)", fontWeight: 600 }}>
+                  Voir la page complète →
+                </a>
+              </div>
+            </div>
+            {renderCourbeComparaison()}
+            {renderEvolutionTaux()}
+          </div>
+        </section>
+      )}
+
       {/* Marchés mondiaux */}
       <section className="section">
         <div className="container">
@@ -3503,19 +3644,8 @@ export default function Sahm() {
             ) : (
               <>
                 {(() => {
-                  const maturites = [
-                    { key: "13S", label: "13 sem." },
-                    { key: "26S", label: "26 sem." },
-                    { key: "52S", label: "52 sem." },
-                    { key: "2A", label: "2 ans" },
-                    { key: "5A", label: "5 ans" },
-                    { key: "10A", label: "10 ans" },
-                    { key: "15A", label: "15 ans" },
-                    { key: "20A", label: "20 ans" },
-                    { key: "30A", label: "30 ans" },
-                  ];
                   const point = courbeTauxData.find((d) => d.date === courbeTauxDate) || courbeTauxData[courbeTauxData.length - 1];
-                  const courbeChartData = maturites.map((m) => ({ maturite: m.label, taux: point[m.key] }));
+                  const courbeChartData = maturitesListe.map((m) => ({ maturite: m.label, taux: point[m.key] }));
 
                   return (
                     <>
@@ -3544,50 +3674,12 @@ export default function Sahm() {
                         onChange={(e) => setCourbeTauxDate(courbeTauxData[Number(e.target.value)].date)}
                         style={{ width: "100%", marginBottom: 36, accentColor: "var(--gold)" }}
                       />
-
-                      <div className="section-head">
-                        <div className="section-title" style={{ fontSize: 20 }}>Évolution d'un taux dans le temps</div>
-                        <div className="section-note">Depuis le {new Date(courbeTauxData[0].date).toLocaleDateString("fr-FR", { day: "numeric", month: "long", year: "numeric" })}</div>
-                      </div>
-                      <div style={{ display: "flex", gap: 6, flexWrap: "wrap", marginBottom: 16 }}>
-                        {maturites.map((m) => (
-                          <button
-                            key={m.key}
-                            onClick={() => setCourbeTauxMaturite(m.key)}
-                            style={{
-                              fontSize: 12, padding: "6px 14px", borderRadius: 16,
-                              border: "1px solid var(--hairline)",
-                              background: courbeTauxMaturite === m.key ? "var(--gold)" : "transparent",
-                              color: courbeTauxMaturite === m.key ? "#fff" : "var(--ink-soft)",
-                              cursor: "pointer", fontFamily: "inherit",
-                            }}
-                          >
-                            {m.label}
-                          </button>
-                        ))}
-                      </div>
-                      <div className="opcvm-card" style={{ padding: 20 }}>
-                        <ResponsiveContainer width="100%" height={260}>
-                          <LineChart data={courbeTauxData}>
-                            <CartesianGrid stroke="var(--hairline)" strokeDasharray="3 3" />
-                            <XAxis
-                              dataKey="date"
-                              tick={{ fontSize: 11, fill: "var(--ink-soft)" }}
-                              interval={Math.max(1, Math.floor(courbeTauxData.length / 6))}
-                              tickFormatter={(v) => new Date(v).toLocaleDateString("fr-FR", { month: "short", year: "2-digit" })}
-                            />
-                            <YAxis tick={{ fontSize: 11, fill: "var(--ink-soft)" }} unit="%" width={48} domain={["auto", "auto"]} />
-                            <Tooltip
-                              formatter={(v) => [`${v.toFixed(3)}%`, "Taux"]}
-                              labelFormatter={(v) => new Date(v).toLocaleDateString("fr-FR", { day: "2-digit", month: "long", year: "numeric" })}
-                            />
-                            <Line type="monotone" dataKey={courbeTauxMaturite} stroke="var(--green)" strokeWidth={2} dot={false} />
-                          </LineChart>
-                        </ResponsiveContainer>
-                      </div>
                     </>
                   );
                 })()}
+
+                {renderCourbeComparaison()}
+                {renderEvolutionTaux()}
 
                 <p className="page-footnote" style={{ marginTop: 32 }}>
                   Données transmises manuellement, à but informatif — ne constituent pas un conseil en investissement.
