@@ -1189,7 +1189,7 @@ export default function Sahm() {
       });
     return () => { cancelled = true; };
   }, [selectedAction]);
-  const VALID_PAGES = ["accueil", "apprendre", "seance", "opcvm", "actions", "comparateur", "data", "portefeuille", "actions-detail", "opcvm-detail", "brief-detail"];
+  const VALID_PAGES = ["accueil", "apprendre", "seance", "opcvm", "actions", "comparateur", "data", "portefeuille", "actions-detail", "opcvm-detail", "brief-detail", "obligataire"];
   const [page, setPage] = useState(() => {
     try {
       const h = window.location.hash.replace("#", "").split("/")[0];
@@ -1307,6 +1307,24 @@ export default function Sahm() {
       .then((res) => (res.ok ? res.json() : null))
       .then((data) => {
         if (!cancelled && data) setCapData(data);
+      })
+      .catch(() => {});
+    return () => { cancelled = true; };
+  }, []);
+
+  // Courbe des taux (marché obligataire) — historique quotidien depuis 2025
+  const [courbeTauxData, setCourbeTauxData] = useState(null);
+  const [courbeTauxDate, setCourbeTauxDate] = useState(null);
+  const [courbeTauxMaturite, setCourbeTauxMaturite] = useState("10A");
+  React.useEffect(() => {
+    let cancelled = false;
+    fetch("/data/courbe_taux.json", { cache: "no-store" })
+      .then((res) => (res.ok ? res.json() : null))
+      .then((data) => {
+        if (!cancelled && data && data.length) {
+          setCourbeTauxData(data);
+          setCourbeTauxDate(data[data.length - 1].date);
+        }
       })
       .catch(() => {});
     return () => { cancelled = true; };
@@ -2655,6 +2673,7 @@ export default function Sahm() {
             <a className={`nav-link ${page === "opcvm" ? "active" : ""}`} href="#" onClick={(e) => { e.preventDefault(); setPage("opcvm"); }}>OPCVM</a>
             <a className={`nav-link ${page === "actions" ? "active" : ""}`} href="#" onClick={(e) => { e.preventDefault(); setPage("actions"); }}>Actions</a>
             <a className={`nav-link ${page === "comparateur" ? "active" : ""}`} href="#" onClick={(e) => { e.preventDefault(); setPage("comparateur"); }}>Comparateur</a>
+            <a className={`nav-link ${page === "obligataire" ? "active" : ""}`} href="#" onClick={(e) => { e.preventDefault(); setPage("obligataire"); }}>Obligataire</a>
             <a className={`nav-link ${page === "data" ? "active" : ""}`} href="#" onClick={(e) => { e.preventDefault(); setPage("data"); }}>Calendrier Dividende</a>
             <a className={`nav-link ${page === "portefeuille" ? "active" : ""}`} href="#" onClick={(e) => { e.preventDefault(); setPage("portefeuille"); }}>Mon Portefeuille</a>
           </div>
@@ -2692,6 +2711,7 @@ export default function Sahm() {
           <a className={`mobile-link ${page === "opcvm" ? "active" : ""}`} href="#" onClick={(e) => { e.preventDefault(); setPage("opcvm"); setMobileNavOpen(false); }}>OPCVM</a>
           <a className={`mobile-link ${page === "actions" ? "active" : ""}`} href="#" onClick={(e) => { e.preventDefault(); setPage("actions"); setMobileNavOpen(false); }}>Actions</a>
           <a className={`mobile-link ${page === "comparateur" ? "active" : ""}`} href="#" onClick={(e) => { e.preventDefault(); setPage("comparateur"); setMobileNavOpen(false); }}>Comparateur</a>
+          <a className={`mobile-link ${page === "obligataire" ? "active" : ""}`} href="#" onClick={(e) => { e.preventDefault(); setPage("obligataire"); setMobileNavOpen(false); }}>Obligataire</a>
           <a className={`mobile-link ${page === "data" ? "active" : ""}`} href="#" onClick={(e) => { e.preventDefault(); setPage("data"); setMobileNavOpen(false); }}>Calendrier Dividende</a>
           <a className={`mobile-link ${page === "portefeuille" ? "active" : ""}`} href="#" onClick={(e) => { e.preventDefault(); setPage("portefeuille"); setMobileNavOpen(false); }}>Mon Portefeuille</a>
           <div className="mobile-menu-footer">
@@ -3461,6 +3481,119 @@ export default function Sahm() {
             <p className="page-footnote" style={{ marginTop: 32 }}>
               Contenu à but informatif, ne constitue pas un conseil en investissement.
             </p>
+          </div>
+        </section>
+      )}
+
+      {page === "obligataire" && (
+        <section className="page-shell">
+          <div className="container">
+            <div className="page-header">
+              <div className="eyebrow-mono">Marché de la dette</div>
+              <h1 className="page-title serif">Obligataire</h1>
+              <p className="page-subtitle">
+                La courbe des taux du marché marocain des bons du Trésor, mise à jour au fil des
+                séances. Elle indique le rendement exigé par le marché selon la durée du prêt à
+                l'État — un indicateur suivi de près pour anticiper l'évolution des taux d'intérêt.
+              </p>
+            </div>
+
+            {!courbeTauxData ? (
+              <p className="page-subtitle">Chargement…</p>
+            ) : (
+              <>
+                {(() => {
+                  const maturites = [
+                    { key: "13S", label: "13 sem." },
+                    { key: "26S", label: "26 sem." },
+                    { key: "52S", label: "52 sem." },
+                    { key: "2A", label: "2 ans" },
+                    { key: "5A", label: "5 ans" },
+                    { key: "10A", label: "10 ans" },
+                    { key: "15A", label: "15 ans" },
+                    { key: "20A", label: "20 ans" },
+                    { key: "30A", label: "30 ans" },
+                  ];
+                  const point = courbeTauxData.find((d) => d.date === courbeTauxDate) || courbeTauxData[courbeTauxData.length - 1];
+                  const courbeChartData = maturites.map((m) => ({ maturite: m.label, taux: point[m.key] }));
+
+                  return (
+                    <>
+                      <div className="section-head">
+                        <div className="section-title" style={{ fontSize: 20 }}>Courbe des taux</div>
+                        <div className="section-note">
+                          Au {new Date(courbeTauxDate).toLocaleDateString("fr-FR", { day: "numeric", month: "long", year: "numeric" })}
+                        </div>
+                      </div>
+                      <div className="opcvm-card" style={{ padding: 20, marginBottom: 12 }}>
+                        <ResponsiveContainer width="100%" height={280}>
+                          <LineChart data={courbeChartData}>
+                            <CartesianGrid stroke="var(--hairline)" strokeDasharray="3 3" />
+                            <XAxis dataKey="maturite" tick={{ fontSize: 11, fill: "var(--ink-soft)" }} />
+                            <YAxis tick={{ fontSize: 11, fill: "var(--ink-soft)" }} unit="%" width={48} domain={["auto", "auto"]} />
+                            <Tooltip formatter={(v) => [`${v.toFixed(3)}%`, "Taux"]} />
+                            <Line type="monotone" dataKey="taux" stroke="var(--gold)" strokeWidth={2.5} dot={{ r: 3 }} />
+                          </LineChart>
+                        </ResponsiveContainer>
+                      </div>
+                      <input
+                        type="range"
+                        min={0}
+                        max={courbeTauxData.length - 1}
+                        value={courbeTauxData.findIndex((d) => d.date === courbeTauxDate)}
+                        onChange={(e) => setCourbeTauxDate(courbeTauxData[Number(e.target.value)].date)}
+                        style={{ width: "100%", marginBottom: 36, accentColor: "var(--gold)" }}
+                      />
+
+                      <div className="section-head">
+                        <div className="section-title" style={{ fontSize: 20 }}>Évolution d'un taux dans le temps</div>
+                        <div className="section-note">Depuis le {new Date(courbeTauxData[0].date).toLocaleDateString("fr-FR", { day: "numeric", month: "long", year: "numeric" })}</div>
+                      </div>
+                      <div style={{ display: "flex", gap: 6, flexWrap: "wrap", marginBottom: 16 }}>
+                        {maturites.map((m) => (
+                          <button
+                            key={m.key}
+                            onClick={() => setCourbeTauxMaturite(m.key)}
+                            style={{
+                              fontSize: 12, padding: "6px 14px", borderRadius: 16,
+                              border: "1px solid var(--hairline)",
+                              background: courbeTauxMaturite === m.key ? "var(--gold)" : "transparent",
+                              color: courbeTauxMaturite === m.key ? "#fff" : "var(--ink-soft)",
+                              cursor: "pointer", fontFamily: "inherit",
+                            }}
+                          >
+                            {m.label}
+                          </button>
+                        ))}
+                      </div>
+                      <div className="opcvm-card" style={{ padding: 20 }}>
+                        <ResponsiveContainer width="100%" height={260}>
+                          <LineChart data={courbeTauxData}>
+                            <CartesianGrid stroke="var(--hairline)" strokeDasharray="3 3" />
+                            <XAxis
+                              dataKey="date"
+                              tick={{ fontSize: 11, fill: "var(--ink-soft)" }}
+                              interval={Math.max(1, Math.floor(courbeTauxData.length / 6))}
+                              tickFormatter={(v) => new Date(v).toLocaleDateString("fr-FR", { month: "short", year: "2-digit" })}
+                            />
+                            <YAxis tick={{ fontSize: 11, fill: "var(--ink-soft)" }} unit="%" width={48} domain={["auto", "auto"]} />
+                            <Tooltip
+                              formatter={(v) => [`${v.toFixed(3)}%`, "Taux"]}
+                              labelFormatter={(v) => new Date(v).toLocaleDateString("fr-FR", { day: "2-digit", month: "long", year: "numeric" })}
+                            />
+                            <Line type="monotone" dataKey={courbeTauxMaturite} stroke="var(--green)" strokeWidth={2} dot={false} />
+                          </LineChart>
+                        </ResponsiveContainer>
+                      </div>
+                    </>
+                  );
+                })()}
+
+                <p className="page-footnote" style={{ marginTop: 32 }}>
+                  Données transmises manuellement, à but informatif — ne constituent pas un conseil en investissement.
+                </p>
+              </>
+            )}
           </div>
         </section>
       )}
