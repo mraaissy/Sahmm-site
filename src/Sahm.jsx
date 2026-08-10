@@ -146,23 +146,73 @@ const seanceStats = {
 // qui eux restent en direct). À mettre à jour une fois par jour, en fin de
 // séance, avec les vrais chiffres de clôture transmis manuellement.
 const derniereCloture = {
-  date: "6 août 2026",
-  masiValeur: "18 329,91",
-  masiVar: 1.48,
-  volume: "157,08 MDH",
-  meilleureHausse: { nom: "FENIE BROSSETTE", var: 9.98 },
-  plusForteBaisse: { nom: "IB MAROC.COM", var: -5.43 },
+  date: "7 août 2026",
+  masiValeur: "18 864,02",
+  masiVar: 2.08,
+  volume: "560 MDH",
+  meilleureHausse: { nom: "FENIE BROSSETTE", var: 7.05 },
+  plusForteBaisse: { nom: "REBAB COMPANY", var: -5.99 },
   topActifs: [
-    { nom: "MANAGEM", volume: 45445788 },
-    { nom: "SOCIETE D'EXPLOITATION DES PORTS - MARSA MAROC", volume: 20725986 },
-    { nom: "ITISSALAT AL-MAGHRIB", volume: 12183262 },
+    { nom: "MANAGEM", volume: 104 },
+    { nom: "MAROC TELECOM", volume: 74 },
+    { nom: "ATTIJARIWAFA BANK", volume: 61 },
   ],
+  topActifsUnite: " MDH échangés",
 };
 
 // Fil d'actualité — "The Morning Brief". Chaque entrée est transmise
 // manuellement (texte complet) et affichée en un seul bloc, du plus récent
 // au plus ancien. Le premier élément du tableau est le plus récent.
 const morningBriefs = [
+  {
+    date: "2026-08-10",
+    pdfUrl: "/assets/briefs/2026-08-10.pdf",
+    dateLabel: "10/08/2026",
+    titre: "Le MASI signe sa meilleure semaine depuis avril, à 18 864 points",
+    resumeCourt:
+      "Le MASI a gagné 2,08% sur la seule séance de vendredi à 18 864,02 points, portant sa performance hebdomadaire à 5,72% et effaçant ses pertes annuelles. Fenié Brossette signe la plus forte hausse (+7,05%), Rebab Company recule le plus (-5,99%). TGCC décroche le marché de reconstruction du stade Tessema pour 1,82 MMDH. Nouveau record pour le S&P 500.",
+    sections: [
+      {
+        titre: "MARCHÉ MAROCAIN",
+        items: [
+          {
+            tag: "MAROC | BOURSE DE CASABLANCA",
+            titre: "Le MASI signe sa meilleure semaine depuis avril, à 18.864 points",
+            texte:
+              "La Bourse de Casablanca a clôturé vendredi sa meilleure semaine depuis avril 2026 : le MASI a gagné 2,08% sur la seule séance à 18.864,02 points, portant sa performance hebdomadaire à 5,72% et effaçant ses pertes annuelles (+0,09% depuis janvier). Le MASI 20 a progressé de 2,15% à 1.370,55 points, porté par les secteurs Santé (+3,6%), Holdings (+3,4%) et Immobilier (+3,26%). Le volume s'est élevé à 560 MDH, dominé par Managem (104 MDH, +2,33%), Maroc Telecom (74 MDH, +2,03%) et Attijariwafa bank (61 MDH, +2,68%). Fenie Brossette signe la plus forte hausse (+7,05%), tandis que Rebab Company recule le plus (-5,99%). La capitalisation globale dépasse désormais 1.101,7 milliards de dirhams.",
+          },
+        ],
+      },
+      {
+        titre: "ACTUALITÉS DES SOCIÉTÉS COTÉES",
+        items: [
+          {
+            tag: "MAROC | TGCC",
+            titre: "Décroche le marché de reconstruction du stade Tessema pour 1,82 MMDH",
+            texte:
+              "TGCC a remporté l'appel d'offres pour les gros œuvres de reconstruction du stade Tessema à Casablanca, pour un montant de 1,82 milliard de dirhams, devançant sa concurrente SGTM qui avait proposé 1,88 milliard de dirhams. Le marché porte sur le gros œuvre, la charpente métallique, l'étanchéité, les revêtements, les faux plafonds, les menuiseries et la peinture. Plus de 2,57 MMDH ont déjà été engagés au total sur ce chantier depuis le concours d'architecture.",
+          },
+        ],
+      },
+      {
+        titre: "MARCHÉS INTERNATIONAUX",
+        items: [
+          {
+            tag: "USA | WALL STREET",
+            titre: "Nouveau record pour le S&P 500 après un emploi américain décevant",
+            texte:
+              "Vendredi, le S&P 500 a signé un nouveau record de clôture (+0,62% à 7.757,64 points), le Dow Jones a gagné 0,28% et le Nasdaq 1,30%, portés par un rapport sur l'emploi américain nettement plus faible que prévu (-23.000 emplois en juillet contre +83.000 attendus), qui éloigne la perspective d'un resserrement monétaire de la Fed.",
+          },
+          {
+            tag: "ASIE | NIKKEI & KOSPI",
+            titre: "Les marchés asiatiques emboîtent le pas à Wall Street",
+            texte:
+              "Ce lundi matin, le Nikkei japonais progresse d'environ 2,0% et le Kospi sud-coréen entre 0,8% et 1,1%, dans le sillage des records de Wall Street. Les indices chinois évoluent en revanche en retrait (CSI 300 -0,4%), pénalisés par une inflation plus faible que prévu en juillet. Le pétrole progresse légèrement sur fond d'incertitudes autour des négociations de paix dans le Golfe.",
+          },
+        ],
+      },
+    ],
+  },
   {
     date: "2026-08-07",
     pdfUrl: "/assets/briefs/2026-08-07.pdf",
@@ -2729,7 +2779,7 @@ export default function Sahm() {
                         {" "}{c.meilleureHausse.nom} signe la plus forte hausse de la séance ({c.meilleureHausse.var >= 0 ? "+" : ""}{c.meilleureHausse.var.toFixed(2)}%),
                         {" "}tandis que {c.plusForteBaisse.nom} enregistre la plus forte baisse ({c.plusForteBaisse.var.toFixed(2)}%).
                         {c.topActifs?.length === 3 && (
-                          <> Côté volumes, {c.topActifs[0].nom} avait dominé les échanges avec {c.topActifs[0].volume.toLocaleString("fr-FR")} titres traités,
+                          <> Côté volumes, {c.topActifs[0].nom} avait dominé les échanges avec {c.topActifs[0].volume.toLocaleString("fr-FR")}{c.topActifsUnite || " titres traités"},
                           {" "}devant {c.topActifs[1].nom} ({c.topActifs[1].volume.toLocaleString("fr-FR")}) et {c.topActifs[2].nom} ({c.topActifs[2].volume.toLocaleString("fr-FR")}).</>
                         )}
                       </div>
