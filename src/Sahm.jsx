@@ -1410,7 +1410,7 @@ export default function Sahm() {
     return (
       <>
         <div className="section-head">
-          <div className="section-title" style={{ fontSize: 20 }}>Comparaison avec la séance précédente</div>
+          <div className="section-title" style={{ fontSize: 20 }}>Variation des taux (J vs J-1)</div>
           <div className="section-note">
             {new Date(precedent.date).toLocaleDateString("fr-FR", { day: "numeric", month: "short" })}
             {" → "}
@@ -1481,7 +1481,7 @@ export default function Sahm() {
     return (
       <>
         <div className="section-head">
-          <div className="section-title" style={{ fontSize: 20 }}>Évolution d'un taux dans le temps</div>
+          <div className="section-title" style={{ fontSize: 20 }}>Évolution de la courbe dans le temps</div>
           <div className="section-note">Depuis le {new Date(courbeTauxData[0].date).toLocaleDateString("fr-FR", { day: "numeric", month: "long", year: "numeric" })}</div>
         </div>
         <div style={{ display: "flex", gap: 6, flexWrap: "wrap", marginBottom: 16 }}>
