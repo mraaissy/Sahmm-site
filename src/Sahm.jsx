@@ -127,14 +127,14 @@ function getLastTradingDayLabel() {
 // accessible) — séance du mardi 7 juillet 2026
 const seanceDate = getLastTradingDayLabel();
 const seanceIndices = [
-  { nom: "MASI", valeur: "18 881,64", var: 0.09, ytd: 0.19 },
-  { nom: "MASI ESG", valeur: "1 386,45", var: 0.40, ytd: 10.78 },
-  { nom: "MASI 20", valeur: "1 368,98", var: -0.11, ytd: -7.85 },
+  { nom: "MASI", valeur: "18 832,18", var: -0.17, ytd: -0.08 },
+  { nom: "MASI ESG", valeur: "1 377,58", var: -0.24, ytd: 10.07 },
+  { nom: "MASI 20", valeur: "1 367,67", var: -0.21, ytd: -7.94 },
 ];
 const seanceStats = {
   capitalisation: "1 073,72 MMDH",
-  volume: "102,00 MDH",
-  volumeCentral: "102,00 MDH",
+  volume: "181,20 MDH",
+  volumeCentral: "181,20 MDH",
   volumeBlocs: "0 MDH (aucun échange sur le marché de blocs)",
   hausses: null,
   baisses: null,
@@ -146,18 +146,13 @@ const seanceStats = {
 // qui eux restent en direct). À mettre à jour une fois par jour, en fin de
 // séance, avec les vrais chiffres de clôture transmis manuellement.
 const derniereCloture = {
-  date: "7 août 2026",
-  masiValeur: "18 864,02",
-  masiVar: 2.08,
-  volume: "560 MDH",
-  meilleureHausse: { nom: "FENIE BROSSETTE", var: 7.05 },
-  plusForteBaisse: { nom: "REBAB COMPANY", var: -5.99 },
-  topActifs: [
-    { nom: "MANAGEM", volume: 104 },
-    { nom: "MAROC TELECOM", volume: 74 },
-    { nom: "ATTIJARIWAFA BANK", volume: 61 },
-  ],
-  topActifsUnite: " MDH échangés",
+  date: "11 août 2026",
+  masiValeur: "18 832,18",
+  masiVar: -0.17,
+  volume: "181,20 MDH",
+  meilleureHausse: { nom: "S.M MONETIQUE", var: 9.98 },
+  plusForteBaisse: { nom: "REBAB COMPANY", var: -4.27 },
+  topActifs: [],
 };
 
 // Fil d'actualité — "The Morning Brief". Chaque entrée est transmise
