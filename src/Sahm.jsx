@@ -146,7 +146,7 @@ const seanceStats = {
 // qui eux restent en direct). À mettre à jour une fois par jour, en fin de
 // séance, avec les vrais chiffres de clôture transmis manuellement.
 const derniereCloture = {
-  date: "11 août 2026",
+  date: "10 août 2026",
   masiValeur: "18 832,18",
   masiVar: -0.17,
   volume: "181,20 MDH",
