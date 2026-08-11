@@ -160,6 +160,61 @@ const derniereCloture = {
 // au plus ancien. Le premier élément du tableau est le plus récent.
 const morningBriefs = [
   {
+    date: "2026-08-11",
+    pdfUrl: "/assets/briefs/2026-08-11.pdf",
+    dateLabel: "11/08/2026",
+    titre: "Le MASI marque une pause après sa forte semaine",
+    resumeCourt:
+      "Après une semaine exceptionnelle (+5,72%), le MASI cède 0,17% lundi à 18 832,18 points. Rebab Company signe le plus fort recul (-4,27%). SMI publie un chiffre d'affaires en hausse de 36% au S1, porté par la flambée du cours de l'argent. Addoha progresse de 9%. Wall Street glisse sous ses records, le pétrole grimpe.",
+    sections: [
+      {
+        titre: "MARCHÉ MAROCAIN",
+        items: [
+          {
+            tag: "MAROC | BOURSE DE CASABLANCA",
+            titre: "Le MASI marque une pause après sa forte semaine",
+            texte:
+              "Après une semaine exceptionnelle (+5,72%), la Bourse de Casablanca a clôturé lundi en léger repli, le MASI cédant 0,17% à 18.832,18 points, dans un marché aux évolutions sectorielles contrastées. Sylviculture et papier a le plus reculé (-1,69%), tandis que la Chimie s'est distinguée avec un gain de 4,82%. Le volume s'est élevé à 181,2 MDH. Rebab Company signe le plus fort recul (-4,27%), suivie de Zellidja (-2,90%) et Involys (-2,21%).",
+          },
+        ],
+      },
+      {
+        titre: "ACTUALITÉS DES SOCIÉTÉS COTÉES",
+        items: [
+          {
+            tag: "MAROC | SMI",
+            titre: "Chiffre d'affaires en hausse de 36% au S1 2026",
+            texte:
+              "SMI a réalisé un chiffre d'affaires de 852 MDH au premier semestre 2026, en progression de 36% sur un an. Au seul deuxième trimestre, le chiffre d'affaires atteint 441 MDH, contre 326 MDH un an plus tôt. Cette performance s'explique principalement par la forte hausse du cours moyen de l'argent (+120%), qui a plus que compensé un recul de 38% des volumes vendus, lié à des travaux de maintenance et au décalage de la mise en exploitation du projet de carrière. Les investissements du semestre s'élèvent à 190 MDH, en hausse de 111%.",
+          },
+          {
+            tag: "MAROC | ADDOHA",
+            titre: "Chiffre d'affaires en progression de 9% au premier semestre",
+            texte:
+              "Le Groupe Addoha a réalisé un chiffre d'affaires consolidé de 1,41 milliard de dirhams au premier semestre 2026, en hausse de 9% sur un an, malgré l'impact du nouveau mode de comptabilisation applicable au secteur immobilier (le chiffre d'affaires aurait atteint 1,98 MMDH selon l'ancien mode). Les préventes progressent de 11% à 5.557 unités, et le chiffre d'affaires sécurisé atteint 12,1 MMDH. Le Groupe accélère sa production, avec 23.791 unités en cours, dont 35% en Afrique de l'Ouest, pour un chiffre d'affaires potentiel de 19,8 MMDH.",
+          },
+        ],
+      },
+      {
+        titre: "MARCHÉS INTERNATIONAUX",
+        items: [
+          {
+            tag: "USA | WALL STREET",
+            titre: "Wall Street glisse sous ses records, le pétrole grimpe",
+            texte:
+              "Lundi, le S&P 500 a cédé 0,06% à 7.753,11 points, le Dow Jones 0,11% à 53.975,98 points et le Nasdaq 0,32% à 26.605,36 points, les investisseurs restant prudents face à la remontée du pétrole sur fond d'incertitudes autour du détroit d'Ormuz. Intel a entraîné les valeurs technologiques à la baisse après l'annonce d'une levée de fonds de 15 milliards de dollars.",
+          },
+          {
+            tag: "ASIE | NIKKEI & HANG SENG",
+            titre: "Les marchés asiatiques évoluent en ordre dispersé ce mardi",
+            texte:
+              "Ce mardi matin, le Nikkei japonais gagne 1,92% tandis que le Hang Seng de Hong Kong recule de 0,81%. Le pétrole poursuit sa hausse, le WTI progressant à 82,39 dollars et le Brent à 87,96 dollars, sur fond de divergences entre Washington et Téhéran concernant les conditions de réouverture du détroit d'Ormuz.",
+          },
+        ],
+      },
+    ],
+  },
+  {
     date: "2026-08-10",
     pdfUrl: "/assets/briefs/2026-08-10.pdf",
     dateLabel: "10/08/2026",
