@@ -1239,7 +1239,7 @@ export default function Sahm() {
       });
     return () => { cancelled = true; };
   }, [selectedAction]);
-  const VALID_PAGES = ["accueil", "apprendre", "seance", "opcvm", "actions", "comparateur", "data", "portefeuille", "actions-detail", "opcvm-detail", "brief-detail", "obligataire"];
+  const VALID_PAGES = ["accueil", "apprendre", "seance", "opcvm", "actions", "comparateur", "data", "portefeuille", "actions-detail", "opcvm-detail", "brief-detail", "obligataire", "actualites"];
   const [page, setPage] = useState(() => {
     try {
       const h = window.location.hash.replace("#", "").split("/")[0];
@@ -3054,7 +3054,7 @@ export default function Sahm() {
             {/* Fil d'actualité */}
             <div className="homepage-sidebar">
               <div className="section-title" style={{ fontSize: 18, marginBottom: 14 }}>Fil d'actualité</div>
-              {morningBriefs.map((b) => (
+              {morningBriefs.slice(0, 3).map((b) => (
                 <div
                   key={b.date}
                   className="brief-card"
@@ -3069,6 +3069,18 @@ export default function Sahm() {
                   <span className="brief-lien">Lire le brief complet →</span>
                 </div>
               ))}
+              {morningBriefs.length > 3 && (
+                <div style={{ textAlign: "center", marginTop: 4 }}>
+                  <div style={{ color: "var(--ink-soft)", fontSize: 20, letterSpacing: 3, marginBottom: 8 }}>•••</div>
+                  <a
+                    href="#"
+                    onClick={(e) => { e.preventDefault(); setPage("actualites"); window.scrollTo(0, 0); }}
+                    style={{ color: "var(--gold)", fontWeight: 600, fontSize: 13, textDecoration: "none" }}
+                  >
+                    Cliquez ici pour voir toute l'actualité
+                  </a>
+                </div>
+              )}
             </div>
 
           </div>
@@ -3635,6 +3647,33 @@ export default function Sahm() {
                 )}
               </div>
             </div>
+          </div>
+        </section>
+      )}
+
+      {page === "actualites" && (
+        <section className="page-shell">
+          <div className="container" style={{ maxWidth: 760 }}>
+            <div className="page-header">
+              <div className="eyebrow-mono">The Morning Brief</div>
+              <h1 className="page-title serif">Toute l'actualité</h1>
+              <p className="page-subtitle">L'historique complet des briefs quotidiens, du plus récent au plus ancien.</p>
+            </div>
+            {morningBriefs.map((b) => (
+              <div
+                key={b.date}
+                className="brief-card"
+                onClick={() => { setSelectedBrief(b); setPage("brief-detail"); window.scrollTo(0, 0); }}
+              >
+                <div style={{ display: "flex", gap: 8, alignItems: "center", marginBottom: 8 }}>
+                  <span className="brief-badge">MORNING BRIEF</span>
+                  <span style={{ fontSize: 10.5, color: "var(--ink-soft)" }}>{b.dateLabel}</span>
+                </div>
+                <div className="brief-titre">{b.titre}</div>
+                <div className="brief-resume">{b.resumeCourt}</div>
+                <span className="brief-lien">Lire le brief complet →</span>
+              </div>
+            ))}
           </div>
         </section>
       )}
