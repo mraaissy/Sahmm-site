@@ -127,14 +127,14 @@ function getLastTradingDayLabel() {
 // accessible) — séance du mardi 7 juillet 2026
 const seanceDate = getLastTradingDayLabel();
 const seanceIndices = [
-  { nom: "MASI", valeur: "18 791,99", var: -0.21, ytd: -0.29 },
-  { nom: "MASI ESG", valeur: "1 375,68", var: -0.14, ytd: 9.92 },
-  { nom: "MASI 20", valeur: "1 364,58", var: -0.23, ytd: -8.15 },
+  { nom: "MASI", valeur: "18 703,79", var: -0.68, ytd: -0.76 },
+  { nom: "MASI ESG", valeur: "1 371,40", var: -0.45, ytd: 9.58 },
+  { nom: "MASI 20", valeur: "1 355,88", var: -0.86, ytd: -8.74 },
 ];
 const seanceStats = {
   capitalisation: "1 073,72 MMDH",
-  volume: "14,26 MDH",
-  volumeCentral: "14,26 MDH",
+  volume: "205,78 MDH",
+  volumeCentral: "205,78 MDH",
   volumeBlocs: "0 MDH (aucun échange sur le marché de blocs)",
   hausses: null,
   baisses: null,
@@ -146,12 +146,12 @@ const seanceStats = {
 // qui eux restent en direct). À mettre à jour une fois par jour, en fin de
 // séance, avec les vrais chiffres de clôture transmis manuellement.
 const derniereCloture = {
-  date: "10 août 2026",
-  masiValeur: "18 832,18",
-  masiVar: -0.17,
-  volume: "181,20 MDH",
-  meilleureHausse: { nom: "S.M MONETIQUE", var: 9.98 },
-  plusForteBaisse: { nom: "REBAB COMPANY", var: -4.27 },
+  date: "11 août 2026",
+  masiValeur: "18 703,79",
+  masiVar: -0.68,
+  volume: "205,78 MDH",
+  meilleureHausse: { nom: "REBAB COMPANY", var: 5.99 },
+  plusForteBaisse: { nom: "ZELLIDJA S.A", var: -6.30 },
   topActifs: [],
 };
 
