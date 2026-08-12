@@ -127,14 +127,14 @@ function getLastTradingDayLabel() {
 // accessible) — séance du mardi 7 juillet 2026
 const seanceDate = getLastTradingDayLabel();
 const seanceIndices = [
-  { nom: "MASI", valeur: "18 766,68", var: 0.34, ytd: -0.42 },
-  { nom: "MASI ESG", valeur: "1 383,13", var: 0.86, ytd: 10.52 },
-  { nom: "MASI 20", valeur: "1 354,81", var: -0.08, ytd: -8.81 },
+  { nom: "MASI", valeur: "18 825,54", var: 0.65, ytd: -0.11 },
+  { nom: "MASI ESG", valeur: "1 387,43", var: 1.17, ytd: 10.86 },
+  { nom: "MASI 20", valeur: "1 359,54", var: 0.27, ytd: -8.49 },
 ];
 const seanceStats = {
   capitalisation: "1 095,90 MMDH",
-  volume: "55,96 MDH",
-  volumeCentral: "55,96 MDH",
+  volume: "148,87 MDH",
+  volumeCentral: "148,87 MDH",
   volumeBlocs: "0 MDH (aucun échange sur le marché de blocs)",
   hausses: null,
   baisses: null,
@@ -146,12 +146,12 @@ const seanceStats = {
 // qui eux restent en direct). À mettre à jour une fois par jour, en fin de
 // séance, avec les vrais chiffres de clôture transmis manuellement.
 const derniereCloture = {
-  date: "11 août 2026",
-  masiValeur: "18 703,79",
-  masiVar: -0.68,
-  volume: "205,78 MDH",
-  meilleureHausse: { nom: "REBAB COMPANY", var: 5.99 },
-  plusForteBaisse: { nom: "ZELLIDJA S.A", var: -6.30 },
+  date: "12 août 2026",
+  masiValeur: "18 825,54",
+  masiVar: 0.65,
+  volume: "148,87 MDH",
+  meilleureHausse: { nom: "FENIE BROSSETTE", var: 6.67 },
+  plusForteBaisse: { nom: "IB MAROC.COM", var: -7.83 },
   topActifs: [],
 };
 
