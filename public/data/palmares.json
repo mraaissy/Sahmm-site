@@ -1,19 +1,19 @@
 {
   "updated_at": "2026-08-11T00:00:00+00:00",
-  "source_last_update_label": "mardi 11 août 2026 (intraday)",
+  "source_last_update_label": "mardi 11 août 2026",
   "source": "casablancabourse.com (site tiers, calculé depuis le tableau complet)",
   "top_hausses": [
-    { "name": "S.M MONETIQUE", "change_pct": 4.85, "price": 548.90 },
-    { "name": "TOTALENERGIES MARKETING MAROC", "change_pct": 3.86, "price": 1589.00 },
-    { "name": "SALAFIN", "change_pct": 1.59, "price": 447.00 },
-    { "name": "CARTIER SAADA", "change_pct": 1.53, "price": 25.89 },
-    { "name": "MAGHREB OXYGENE", "change_pct": 1.24, "price": 404.95 }
+    { "name": "REBAB COMPANY", "change_pct": 5.99, "price": 95.39 },
+    { "name": "BALIMA", "change_pct": 5.59, "price": 202.00 },
+    { "name": "REALISATIONS MECANIQUES", "change_pct": 4.21, "price": 470.00 },
+    { "name": "MAGHREBAIL", "change_pct": 2.26, "price": 950.00 },
+    { "name": "LABEL VIE", "change_pct": 1.32, "price": 4000.00 }
   ],
   "top_baisses": [
-    { "name": "ZELLIDJA S.A", "change_pct": -9.55, "price": 303.00 },
-    { "name": "BMCI", "change_pct": -3.58, "price": 593.00 },
-    { "name": "SMI", "change_pct": -2.71, "price": 6450.00 },
-    { "name": "SGTM S.A", "change_pct": -2.35, "price": 712.00 },
-    { "name": "DOUJA PROM ADDOHA", "change_pct": -2.06, "price": 36.08 }
+    { "name": "ZELLIDJA S.A", "change_pct": -6.30, "price": 313.90 },
+    { "name": "STROC INDUSTRIE", "change_pct": -3.65, "price": 185.00 },
+    { "name": "SNEP", "change_pct": -3.13, "price": 372.00 },
+    { "name": "ALLIANCES", "change_pct": -2.93, "price": 398.00 },
+    { "name": "CASH PLUS S.A", "change_pct": -2.78, "price": 251.80 }
   ]
 }

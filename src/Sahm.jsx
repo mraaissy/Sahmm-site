@@ -132,7 +132,7 @@ const seanceIndices = [
   { nom: "MASI 20", valeur: "1 355,88", var: -0.86, ytd: -8.74 },
 ];
 const seanceStats = {
-  capitalisation: "1 073,72 MMDH",
+  capitalisation: "1 095,90 MMDH",
   volume: "205,78 MDH",
   volumeCentral: "205,78 MDH",
   volumeBlocs: "0 MDH (aucun échange sur le marché de blocs)",
@@ -159,6 +159,66 @@ const derniereCloture = {
 // manuellement (texte complet) et affichée en un seul bloc, du plus récent
 // au plus ancien. Le premier élément du tableau est le plus récent.
 const morningBriefs = [
+  {
+    date: "2026-08-12",
+    pdfUrl: "/assets/briefs/2026-08-12.pdf",
+    dateLabel: "12/08/2026",
+    titre: "Le MASI recule pour une 2e séance consécutive",
+    resumeCourt:
+      "Le MASI cède 0,68% mardi à 18 703,79 points, deuxième séance de repli d'affilée. Zellidja signe la plus forte baisse (-6,3%). Ciments du Maroc publie un CA en hausse de 4,8% au S1. Les taux obligataires secondaires légèrement orientés à la hausse. Wall Street prudent avant l'inflation américaine.",
+    sections: [
+      {
+        titre: "MARCHÉ MAROCAIN",
+        items: [
+          {
+            tag: "MAROC | BOURSE DE CASABLANCA",
+            titre: "Le MASI recule pour une 2e séance consécutive",
+            texte:
+              "La Bourse de Casablanca a clôturé mardi en baisse pour la deuxième séance d'affilée, le MASI cédant 0,68% à 18.703,79 points. Le MASI 20 a reculé de 0,86% à 1.355,88 points et le MASI ESG de 0,45%. Le compartiment Ingénieries et biens d'équipement industriels a le plus pesé sur l'indice (-3,05%), suivi de la Chimie (-2,62%) et de l'Immobilier (-2,2%), tandis que l'Électricité s'est distinguée (+0,82%). Zellidja signe la plus forte baisse individuelle (-6,3% à 313,9 DH), devant Stroc Industrie (-3,65%) et SNEP (-3,13%). Le volume s'est élevé à 205,8 MDH, pour une capitalisation de 1.095,9 milliards de dirhams.",
+          },
+        ],
+      },
+      {
+        titre: "ACTUALITÉS DES SOCIÉTÉS COTÉES",
+        items: [
+          {
+            tag: "MAROC | CIMENTS DU MAROC",
+            titre: "Chiffre d'affaires en hausse de 4,8% au S1 2026",
+            texte:
+              "Ciments du Maroc affiche un chiffre d'affaires non consolidé de 2.033 MDH à fin juin 2026, en progression de 4,8% sur un an. Les investissements du T2 s'établissent à 4 MDH seulement (-87%), principalement de la maintenance, tandis que l'endettement financier recule de 800 MDH depuis fin 2025, à 1.833 MDH, grâce au remboursement partiel de l'emprunt lié à l'acquisition d'Asment de Témara.",
+          },
+        ],
+      },
+      {
+        titre: "MARCHÉ OBLIGATAIRE",
+        items: [
+          {
+            tag: "MAROC | MARCHÉ OBLIGATAIRE",
+            titre: "Les taux secondaires légèrement orientés à la hausse",
+            texte:
+              "Selon la note hebdomadaire d'Attijari Global Research, les rendements obligataires ont légèrement progressé (moins de 2 points de base) durant la semaine du 31 juillet au 6 août. Sur le marché primaire, le Trésor a levé 800 MDH lors de sa deuxième séance d'adjudication d'août, pour une demande de 4,6 MMDH (taux de satisfaction de 17%). Les souscriptions cumulées atteignent 1,4 MMDH, soit 26% du besoin mensuel de 5,3 MMDH. AGR anticipe une pause monétaire prolongée de Bank Al-Maghrib jusqu'à fin 2026, dans l'attente d'une évaluation du choc énergétique sur l'inflation importée.",
+          },
+        ],
+      },
+      {
+        titre: "MARCHÉS INTERNATIONAUX",
+        items: [
+          {
+            tag: "USA | WALL STREET",
+            titre: "Wall Street prudent avant l'inflation américaine",
+            texte:
+              "Mardi, le Dow Jones a cédé 0,34%, le Nasdaq 0,60% et le S&P 500 0,32%, les investisseurs adoptant une posture attentiste à la veille de la publication de l'indice des prix à la consommation (CPI) américain de juillet, un indicateur clé pour la trajectoire des taux de la Fed.",
+          },
+          {
+            tag: "ASIE | NIKKEI & KOSPI",
+            titre: "Marchés asiatiques hésitants, le Kospi se distingue",
+            texte:
+              "Ce mercredi, le Nikkei évolue quasiment stable (+0,08%) après un jour férié, tandis que le Kospi sud-coréen bondit de 2,44% en cours de séance, en tête des gains régionaux. Le pétrole poursuit sa progression, le Brent approchant les 90 dollars le baril, sur fond de tensions persistantes dans le Golfe et d'attaques houthies contre des navires marchands, les investisseurs restant suspendus à la publication du CPI américain.",
+          },
+        ],
+      },
+    ],
+  },
   {
     date: "2026-08-11",
     pdfUrl: "/assets/briefs/2026-08-11.pdf",
