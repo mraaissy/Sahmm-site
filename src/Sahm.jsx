@@ -160,6 +160,61 @@ const derniereCloture = {
 // au plus ancien. Le premier élément du tableau est le plus récent.
 const morningBriefs = [
   {
+    date: "2026-08-13",
+    pdfUrl: "/assets/briefs/2026-08-13.pdf",
+    dateLabel: "13/08/2026",
+    titre: "Le MASI renoue avec la hausse, porté par les mines",
+    resumeCourt:
+      "Le MASI progresse de 0,65% mercredi à 18 825,54 points, effaçant le recul de la veille. Le compartiment Mines s'est distingué (+3,66%), Fenié Brossette signe la plus forte hausse (+6,67%). Alliances publie un CA en hausse de 30% au T2. Wall Street soulagée par une inflation conforme aux attentes, le Nikkei poursuit sa progression.",
+    sections: [
+      {
+        titre: "MARCHÉ MAROCAIN",
+        items: [
+          {
+            tag: "MAROC | BOURSE DE CASABLANCA",
+            titre: "Le MASI renoue avec la hausse, porté par les mines",
+            texte:
+              "La Bourse de Casablanca a retrouvé une orientation positive mercredi, le MASI progressant de 0,65% à 18.825,54 points, effaçant le recul de la veille. Le MASI 20 a gagné 0,27% à 1.359,54 points et le MASI ESG s'est montré plus dynamique avec +1,17% à 1.387,43 points. Le compartiment Mines s'est distingué avec une hausse sectorielle de 3,66%, la plus forte de la séance : Fenie Brossette a signé la plus forte progression individuelle (+6,67% à 390,3 DH), devant Zellidja (+4,49% à 328 DH) et Managem (+4,23% à 1.700 DH). À l'inverse, l'Industrie agricole a cédé 2,74%, le repli sectoriel le plus marqué. Le volume s'est élevé à 148,9 MDH, pour une capitalisation proche de 1.106 milliards de dirhams.",
+          },
+        ],
+      },
+      {
+        titre: "ACTUALITÉS DES SOCIÉTÉS COTÉES",
+        items: [
+          {
+            tag: "MAROC | ALLIANCES",
+            titre: "Chiffre d'affaires en hausse de 30% au T2 2026",
+            texte:
+              "Alliances Développement Immobilier poursuit sa dynamique de croissance, avec un chiffre d'affaires consolidé de 803 MDH au T2 2026, contre 618 MDH un an plus tôt (+30%). Sur les six premiers mois, le chiffre d'affaires cumulé atteint 1,418 MMDH, contre 1,333 MMDH au premier semestre 2025. L'endettement net recule à 1,179 MMDH, contre 1,278 MMDH au trimestre précédent. Le groupe dispose d'un carnet de commandes sécurisé de 4,5 MMDH et de 6.312 unités en cours de production, avec des préventes en hausse de 16% au T2 (1.639 unités).",
+          },
+        ],
+      },
+      {
+        titre: "MARCHÉS INTERNATIONAUX",
+        items: [
+          {
+            tag: "USA | WALL STREET",
+            titre: "Wall Street soulagée par une inflation conforme aux attentes",
+            texte:
+              "Mercredi, le Nasdaq a gagné 0,54% et le S&P 500 0,26%, tandis que le Dow Jones a cédé 0,04%. L'indice des prix à la consommation (CPI) de juillet est ressorti à 3,4% sur un an, en léger ralentissement par rapport à 3,5% en juin et conforme aux attentes des analystes, ce qui a rassuré les investisseurs sur la trajectoire de la Fed. Les valeurs technologiques liées à l'intelligence artificielle ont particulièrement progressé, portées par des résultats trimestriels bien accueillis.",
+          },
+          {
+            tag: "EUROPE | CAC 40",
+            titre: "La Bourse de Paris consolide après ses récents records",
+            texte:
+              "Le CAC 40, qui avait touché la semaine dernière un pic inédit à 8.755,03 points, a cédé 0,46% mercredi à 8.674,94 points, pénalisé par les secteurs du luxe et de la consommation cyclique. Les indices européens ont globalement reflué après leurs récents sommets, les investisseurs restant attentifs aux négociations autour de la réouverture du détroit d'Ormuz.",
+          },
+          {
+            tag: "ASIE | NIKKEI",
+            titre: "Le Nikkei poursuit sa progression ce jeudi matin",
+            texte:
+              "Après un gain de 0,83% mercredi à 67.524,06 points, le Nikkei ajoute encore 0,86% ce jeudi matin, portant sa progression à environ 3% sur deux séances. L'indice se rapproche désormais de la résistance des 68.400 points.",
+          },
+        ],
+      },
+    ],
+  },
+  {
     date: "2026-08-12",
     pdfUrl: "/assets/briefs/2026-08-12.pdf",
     dateLabel: "12/08/2026",
