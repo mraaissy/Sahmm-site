@@ -127,14 +127,14 @@ function getLastTradingDayLabel() {
 // accessible) — séance du mardi 7 juillet 2026
 const seanceDate = getLastTradingDayLabel();
 const seanceIndices = [
-  { nom: "MASI", valeur: "18 825,54", var: 0.65, ytd: -0.11 },
-  { nom: "MASI ESG", valeur: "1 387,43", var: 1.17, ytd: 10.86 },
-  { nom: "MASI 20", valeur: "1 359,54", var: 0.27, ytd: -8.49 },
+  { nom: "MASI", valeur: "18 819,08", var: -0.03, ytd: -0.14 },
+  { nom: "MASI ESG", valeur: "1 384,93", var: -0.18, ytd: 10.66 },
+  { nom: "MASI 20", valeur: "1 359,41", var: -0.01, ytd: -8.50 },
 ];
 const seanceStats = {
   capitalisation: "1 095,90 MMDH",
-  volume: "148,87 MDH",
-  volumeCentral: "148,87 MDH",
+  volume: "217,00 MDH",
+  volumeCentral: "217,00 MDH",
   volumeBlocs: "0 MDH (aucun échange sur le marché de blocs)",
   hausses: null,
   baisses: null,
@@ -146,13 +146,30 @@ const seanceStats = {
 // qui eux restent en direct). À mettre à jour une fois par jour, en fin de
 // séance, avec les vrais chiffres de clôture transmis manuellement.
 const derniereCloture = {
-  date: "12 août 2026",
-  masiValeur: "18 825,54",
-  masiVar: 0.65,
-  volume: "148,87 MDH",
-  meilleureHausse: { nom: "FENIE BROSSETTE", var: 6.67 },
-  plusForteBaisse: { nom: "IB MAROC.COM", var: -7.83 },
-  topActifs: [],
+  date: "13 août 2026",
+  masiValeur: "18 819,08",
+  masiVar: -0.03,
+  volume: "217,00 MDH",
+  meilleureHausse: { nom: "ALLIANCES", var: 6.85 },
+  plusForteBaisse: { nom: "AUTO NEJMA", var: -5.30 },
+  topActifs: [
+    { nom: "MANAGEM", volume: 39363930 },
+    { nom: "COSUMAR", volume: 39288992 },
+    { nom: "ALLIANCES DEVELOPPEMENT IMMOBILIER SA", volume: 29100788 },
+  ],
+  top10Volumes: [
+    { nom: "MANAGEM", volume: 39363930 },
+    { nom: "COSUMAR", volume: 39288992 },
+    { nom: "ALLIANCES DEVELOPPEMENT IMMOBILIER SA", volume: 29100788 },
+    { nom: "BANQUE CENTRALE POPULAIRE", volume: 16749034 },
+    { nom: "LABEL VIE", volume: 16051102 },
+    { nom: "ITISSALAT AL-MAGHRIB", volume: 11918208 },
+    { nom: "ATTIJARIWAFA BANK", volume: 9039510 },
+    { nom: "T2S GROUP HOLDING", volume: 6217141 },
+    { nom: "TAQA MOROCCO", volume: 4451629 },
+    { nom: "AKDITAL", volume: 3913843 },
+  ],
+  topActifsUnite: " MAD échangés",
 };
 
 // Fil d'actualité — "The Morning Brief". Chaque entrée est transmise
@@ -3116,6 +3133,34 @@ export default function Sahm() {
                   </div>
                 );
               })()}
+
+              {derniereCloture.top10Volumes?.length > 0 && (
+                <div style={{ marginBottom: 28 }}>
+                  <div className="section-head">
+                    <div className="section-title" style={{ fontSize: 16 }}>Les 10 plus gros volumes traités</div>
+                  </div>
+                  <div className="official-table-card">
+                    <div className="cap-table-scroll">
+                      <table className="official-table">
+                        <thead>
+                          <tr>
+                            <th>Instrument</th>
+                            <th style={{ textAlign: "right" }}>Volume (MAD)</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {derniereCloture.top10Volumes.map((v) => (
+                            <tr key={v.nom}>
+                              <td className="official-emetteur">{v.nom}</td>
+                              <td className="mono" style={{ textAlign: "right" }}>{v.volume.toLocaleString("fr-FR")}</td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              )}
 
               {/* Palmarès */}
               <div className="section-head">
