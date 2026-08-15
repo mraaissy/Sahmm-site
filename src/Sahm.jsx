@@ -1995,6 +1995,70 @@ export default function Sahm() {
           gap: 24px;
           flex-wrap: wrap;
         }
+        .navbar-v2 {
+          flex-direction: column;
+          align-items: stretch;
+          padding: 0;
+          gap: 0;
+        }
+        .navbar-top {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 16px;
+          padding: 14px 5vw;
+          position: relative;
+        }
+        .navbar-top-left {
+          display: flex;
+          align-items: center;
+          gap: 14px;
+        }
+        .navbar-top-right {
+          display: flex;
+          align-items: center;
+          gap: 18px;
+        }
+        .nav-logo-center {
+          position: absolute;
+          left: 50%;
+          transform: translateX(-50%);
+        }
+        .account-link {
+          display: flex;
+          align-items: center;
+          gap: 6px;
+          font-size: 13.5px;
+          font-weight: 600;
+          color: var(--ink);
+          cursor: pointer;
+          white-space: nowrap;
+        }
+        .account-cta {
+          background: var(--gold);
+          color: #fff;
+          border: none;
+          border-radius: 20px;
+          padding: 9px 20px;
+          font-size: 13px;
+          font-weight: 700;
+          cursor: pointer;
+          font-family: inherit;
+          white-space: nowrap;
+        }
+        .navbar-tabs {
+          display: flex;
+          align-items: center;
+          gap: 26px;
+          padding: 0 5vw 14px;
+          overflow-x: auto;
+          border-top: 1px solid var(--hairline);
+          padding-top: 12px;
+        }
+        @media (max-width: 900px) {
+          .nav-logo-center { position: static; transform: none; }
+          .navbar-top { justify-content: space-between; }
+        }
         .navbar-left {
           display: flex;
           align-items: center;
@@ -3003,82 +3067,90 @@ export default function Sahm() {
       `}</style>
 
       {/* Navbar */}
-      <nav className="navbar">
-        <div className="navbar-left">
-          <div style={{ position: "relative" }}>
-            <button
-              className="icon-btn"
-              onClick={() => setAllPagesOpen((v) => !v)}
-              aria-label="Toutes les pages"
-              title="Toutes les pages"
-            >
-              <Menu size={18} />
-            </button>
-            {allPagesOpen && (
-              <>
-                <div
-                  onClick={() => setAllPagesOpen(false)}
-                  style={{ position: "fixed", inset: 0, zIndex: 40 }}
-                />
-                <div className="all-pages-menu">
-                  {[
-                    { key: "accueil", label: "Accueil" },
-                    { key: "apprendre", label: "Apprendre sur la bourse" },
-                    { key: "seance", label: "Séance Boursière" },
-                    { key: "opcvm", label: "OPCVM" },
-                    { key: "actions", label: "Actions" },
-                    { key: "comparateur", label: "Comparateur" },
-                    { key: "data", label: "Calendrier Dividende" },
-                    { key: "portefeuille", label: "Mon Portefeuille" },
-                  ].map((p) => (
-                    <a
-                      key={p.key}
-                      href="#"
-                      className={`all-pages-link ${page === p.key ? "active" : ""}`}
-                      onClick={(e) => { e.preventDefault(); setPage(p.key); setAllPagesOpen(false); }}
-                    >
-                      {p.label}
-                    </a>
-                  ))}
-                </div>
-              </>
-            )}
+      <nav className="navbar navbar-v2">
+        <div className="navbar-top">
+          <div className="navbar-top-left">
+            <div style={{ position: "relative" }}>
+              <button
+                className="icon-btn"
+                onClick={() => setAllPagesOpen((v) => !v)}
+                aria-label="Toutes les pages"
+                title="Toutes les pages"
+              >
+                <Menu size={18} />
+              </button>
+              {allPagesOpen && (
+                <>
+                  <div
+                    onClick={() => setAllPagesOpen(false)}
+                    style={{ position: "fixed", inset: 0, zIndex: 40 }}
+                  />
+                  <div className="all-pages-menu">
+                    {[
+                      { key: "accueil", label: "Accueil" },
+                      { key: "apprendre", label: "Apprendre sur la bourse" },
+                      { key: "seance", label: "Séance Boursière" },
+                      { key: "opcvm", label: "OPCVM" },
+                      { key: "actions", label: "Actions" },
+                      { key: "comparateur", label: "Comparateur" },
+                      { key: "obligataire", label: "Obligataire" },
+                      { key: "data", label: "Calendrier Dividende" },
+                      { key: "portefeuille", label: "Mon Portefeuille" },
+                    ].map((p) => (
+                      <a
+                        key={p.key}
+                        href="#"
+                        className={`all-pages-link ${page === p.key ? "active" : ""}`}
+                        onClick={(e) => { e.preventDefault(); setPage(p.key); setAllPagesOpen(false); }}
+                      >
+                        {p.label}
+                      </a>
+                    ))}
+                  </div>
+                </>
+              )}
+            </div>
+            <div className="nav-search nav-search-desktop">
+              <Search size={15} />
+              Recherche
+            </div>
           </div>
-          <div className="nav-logo">
+
+          <div className="nav-logo nav-logo-center">
             <img src="/assets/logo-icon.png?v=2" alt="BourseInfo.ma" className="icon-badge" />
             BourseInfo<span style={{ color: "var(--gold)" }}>.ma</span>
           </div>
-          <div className="nav-links-desktop">
-            <a className={`nav-link ${page === "accueil" ? "active" : ""}`} href="#" onClick={(e) => { e.preventDefault(); setPage("accueil"); }}>Accueil</a>
-            <a className={`nav-link ${page === "apprendre" ? "active" : ""}`} href="#" onClick={(e) => { e.preventDefault(); setPage("apprendre"); }}>Apprendre sur la bourse</a>
-            <a className={`nav-link ${page === "seance" ? "active" : ""}`} href="#" onClick={(e) => { e.preventDefault(); setPage("seance"); }}>Séance Boursière</a>
-            <a className={`nav-link ${page === "opcvm" ? "active" : ""}`} href="#" onClick={(e) => { e.preventDefault(); setPage("opcvm"); }}>OPCVM</a>
-            <a className={`nav-link ${page === "actions" ? "active" : ""}`} href="#" onClick={(e) => { e.preventDefault(); setPage("actions"); }}>Actions</a>
-            <a className={`nav-link ${page === "comparateur" ? "active" : ""}`} href="#" onClick={(e) => { e.preventDefault(); setPage("comparateur"); }}>Comparateur</a>
-            <a className={`nav-link ${page === "obligataire" ? "active" : ""}`} href="#" onClick={(e) => { e.preventDefault(); setPage("obligataire"); }}>Obligataire</a>
-            <a className={`nav-link ${page === "data" ? "active" : ""}`} href="#" onClick={(e) => { e.preventDefault(); setPage("data"); }}>Calendrier Dividende</a>
-            <a className={`nav-link ${page === "portefeuille" ? "active" : ""}`} href="#" onClick={(e) => { e.preventDefault(); setPage("portefeuille"); }}>Mon Portefeuille</a>
+
+          <div className="navbar-top-right nav-right-desktop">
+            <div
+              className="account-link"
+              onClick={() => setPage("portefeuille")}
+              title={user ? user.email : "Se connecter"}
+            >
+              <User size={15} />
+              {user ? user.email.split("@")[0] : "Se connecter"}
+            </div>
+            <button className="account-cta" onClick={() => setPage("portefeuille")}>
+              Mon Compte
+            </button>
           </div>
+
+          <button className="nav-burger" onClick={() => setMobileNavOpen((v) => !v)} aria-label="Menu">
+            {mobileNavOpen ? <X size={20} /> : <Menu size={20} />}
+          </button>
         </div>
-        <div className="nav-search nav-search-desktop">
-          <Search size={15} />
-          Rechercher une entreprise...
+
+        <div className="navbar-tabs nav-links-desktop">
+          <a className={`nav-link ${page === "accueil" ? "active" : ""}`} href="#" onClick={(e) => { e.preventDefault(); setPage("accueil"); }}>Accueil</a>
+          <a className={`nav-link ${page === "apprendre" ? "active" : ""}`} href="#" onClick={(e) => { e.preventDefault(); setPage("apprendre"); }}>Apprendre sur la bourse</a>
+          <a className={`nav-link ${page === "seance" ? "active" : ""}`} href="#" onClick={(e) => { e.preventDefault(); setPage("seance"); }}>Séance Boursière</a>
+          <a className={`nav-link ${page === "opcvm" ? "active" : ""}`} href="#" onClick={(e) => { e.preventDefault(); setPage("opcvm"); }}>OPCVM</a>
+          <a className={`nav-link ${page === "actions" ? "active" : ""}`} href="#" onClick={(e) => { e.preventDefault(); setPage("actions"); }}>Actions</a>
+          <a className={`nav-link ${page === "comparateur" ? "active" : ""}`} href="#" onClick={(e) => { e.preventDefault(); setPage("comparateur"); }}>Comparateur</a>
+          <a className={`nav-link ${page === "obligataire" ? "active" : ""}`} href="#" onClick={(e) => { e.preventDefault(); setPage("obligataire"); }}>Obligataire</a>
+          <a className={`nav-link ${page === "data" ? "active" : ""}`} href="#" onClick={(e) => { e.preventDefault(); setPage("data"); }}>Calendrier Dividende</a>
+          <a className={`nav-link ${page === "portefeuille" ? "active" : ""}`} href="#" onClick={(e) => { e.preventDefault(); setPage("portefeuille"); }}>Mon Portefeuille</a>
         </div>
-        <div className="navbar-right nav-right-desktop">
-          <button className="icon-btn"><Settings size={16} /></button>
-          <div
-            className="account-pill"
-            onClick={() => setPage("portefeuille")}
-            style={{ cursor: "pointer" }}
-            title={user ? user.email : "Se connecter"}
-          >
-            <span className="avatar"><User size={14} /></span>
-            {user ? user.email.split("@")[0] : "Mon Compte"}
-          </div>
-        </div>
-        <button className="nav-burger" onClick={() => setMobileNavOpen((v) => !v)} aria-label="Menu">
-          {mobileNavOpen ? <X size={20} /> : <Menu size={20} />}
-        </button>
       </nav>
 
       {mobileNavOpen && (
