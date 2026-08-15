@@ -1,0 +1,68 @@
+{
+  "briefs": [
+    {
+      "date": "2026-08-13",
+      "pdfUrl": "/assets/briefs/2026-08-13.pdf",
+      "dateLabel": "13/08/2026",
+      "badge": "MORNING BRIEF",
+      "titre": "Le MASI renoue avec la hausse, porté par les mines",
+      "resumeCourt": "Le MASI progresse de 0,65% mercredi à 18 825,54 points, effaçant le recul de la veille. Le compartiment Mines s'est distingué (+3,66%), Fenié Brossette signe la plus forte hausse (+6,67%). Alliances publie un CA en hausse de 30% au T2. Wall Street soulagée par une inflation conforme aux attentes, le Nikkei poursuit sa progression."
+    },
+    {
+      "date": "2026-08-12",
+      "pdfUrl": "/assets/briefs/2026-08-12.pdf",
+      "dateLabel": "12/08/2026",
+      "badge": "MORNING BRIEF",
+      "titre": "Le MASI recule pour une 2e séance consécutive",
+      "resumeCourt": "Le MASI cède 0,68% mardi à 18 703,79 points, deuxième séance de repli d'affilée. Zellidja signe la plus forte baisse (-6,3%). Ciments du Maroc publie un CA en hausse de 4,8% au S1. Les taux obligataires secondaires légèrement orientés à la hausse. Wall Street prudent avant l'inflation américaine."
+    },
+    {
+      "date": "2026-08-11",
+      "pdfUrl": "/assets/briefs/2026-08-11.pdf",
+      "dateLabel": "11/08/2026",
+      "badge": "MORNING BRIEF",
+      "titre": "Le MASI marque une pause après sa forte semaine",
+      "resumeCourt": "Après une semaine exceptionnelle (+5,72%), le MASI cède 0,17% lundi à 18 832,18 points. Rebab Company signe le plus fort recul (-4,27%). SMI publie un chiffre d'affaires en hausse de 36% au S1, porté par la flambée du cours de l'argent. Addoha progresse de 9%. Wall Street glisse sous ses records, le pétrole grimpe."
+    },
+    {
+      "date": "2026-08-10",
+      "pdfUrl": "/assets/briefs/2026-08-10.pdf",
+      "dateLabel": "10/08/2026",
+      "badge": "MORNING BRIEF",
+      "titre": "Le MASI signe sa meilleure semaine depuis avril, à 18 864 points",
+      "resumeCourt": "Le MASI a gagné 2,08% sur la seule séance de vendredi à 18 864,02 points, portant sa performance hebdomadaire à 5,72% et effaçant ses pertes annuelles. Fenié Brossette signe la plus forte hausse (+7,05%), Rebab Company recule le plus (-5,99%). TGCC décroche le marché de reconstruction du stade Tessema pour 1,82 MMDH. Nouveau record pour le S&P 500."
+    },
+    {
+      "date": "2026-08-07b",
+      "pdfUrl": "/assets/briefs/weekly-2026-08-07.pdf",
+      "dateLabel": "31/07 — 07/08/2026",
+      "badge": "WEEKLY",
+      "titre": "Semaine du marché marocain : taux stables, meilleure semaine de Wall Street depuis avril",
+      "resumeCourt": "TMP interbancaire maintenu à 2,25%, MONIA moyen à 2,19%. Le Trésor lève 800 MDH lors de son adjudication du 4 août (taux de satisfaction 17%). L'EUR/USD clôture à 1,1557 (+0,32%). Wall Street signe sa meilleure semaine depuis avril (Dow +3%, S&P 500 +3,6%, Nasdaq +5,2%), le MASI progresse de 5,72% sur la semaine."
+    },
+    {
+      "date": "2026-08-07",
+      "pdfUrl": "/assets/briefs/2026-08-07.pdf",
+      "dateLabel": "07/08/2026",
+      "badge": "MORNING BRIEF",
+      "titre": "Le MASI se rapproche des 18 560 points",
+      "resumeCourt": "Le MASI enchaîne les records et gagne 0,43% à 18 558,83 points ce vendredi matin, pour une capitalisation dépassant 1 081,8 milliards de dirhams. Akdital ouvre son capital international à Arab Invest. Wall Street marque une pause, nouveau record pour le CAC 40."
+    },
+    {
+      "date": "2026-08-06",
+      "pdfUrl": "/assets/briefs/2026-08-06.pdf",
+      "dateLabel": "06/08/2026",
+      "badge": "MORNING BRIEF",
+      "titre": "Le MASI franchit les 18 300 points",
+      "resumeCourt": "Le MASI progresse de 1,48% à 18 329,91 points, porté par les secteurs Mines et Chimie. SNEP et Fenié Brossette signent les plus fortes hausses (+9,98%). Nouveau record pour Wall Street et le CAC 40, repli du Nikkei sur la tech."
+    },
+    {
+      "date": "2026-08-05",
+      "pdfUrl": "/assets/briefs/2026-08-05.pdf",
+      "dateLabel": "05/08/2026",
+      "badge": "MORNING BRIEF",
+      "titre": "Le MASI franchit les 18 000 points — forte séance",
+      "resumeCourt": "Managem signe la plus forte hausse (+9,92%) et publie un CA en hausse de 166% au S1. Wall Street signe de nouveaux records, le Nikkei et le Kospi rebondissent fortement."
+    }
+  ]
+}
