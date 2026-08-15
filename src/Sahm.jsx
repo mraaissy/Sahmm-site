@@ -396,6 +396,62 @@ const morningBriefs = [
     ],
   },
   {
+    date: "2026-08-07b",
+    pdfUrl: "/assets/briefs/weekly-2026-08-07.pdf",
+    dateLabel: "31/07 — 07/08/2026",
+    badge: "WEEKLY",
+    badgeLarge: "WEEKLY · TAUX & MARCHÉS",
+    titre: "Semaine du marché marocain : taux stables, meilleure semaine de Wall Street depuis avril",
+    resumeCourt:
+      "TMP interbancaire maintenu à 2,25%, MONIA moyen à 2,19%. Le Trésor lève 800 MDH lors de son adjudication du 4 août (taux de satisfaction 17%). L'EUR/USD clôture à 1,1557 (+0,32%). Wall Street signe sa meilleure semaine depuis avril (Dow +3%, S&P 500 +3,6%, Nasdaq +5,2%), le MASI progresse de 5,72% sur la semaine.",
+    sections: [
+      {
+        titre: "MARCHÉ MONÉTAIRE",
+        items: [
+          {
+            tag: "MAROC | MARCHÉ MONÉTAIRE",
+            titre: "Le marché monétaire reste calme en ce début du mois d'août",
+            texte:
+              "Sur la période du 31 juillet au 6 août 2026, le marché interbancaire demeure stable, avec un TMP maintenu à 2,25%. Les volumes échangés se sont établis en moyenne à 2,51 MMDH, avec un pic de 2,88 MMDH le 5 août. Parallèlement, le taux MONIA s'est inscrit en baisse, passant de 2,231% à 2,156% entre le 31 juillet et le 5 août, avant de remonter légèrement à 2,179% le 6 août. Cette évolution traduit une détente des conditions de financement overnight, malgré la stabilité du taux interbancaire. L'écart entre le MONIA et le TMP interbancaire s'est ainsi accentué en cours de semaine, atteignant 7,1 pb au 6 août. Côté opérations de Bank Al-Maghrib, le total des interventions s'établit à 144,8 MMDH (contre 149,3 MMDH la semaine précédente), réparti entre avances à 7 jours (49,4 MMDH), pension livrée (47,9 MMDH) et prêts garantis (47,5 MMDH). Les avoirs officiels de réserve progressent de 22,3% à 496,8 MMDH, et la circulation fiduciaire de 18,4% à 532,6 MMDH.",
+          },
+        ],
+      },
+      {
+        titre: "MARCHÉ OBLIGATAIRE",
+        items: [
+          {
+            tag: "MAROC | MARCHÉ OBLIGATAIRE",
+            titre: "Résultat de la séance d'adjudication du 04 août 2026",
+            texte:
+              "Le Trésor a proposé trois lignes lors de cette séance, pour un montant global demandé de 4,6 MMDH. Les soumissions se sont concentrées sur la maturité 52 semaines, pour une demande de 1,9 MMDH, dont 800 MDH ont finalement été retenus, soit un taux d'allocation de 42,1%. Le taux de rendement moyen ressort à 2,215%, en hausse de 0,9 point de base par rapport au dernier taux de référence. Aucune allocation n'a été retenue sur les lignes à 13 semaines et à 2 ans. Sur le marché secondaire, la courbe des taux comparée au 31/12/2025 montre un recul des taux courts (13 semaines : -5,8 pbs, 52 semaines : -13,6 pbs) mais une nette hausse des taux longs (10 ans : +33,6 pbs, 15 ans : +36,6 pbs, 30 ans : +23,1 pbs), traduisant une pentification de la courbe. Le taux de satisfaction du mois ressort à 17%, avec 26% du besoin mensuel de 5,3 MMDH couvert à date.",
+          },
+        ],
+      },
+      {
+        titre: "MARCHÉ DES CHANGES",
+        items: [
+          {
+            tag: "MAROC | MARCHÉ DES CHANGES",
+            titre: "Un dollar sur la défensive après un emploi américain décevant",
+            texte:
+              "L'euro est resté globalement stable face au dollar sur la semaine, évoluant dans une fourchette étroite entre 1,1520 et 1,1581, pour clôturer à 1,1557 (+0,32% sur la semaine). Le billet vert a d'abord profité lundi d'un indice ISM manufacturier américain meilleur que prévu, avant de reculer progressivement à mesure que les indicateurs d'emploi (ADP, JOLTs) puis le rapport officiel sur l'emploi de vendredi se sont révélés nettement plus faibles qu'attendu — 23.000 destructions d'emplois en juillet contre 80.000 créations anticipées. Cette déception a ravivé les anticipations d'une pause prolongée de la Fed, pesant sur le dollar en fin de semaine.",
+          },
+        ],
+      },
+      {
+        titre: "MARCHÉ INTERNATIONAL",
+        items: [
+          {
+            tag: "MONDE | MARCHÉ INTERNATIONAL",
+            titre: "La meilleure semaine de Wall Street depuis avril",
+            texte:
+              "Wall Street a signé sa meilleure semaine depuis avril 2026 : le Dow Jones a progressé de 3% (54.036,93 pts), le S&P 500 de 3,6% (record de clôture à 7.757,64 pts) et le Nasdaq de 5,2% (26.690,62 pts), ce dernier retrouvant le leadership technologique porté par de solides résultats et un regain d'enthousiasme pour l'intelligence artificielle. La semaine a démarré sur des signes d'apaisement au Moyen-Orient, avec des progrès dans les discussions sur la réouverture du détroit d'Ormuz. En Europe, le CAC 40 a enchaîné sept séances consécutives de hausse — une série inédite depuis février 2025 — clôturant vendredi à 8.714,93 points (+2,41% sur la semaine, 7e record consécutif). En Asie, le Nikkei a clôturé en léger repli (-0,2% à 65.606,71 pts) après une semaine volatile marquée par des prises de bénéfices sur la tech. Sur les matières premières, l'or a signé mercredi sa plus forte hausse quotidienne depuis février (+4%, ~4.253$), tandis que le Brent est repassé sous les 80 dollars. Le MASI, de son côté, a progressé de 5,72% sur la semaine — sa meilleure performance hebdomadaire depuis avril 2026.",
+          },
+        ],
+      },
+    ],
+  },
+  {
     date: "2026-08-07",
     pdfUrl: "/assets/briefs/2026-08-07.pdf",
     dateLabel: "07/08/2026",
@@ -3221,7 +3277,7 @@ export default function Sahm() {
                   onClick={() => { setSelectedBrief(b); setPage("brief-detail"); window.scrollTo(0, 0); }}
                 >
                   <div style={{ display: "flex", gap: 8, alignItems: "center", marginBottom: 8 }}>
-                    <span className="brief-badge">MORNING BRIEF</span>
+                    <span className="brief-badge">{b.badge || "MORNING BRIEF"}</span>
                     <span style={{ fontSize: 10.5, color: "var(--ink-soft)" }}>{b.dateLabel}</span>
                   </div>
                   <div className="brief-titre">{b.titre}</div>
@@ -3826,7 +3882,7 @@ export default function Sahm() {
                 onClick={() => { setSelectedBrief(b); setPage("brief-detail"); window.scrollTo(0, 0); }}
               >
                 <div style={{ display: "flex", gap: 8, alignItems: "center", marginBottom: 8 }}>
-                  <span className="brief-badge">MORNING BRIEF</span>
+                  <span className="brief-badge">{b.badge || "MORNING BRIEF"}</span>
                   <span style={{ fontSize: 10.5, color: "var(--ink-soft)" }}>{b.dateLabel}</span>
                 </div>
                 <div className="brief-titre">{b.titre}</div>
@@ -3862,7 +3918,7 @@ export default function Sahm() {
 
             <div className="brief-header">
               <div className="brief-header-top">
-                <span className="brief-badge brief-badge-lg">THE MORNING BRIEF</span>
+                <span className="brief-badge brief-badge-lg">{selectedBrief.badgeLarge || "THE MORNING BRIEF"}</span>
                 <div className="brief-header-logo">
                   <span style={{ fontWeight: 700 }}>BourseInfo<span style={{ color: "var(--gold)" }}>.ma</span></span>
                   <div style={{ fontSize: 11, color: "var(--ink-soft)" }}>Marchés financiers marocains</div>
