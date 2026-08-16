@@ -70,30 +70,29 @@ Deno.serve(async (req) => {
 
     const supabase = createClient(SUPABASE_URL, SERVICE_ROLE_KEY);
 
-    // 1) Récupère le brief le plus récent depuis le site
+    // 1) Récupère tous les briefs depuis le site
     const briefsRes = await fetch(BRIEFS_URL, { cache: "no-store" });
     if (!briefsRes.ok) throw new Error("Impossible de charger morning_briefs.json");
     const { briefs } = await briefsRes.json();
     if (!briefs || briefs.length === 0) {
       return new Response(JSON.stringify({ sent: 0, message: "Aucun brief disponible" }), { status: 200 });
     }
-    const latest = briefs[0]; // le tableau est trié du plus récent au plus ancien
 
-    // 2) Vérifie si ce brief a déjà été envoyé
-    const { data: already } = await supabase
-      .from("sent_briefs")
-      .select("brief_date")
-      .eq("brief_date", latest.date)
-      .maybeSingle();
+    // 2) Repère lesquels n'ont jamais été envoyés (peut être plusieurs :
+    //    ex. un Weekly ET un Morning Brief publiés le même jour, ou un
+    //    passage du robot manqué la veille)
+    const { data: sentRows } = await supabase.from("sent_briefs").select("brief_date");
+    const alreadySent = new Set((sentRows || []).map((r: any) => r.brief_date));
+    const toSend = briefs.filter((b: any) => !alreadySent.has(b.date));
 
-    if (already) {
+    if (toSend.length === 0) {
       return new Response(
-        JSON.stringify({ sent: 0, message: `Brief du ${latest.date} déjà envoyé, rien à faire.` }),
+        JSON.stringify({ sent: 0, message: "Aucun nouveau brief à envoyer, tout est déjà à jour." }),
         { status: 200 }
       );
     }
 
-    // 3) Récupère tous les utilisateurs inscrits
+    // 3) Récupère tous les utilisateurs inscrits (une seule fois)
     let allEmails: string[] = [];
     let page = 1;
     while (true) {
@@ -104,31 +103,31 @@ Deno.serve(async (req) => {
       page++;
     }
 
-    if (allEmails.length === 0) {
-      // On enregistre quand même comme "traité" pour ne pas re-tenter en boucle
-      await supabase.from("sent_briefs").insert({ brief_date: latest.date, recipients_count: 0 });
-      return new Response(JSON.stringify({ sent: 0, message: "Aucun utilisateur inscrit" }), { status: 200 });
+    // 4) Envoie un email distinct pour chaque nouveau brief, du plus ancien
+    //    au plus récent (ordre logique de lecture), puis marque chacun comme envoyé.
+    const results: any[] = [];
+    for (const brief of [...toSend].reverse()) {
+      let sentCount = 0;
+      if (allEmails.length > 0) {
+        const html = buildHtml(brief);
+        const subject = `${brief.badge || "The Morning Brief"} — ${brief.dateLabel}`;
+        const batchSize = 50;
+        for (let i = 0; i < allEmails.length; i += batchSize) {
+          const batch = allEmails.slice(i, i + batchSize);
+          const res = await fetch("https://api.resend.com/emails", {
+            method: "POST",
+            headers: { Authorization: `Bearer ${RESEND_API_KEY}`, "Content-Type": "application/json" },
+            body: JSON.stringify({ from: FROM_EMAIL, to: FROM_EMAIL, bcc: batch, subject, html }),
+          });
+          if (res.ok) sentCount += batch.length;
+        }
+      }
+      await supabase.from("sent_briefs").insert({ brief_date: brief.date, recipients_count: sentCount });
+      results.push({ brief: brief.date, sent: sentCount });
     }
 
-    // 4) Envoi par lots de 50
-    const html = buildHtml(latest);
-    const subject = `${latest.badge || "The Morning Brief"} — ${latest.dateLabel}`;
-    const batchSize = 50;
-    let sent = 0;
-    for (let i = 0; i < allEmails.length; i += batchSize) {
-      const batch = allEmails.slice(i, i + batchSize);
-      const res = await fetch("https://api.resend.com/emails", {
-        method: "POST",
-        headers: { Authorization: `Bearer ${RESEND_API_KEY}`, "Content-Type": "application/json" },
-        body: JSON.stringify({ from: FROM_EMAIL, to: FROM_EMAIL, bcc: batch, subject, html }),
-      });
-      if (res.ok) sent += batch.length;
-    }
-
-    // 5) Marque ce brief comme envoyé (anti-doublon pour les prochains passages du robot)
-    await supabase.from("sent_briefs").insert({ brief_date: latest.date, recipients_count: sent });
-
-    return new Response(JSON.stringify({ sent, total: allEmails.length, brief: latest.date }), {
+    const totalSent = results.reduce((s, r) => s + r.sent, 0);
+    return new Response(JSON.stringify({ totalSent, briefsProcessed: results.length, details: results }), {
       status: 200,
       headers: { "Content-Type": "application/json" },
     });
