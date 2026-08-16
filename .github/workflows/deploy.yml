@@ -57,6 +57,9 @@ jobs:
       - name: Construire le site
         run: npm run build
 
+      - name: Générer un vrai fichier HTML par page (pour un statut 200, indispensable au référencement)
+        run: python scripts/generate_static_pages.py
+
       - name: Préparer les fichiers pour Pages
         uses: actions/upload-pages-artifact@v3
         with:
