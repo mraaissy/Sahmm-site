@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>BourseInfo.ma</title>
+    <script>
+      // GitHub Pages ne sait pas servir de vraies routes (ex: /actions) car
+      // c'est un hébergement de fichiers statiques : il renvoie cette page
+      // 404 pour toute URL qui n'est pas un fichier réel. On redirige ici
+      // vers l'application (index.html) en conservant le chemin demandé
+      // dans le paramètre "?p=", que index.html saura décoder pour restaurer
+      // la bonne page. Technique standard "spa-github-pages".
+      var path = window.location.pathname + window.location.search + window.location.hash;
+      window.location.replace("/?p=" + encodeURIComponent(path));
+    </script>
+  </head>
+  <body></body>
+</html>

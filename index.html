@@ -37,6 +37,18 @@
     <!-- End Google Tag Manager (noscript) -->
 
     <div id="root"></div>
+    <script>
+      // Complément de la technique "spa-github-pages" (voir public/404.html) :
+      // si on arrive ici via une redirection depuis le 404, on restaure la
+      // vraie URL (ex: /actions) avant que React ne démarre, pour que le
+      // routage de l'application affiche directement la bonne page.
+      (function () {
+        var p = new URLSearchParams(window.location.search).get("p");
+        if (p) {
+          window.history.replaceState(null, "", p);
+        }
+      })();
+    </script>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>

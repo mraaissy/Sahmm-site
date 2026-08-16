@@ -1428,38 +1428,47 @@ export default function Sahm() {
     return () => { cancelled = true; };
   }, [selectedAction]);
   const VALID_PAGES = ["accueil", "apprendre", "seance", "opcvm", "actions", "comparateur", "data", "portefeuille", "actions-detail", "opcvm-detail", "brief-detail", "obligataire", "actualites"];
-  const [page, setPage] = useState(() => {
+
+  // Convertit le chemin d'URL actuel (ex: "/actions/ATW") en ["actions", "ATW"]
+  function parsePath() {
     try {
-      const h = window.location.hash.replace("#", "").split("/")[0];
-      return VALID_PAGES.includes(h) ? h : "accueil";
-    } catch { return "accueil"; }
+      const parts = window.location.pathname.replace(/^\/|\/$/g, "").split("/").filter(Boolean);
+      return parts.length ? parts : ["accueil"];
+    } catch { return ["accueil"]; }
+  }
+
+  const [page, setPage] = useState(() => {
+    const [first] = parsePath();
+    return VALID_PAGES.includes(first) ? first : "accueil";
   });
 
-  // Garde l'URL synchronisée avec la page affichée (survit au F5, et le
-  // bouton précédent/suivant du navigateur fonctionne).
+  // Garde l'URL (le vrai chemin, pas une ancre #) synchronisée avec la page
+  // affichée — survit au F5, le bouton précédent/suivant du navigateur
+  // fonctionne, et chaque page est une vraie URL indexable par Google
+  // (ex: bourseinfo.ma/actions, bourseinfo.ma/seance...).
   React.useEffect(() => {
     try {
-      let hash = `#${page}`;
-      if (page === "actions-detail" && selectedAction?.ticker) hash += `/${selectedAction.ticker}`;
-      if (window.location.hash !== hash) window.history.replaceState(null, "", hash);
+      let path = page === "accueil" ? "/" : `/${page}`;
+      if (page === "actions-detail" && selectedAction?.ticker) path += `/${selectedAction.ticker}`;
+      if (window.location.pathname !== path) window.history.pushState(null, "", path);
     } catch {}
   }, [page, selectedAction]);
 
   React.useEffect(() => {
-    const onHashChange = () => {
-      const parts = window.location.hash.replace("#", "").split("/");
-      if (VALID_PAGES.includes(parts[0])) setPage(parts[0]);
+    const onPopState = () => {
+      const [first] = parsePath();
+      if (VALID_PAGES.includes(first)) setPage(first);
     };
-    window.addEventListener("hashchange", onHashChange);
-    return () => window.removeEventListener("hashchange", onHashChange);
+    window.addEventListener("popstate", onPopState);
+    return () => window.removeEventListener("popstate", onPopState);
   }, []);
 
   // Restaure la fiche action précise si l'URL pointe dessus après un F5
   React.useEffect(() => {
     if (!actionsData?.companies) return;
-    const parts = window.location.hash.replace("#", "").split("/");
-    if (parts[0] === "actions-detail" && parts[1] && !selectedAction) {
-      const found = actionsData.companies.find((c) => c.ticker === parts[1]);
+    const [first, ticker] = parsePath();
+    if (first === "actions-detail" && ticker && !selectedAction) {
+      const found = actionsData.companies.find((c) => c.ticker === ticker);
       if (found) setSelectedAction(found);
       else setPage("actions");
     }
@@ -1477,6 +1486,30 @@ export default function Sahm() {
       setPage("accueil");
     }
   }, [page, selectedBrief]);
+
+  // Titre + meta description propres à chaque page — utile pour l'utilisateur
+  // (onglet du navigateur) et pour le référencement (Google lit le titre
+  // après exécution du JavaScript).
+  React.useEffect(() => {
+    const pageMeta = {
+      "accueil": ["BourseInfo.ma — Votre référence pour les marchés financiers marocains", "Cours en direct, indices MASI, palmarès de la séance et actualité quotidienne de la Bourse de Casablanca."],
+      "apprendre": ["Apprendre la Bourse — BourseInfo.ma", "Guides et lexique pour comprendre les marchés financiers marocains, du débutant à l'investisseur confirmé."],
+      "seance": ["Séance Boursière en direct — BourseInfo.ma", "Indices MASI, MASI 20, MASI ESG, palmarès et tableau complet des valeurs cotées à la Bourse de Casablanca."],
+      "opcvm": ["OPCVM Maroc — Classement et performances — BourseInfo.ma", "Classement des OPCVM marocains par catégorie, performances et rendements à jour."],
+      "actions": ["Actions cotées à la Bourse de Casablanca — BourseInfo.ma", "Cours, PER, rendement du dividende et fiches détaillées de toutes les sociétés cotées à la Bourse de Casablanca."],
+      "actions-detail": [selectedAction ? `${selectedAction.nom} (${selectedAction.ticker}) — Cours et analyse — BourseInfo.ma` : "Fiche action — BourseInfo.ma", selectedAction ? `Cours, capitalisation, PER, dividende et historique des cours de ${selectedAction.nom} à la Bourse de Casablanca.` : ""],
+      "comparateur": ["Comparateur d'actions marocaines — BourseInfo.ma", "Comparez PER, rendement, capitalisation et marges de plusieurs sociétés cotées à la Bourse de Casablanca."],
+      "obligataire": ["Marché obligataire marocain — Courbe des taux — BourseInfo.ma", "Courbe des taux du marché obligataire marocain, adjudications du Trésor et évolution des taux."],
+      "data": ["Calendrier des dividendes — Bourse de Casablanca — BourseInfo.ma", "Calendrier complet des dividendes versés par les sociétés cotées à la Bourse de Casablanca."],
+      "portefeuille": ["Mon Portefeuille — BourseInfo.ma", "Suivez la performance de votre portefeuille d'actions marocaines virtuel."],
+      "actualites": ["Actualité des marchés marocains — BourseInfo.ma", "Le Morning Brief quotidien et les rapports hebdomadaires sur les marchés financiers marocains."],
+      "brief-detail": [selectedBrief ? `${selectedBrief.titre} — BourseInfo.ma` : "Actualité — BourseInfo.ma", selectedBrief?.resumeCourt || ""],
+    };
+    const [title, description] = pageMeta[page] || pageMeta["accueil"];
+    document.title = title;
+    let meta = document.querySelector('meta[name="description"]');
+    if (meta && description) meta.setAttribute("content", description);
+  }, [page, selectedAction, selectedBrief]);
 
   const [dataTab, setDataTab] = useState("dividendes");
   const [dividendYear, setDividendYear] = useState("2026");
