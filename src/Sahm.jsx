@@ -146,7 +146,7 @@ const seanceStats = {
 // qui eux restent en direct). À mettre à jour une fois par jour, en fin de
 // séance, avec les vrais chiffres de clôture transmis manuellement.
 const derniereCloture = {
-  date: "13 août 2026",
+  date: "14 août 2026",
   masiValeur: "18 819,08",
   masiVar: -0.03,
   volume: "217,00 MDH",
@@ -176,6 +176,78 @@ const derniereCloture = {
 // manuellement (texte complet) et affichée en un seul bloc, du plus récent
 // au plus ancien. Le premier élément du tableau est le plus récent.
 const morningBriefs = [
+  {
+    date: "2026-08-17",
+    pdfUrl: "/assets/briefs/2026-08-17.pdf",
+    dateLabel: "17/08/2026",
+    titre: "Le MASI quasiment stable, les petites capitalisations résistent",
+    resumeCourt:
+      "Le MASI cède 0,03% vendredi à 18 819,08 points, séance quasi stable. Les petites et moyennes capitalisations résistent (MASI Mid and Small Cap +0,16%). Aradei Capital publie un CA en hausse de 8% hors promotion immobilière, Maroc Leasing +10,4% au S1. Les réserves de change de Bank Al-Maghrib franchissent les 500 MMDH. Wall Street et le CAC 40 reculent.",
+    sections: [
+      {
+        titre: "MARCHÉ MAROCAIN",
+        items: [
+          {
+            tag: "MAROC | BOURSE DE CASABLANCA",
+            titre: "Le MASI quasiment stable, les petites capitalisations résistent",
+            texte:
+              "La Bourse de Casablanca a terminé la dernière séance de la semaine sur une note quasi stable, le MASI cédant 0,03% à 18.819,08 points. Le MASI 20 a reculé de 0,01% à 1.359,41 points et le MASI ESG de 0,18% à 1.384,93 points. Les petites et moyennes capitalisations ont en revanche résisté à la tendance générale, le MASI Mid and Small Cap progressant de 0,16% à 1.817,47 points. Le compartiment Électricité a le plus pesé sur l'indice (-2,7%), pénalisé par Auto Nejma (-5,3% à 5.303 DH) et Taqa Morocco (-2,7% à 1.800 DH), tandis que la Sylviculture et papier s'est distinguée (+4,99%), portée par Alliances (+6,85% à 424,2 DH).",
+          },
+        ],
+      },
+      {
+        titre: "ACTUALITÉS DES SOCIÉTÉS COTÉES",
+        items: [
+          {
+            tag: "MAROC | ARADEI CAPITAL",
+            titre: "Chiffre d'affaires en hausse de 8% hors promotion immobilière",
+            texte:
+              "La foncière Aradei Capital affiche un chiffre d'affaires consolidé IFRS hors promotion immobilière de 334 MDH au premier semestre 2026 (+8% sur un an), porté par la croissance organique et l'ouverture fin 2025 de Sela Park Casablanca. En intégrant l'activité de promotion immobilière, le chiffre d'affaires total atteint 393 MDH. Le taux d'occupation du portefeuille ressort à 97%, pour une surface locative de 507.000 m². L'endettement net progresse à 3,142 MMDH, contre 2,805 MMDH fin 2025, dans un contexte d'accélération des investissements (222 MDH décaissés au semestre, contre 142 MDH un an plus tôt), principalement liés au futur complexe mixte de Casablanca et aux rénovations de Borj Fez et Almazar.",
+          },
+          {
+            tag: "MAROC | MAROC LEASING",
+            titre: "Revenus en progression de 10,4% au S1 2026",
+            texte:
+              "Maroc Leasing a réalisé un chiffre d'affaires de 2,38 MMDH au premier semestre 2026, en hausse de 10,4% sur un an, porté par un deuxième trimestre à 1,162 MMDH (+10,9%). Le produit net bancaire progresse de 6,1% à 181,7 MDH, tandis que le résultat net s'améliore de 5,1% à 55,4 MDH. L'encours financier atteint 14,26 MMDH à fin juin, en hausse de 3,6% depuis fin 2025, pour un endettement global de 12,52 MMDH (+4,4%).",
+          },
+        ],
+      },
+      {
+        titre: "INDICATEURS MONÉTAIRES",
+        items: [
+          {
+            tag: "MAROC | BANK AL-MAGHRIB",
+            titre: "Les réserves de change franchissent les 500 MMDH",
+            texte:
+              "Selon les derniers indicateurs hebdomadaires de Bank Al-Maghrib, les avoirs officiels de réserve ont dépassé pour la première fois les 500 milliards de dirhams, s'établissant à 500,7 MMDH au 7 août (+0,5% sur une semaine, +22,6% sur un an). Le dirham s'est apprécié de 0,2% face à l'euro et de 0,1% face au dollar entre le 6 et le 12 août, sans intervention par adjudication sur le marché des changes. Le taux interbancaire est resté stable à 2,25%, tandis que la banque centrale a injecté 55 MMDH d'avances à 7 jours lors de l'appel d'offres du 12 août.",
+          },
+        ],
+      },
+      {
+        titre: "MARCHÉS INTERNATIONAUX",
+        items: [
+          {
+            tag: "USA | WALL STREET",
+            titre: "Wall Street recule après des indicateurs décevants",
+            texte:
+              "Vendredi, les indices américains se sont repliés depuis leurs niveaux record, l'indice de confiance des consommateurs de l'université du Michigan ayant chuté plus fortement que prévu en août. Les ventes au détail de juillet ont, elles, enregistré leur plus forte baisse en plus d'un an (-0,6%), bien au-delà des attentes. Ces signaux, conjugués à la remontée des taux obligataires et à la volatilité persistante du pétrole, ont pesé sur le sentiment des investisseurs en fin de semaine.",
+          },
+          {
+            tag: "EUROPE | CAC 40",
+            titre: "La Bourse de Paris enchaîne une 4e séance de repli",
+            texte:
+              "Le CAC 40 a cédé 0,16% vendredi à 8.636,80 points, une quatrième séance consécutive de baisse qui l'éloigne de son record du 10 août (8.726,03 points). Sur la semaine, l'indice parisien recule de 0,9%, pénalisé par la poussée des taux obligataires et la volatilité des prix du pétrole, tandis que le S&P 500 américain progresse de 0,3% sur la même période.",
+          },
+          {
+            tag: "ASIE | NIKKEI & HANG SENG",
+            titre: "Les marchés asiatiques évoluent en ordre dispersé ce lundi",
+            texte:
+              "Ce lundi, les marchés asiatiques restent prudents dans l'attente d'avancées sur la réouverture du détroit d'Ormuz. Le Nikkei japonais progresse légèrement (+0,13% à +0,4% en intraday), tandis que le Topix recule de 0,45%. Hong Kong se distingue avec des contrats à terme sur le Hang Seng en hausse de 0,6%. La Bourse sud-coréenne est fermée pour un jour férié. Le pétrole reste sur des niveaux élevés, les flux en provenance du Moyen-Orient demeurant inférieurs de 10 à 15% à la normale.",
+          },
+        ],
+      },
+    ],
+  },
   {
     date: "2026-08-13",
     pdfUrl: "/assets/briefs/2026-08-13.pdf",
