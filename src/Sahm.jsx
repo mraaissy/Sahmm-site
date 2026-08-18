@@ -1681,8 +1681,6 @@ export default function Sahm() {
       const variationPbs = (b - a) * 100; // 1% = 100 points de base
       return { maturite: m.label, j1: a, jour: b, variationPbs };
     });
-    const maxAbsPbs = Math.max(1, ...data.map((d) => Math.abs(d.variationPbs)));
-
     return (
       <>
         <div className="section-head">
@@ -1701,44 +1699,21 @@ export default function Sahm() {
                   <th>Maturité</th>
                   <th style={{ textAlign: "right" }}>Taux J-1</th>
                   <th style={{ textAlign: "right" }}>Taux J</th>
-                  <th style={{ minWidth: 180 }}>Variation</th>
+                  <th style={{ textAlign: "right" }}>Variation</th>
                 </tr>
               </thead>
               <tbody>
                 {data.map((d) => {
                   const hausse = d.variationPbs >= 0;
-                  const barWidthPct = (Math.abs(d.variationPbs) / maxAbsPbs) * 100;
                   return (
                     <tr key={d.maturite}>
                       <td className="official-emetteur">{d.maturite}</td>
                       <td className="mono" style={{ textAlign: "right", color: "var(--ink-soft)" }}>{d.j1.toFixed(3)}%</td>
                       <td className="mono" style={{ textAlign: "right", fontWeight: 600 }}>{d.jour.toFixed(3)}%</td>
-                      <td>
-                        <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-                          <div style={{ flex: 1, height: 6, background: "var(--hairline)", borderRadius: 3, position: "relative", overflow: "hidden" }}>
-                            <div
-                              style={{
-                                position: "absolute", top: 0, bottom: 0,
-                                [hausse ? "left" : "right"]: "50%",
-                                width: `${barWidthPct / 2}%`,
-                                background: hausse ? "var(--green)" : "var(--red)",
-                                borderRadius: 3,
-                              }}
-                            />
-                            <div style={{ position: "absolute", left: "50%", top: 0, bottom: 0, width: 1, background: "var(--ink-soft)", opacity: 0.3 }} />
-                          </div>
-                          <span
-                            className="mono"
-                            style={{
-                              display: "flex", alignItems: "center", gap: 2,
-                              color: hausse ? "var(--green)" : "var(--red)",
-                              fontWeight: 700, fontSize: 12.5, minWidth: 64, justifyContent: "flex-end",
-                            }}
-                          >
-                            {hausse ? <ArrowUpRight size={13} /> : <ArrowDownRight size={13} />}
-                            {Math.abs(d.variationPbs).toFixed(1)} pbs
-                          </span>
-                        </div>
+                      <td style={{ textAlign: "right" }}>
+                        <span className={`variation ${hausse ? "up" : "down"} md`}>
+                          {hausse ? "+" : "−"}{Math.abs(d.variationPbs).toFixed(1)} pbs
+                        </span>
                       </td>
                     </tr>
                   );
