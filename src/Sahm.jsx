@@ -1705,13 +1705,16 @@ export default function Sahm() {
               <tbody>
                 {data.map((d) => {
                   const hausse = d.variationPbs >= 0;
+                  // Couleur inversée par rapport à une variation "classique" : une
+                  // hausse des taux fait baisser le prix des obligations (rouge),
+                  // une baisse des taux fait monter leur prix (vert).
                   return (
                     <tr key={d.maturite}>
                       <td className="official-emetteur">{d.maturite}</td>
                       <td className="mono" style={{ textAlign: "right", color: "var(--ink-soft)" }}>{d.j1.toFixed(3)}%</td>
                       <td className="mono" style={{ textAlign: "right", fontWeight: 600 }}>{d.jour.toFixed(3)}%</td>
                       <td style={{ textAlign: "right" }}>
-                        <span className={`variation ${hausse ? "up" : "down"} md`}>
+                        <span className={`variation ${hausse ? "down" : "up"} md`}>
                           {hausse ? "+" : "−"}{Math.abs(d.variationPbs).toFixed(1)} pbs
                         </span>
                       </td>
