@@ -160,61 +160,6 @@ const derniereCloture = {
 // au plus ancien. Le premier élément du tableau est le plus récent.
 const morningBriefs = [
   {
-    date: "2026-08-18",
-    pdfUrl: "/assets/briefs/2026-08-18.pdf",
-    dateLabel: "18/08/2026",
-    titre: "Le MASI progresse en séance",
-    resumeCourt:
-      "Le MASI gagne 0,08% lundi à 18 834,22 points, porté par M2M Group (+3,7%) et Maroc Leasing (+3,55%). CIH Bank a détaché un dividende de 14 DH par action (rendement 4,05%), AFMA détachera le sien le 8 septembre (62 DH, rendement 4,90%). Wall Street recule sur fond de tensions pétrolières et géopolitiques, le baril repasse au-dessus de 88 dollars.",
-    sections: [
-      {
-        titre: "MARCHÉ MAROCAIN",
-        items: [
-          {
-            tag: "MAROC | BOURSE DE CASABLANCA",
-            titre: "Le MASI progresse en séance",
-            texte:
-              "La Bourse de Casablanca a clôturé la séance de lundi sur une légère progression, le MASI gagnant 0,08% à 18.834,22 points. Le MASI 20 a avancé de 0,11% à 1.360,89 points et le MASI ESG s'est distingué avec une hausse de 0,26% à 1.388,48 points. Les petites et moyennes capitalisations ont également terminé dans le vert, le MASI Mid and Small Cap progressant de 0,02% à 1.817,82 points. Le secteur le plus performant a signé une hausse de 2,78%, porté par M2M Group (+3,7% à 414,8 DH), Maroc Leasing (+3,55% à 379 DH) et Taqa Morocco (+2,78% à 1.850 DH). À l'inverse, les Sociétés de portefeuilles et holdings ont le plus reculé (-1,78%), pénalisées par Zellidja (-5,97% à 310,3 DH) et Oulmès (-5,92% à 1.097 DH). Le volume s'est élevé à environ 156,3 MDH, pour une capitalisation dépassant 1.106 milliards de dirhams.",
-          },
-        ],
-      },
-      {
-        titre: "CALENDRIER DES DIVIDENDES",
-        items: [
-          {
-            tag: "MAROC | CIH BANK",
-            titre: "Dividende de 14 DH par action détaché au titre de 2025",
-            texte:
-              "CIH Bank a procédé le 1er juillet dernier au détachement de son dividende au titre de l'exercice 2025, d'un montant de 14 DH par action, soit un rendement de 4,05% sur la base du cours de référence. Le paiement est intervenu le 10 juillet.",
-          },
-          {
-            tag: "MAROC | AFMA",
-            titre: "Détachement du dividende prévu le 8 septembre",
-            texte:
-              "Le courtier en assurances AFMA détachera son dividende au titre de l'exercice 2025 le 8 septembre prochain, pour un montant de 62 DH par action, soit un rendement de 4,90% sur la base du cours de référence. Le paiement interviendra le 17 septembre.",
-          },
-        ],
-      },
-      {
-        titre: "MARCHÉS INTERNATIONAUX",
-        items: [
-          {
-            tag: "USA | WALL STREET",
-            titre: "Wall Street recule sur fond de tensions pétrolières",
-            texte:
-              "Wall Street a terminé la séance de lundi en baisse, le Dow Jones cédant 0,46% à 53.483,29 points et le S&P 500 reculant de 0,47% à 7.749,34 points, tandis que le Nasdaq Composite a perdu 0,33% à 26.642,08 points. Ce repli intervient après un vif rebond du prix du pétrole et une remontée des taux longs américains, sur fond de regain de tensions autour du conflit américano-iranien. Les investisseurs restent par ailleurs attentifs à une semaine chargée en résultats du secteur de la distribution, avec les publications attendues de Walmart, Home Depot et Target, ainsi qu'à la publication mercredi du compte-rendu de la dernière réunion de la Fed.",
-          },
-          {
-            tag: "MOYEN-ORIENT | PÉTROLE",
-            titre: "Le baril repart à la hausse sur fond de tensions renouvelées",
-            texte:
-              "Les cours du pétrole ont nettement progressé lundi, dépassant les 88 dollars le baril, les investisseurs réévaluant le risque d'une reprise du conflit entre les États-Unis et l'Iran. Cette remontée, conjuguée à une hausse des rendements obligataires à long terme, a pesé sur le sentiment des marchés actions américains en début de semaine.",
-          },
-        ],
-      },
-    ],
-  },
-  {
     date: "2026-08-17",
     pdfUrl: "/assets/briefs/2026-08-17.pdf",
     dateLabel: "17/08/2026",
@@ -336,62 +281,6 @@ const morningBriefs = [
             titre: "Le Nikkei poursuit sa progression ce jeudi matin",
             texte:
               "Après un gain de 0,83% mercredi à 67.524,06 points, le Nikkei ajoute encore 0,86% ce jeudi matin, portant sa progression à environ 3% sur deux séances. L'indice se rapproche désormais de la résistance des 68.400 points.",
-          },
-        ],
-      },
-    ],
-  },
-  {
-    date: "2026-08-12b",
-    pdfUrl: "/assets/briefs/weekly-2026-08-12.pdf",
-    dateLabel: "07/08 — 12/08/2026",
-    badge: "WEEKLY",
-    badgeLarge: "WEEKLY · TAUX & MARCHÉS",
-    titre: "Semaine du marché marocain : taux stables, dollar sous pression, records enchaînés à Wall Street et à Paris",
-    resumeCourt:
-      "TMP interbancaire maintenu à 2,25%, MONIA moyen à 2,19% (contre 2,20% la semaine précédente). Le Trésor lève 800 MDH lors de son adjudication du 4 août, pour un taux de satisfaction de 17%. L'EUR/USD clôture à 1,1557 (+0,32% sur la semaine). Wall Street signe sa meilleure semaine depuis avril (Dow +3%, S&P 500 +3,6%, Nasdaq +5,2%), le CAC 40 enchaîne un 7e record consécutif et le MASI progresse de 5,72% sur la semaine.",
-    sections: [
-      {
-        titre: "MARCHÉ MONÉTAIRE",
-        items: [
-          {
-            tag: "MAROC | MARCHÉ MONÉTAIRE",
-            titre: "Le marché monétaire reste calme en ce début du mois d'août",
-            texte:
-              "Sur la semaine du 7 au 13 août 2026, le taux interbancaire moyen pondéré est resté quasiment figé à 2,25%, en ligne avec le taux directeur de Bank Al-Maghrib. Les volumes échangés se sont en revanche nettement étoffés en fin de semaine : partis de 1,55 MMDH le 7 août, ils ont grimpé à plus de 6,2 MMDH le 13 août, portant l'encours interbancaire de 7,06 MMDH à 11,47 MMDH sur la période. Le taux MONIA, resté proche de sa moyenne habituelle (2,19%, contre 2,20% la semaine précédente), a fluctué dans une fourchette resserrée entre 2,181% et 2,202%, sans publication le week-end des 8 et 9 août faute de séance. Côté opérations de Bank Al-Maghrib, le total des interventions s'établit à 144,8 MMDH (contre 149,3 MMDH la semaine précédente), réparti entre avances à 7 jours (49,4 MMDH), pension livrée (47,9 MMDH) et prêts garantis (47,5 MMDH). Les avoirs officiels de réserve progressent de 22,3% à 496,8 MMDH, la circulation fiduciaire de 18,4% à 532,6 MMDH et les placements liquides de 6,3% à 1.096,6 MMDH, tandis que le déficit de liquidité s'établit à 127,3 MMDH (+13,3 MMDH).",
-          },
-        ],
-      },
-      {
-        titre: "MARCHÉ OBLIGATAIRE",
-        items: [
-          {
-            tag: "MAROC | MARCHÉ OBLIGATAIRE",
-            titre: "Résultat de la séance d'adjudication du 04 août 2026",
-            texte:
-              "Le Trésor a proposé trois lignes lors de cette séance, pour un montant global demandé de 4,6 MMDH. Les soumissions se sont concentrées sur la maturité 52 semaines, pour une demande de 1,9 MMDH, dont 800 MDH ont finalement été retenus, soit un taux d'allocation de 42,1% et un taux de rendement moyen de 2,215% (+0,9 pb par rapport au dernier taux de référence). Aucune allocation n'a été retenue sur les lignes à 13 semaines et à 2 ans. Le montant levé (800 MDH) représente moins d'un cinquième de la demande totale exprimée sur les trois maturités, soit un taux de satisfaction de 17% pour la séance et une réalisation mensuelle de 26% (1,4 MMDH levés sur un besoin de 5,3 MMDH). Sur le marché secondaire, la courbe des taux comparée au 31/12/2025 montre un recul des taux courts (13 semaines : -5,8 pbs, 52 semaines : -13,6 pbs) mais une nette hausse des taux longs (10 ans : +33,6 pbs, 15 ans : +36,6 pbs, 30 ans : +23,1 pbs), traduisant une pentification de la courbe des taux.",
-          },
-        ],
-      },
-      {
-        titre: "MARCHÉ DES CHANGES",
-        items: [
-          {
-            tag: "MAROC | MARCHÉ DES CHANGES",
-            titre: "Un dollar sur la défensive après un emploi américain décevant",
-            texte:
-              "L'euro est resté globalement stable face au dollar sur la semaine, évoluant dans une fourchette étroite entre 1,1353 et 1,1581, pour clôturer à 1,1557 (+0,32% sur la semaine). Le billet vert a d'abord profité lundi d'un indice ISM manufacturier américain meilleur que prévu, avant de reculer progressivement à mesure que les indicateurs d'emploi (ADP, JOLTs) puis le rapport officiel sur l'emploi de vendredi se sont révélés nettement plus faibles qu'attendu — 23.000 destructions d'emplois en juillet contre 80.000 créations anticipées. Cette déception a ravivé les anticipations d'une pause prolongée de la Fed, pesant sur le dollar en fin de semaine.",
-          },
-        ],
-      },
-      {
-        titre: "MARCHÉ INTERNATIONAL",
-        items: [
-          {
-            tag: "MONDE | MARCHÉ INTERNATIONAL",
-            titre: "La meilleure semaine de Wall Street depuis avril",
-            texte:
-              "Wall Street a signé sa meilleure semaine depuis avril 2026 : le Dow Jones a progressé de 3% (54.036,93 pts), franchissant pour la première fois les 54.000 points, le S&P 500 de 3,6% (record de clôture à 7.757,64 pts) et le Nasdaq de 5,2% (26.690,62 pts), ce dernier retrouvant le leadership technologique porté par de solides résultats et un regain d'enthousiasme pour l'intelligence artificielle. La semaine a démarré sur des signes d'apaisement au Moyen-Orient, avec des progrès dans les discussions sur la réouverture du détroit d'Ormuz, qui ont fait reculer les prix du pétrole et atténué les craintes inflationnistes. Vendredi, le rapport sur l'emploi américain, très en deçà des attentes, a renforcé les paris sur une pause prolongée de la Fed, propulsant le S&P 500 vers un nouveau record de clôture. En Europe, le CAC 40 a enchaîné sept séances consécutives de hausse — une série inédite depuis février 2025 — clôturant vendredi à 8.714,93 points (+2,41% sur la semaine, 7e record consécutif). En Asie, la tendance a été plus heurtée : le Nikkei japonais a connu une semaine volatile, marquée par des prises de bénéfices sur les valeurs technologiques, pour clôturer en léger repli (-0,2% à 65.606,71 pts), tandis que le Kospi sud-coréen a signé sa pire semaine depuis plus d'un mois. Sur les matières premières, l'or a signé mercredi sa plus forte hausse quotidienne depuis février (+4%, ~4.253$), tandis que le Brent est repassé sous les 80 dollars. Le MASI, de son côté, a progressé de 5,72% sur la semaine.",
           },
         ],
       },

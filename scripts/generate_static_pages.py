@@ -70,6 +70,8 @@ def main():
 
     for slug, (title, description) in PAGES.items():
         html = base_html
+        page_url = f"https://www.bourseinfo.ma/{slug}/"
+
         html = re.sub(r"<title>.*?</title>", f"<title>{title}</title>", html, count=1, flags=re.S)
         html = re.sub(
             r'(<meta name="description" content=").*?(")',
@@ -77,10 +79,50 @@ def main():
             html,
             count=1,
         )
+        # Balise canonique et Open Graph : chacune doit pointer vers SA
+        # PROPRE URL, pas vers l'accueil — sinon on dit à Google d'ignorer
+        # la page au profit de l'accueil, ce qui bloque son indexation.
+        html = re.sub(
+            r'(<link rel="canonical" href=").*?(")',
+            rf"\1{page_url}\2",
+            html,
+            count=1,
+        )
+        html = re.sub(
+            r'(<meta property="og:url" content=").*?(")',
+            rf"\1{page_url}\2",
+            html,
+            count=1,
+        )
+        html = re.sub(
+            r'(<meta property="og:title" content=").*?(")',
+            rf"\1{title}\2",
+            html,
+            count=1,
+        )
+        html = re.sub(
+            r'(<meta property="og:description" content=").*?(")',
+            rf"\1{description}\2",
+            html,
+            count=1,
+        )
+        html = re.sub(
+            r'(<meta name="twitter:title" content=").*?(")',
+            rf"\1{title}\2",
+            html,
+            count=1,
+        )
+        html = re.sub(
+            r'(<meta name="twitter:description" content=").*?(")',
+            rf"\1{description}\2",
+            html,
+            count=1,
+        )
+
         out_dir = DIST / slug
         out_dir.mkdir(parents=True, exist_ok=True)
         (out_dir / "index.html").write_text(html, encoding="utf-8")
-        print(f"  généré : dist/{slug}/index.html")
+        print(f"  généré : dist/{slug}/index.html (canonique : {page_url})")
 
     print(f"Terminé : {len(PAGES)} pages statiques générées.")
 
