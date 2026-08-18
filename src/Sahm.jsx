@@ -127,14 +127,14 @@ function getLastTradingDayLabel() {
 // accessible) — séance du mardi 7 juillet 2026
 const seanceDate = getLastTradingDayLabel();
 const seanceIndices = [
-  { nom: "MASI", valeur: "18 819,08", var: -0.03, ytd: -0.14 },
-  { nom: "MASI ESG", valeur: "1 384,93", var: -0.18, ytd: 10.66 },
-  { nom: "MASI 20", valeur: "1 359,41", var: -0.01, ytd: -8.50 },
+  { nom: "MASI", valeur: "18 834,22", var: 0.08, ytd: -0.06 },
+  { nom: "MASI ESG", valeur: "1 388,48", var: 0.26, ytd: 10.94 },
+  { nom: "MASI 20", valeur: "1 360,89", var: 0.11, ytd: -8.40 },
 ];
 const seanceStats = {
   capitalisation: "1 095,90 MMDH",
-  volume: "217,00 MDH",
-  volumeCentral: "217,00 MDH",
+  volume: "156,34 MDH",
+  volumeCentral: "156,34 MDH",
   volumeBlocs: "0 MDH (aucun échange sur le marché de blocs)",
   hausses: null,
   baisses: null,
@@ -146,30 +146,13 @@ const seanceStats = {
 // qui eux restent en direct). À mettre à jour une fois par jour, en fin de
 // séance, avec les vrais chiffres de clôture transmis manuellement.
 const derniereCloture = {
-  date: "14 août 2026",
-  masiValeur: "18 819,08",
-  masiVar: -0.03,
-  volume: "217,00 MDH",
-  meilleureHausse: { nom: "ALLIANCES", var: 6.85 },
-  plusForteBaisse: { nom: "AUTO NEJMA", var: -5.30 },
-  topActifs: [
-    { nom: "MANAGEM", volume: 39363930 },
-    { nom: "COSUMAR", volume: 39288992 },
-    { nom: "ALLIANCES DEVELOPPEMENT IMMOBILIER SA", volume: 29100788 },
-  ],
-  top10Volumes: [
-    { nom: "MANAGEM", volume: 39363930 },
-    { nom: "COSUMAR", volume: 39288992 },
-    { nom: "ALLIANCES DEVELOPPEMENT IMMOBILIER SA", volume: 29100788 },
-    { nom: "BANQUE CENTRALE POPULAIRE", volume: 16749034 },
-    { nom: "LABEL VIE", volume: 16051102 },
-    { nom: "ITISSALAT AL-MAGHRIB", volume: 11918208 },
-    { nom: "ATTIJARIWAFA BANK", volume: 9039510 },
-    { nom: "T2S GROUP HOLDING", volume: 6217141 },
-    { nom: "TAQA MOROCCO", volume: 4451629 },
-    { nom: "AKDITAL", volume: 3913843 },
-  ],
-  topActifsUnite: " MAD échangés",
+  date: "17 août 2026",
+  masiValeur: "18 834,22",
+  masiVar: 0.08,
+  volume: "156,34 MDH",
+  meilleureHausse: { nom: "M2M Group", var: 3.70 },
+  plusForteBaisse: { nom: "ZELLIDJA S.A", var: -5.97 },
+  topActifs: [],
 };
 
 // Fil d'actualité — "The Morning Brief". Chaque entrée est transmise

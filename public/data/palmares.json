@@ -1,1 +1,19 @@
-{"updated_at": "2026-08-13T00:00:00+00:00", "source_last_update_label": "jeudi 13 août 2026", "source": "casablancabourse.com (site tiers, calculé depuis le tableau complet)", "top_hausses": [{"name": "ALLIANCES", "change_pct": 6.85, "price": 424.2}, {"name": "REBAB COMPANY", "change_pct": 5.99, "price": 98.57}, {"name": "IB MAROC.COM", "change_pct": 5.9, "price": 58.47}, {"name": "MED PAPER", "change_pct": 4.98, "price": 27.8}, {"name": "AGMA", "change_pct": 3.47, "price": 7098.0}], "top_baisses": [{"name": "AUTO NEJMA", "change_pct": -5.3, "price": 5303.0}, {"name": "TAQA MOROCCO", "change_pct": -2.7, "price": 1800.0}, {"name": "SOCIETE DES BOISSONS DU MAROC", "change_pct": -1.65, "price": 2090.0}, {"name": "STOKVIS NORD AFRIQUE", "change_pct": -1.38, "price": 71.01}, {"name": "SOTHEMA", "change_pct": -1.33, "price": 364.0}]}
+{
+  "updated_at": "2026-08-17T00:00:00+00:00",
+  "source_last_update_label": "lundi 17 août 2026",
+  "source": "casablancabourse.com (site tiers, calculé depuis le tableau complet)",
+  "top_hausses": [
+    { "name": "M2M Group", "change_pct": 3.70, "price": 414.80 },
+    { "name": "MAROC LEASING", "change_pct": 3.55, "price": 379.00 },
+    { "name": "TAQA MOROCCO", "change_pct": 2.78, "price": 1850.00 },
+    { "name": "REBAB COMPANY", "change_pct": 2.47, "price": 101.00 },
+    { "name": "AFRIC INDUSTRIES SA", "change_pct": 2.42, "price": 338.00 }
+  ],
+  "top_baisses": [
+    { "name": "ZELLIDJA S.A", "change_pct": -5.97, "price": 310.30 },
+    { "name": "OULMES", "change_pct": -5.92, "price": 1097.00 },
+    { "name": "CARTIER SAADA", "change_pct": -4.72, "price": 24.00 },
+    { "name": "INVOLYS", "change_pct": -4.38, "price": 131.00 },
+    { "name": "FENIE BROSSETTE", "change_pct": -2.03, "price": 387.00 }
+  ]
+}

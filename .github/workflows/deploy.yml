@@ -75,3 +75,9 @@ jobs:
       - name: Déployer sur GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+      - name: Envoyer le Morning Brief par email si un nouveau est disponible
+        run: |
+          curl -s -X POST https://ctuskzfupoufgysuojrt.supabase.co/functions/v1/send-morning-brief \
+            -H "Authorization: Bearer ${{ secrets.SUPABASE_SEND_BRIEF_KEY }}"
+        continue-on-error: true
