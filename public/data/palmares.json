@@ -1,19 +1,59 @@
 {
-  "updated_at": "2026-08-17T00:00:00+00:00",
-  "source_last_update_label": "lundi 17 août 2026",
+  "updated_at": "2026-08-18T00:00:00+00:00",
+  "source_last_update_label": "mardi 18 août 2026",
   "source": "casablancabourse.com (site tiers, calculé depuis le tableau complet)",
   "top_hausses": [
-    { "name": "M2M Group", "change_pct": 3.70, "price": 414.80 },
-    { "name": "MAROC LEASING", "change_pct": 3.55, "price": 379.00 },
-    { "name": "TAQA MOROCCO", "change_pct": 2.78, "price": 1850.00 },
-    { "name": "REBAB COMPANY", "change_pct": 2.47, "price": 101.00 },
-    { "name": "AFRIC INDUSTRIES SA", "change_pct": 2.42, "price": 338.00 }
+    {
+      "name": "ZELLIDJA S.A",
+      "change_pct": 6.3,
+      "price": 329.85
+    },
+    {
+      "name": "OULMES",
+      "change_pct": 5.65,
+      "price": 1159.0
+    },
+    {
+      "name": "FENIE BROSSETTE",
+      "change_pct": 4.26,
+      "price": 403.5
+    },
+    {
+      "name": "MANAGEM",
+      "change_pct": 3.71,
+      "price": 1763.0
+    },
+    {
+      "name": "SOCIETE DES BOISSONS DU MAROC",
+      "change_pct": 2.3,
+      "price": 2138.0
+    }
   ],
   "top_baisses": [
-    { "name": "ZELLIDJA S.A", "change_pct": -5.97, "price": 310.30 },
-    { "name": "OULMES", "change_pct": -5.92, "price": 1097.00 },
-    { "name": "CARTIER SAADA", "change_pct": -4.72, "price": 24.00 },
-    { "name": "INVOLYS", "change_pct": -4.38, "price": 131.00 },
-    { "name": "FENIE BROSSETTE", "change_pct": -2.03, "price": 387.00 }
+    {
+      "name": "REBAB COMPANY",
+      "change_pct": -5.93,
+      "price": 95.01
+    },
+    {
+      "name": "M2M Group",
+      "change_pct": -3.93,
+      "price": 398.5
+    },
+    {
+      "name": "IB MAROC.COM",
+      "change_pct": -3.65,
+      "price": 57.0
+    },
+    {
+      "name": "SNEP",
+      "change_pct": -3.59,
+      "price": 362.5
+    },
+    {
+      "name": "JET CONTRACTORS",
+      "change_pct": -2.47,
+      "price": 2136.0
+    }
   ]
 }
