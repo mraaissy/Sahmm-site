@@ -160,6 +160,61 @@ const derniereCloture = {
 // au plus ancien. Le premier élément du tableau est le plus récent.
 const morningBriefs = [
   {
+    date: "2026-08-18",
+    pdfUrl: "/assets/briefs/2026-08-18.pdf",
+    dateLabel: "18/08/2026",
+    titre: "Le MASI progresse en séance",
+    resumeCourt:
+      "Le MASI gagne 0,08% lundi à 18 834,22 points, porté par M2M Group (+3,7%) et Maroc Leasing (+3,55%). CIH Bank a détaché un dividende de 14 DH par action (rendement 4,05%), AFMA détachera le sien le 8 septembre (62 DH, rendement 4,90%). Wall Street recule sur fond de tensions pétrolières et géopolitiques, le baril repasse au-dessus de 88 dollars.",
+    sections: [
+      {
+        titre: "MARCHÉ MAROCAIN",
+        items: [
+          {
+            tag: "MAROC | BOURSE DE CASABLANCA",
+            titre: "Le MASI progresse en séance",
+            texte:
+              "La Bourse de Casablanca a clôturé la séance de lundi sur une légère progression, le MASI gagnant 0,08% à 18.834,22 points. Le MASI 20 a avancé de 0,11% à 1.360,89 points et le MASI ESG s'est distingué avec une hausse de 0,26% à 1.388,48 points. Les petites et moyennes capitalisations ont également terminé dans le vert, le MASI Mid and Small Cap progressant de 0,02% à 1.817,82 points. Le secteur le plus performant a signé une hausse de 2,78%, porté par M2M Group (+3,7% à 414,8 DH), Maroc Leasing (+3,55% à 379 DH) et Taqa Morocco (+2,78% à 1.850 DH). À l'inverse, les Sociétés de portefeuilles et holdings ont le plus reculé (-1,78%), pénalisées par Zellidja (-5,97% à 310,3 DH) et Oulmès (-5,92% à 1.097 DH). Le volume s'est élevé à environ 156,3 MDH, pour une capitalisation dépassant 1.106 milliards de dirhams.",
+          },
+        ],
+      },
+      {
+        titre: "CALENDRIER DES DIVIDENDES",
+        items: [
+          {
+            tag: "MAROC | CIH BANK",
+            titre: "Dividende de 14 DH par action détaché au titre de 2025",
+            texte:
+              "CIH Bank a procédé le 1er juillet dernier au détachement de son dividende au titre de l'exercice 2025, d'un montant de 14 DH par action, soit un rendement de 4,05% sur la base du cours de référence. Le paiement est intervenu le 10 juillet.",
+          },
+          {
+            tag: "MAROC | AFMA",
+            titre: "Détachement du dividende prévu le 8 septembre",
+            texte:
+              "Le courtier en assurances AFMA détachera son dividende au titre de l'exercice 2025 le 8 septembre prochain, pour un montant de 62 DH par action, soit un rendement de 4,90% sur la base du cours de référence. Le paiement interviendra le 17 septembre.",
+          },
+        ],
+      },
+      {
+        titre: "MARCHÉS INTERNATIONAUX",
+        items: [
+          {
+            tag: "USA | WALL STREET",
+            titre: "Wall Street recule sur fond de tensions pétrolières",
+            texte:
+              "Wall Street a terminé la séance de lundi en baisse, le Dow Jones cédant 0,46% à 53.483,29 points et le S&P 500 reculant de 0,47% à 7.749,34 points, tandis que le Nasdaq Composite a perdu 0,33% à 26.642,08 points. Ce repli intervient après un vif rebond du prix du pétrole et une remontée des taux longs américains, sur fond de regain de tensions autour du conflit américano-iranien. Les investisseurs restent par ailleurs attentifs à une semaine chargée en résultats du secteur de la distribution, avec les publications attendues de Walmart, Home Depot et Target, ainsi qu'à la publication mercredi du compte-rendu de la dernière réunion de la Fed.",
+          },
+          {
+            tag: "MOYEN-ORIENT | PÉTROLE",
+            titre: "Le baril repart à la hausse sur fond de tensions renouvelées",
+            texte:
+              "Les cours du pétrole ont nettement progressé lundi, dépassant les 88 dollars le baril, les investisseurs réévaluant le risque d'une reprise du conflit entre les États-Unis et l'Iran. Cette remontée, conjuguée à une hausse des rendements obligataires à long terme, a pesé sur le sentiment des marchés actions américains en début de semaine.",
+          },
+        ],
+      },
+    ],
+  },
+  {
     date: "2026-08-17",
     pdfUrl: "/assets/briefs/2026-08-17.pdf",
     dateLabel: "17/08/2026",
