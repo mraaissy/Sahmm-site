@@ -152,7 +152,12 @@ const derniereCloture = {
   volume: "224,76 MDH",
   meilleureHausse: { nom: "IB MAROC.COM", var: 6.79 },
   plusForteBaisse: { nom: "ZELLIDJA S.A", var: -5.09 },
-  topActifs: [],
+  topActifs: [
+    { nom: "Managem", volume: 63.88 },
+    { nom: "Maroc Telecom", volume: 28.69 },
+    { nom: "Label Vie", volume: 16.73 },
+  ],
+  topActifsUnite: " MDH",
 };
 
 // Fil d'actualité — "The Morning Brief". Chaque entrée est transmise
