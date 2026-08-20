@@ -127,14 +127,14 @@ function getLastTradingDayLabel() {
 // accessible) — séance du mardi 7 juillet 2026
 const seanceDate = getLastTradingDayLabel();
 const seanceIndices = [
-  { nom: "MASI", valeur: "18 855,30", var: 0.11, ytd: 0.05 },
-  { nom: "MASI ESG", valeur: "1 399,82", var: 0.82, ytd: 11.85 },
-  { nom: "MASI 20", valeur: "1 357,49", var: -0.25, ytd: -8.63 },
+  { nom: "MASI", valeur: "18 992,40", var: 0.73, ytd: 0.77 },
+  { nom: "MASI ESG", valeur: "1 413,27", var: 0.96, ytd: 12.92 },
+  { nom: "MASI 20", valeur: "1 365,90", var: 0.62, ytd: -8.06 },
 ];
 const seanceStats = {
   capitalisation: "1 095,90 MMDH",
-  volume: "97,52 MDH",
-  volumeCentral: "97,52 MDH",
+  volume: "224,76 MDH",
+  volumeCentral: "224,76 MDH",
   volumeBlocs: "0 MDH (aucun échange sur le marché de blocs)",
   hausses: null,
   baisses: null,
@@ -146,12 +146,12 @@ const seanceStats = {
 // qui eux restent en direct). À mettre à jour une fois par jour, en fin de
 // séance, avec les vrais chiffres de clôture transmis manuellement.
 const derniereCloture = {
-  date: "18 août 2026",
-  masiValeur: "18 855,30",
-  masiVar: 0.11,
-  volume: "97,52 MDH",
-  meilleureHausse: { nom: "ZELLIDJA S.A", var: 6.30 },
-  plusForteBaisse: { nom: "REBAB COMPANY", var: -5.93 },
+  date: "19 août 2026",
+  masiValeur: "18 992,40",
+  masiVar: 0.73,
+  volume: "224,76 MDH",
+  meilleureHausse: { nom: "IB MAROC.COM", var: 6.79 },
+  plusForteBaisse: { nom: "ZELLIDJA S.A", var: -5.09 },
   topActifs: [],
 };
 

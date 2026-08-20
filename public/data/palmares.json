@@ -1,59 +1,59 @@
 {
-  "updated_at": "2026-08-18T00:00:00+00:00",
-  "source_last_update_label": "mardi 18 août 2026",
+  "updated_at": "2026-08-19T00:00:00+00:00",
+  "source_last_update_label": "mercredi 19 août 2026",
   "source": "casablancabourse.com (site tiers, calculé depuis le tableau complet)",
   "top_hausses": [
     {
-      "name": "ZELLIDJA S.A",
-      "change_pct": 6.3,
-      "price": 329.85
+      "name": "IB MAROC.COM",
+      "change_pct": 6.79,
+      "price": 60.87
     },
     {
-      "name": "OULMES",
-      "change_pct": 5.65,
-      "price": 1159.0
+      "name": "REBAB COMPANY",
+      "change_pct": 5.99,
+      "price": 100.7
+    },
+    {
+      "name": "DOUJA PROM ADDOHA",
+      "change_pct": 4.11,
+      "price": 37.48
+    },
+    {
+      "name": "LABEL VIE",
+      "change_pct": 4.01,
+      "price": 4200.0
     },
     {
       "name": "FENIE BROSSETTE",
-      "change_pct": 4.26,
-      "price": 403.5
-    },
-    {
-      "name": "MANAGEM",
-      "change_pct": 3.71,
-      "price": 1763.0
-    },
-    {
-      "name": "SOCIETE DES BOISSONS DU MAROC",
-      "change_pct": 2.3,
-      "price": 2138.0
+      "change_pct": 2.6,
+      "price": 414.0
     }
   ],
   "top_baisses": [
     {
-      "name": "REBAB COMPANY",
-      "change_pct": -5.93,
-      "price": 95.01
+      "name": "ZELLIDJA S.A",
+      "change_pct": -5.09,
+      "price": 313.05
     },
     {
-      "name": "M2M Group",
-      "change_pct": -3.93,
-      "price": 398.5
+      "name": "S.M MONETIQUE",
+      "change_pct": -3.41,
+      "price": 510.0
     },
     {
-      "name": "IB MAROC.COM",
-      "change_pct": -3.65,
-      "price": 57.0
+      "name": "SOCIETE DES BOISSONS DU MAROC",
+      "change_pct": -3.23,
+      "price": 2069.0
     },
     {
-      "name": "SNEP",
-      "change_pct": -3.59,
-      "price": 362.5
+      "name": "SALAFIN",
+      "change_pct": -1.96,
+      "price": 439.2
     },
     {
-      "name": "JET CONTRACTORS",
-      "change_pct": -2.47,
-      "price": 2136.0
+      "name": "STOKVIS NORD AFRIQUE",
+      "change_pct": -1.64,
+      "price": 70.23
     }
   ]
 }
