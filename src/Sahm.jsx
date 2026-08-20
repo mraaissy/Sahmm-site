@@ -1503,8 +1503,8 @@ export default function Sahm() {
   // (ex: bourseinfo.ma/actions, bourseinfo.ma/seance...).
   React.useEffect(() => {
     try {
-      let path = page === "accueil" ? "/" : `/${page}`;
-      if (page === "actions-detail" && selectedAction?.ticker) path += `/${selectedAction.ticker}`;
+      let path = page === "accueil" ? "/" : `/${page}/`;
+      if (page === "actions-detail" && selectedAction?.ticker) path = `/actions-detail/${selectedAction.ticker}`;
       if (window.location.pathname !== path) window.history.pushState(null, "", path);
     } catch {}
   }, [page, selectedAction]);
