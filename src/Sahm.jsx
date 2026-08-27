@@ -165,6 +165,67 @@ const derniereCloture = {
 // au plus ancien. Le premier élément du tableau est le plus récent.
 const morningBriefs = [
   {
+    date: "2026-08-27",
+    pdfUrl: "/assets/briefs/2026-08-27.pdf",
+    dateLabel: "27/08/2026",
+    titre: "Le MASI se rapproche des 19.200 points",
+    resumeCourt:
+      "Le MASI progresse de 0,69% à 19 124,18 points, se rapprochant du seuil des 19.200 points, pour un volume de 316,3 MDH. AFMA publie un chiffre d'affaires en hausse de 8% au premier semestre, tandis que Cartier Saada recule sous la pression du marché américain. Nvidia dépasse largement les attentes mais recule après la clôture. Wall Street termine quasi stable avant ces résultats, le CAC 40 tente un rebond porté par le repli du pétrole.",
+    sections: [
+      {
+        titre: "MARCHÉ MAROCAIN",
+        items: [
+          {
+            tag: "MAROC | BOURSE DE CASABLANCA",
+            titre: "Le MASI se rapproche des 19.200 points",
+            texte:
+              "La Bourse de Casablanca a poursuivi son ascension lors de la dernière séance, le MASI progressant de 0,69% pour s'établir à 19.124,18 points, se rapprochant du seuil symbolique des 19.200 points. Le MASI 20 a évolué dans le même sillage, gagnant 0,12% à 1.367,52 points. La capitalisation boursière globale ressort à environ 1.132,8 milliards de dirhams, pour un volume global d'échanges de 316,3 millions de dirhams sur la séance.",
+          },
+        ],
+      },
+      {
+        titre: "ACTUALITÉS DES SOCIÉTÉS COTÉES",
+        items: [
+          {
+            tag: "MAROC | AFMA",
+            titre: "Chiffre d'affaires en hausse de 8% au premier semestre",
+            texte:
+              "Le courtier en assurances AFMA a réalisé un chiffre d'affaires consolidé de 191 MDH au premier semestre 2026, en progression de 8% par rapport à la même période de 2025. Sur le périmètre social, AFMA SA affiche la même dynamique avec un chiffre d'affaires de 162 MDH (+8%). Le groupe a investi 2,2 MDH sur la période et affiche un endettement net financier négatif de 8 MDH (position excédentaire), ce montant intégrant le dividende 2025 de 62 DH par action dont la distribution est prévue en septembre. Le périmètre de consolidation reste inchangé.",
+          },
+          {
+            tag: "MAROC | CARTIER SAADA",
+            titre: "Activité en repli au premier trimestre, sous pression du marché américain",
+            texte:
+              "Cartier Saada a vu son chiffre d'affaires reculer à 54,2 MDH au premier trimestre de l'exercice 2026/2027 (avril-juin 2026), contre 69,6 MDH un an plus tôt, les exportations représentant 97,7% du total. La société attribue ce repli à une pression accrue sur les prix aux États-Unis, certains clients se tournant vers des fournisseurs plus compétitifs, ainsi qu'à des perturbations logistiques liées aux tensions géopolitiques et à la fermeture du détroit d'Ormuz. Des conditions météorologiques exceptionnelles ayant affecté le port de Casablanca depuis début 2026 ont également pesé sur les délais d'exportation. Le groupe a néanmoins investi 1,1 MDH sur le trimestre, principalement dans le renouvellement de son matériel de manutention et de production.",
+          },
+        ],
+      },
+      {
+        titre: "MARCHÉS INTERNATIONAUX",
+        items: [
+          {
+            tag: "USA | WALL STREET",
+            titre: "Wall Street quasi stable avant les résultats de Nvidia",
+            texte:
+              "Mercredi, la Bourse de New York a terminé en légère baisse, les investisseurs restant à l'affût avant la publication des résultats trimestriels de Nvidia après la clôture. Le S&P 500 a clôturé quasiment stable à 7.675,70 points (-0,02%), le Nasdaq Composite a cédé 0,08% à 26.130,20 points et le Dow Jones a reculé de 0,21% à 53.463,88 points. L'indice PCE, la mesure d'inflation privilégiée par la Fed, est ressorti conforme aux attentes pour juillet (+0,2% sur le mois, +3,3% sur un an), sans toutefois modifier les anticipations d'une inflation toujours élevée. Les rendements obligataires à 10 ans se sont tendus à 4,66%, contre 4,63% la veille.",
+          },
+          {
+            tag: "USA | NVIDIA",
+            titre: "Nvidia dépasse largement les attentes, l'action recule après la clôture",
+            texte:
+              "Le concepteur de puces a publié un chiffre d'affaires trimestriel de 96,22 milliards de dollars, en plus que doublement sur un an et nettement au-dessus des 92,17 milliards attendus par le marché. Le bénéfice ajusté par action est ressorti à 2,22 dollars, contre un consensus de 2,10 dollars, porté notamment par des revenus liés aux centres de données de 89 milliards de dollars. Nvidia a par ailleurs évoqué un potentiel de chiffre d'affaires sur les puces d'IA pouvant dépasser 1.000 milliards de dollars d'ici 2027. Malgré ces résultats supérieurs aux attentes, l'action a reculé d'environ 1,5% dans les échanges after-hours, les investisseurs semblant avoir déjà largement anticipé cette performance.",
+          },
+          {
+            tag: "EUROPE | CAC 40",
+            titre: "La Bourse de Paris tente un rebond avant Nvidia",
+            texte:
+              "Le CAC 40 a progressé mercredi, porté par le repli des cours pétroliers après des avancées diplomatiques autour du détroit d'Ormuz, Oman et l'Iran ayant évoqué un « couloir temporaire » de navigation. L'indice parisien a ainsi cherché à effacer une série récente de dix séances sur onze dans le rouge, les investisseurs restant par ailleurs attentifs aux résultats de Nvidia et aux indicateurs économiques américains du jour.",
+          },
+        ],
+      },
+    ],
+  },
+  {
     date: "2026-08-17",
     pdfUrl: "/assets/briefs/2026-08-17.pdf",
     dateLabel: "17/08/2026",
