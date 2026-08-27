@@ -127,14 +127,14 @@ function getLastTradingDayLabel() {
 // accessible) — séance du mardi 7 juillet 2026
 const seanceDate = getLastTradingDayLabel();
 const seanceIndices = [
-  { nom: "MASI", valeur: "18 992,40", var: 0.73, ytd: 0.77 },
-  { nom: "MASI ESG", valeur: "1 413,27", var: 0.96, ytd: 12.92 },
-  { nom: "MASI 20", valeur: "1 365,90", var: 0.62, ytd: -8.06 },
+  { nom: "MASI", valeur: "19 124,18", var: 0.69, ytd: 1.47 },
+  { nom: "MASI ESG", valeur: "1 434,04", var: 1.47, ytd: 14.58 },
+  { nom: "MASI 20", valeur: "1 367,52", var: 0.12, ytd: -7.95 },
 ];
 const seanceStats = {
   capitalisation: "1 095,90 MMDH",
-  volume: "224,76 MDH",
-  volumeCentral: "224,76 MDH",
+  volume: "316,34 MDH",
+  volumeCentral: "316,34 MDH",
   volumeBlocs: "0 MDH (aucun échange sur le marché de blocs)",
   hausses: null,
   baisses: null,
@@ -146,16 +146,16 @@ const seanceStats = {
 // qui eux restent en direct). À mettre à jour une fois par jour, en fin de
 // séance, avec les vrais chiffres de clôture transmis manuellement.
 const derniereCloture = {
-  date: "19 août 2026",
-  masiValeur: "18 992,40",
-  masiVar: 0.73,
-  volume: "224,76 MDH",
-  meilleureHausse: { nom: "IB MAROC.COM", var: 6.79 },
-  plusForteBaisse: { nom: "ZELLIDJA S.A", var: -5.09 },
+  date: "24 août 2026",
+  masiValeur: "19 124,18",
+  masiVar: 0.69,
+  volume: "316,34 MDH",
+  meilleureHausse: { nom: "SMI", var: 6.01 },
+  plusForteBaisse: { nom: "IB MAROC.COM", var: -4.06 },
   topActifs: [
-    { nom: "Managem", volume: 63.88 },
-    { nom: "Maroc Telecom", volume: 28.69 },
-    { nom: "Label Vie", volume: 16.73 },
+    { nom: "Managem", volume: 86.04 },
+    { nom: "Attijariwafa Bank", volume: 33.15 },
+    { nom: "Résidences Dar Saada", volume: 24.56 },
   ],
   topActifsUnite: " MDH",
 };
@@ -2005,7 +2005,7 @@ export default function Sahm() {
         .sahm {
           --ink: #1C242C;
           --ink-soft: #5B6773;
-          --paper: #FAFAF9;
+          --paper: #FFFFFF;
           --paper-raised: #FFFFFF;
           --navy: #2B3A4A;
           --navy-deep: #1F2A36;
@@ -2808,7 +2808,7 @@ export default function Sahm() {
           border-collapse: collapse;
         }
         .official-table thead th {
-          background: #EDF0F2;
+          background: #E3E8EF;
           text-align: left;
           font-size: 12.5px;
           font-weight: 700;

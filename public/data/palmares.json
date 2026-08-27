@@ -1,59 +1,59 @@
 {
-  "updated_at": "2026-08-19T00:00:00+00:00",
-  "source_last_update_label": "mercredi 19 août 2026",
+  "updated_at": "2026-08-24T00:00:00+00:00",
+  "source_last_update_label": "lundi 24 août 2026",
   "source": "casablancabourse.com (site tiers, calculé depuis le tableau complet)",
   "top_hausses": [
     {
-      "name": "IB MAROC.COM",
-      "change_pct": 6.79,
-      "price": 60.87
+      "name": "SMI",
+      "change_pct": 6.01,
+      "price": 7103.0
+    },
+    {
+      "name": "MANAGEM",
+      "change_pct": 5.22,
+      "price": 1895.0
+    },
+    {
+      "name": "RESIDENCES DAR SAADA",
+      "change_pct": 5.08,
+      "price": 186.0
     },
     {
       "name": "REBAB COMPANY",
-      "change_pct": 5.99,
-      "price": 100.7
+      "change_pct": 4.17,
+      "price": 104.9
     },
     {
-      "name": "DOUJA PROM ADDOHA",
-      "change_pct": 4.11,
-      "price": 37.48
-    },
-    {
-      "name": "LABEL VIE",
-      "change_pct": 4.01,
-      "price": 4200.0
-    },
-    {
-      "name": "FENIE BROSSETTE",
-      "change_pct": 2.6,
-      "price": 414.0
+      "name": "STOKVIS NORD AFRIQUE",
+      "change_pct": 2.81,
+      "price": 72.2
     }
   ],
   "top_baisses": [
     {
-      "name": "ZELLIDJA S.A",
-      "change_pct": -5.09,
-      "price": 313.05
+      "name": "IB MAROC.COM",
+      "change_pct": -4.06,
+      "price": 58.4
     },
     {
-      "name": "S.M MONETIQUE",
-      "change_pct": -3.41,
-      "price": 510.0
+      "name": "MED PAPER",
+      "change_pct": -3.4,
+      "price": 27.0
     },
     {
-      "name": "SOCIETE DES BOISSONS DU MAROC",
-      "change_pct": -3.23,
-      "price": 2069.0
+      "name": "INVOLYS",
+      "change_pct": -2.27,
+      "price": 129.0
     },
     {
-      "name": "SALAFIN",
-      "change_pct": -1.96,
-      "price": 439.2
+      "name": "TAQA MOROCCO",
+      "change_pct": -2.15,
+      "price": 1820.0
     },
     {
-      "name": "STOKVIS NORD AFRIQUE",
-      "change_pct": -1.64,
-      "price": 70.23
+      "name": "DOUJA PROM ADDOHA",
+      "change_pct": -1.81,
+      "price": 36.8
     }
   ]
 }
