@@ -1,59 +1,59 @@
 {
-  "updated_at": "2026-08-24T00:00:00+00:00",
-  "source_last_update_label": "lundi 24 août 2026",
+  "updated_at": "2026-08-27T00:00:00+00:00",
+  "source_last_update_label": "jeudi 27 août 2026",
   "source": "casablancabourse.com (site tiers, calculé depuis le tableau complet)",
   "top_hausses": [
     {
-      "name": "SMI",
-      "change_pct": 6.01,
-      "price": 7103.0
+      "name": "STROC INDUSTRIE",
+      "change_pct": 9.97,
+      "price": 202.35
     },
     {
-      "name": "MANAGEM",
-      "change_pct": 5.22,
-      "price": 1895.0
+      "name": "M2M Group",
+      "change_pct": 5.2,
+      "price": 421.85
     },
     {
-      "name": "RESIDENCES DAR SAADA",
-      "change_pct": 5.08,
-      "price": 186.0
+      "name": "SOCIETE DES BOISSONS DU MAROC",
+      "change_pct": 3.19,
+      "price": 2135.0
     },
     {
-      "name": "REBAB COMPANY",
-      "change_pct": 4.17,
-      "price": 104.9
+      "name": "IB MAROC.COM",
+      "change_pct": 3.07,
+      "price": 60.19
     },
     {
-      "name": "STOKVIS NORD AFRIQUE",
-      "change_pct": 2.81,
-      "price": 72.2
+      "name": "CASH PLUS S.A",
+      "change_pct": 2.23,
+      "price": 253.9
     }
   ],
   "top_baisses": [
     {
-      "name": "IB MAROC.COM",
-      "change_pct": -4.06,
-      "price": 58.4
+      "name": "PROMOPHARM S.A.",
+      "change_pct": -5.92,
+      "price": 1223.0
     },
     {
-      "name": "MED PAPER",
-      "change_pct": -3.4,
-      "price": 27.0
+      "name": "Holcim Maroc S.A",
+      "change_pct": -2.38,
+      "price": 1766.0
     },
     {
-      "name": "INVOLYS",
-      "change_pct": -2.27,
-      "price": 129.0
+      "name": "FENIE BROSSETTE",
+      "change_pct": -1.91,
+      "price": 405.1
     },
     {
-      "name": "TAQA MOROCCO",
-      "change_pct": -2.15,
-      "price": 1820.0
+      "name": "MANAGEM",
+      "change_pct": -1.85,
+      "price": 1860.0
     },
     {
-      "name": "DOUJA PROM ADDOHA",
-      "change_pct": -1.81,
-      "price": 36.8
+      "name": "UNIMER",
+      "change_pct": -1.73,
+      "price": 170.0
     }
   ]
 }
