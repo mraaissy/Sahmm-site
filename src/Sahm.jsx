@@ -165,6 +165,73 @@ const derniereCloture = {
 // au plus ancien. Le premier élément du tableau est le plus récent.
 const morningBriefs = [
   {
+    date: "2026-08-28",
+    pdfUrl: "/assets/briefs/2026-08-28.pdf",
+    dateLabel: "28/08/2026",
+    titre: "Le MASI recule, les mines sous pression",
+    resumeCourt:
+      "Le MASI cède 0,40% jeudi à 19 046,92 points, pénalisé par le compartiment Mines (-1,59%), tandis que les Ingénieries et biens d'équipement industriels signent la meilleure performance sectorielle (+8,29%). CFG Bank publie un PNB en hausse de 6% au premier semestre, CMGP Group un chiffre d'affaires en bond de 41,7%. Nvidia bondit de 8,7% après des prévisions de croissance rassurantes, Wall Street signe sa meilleure séance depuis début août.",
+    sections: [
+      {
+        titre: "MARCHÉ MAROCAIN",
+        items: [
+          {
+            tag: "MAROC | BOURSE DE CASABLANCA",
+            titre: "Le MASI recule, les mines sous pression",
+            texte:
+              "La Bourse de Casablanca a clôturé la séance de jeudi en baisse, le MASI cédant 0,40% à 19.046,92 points, après avoir touché 19.075,49 points à l'ouverture. Le MASI 20 a reculé de 0,36% à 1.362,56 points et le MASI ESG a plus nettement chuté de 0,82% à 1.422,28 points. Les petites et moyennes capitalisations ont mieux résisté, le MASI Mid and Small Cap limitant son repli à 0,06% à 1.816,40 points. Le compartiment Mines a enregistré la plus forte contraction sectorielle (-1,59%), pénalisé notamment par Promopharm (-5,92% à 1.223 DH) et Holcim Maroc (-2,38% à 1.766 DH). À l'inverse, les Ingénieries et biens d'équipement industriels ont signé la meilleure performance sectorielle (+8,29%). La capitalisation boursière globale s'établit à 1.126,8 milliards de dirhams, pour un volume global de 409,7 millions de dirhams.",
+          },
+        ],
+      },
+      {
+        titre: "ACTUALITÉS DES SOCIÉTÉS COTÉES",
+        items: [
+          {
+            tag: "MAROC | CFG BANK",
+            titre: "PNB en hausse de 6%, malgré le repli des activités de marché",
+            texte:
+              "CFG Bank a publié un produit net bancaire consolidé de 634 MDH au premier semestre 2026, en progression de 6% sur un an, porté par un PNB récurrent (banque commerciale et gestion d'épargne) en forte hausse de 18% à 549 MDH, dont une marge d'intérêt de 316 MDH (+29%). À l'inverse, le PNB lié aux marchés financiers a chuté de 36% à 85 MDH, pénalisé par des marchés actions et obligataire moins porteurs sur fond de tensions géopolitiques, après un premier semestre 2025 exceptionnel. Le résultat brut d'exploitation progresse plus vite que le PNB (+18% à 354 MDH), grâce à une bonne maîtrise des charges. Les encours de crédits bondissent de 20% sur un an à 20,6 MMDH, tirés par le segment Entreprises, tandis que les dépôts de la clientèle progressent de 17% à 22,1 MMDH. La banque a par ailleurs ouvert une 19e agence à Casablanca en avril, avec 6 autres en cours de construction d'ici 2028.",
+          },
+          {
+            tag: "MAROC | CMGP GROUP",
+            titre: "Chiffre d'affaires en hausse de 41,7% au premier semestre",
+            texte:
+              "CMGP Group a réalisé un chiffre d'affaires consolidé de 1.588 MDH au premier semestre 2026, en bond de 41,7% sur un an (+8,7% à périmètre comparable), porté par la dynamique agricole et l'intégration des nouvelles filiales CPCM, Agrosem et Sodipire, dont la contribution cumulée progresse de 27,2% en proforma. Dans l'agrofourniture, les films plastiques bondissent de 73,8%, les engrais de 19,4% et les produits phytosanitaires de 5,6%. Les activités hors agriculture (chimie industrielle, infrastructures) progressent de 9,4% en proforma. Les investissements ont atteint 73 MDH sur le semestre (contre 22 MDH un an plus tôt), notamment liés à l'acquisition de Sodipire, portant l'endettement net à 1.075 MDH contre 949 MDH fin 2025. Le groupe se dit confiant pour le second semestre, fort d'un carnet de commandes solide.",
+          },
+          {
+            tag: "MAROC | IMMORENTE INVEST",
+            titre: "Activité en progression, guidance 2026 maintenue",
+            texte:
+              "Immorente Invest a généré des produits immobiliers de 21,8 MDH au deuxième trimestre 2026 (+8% sur un an), portant le cumul semestriel à 43,1 MDH (+9%), porté par l'élargissement du périmètre après la livraison de l'usine Skylla fin 2025. Le chiffre d'affaires consolidé IFRS du trimestre s'établit à 21,3 MDH (+1%). Le portefeuille reste dominé par l'industriel (51%), devant les bureaux (29%), la santé (16%) et le commerce (4%), sans nouvel investissement sur le trimestre. Le ratio Loan to Value ressort à 28% à fin juin, pour une dette financière brute de 370 MDH et une trésorerie de 13,4 MDH. La société maintient sa guidance 2026 d'un FFO de 5,5 DH par action, après le versement d'un deuxième rendement trimestriel de 2,5 DH par action le 3 juillet.",
+          },
+        ],
+      },
+      {
+        titre: "MARCHÉS INTERNATIONAUX",
+        items: [
+          {
+            tag: "USA | WALL STREET",
+            titre: "Wall Street bondit, portée par Nvidia et Salesforce",
+            texte:
+              "La Bourse de New York a signé jeudi sa meilleure séance depuis début août, portée par des résultats trimestriels exceptionnels dans la tech. Le Nasdaq Composite a bondi de 1,57% à 26.541,35 points, le S&P 500 a progressé de 0,72% à 7.730,99 points, se rapprochant de son record du mois, et le Dow Jones a gagné 0,20% à 53.569,44 points. Les rendements obligataires à 10 ans se sont légèrement tendus à 4,66%, contre 4,65% la veille.",
+          },
+          {
+            tag: "USA | NVIDIA",
+            titre: "L'action bondit de 8,7% après des prévisions de croissance solides",
+            texte:
+              "Nvidia a de nouveau largement dépassé les attentes du marché, avec un chiffre d'affaires trimestriel plus que doublé sur un an et surtout des prévisions de croissance jugées rassurantes pour l'ensemble du secteur de l'intelligence artificielle : le concepteur de puces anticipe désormais une croissance de son chiffre d'affaires de 70% pour l'exercice 2028, contre 44% attendus par le consensus. L'action a bondi de 8,7% dans la foulée, entraînant dans son sillage les valeurs liées aux semi-conducteurs, avec Broadcom (+4,5%), Intel (+4%) et SK Hynix (+2%). Ces résultats ont contribué à apaiser les inquiétudes qui pesaient récemment sur l'ensemble de l'industrie de l'IA.",
+          },
+          {
+            tag: "USA | FED",
+            titre: "Un responsable de la Fed plaide pour une inflation encore trop élevée",
+            texte:
+              "Depuis le symposium annuel de Jackson Hole, le président de la Fed de Kansas City, Jeffrey Schmid, a estimé jeudi que l'inflation restait « persistante » et « tenace » aux États-Unis, sans toutefois appeler explicitement à une hausse des taux. Tous les regards se tournent désormais vers la prise de parole du président de la Fed, Kevin Warsh, attendue vendredi dans le cadre du symposium.",
+          },
+        ],
+      },
+    ],
+  },
+  {
     date: "2026-08-27",
     pdfUrl: "/assets/briefs/2026-08-27.pdf",
     dateLabel: "27/08/2026",
