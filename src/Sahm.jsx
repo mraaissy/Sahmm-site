@@ -127,14 +127,14 @@ function getLastTradingDayLabel() {
 // accessible) — séance du mardi 7 juillet 2026
 const seanceDate = getLastTradingDayLabel();
 const seanceIndices = [
-  { nom: "MASI", valeur: "18 931,06", var: -0.61, ytd: 0.45 },
-  { nom: "MASI ESG", valeur: "1 409,94", var: -0.87, ytd: 12.66 },
-  { nom: "MASI 20", valeur: "1 358,68", var: -0.28, ytd: -8.55 },
+  { nom: "MASI", valeur: "18 652,72", var: -1.47, ytd: -1.03 },
+  { nom: "MASI ESG", valeur: "1 380,35", var: -2.10, ytd: 10.29 },
+  { nom: "MASI 20", valeur: "1 341,93", var: -1.23, ytd: -9.67 },
 ];
 const seanceStats = {
   capitalisation: "1 095,90 MMDH",
-  volume: "580,11 MDH",
-  volumeCentral: "580,11 MDH",
+  volume: "421,51 MDH",
+  volumeCentral: "421,51 MDH",
   volumeBlocs: "0 MDH (aucun échange sur le marché de blocs)",
   hausses: null,
   baisses: null,
@@ -146,16 +146,16 @@ const seanceStats = {
 // qui eux restent en direct). À mettre à jour une fois par jour, en fin de
 // séance, avec les vrais chiffres de clôture transmis manuellement.
 const derniereCloture = {
-  date: "28 août 2026",
-  masiValeur: "18 931,06",
-  masiVar: -0.61,
-  volume: "580,11 MDH",
-  meilleureHausse: { nom: "PROMOPHARM S.A.", var: 5.97 },
-  plusForteBaisse: { nom: "REBAB COMPANY", var: -4.76 },
+  date: "31 août 2026",
+  masiValeur: "18 652,72",
+  masiVar: -1.47,
+  volume: "421,51 MDH",
+  meilleureHausse: { nom: "REBAB COMPANY", var: 4.90 },
+  plusForteBaisse: { nom: "STROC INDUSTRIE", var: -9.98 },
   topActifs: [
-    { nom: "Attijariwafa Bank", volume: 288.84 },
-    { nom: "Managem", volume: 63.32 },
-    { nom: "Maroc Telecom", volume: 39.72 },
+    { nom: "Managem", volume: 94.18 },
+    { nom: "Maroc Telecom", volume: 50.36 },
+    { nom: "Marsa Maroc", volume: 39.47 },
   ],
   topActifsUnite: " MDH",
 };

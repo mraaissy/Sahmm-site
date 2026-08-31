@@ -1,59 +1,59 @@
 {
-  "updated_at": "2026-08-28T00:00:00+00:00",
-  "source_last_update_label": "vendredi 28 août 2026",
+  "updated_at": "2026-08-31T00:00:00+00:00",
+  "source_last_update_label": "lundi 31 août 2026",
   "source": "casablancabourse.com (site tiers, calculé depuis le tableau complet)",
   "top_hausses": [
     {
-      "name": "PROMOPHARM S.A.",
-      "change_pct": 5.97,
-      "price": 1296.0
+      "name": "REBAB COMPANY",
+      "change_pct": 4.9,
+      "price": 104.9
     },
     {
-      "name": "MAGHREBAIL",
-      "change_pct": 3.37,
-      "price": 916.9
-    },
-    {
-      "name": "INVOLYS",
+      "name": "HPS",
       "change_pct": 3.06,
-      "price": 132.95
+      "price": 670.0
     },
     {
-      "name": "ZELLIDJA S.A",
-      "change_pct": 3.0,
-      "price": 319.8
+      "name": "LESIEUR CRISTAL",
+      "change_pct": 2.56,
+      "price": 320.0
     },
     {
-      "name": "ALUMINIUM DU MAROC",
-      "change_pct": 2.87,
-      "price": 1901.0
+      "name": "ATLANTASANAD",
+      "change_pct": 2.3,
+      "price": 127.0
+    },
+    {
+      "name": "CIH",
+      "change_pct": 2.17,
+      "price": 353.5
     }
   ],
   "top_baisses": [
     {
-      "name": "REBAB COMPANY",
-      "change_pct": -4.76,
-      "price": 100.0
+      "name": "STROC INDUSTRIE",
+      "change_pct": -9.98,
+      "price": 184.55
     },
     {
-      "name": "CASH PLUS S.A",
-      "change_pct": -3.43,
-      "price": 245.2
+      "name": "TOTALENERGIES MARKETING MAROC",
+      "change_pct": -8.97,
+      "price": 1411.0
     },
     {
-      "name": "FENIE BROSSETTE",
-      "change_pct": -3.23,
-      "price": 392.0
+      "name": "MICRODATA",
+      "change_pct": -8.44,
+      "price": 705.0
     },
     {
-      "name": "ATLANTASANAD",
-      "change_pct": -3.01,
-      "price": 124.15
+      "name": "BALIMA",
+      "change_pct": -5.98,
+      "price": 188.05
     },
     {
-      "name": "SMI",
-      "change_pct": -2.82,
-      "price": 6900.0
+      "name": "AGMA",
+      "change_pct": -5.89,
+      "price": 6680.0
     }
   ]
 }
