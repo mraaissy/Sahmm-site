@@ -165,6 +165,121 @@ const derniereCloture = {
 // au plus ancien. Le premier élément du tableau est le plus récent.
 const morningBriefs = [
   {
+    date: "2026-08-31",
+    pdfUrl: "/assets/briefs/2026-08-31.pdf",
+    dateLabel: "31/08/2026",
+    titre: "Le MASI recule pour une 2e séance, les échanges bondissent",
+    resumeCourt:
+      "Le MASI recule pour une 2e séance consécutive, cédant 0,61% vendredi à 18 931,06 points, tandis que les échanges bondissent à plus de 580 MDH contre 409,7 MDH la veille. BMCI publie un résultat net consolidé en bond de 62,4% au premier semestre, Bank of Africa un PNB en hausse de 1,5%. Wall Street termine en léger repli après le premier grand discours de Kevin Warsh à la tête de la Fed, tandis que le CAC 40 termine la semaine sur une note positive.",
+    sections: [
+      {
+        titre: "MARCHÉ MAROCAIN",
+        items: [
+          {
+            tag: "MAROC | BOURSE DE CASABLANCA",
+            titre: "Le MASI recule pour une 2e séance, les échanges bondissent",
+            texte:
+              "La Bourse de Casablanca a achevé la séance de vendredi sur une note négative, le MASI cédant 0,61% à 18.931,06 points, marquant un deuxième repli consécutif. Le MASI 20 a reculé de 0,28% à 1.358,68 points. Le marché a été marqué par des évolutions contrastées selon les secteurs : la Sylviculture et le papier a enregistré la plus forte baisse sectorielle (-2,61%). Les échanges ont nettement bondi, dépassant les 580 millions de dirhams sur la séance, contre 409,7 millions la veille. La capitalisation boursière globale s'établit à 1.118,2 milliards de dirhams.",
+          },
+        ],
+      },
+      {
+        titre: "ACTUALITÉS DES SOCIÉTÉS COTÉES",
+        items: [
+          {
+            tag: "MAROC | BMCI",
+            titre: "Résultat net consolidé en bond de 62,4%",
+            texte:
+              "BMCI a réalisé un résultat net consolidé de 354 MDH au premier semestre 2026 (contre 218 MDH un an plus tôt, +62,4%), porté avant tout par un net recul du coût du risque (-62,3% à 150 MDH). Le produit net bancaire progresse plus modérément (+0,9% à 2,01 MMDH), la marge d'intérêt gagnant 3,4% tandis que les commissions et le résultat des activités de marché reculent légèrement. Le coefficient d'exploitation s'améliore à 59,2%. Les crédits à la clientèle progressent de 0,9% à 59,37 MMDH et les dépôts de 2,2% à 51,67 MMDH. Fitch a attribué à la banque une note long terme AA+(mar) avec perspective négative en juin.",
+          },
+          {
+            tag: "MAROC | BANK OF AFRICA",
+            titre: "PNB consolidé en hausse de 1,5%, dynamique commerciale solide",
+            texte:
+              "Bank of Africa affiche un PNB consolidé de 10,502 MMDH au premier semestre 2026 (+1,5% sur un an), avec une accélération au T2 seul (+4,9%). L'activité commerciale reste bien orientée : les crédits à la clientèle consolidés progressent de 4,3% à 243,5 MMDH et les dépôts de 4,1% à 286,5 MMDH. La banque a été désignée « Meilleure Banque d'Afrique du Nord 2026 » par The African Banker, pour la deuxième fois depuis 2023.",
+          },
+          {
+            tag: "MAROC | TOTALENERGIES MARKETING MAROC",
+            titre: "Chiffre d'affaires en hausse de 32%, malgré des volumes en repli",
+            texte:
+              "TotalEnergies Marketing Maroc a réalisé un chiffre d'affaires consolidé de 9,96 MMDH au premier semestre 2026, en progression de 32% sur un an, porté par le niveau élevé des cours pétroliers internationaux. Les volumes commercialisés reculent cependant de 3% à 852.000 tonnes, sur fond de repli de la demande. La société souligne que le chiffre d'affaires n'est pas, à lui seul, un indicateur pertinent du secteur compte tenu de sa forte sensibilité aux cours mondiaux. La situation nette créditrice s'établit à 290,6 MDH à fin juin, pour un réseau de 386 stations-service, dont 114 solarisées.",
+          },
+          {
+            tag: "MAROC | MARSA MAROC",
+            titre: "Chiffre d'affaires en hausse de 13%, investissements en forte accélération",
+            texte:
+              "Marsa Maroc a réalisé un chiffre d'affaires consolidé de 3,214 MMDH au premier semestre 2026 (+13%), porté par une hausse de 3% du trafic manutentionné à 34,5 millions de tonnes. Le trafic domestique de conteneurs progresse de 7%, tandis que le transbordement recule de 4% dans le cadre d'une stratégie de spécialisation des terminaux. Les investissements bondissent de 166% à 3,433 MMDH, principalement liés au développement de Nador West Med, dont les nouvelles entités (Nador Container Terminal, West Med Towage) intègrent désormais le périmètre. Le groupe conserve une trésorerie nette positive.",
+          },
+          {
+            tag: "MAROC | RISMA",
+            titre: "Chiffre d'affaires en hausse de 15%, désendettement après la cession du Sofitel",
+            texte:
+              "Risma a réalisé un chiffre d'affaires consolidé de 863 MDH au premier semestre 2026 (+15% en pro forma), avec un taux d'occupation en progression de 5 points à 64%. La cession du Sofitel Casablanca Tour Blanche (450 MDH), finalisée en mai, a permis de ramener la dette nette à 1,029 MMDH contre 1,444 MMDH au T1. Le groupe est par ailleurs devenu gestionnaire hôtelier via un contrat-cadre avec Accor portant sur 21 hôtels, tandis que le projet d'acquisition de l'hôtel Bavaro à Dakhla a été abandonné.",
+          },
+          {
+            tag: "MAROC | HPS",
+            titre: "Produits d'exploitation en hausse de 13,2%, portés par le Paiement",
+            texte:
+              "HPS affiche des produits d'exploitation consolidés de 761 MDH au premier semestre 2026 (+13,2%), avec une accélération au T2 (+15,3%). L'activité Paiement (y compris CR2) progresse de 18,7% et représente 88,3% des revenus, portée par les projets PowerCARD/BankWorld (+36,3%) et l'Upselling (+59,7%). L'Asie et les Amériques représentent désormais 28,1% des revenus, contre 17,5% un an plus tôt. Le backlog atteint 1.737 MDH (+3,9%). Le groupe confirme ses objectifs 2026 d'une croissance organique de 12 à 17%.",
+          },
+          {
+            tag: "MAROC | VICENNE",
+            titre: "Chiffre d'affaires en hausse de 12%, objectifs 2026 confirmés",
+            texte:
+              "Vicenne a réalisé un chiffre d'affaires consolidé de 591 MDH au premier semestre 2026 (+12%), avec une accélération marquée au T2 (+29% à 395 MDH), portée par la Business Unit Équipement (+41% au trimestre). La société affiche une trésorerie nette positive de 211 MDH, contre un endettement net un an plus tôt, grâce à l'augmentation de capital liée à son introduction en bourse. Vicenne confirme son objectif de chiffre d'affaires annuel autour de 1,2 MMDH.",
+          },
+          {
+            tag: "MAROC | SONASID",
+            titre: "Chiffre d'affaires stable, investissements en hausse de 48%",
+            texte:
+              "Sonasid affiche un chiffre d'affaires consolidé stable de 3,051 MMDH au premier semestre 2026, avec un net rebond au T2 (chiffre d'affaires social +12%) après un T1 pénalisé par une pluviométrie exceptionnelle. Les investissements bondissent de 48% à 149 MDH, sur une enveloppe totale de 514 MDH prévue pour 2026, notamment liés à un nouveau four à Nador. Le groupe conserve une trésorerie nette positive de 310 MDH.",
+          },
+          {
+            tag: "MAROC | SANLAM MAROC",
+            titre: "Chiffre d'affaires en hausse de 19,6%",
+            texte:
+              "Sanlam Maroc a réalisé un chiffre d'affaires global de 4,103 MMDH au premier semestre 2026, en progression de 19,6% sur un an, porté par une contribution exceptionnelle de la branche Vie et une hausse de 5,9% du Non-Vie. Les provisions techniques nettes progressent de 7,4% à 16,786 MMDH et les placements affectés aux opérations d'assurance de 5,1% à 18,880 MMDH.",
+          },
+          {
+            tag: "MAROC | HOLCIM MAROC",
+            titre: "Chiffre d'affaires quasi stable au S1, net rebond au T2",
+            texte:
+              "Holcim Maroc affiche un chiffre d'affaires consolidé quasi stable sur le semestre (-0,2%), la pluviométrie exceptionnelle de début d'année n'ayant été que partiellement compensée. Le T2 seul ressort toutefois en nette hausse (+12,7% à 2,378 MMDH), porté par une demande nationale de ciment en progression de 8%. L'endettement net atteint 5,093 MMDH (+4,4%). Le groupe reste confiant pour le second semestre, porté par les investissements liés à la Coupe du Monde 2030.",
+          },
+          {
+            tag: "MAROC | MED PAPER",
+            titre: "Chiffre d'affaires en repli, endettement en baisse",
+            texte:
+              "Med Paper affiche un chiffre d'affaires de 39 MDH au premier semestre 2026, en recul par rapport aux 42,4 MDH de l'an dernier. L'endettement diminue en revanche de 8,8 MDH sur un an, à 105,3 MDH. La société dit maintenir le cap sur sa stratégie et rester confiante dans les opportunités du marché marocain, notamment avec la mise en œuvre de la loi sur les préférences nationales.",
+          },
+        ],
+      },
+      {
+        titre: "MARCHÉS INTERNATIONAUX",
+        items: [
+          {
+            tag: "USA | WALL STREET",
+            titre: "Wall Street termine en léger repli après le discours de Kevin Warsh",
+            texte:
+              "La Bourse de New York a clôturé vendredi en légère baisse, les investisseurs digérant le premier grand discours de Kevin Warsh en tant que président de la Fed lors du symposium annuel de Jackson Hole. Le S&P 500 a cédé 0,25% à 7.711,76 points, le Nasdaq Composite a reculé de 0,52% à 26.402,42 points, pénalisé par les valeurs des semi-conducteurs, tandis que le Dow Jones a quasiment terminé stable (-0,02%) à 53.559,99 points. Sur l'ensemble de la semaine, les trois indices affichent néanmoins une performance positive : le S&P 500 gagne 0,5%, le Nasdaq 0,9% et le Dow 0,5%, sa première semaine de hausse en trois semaines.",
+          },
+          {
+            tag: "USA | FED",
+            titre: "Kevin Warsh maintient la pression sur l'inflation, les paris sur une hausse des taux se renforcent",
+            texte:
+              "Lors de son premier discours à Jackson Hole en tant que président de la Fed, Kevin Warsh a réaffirmé que la lutte contre l'inflation restait la priorité absolue de la banque centrale, jugeant que les récentes données, bien que meilleures que prévu, ne montraient pas d'amélioration significative de la tendance sous-jacente. Ces propos, perçus comme légèrement plus fermes qu'attendu par le marché obligataire, ont conduit les investisseurs à renforcer leurs paris sur une possible hausse des taux dès septembre, les rendements des bons du Trésor à 2 ans bondissant d'environ 8 points de base dans la foulée. Les traders restent désormais partagés entre un statu quo monétaire et un relèvement des taux lors de la prochaine réunion de la Fed.",
+          },
+          {
+            tag: "EUROPE | CAC 40",
+            titre: "La Bourse de Paris termine la semaine sur une note positive",
+            texte:
+              "Le CAC 40 a signé une nouvelle séance de hausse vendredi (+1,08%), portant l'indice parisien à effacer une bonne partie de ses pertes récentes, dans un mouvement plus marqué que celui observé sur les autres places européennes.",
+          },
+        ],
+      },
+    ],
+  },
+  {
     date: "2026-08-28",
     pdfUrl: "/assets/briefs/2026-08-28.pdf",
     dateLabel: "28/08/2026",
