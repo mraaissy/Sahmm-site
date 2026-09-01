@@ -1,6 +1,14 @@
 {
   "briefs": [
     {
+      "date": "2026-09-01",
+      "pdfUrl": "/assets/briefs/2026-09-01.pdf",
+      "dateLabel": "01/09/2026",
+      "badge": "MORNING BRIEF",
+      "titre": "Le MASI chute de 1,47%, les valeurs industrielles sous pression",
+      "resumeCourt": "Le MASI chute de 1,47% lundi à 18 652,72 points, une troisième séance de baisse consécutive, plombé par les Ingénieries et biens d'équipement industriels (-8,44%), les Mines (-4,31%) et le Pétrole et gaz (-3,75%). BCP publie un PNB en repli de 3,2% au premier semestre, Akdital un chiffre d'affaires en hausse de 19%. Wall Street termine août en baisse après une flambée du pétrole liée aux tensions Iran-États-Unis, malgré un bilan mensuel très positif."
+    },
+    {
       "date": "2026-08-31",
       "pdfUrl": "/assets/briefs/2026-08-31.pdf",
       "dateLabel": "31/08/2026",

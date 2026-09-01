@@ -165,6 +165,97 @@ const derniereCloture = {
 // au plus ancien. Le premier élément du tableau est le plus récent.
 const morningBriefs = [
   {
+    date: "2026-09-01",
+    pdfUrl: "/assets/briefs/2026-09-01.pdf",
+    dateLabel: "01/09/2026",
+    titre: "Le MASI chute de 1,47%, les valeurs industrielles sous pression",
+    resumeCourt:
+      "Le MASI chute de 1,47% lundi à 18 652,72 points, une troisième séance de baisse consécutive, plombé par les Ingénieries et biens d'équipement industriels (-8,44%), les Mines (-4,31%) et le Pétrole et gaz (-3,75%). BCP publie un PNB en repli de 3,2% au premier semestre, Akdital un chiffre d'affaires en hausse de 19%. Wall Street termine août en baisse après une flambée du pétrole liée aux tensions Iran-États-Unis, malgré un bilan mensuel très positif.",
+    sections: [
+      {
+        titre: "MARCHÉ MAROCAIN",
+        items: [
+          {
+            tag: "MAROC | BOURSE DE CASABLANCA",
+            titre: "Le MASI chute de 1,47%, les valeurs industrielles sous pression",
+            texte:
+              "La Bourse de Casablanca a clôturé la séance de lundi dans le rouge, le MASI cédant 1,47% à 18.652,72 points, une troisième séance de baisse consécutive. Le MASI 20 a reculé de 1,23% à 1.341,93 points et le MASI ESG a plus nettement chuté de 2,1% à 1.380,35 points, tandis que le MASI Mid and Small Cap a mieux résisté (-0,05% à 1.814,22 points). La pression vendeuse a été particulièrement marquée sur les Ingénieries et biens d'équipement industriels (-8,44%), plombées par Stroc Industrie (-9,98% à 184,55 DH) et Microdata (-8,44% à 705 DH). Les Mines (-4,31%) et le Pétrole et gaz (-3,75%) ont également pesé sur l'indice, TotalEnergies Marketing Maroc reculant de 8,97% à 1.411 DH au lendemain de la publication de ses résultats semestriels. À l'inverse, les Matériels, logiciels et services informatiques ont progressé de 0,91%.",
+          },
+        ],
+      },
+      {
+        titre: "ACTUALITÉS DES SOCIÉTÉS COTÉES",
+        items: [
+          {
+            tag: "MAROC | BCP",
+            titre: "PNB en recul de 3,2%, malgré une dynamique commerciale solide",
+            texte:
+              "Le Groupe Banque Centrale Populaire affiche un produit net bancaire consolidé en repli de 3,2% à 13,5 MMDH au premier semestre 2026, pénalisé par la contraction du résultat des activités de marché après une performance exceptionnelle un an plus tôt. Les métiers bancaires cœurs restent en revanche bien orientés : les dépôts de la clientèle progressent de 9% à 429,5 MMDH et les crédits bruts de 5,7% à 337,5 MMDH, tandis que la marge d'intérêt gagne 5,9% et la marge sur commissions 9,1%.",
+          },
+          {
+            tag: "MAROC | AKDITAL",
+            titre: "Chiffre d'affaires en hausse de 19%, poursuite de l'expansion",
+            texte:
+              "Akdital a réalisé un chiffre d'affaires consolidé de 2,482 MMDH au premier semestre 2026 (+19%), porté par l'ouverture de quatre nouveaux établissements au T2 (dont trois à Casablanca) portant le réseau à 45 établissements et 4.864 lits. Les admissions atteignent 590.842 sur le semestre, 71% étant réalisées hors de l'axe Casablanca-Rabat. L'endettement net progresse à 4,916 MMDH (+15%), incluant une émission obligataire de 300 MDH. Le groupe vise 59 établissements d'ici 2028, avec une expansion en Arabie saoudite soutenue par l'entrée d'Arab Invest au capital de sa holding internationale.",
+          },
+          {
+            tag: "MAROC | CMT",
+            titre: "Chiffre d'affaires en bond de 74%, trésorerie nette de 393 MDH",
+            texte:
+              "Compagnie Minière de Touissit a réalisé un chiffre d'affaires consolidé de 596 MDH au premier semestre 2026 (+74%), porté non par les volumes mais par la flambée des cours des métaux (zinc +22%, argent +141%). La structure financière s'est nettement renforcée, avec une trésorerie nette positive de 393 MDH contre un endettement net de 70 MDH fin 2025, grâce notamment au règlement d'accords transactionnels avec OMM et Shaba Metals pour 47 M$ au total.",
+          },
+          {
+            tag: "MAROC | TGCC",
+            titre: "Produit d'exploitation en repli, carnet de commandes en forte hausse",
+            texte:
+              "TGCC affiche un produit d'exploitation consolidé de 5,24 MMDH au premier semestre 2026 (-5,3%), pénalisé par les conditions climatiques et le démarrage encore progressif de plusieurs grands chantiers, avec un impact attendu sur la rentabilité semestrielle. Le T2 seul renoue toutefois avec la croissance (+1,2%). Le carnet de commandes bondit à 28,4 MMDH (contre 19,1 MMDH un an plus tôt), porté notamment par le nouveau terminal de l'aéroport Mohammed V et la LGV Casablanca-Marrakech. L'endettement net progresse à 2,08 MMDH, lié à la hausse du BFR sur les chantiers en lancement.",
+          },
+          {
+            tag: "MAROC | SGTM",
+            titre: "Revenus en baisse de 7,2%, carnet de commandes proche de 35 MMDH",
+            texte:
+              "SGTM affiche un chiffre d'affaires consolidé de 6,601 MMDH au premier semestre 2026 (-7,2%), le groupe expliquant ce recul par le phasage entre les grands projets livrés en 2025 (UM6P, stades de Rabat) et la montée en charge encore progressive de nouveaux chantiers comme le terminal de l'aéroport Mohammed V. Les investissements bondissent de 47,3% à 377 MDH et l'endettement net grimpe à 2,4 MMDH. Le carnet de commandes reste élevé à 34,8 MMDH, dominé à 74,4% par le secteur public.",
+          },
+          {
+            tag: "MAROC | JET CONTRACTORS",
+            titre: "Chiffre d'affaires en hausse de 10%, carnet de commandes en forte progression",
+            texte:
+              "Jet Contractors a réalisé un chiffre d'affaires consolidé de 1,607 MMDH au premier semestre 2026 (+10%), avec une accélération au T2 (+15%). Le carnet de commandes bondit de 39% à 12,8 MMDH, l'export en représentant 30%, porté par des chantiers comme la LGV Kénitra-Marrakech et l'extension de l'aéroport de Marrakech. L'endettement net progresse de 28% à 2,066 MMDH, lié aux préfinancements des nouveaux chantiers.",
+          },
+          {
+            tag: "MAROC | RÉSIDENCES DAR SAADA",
+            titre: "Chiffre d'affaires en hausse de 25%, préventes en forte accélération",
+            texte:
+              "Résidences Dar Saada affiche un chiffre d'affaires consolidé de 202 MDH au premier semestre 2026 (+25%), avec des préventes bondissant à 16.168 unités (contre 1.132 un an plus tôt), portées par de nouvelles conventions de relogement à Marrakech (plus de 15.400 unités). Le groupe évalue son potentiel de chiffre d'affaires en développement à 12,5 MMDH. L'endettement global s'établit à 1,93 MMDH à fin juin, après un remboursement de 340 MDH de dettes financières sur le semestre.",
+          },
+        ],
+      },
+      {
+        titre: "MARCHÉS INTERNATIONAUX",
+        items: [
+          {
+            tag: "USA | WALL STREET",
+            titre: "Wall Street termine août en baisse, pénalisée par la remontée du pétrole",
+            texte:
+              "La Bourse de New York a clôturé lundi en baisse, le Dow Jones cédant 0,70% à 53.185,90 points, le S&P 500 reculant de 0,33% à 7.686,14 points et le Nasdaq Composite abandonnant 0,12% à 26.370,89 points. Ce repli a été déclenché par une flambée des cours du pétrole après que les États-Unis ont frappé des lance-roquettes iraniens sur l'île de Larak, ravivant les tensions militaires directes entre Washington et Téhéran après plusieurs semaines d'accalmie relative. Le Brent a bondi de 2,71% à 90,49 dollars le baril et le WTI de 2,83% à 85,76 dollars, cette remontée des cours de l'énergie faisant craindre une résurgence des pressions inflationnistes susceptible de pousser la Fed vers une hausse des taux. Malgré ce repli de fin de mois, les indices affichent un bilan mensuel très positif : le Nasdaq gagne environ 3,9% sur août, le S&P 500 près de 2,6% et le Dow 1,3%, sa cinquième hausse mensuelle consécutive.",
+          },
+          {
+            tag: "MOYEN-ORIENT | IRAN",
+            titre: "Regain de tensions militaires directes entre Washington et Téhéran",
+            texte:
+              "Le commandement central américain a confirmé dimanche avoir frappé deux lance-roquettes situés sur l'île iranienne de Larak, marquant la première frappe américaine publiquement reconnue contre l'Iran depuis plusieurs semaines. Cet épisode ravive les inquiétudes entourant la sécurité du détroit d'Ormuz, corridor énergétique stratégique mondial, et contribue à la remontée des cours du pétrole observée en fin de séance de lundi.",
+          },
+          {
+            tag: "EUROPE | CAC 40 & DAX",
+            titre: "Marchés européens contrastés, l'Allemagne sous pression",
+            texte:
+              "Le CAC 40 a terminé lundi quasiment stable (+3,65 points), les investisseurs restant prudents avant la publication des chiffres d'inflation de la zone euro et une décision de la BCE en septembre désormais jugée plus incertaine par le marché. Le DAX allemand a en revanche nettement reculé, cédant 245 points à 30.538,56 points, les investisseurs intégrant progressivement la perspective d'un relèvement des taux de la BCE.",
+          },
+        ],
+      },
+    ],
+  },
+  {
     date: "2026-08-31",
     pdfUrl: "/assets/briefs/2026-08-31.pdf",
     dateLabel: "31/08/2026",
