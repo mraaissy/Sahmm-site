@@ -1,59 +1,59 @@
 {
-  "updated_at": "2026-08-31T00:00:00+00:00",
-  "source_last_update_label": "lundi 31 août 2026",
+  "updated_at": "2026-09-02T00:00:00+00:00",
+  "source_last_update_label": "mercredi 2 septembre 2026",
   "source": "casablancabourse.com (site tiers, calculé depuis le tableau complet)",
   "top_hausses": [
     {
       "name": "REBAB COMPANY",
-      "change_pct": 4.9,
-      "price": 104.9
+      "change_pct": 5.97,
+      "price": 104.5
+    },
+    {
+      "name": "SOTHEMA",
+      "change_pct": 5.83,
+      "price": 379.5
+    },
+    {
+      "name": "ZELLIDJA S.A",
+      "change_pct": 5.45,
+      "price": 319.0
     },
     {
       "name": "HPS",
-      "change_pct": 3.06,
-      "price": 670.0
+      "change_pct": 2.0,
+      "price": 663.0
     },
     {
-      "name": "LESIEUR CRISTAL",
-      "change_pct": 2.56,
-      "price": 320.0
-    },
-    {
-      "name": "ATLANTASANAD",
-      "change_pct": 2.3,
-      "price": 127.0
-    },
-    {
-      "name": "CIH",
-      "change_pct": 2.17,
-      "price": 353.5
+      "name": "CFG BANK",
+      "change_pct": 1.5,
+      "price": 203.0
     }
   ],
   "top_baisses": [
     {
-      "name": "STROC INDUSTRIE",
-      "change_pct": -9.98,
-      "price": 184.55
+      "name": "WAFA ASSURANCE",
+      "change_pct": -9.47,
+      "price": 4980.0
     },
     {
-      "name": "TOTALENERGIES MARKETING MAROC",
-      "change_pct": -8.97,
-      "price": 1411.0
+      "name": "MED PAPER",
+      "change_pct": -5.48,
+      "price": 24.5
     },
     {
-      "name": "MICRODATA",
-      "change_pct": -8.44,
-      "price": 705.0
+      "name": "CIH",
+      "change_pct": -3.09,
+      "price": 337.0
     },
     {
-      "name": "BALIMA",
-      "change_pct": -5.98,
-      "price": 188.05
+      "name": "ENNAKL",
+      "change_pct": -1.61,
+      "price": 49.0
     },
     {
-      "name": "AGMA",
-      "change_pct": -5.89,
-      "price": 6680.0
+      "name": "SNEP",
+      "change_pct": -1.55,
+      "price": 350.0
     }
   ]
 }
