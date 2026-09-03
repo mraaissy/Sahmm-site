@@ -165,6 +165,44 @@ const derniereCloture = {
 // au plus ancien. Le premier élément du tableau est le plus récent.
 const morningBriefs = [
   {
+    date: "2026-09-03",
+    pdfUrl: "/assets/briefs/2026-09-03.pdf",
+    dateLabel: "03/09/2026",
+    titre: "Le MASI recule, la pharmacie résiste",
+    resumeCourt:
+      "Le MASI cède 0,34% mercredi à 18 517,79 points, une quatrième séance de repli sur les cinq dernières, Wafa Assurance signant la plus forte baisse (-9,47%) tandis que l'Industrie pharmaceutique se distingue (+5,46%). Wall Street rebondit, portée par les grandes valeurs technologiques et Nvidia (+3%), mettant fin à trois séances de baisse, tandis que le rapport ADP confirme un ralentissement du marché du travail américain avant le NFP de vendredi.",
+    sections: [
+      {
+        titre: "MARCHÉ MAROCAIN",
+        items: [
+          {
+            tag: "MAROC | BOURSE DE CASABLANCA",
+            titre: "Le MASI recule, la pharmacie résiste",
+            texte:
+              "La Bourse de Casablanca a achevé la séance de mercredi sur une note négative, le MASI cédant 0,34% à 18.517,79 points, une quatrième séance de repli sur les cinq dernières. Le MASI 20 a reculé de 0,37% à 1.338,47 points, pour une capitalisation boursière globale de 1.088,1 milliards de dirhams et un volume d'échanges de 140 MDH. La plus forte correction sectorielle a concerné la Sylviculture et le papier (-5,48%), tandis que Wafa Assurance a signé la plus forte baisse individuelle de la séance (-9,47% à 4.980 DH), devant Med Paper (-5,48% à 24,5 DH) et CIH (-3,09% à 337 DH). À l'inverse, l'Industrie pharmaceutique s'est distinguée avec une progression de 5,46%, la meilleure performance sectorielle de la journée.",
+          },
+        ],
+      },
+      {
+        titre: "MARCHÉS INTERNATIONAUX",
+        items: [
+          {
+            tag: "USA | WALL STREET",
+            titre: "Wall Street rebondit, stoppant trois séances de baisse",
+            texte:
+              "La Bourse de New York a signé mercredi sa meilleure séance de la semaine, mettant fin à une série de trois séances consécutives de baisse. Le Dow Jones a gagné 0,56% (+295,07 points) à 53.061,95 points, le S&P 500 a progressé de 0,46% à 7.666,60 points et le Nasdaq Composite a avancé de 0,45% à 26.217,83 points. Ce rebond a été porté par les grandes valeurs technologiques, Nvidia bondissant de plus de 3%, tandis que les rendements obligataires marquaient une pause après leur récente flambée : le taux à 10 ans, qui avait touché mercredi un plus haut depuis novembre 2023 à 4,818%, s'est replié à 4,78%. Le président de la Fed de New York, John Williams, a par ailleurs tempéré les anticipations d'une hausse des taux automatique en septembre, estimant que les prochains indicateurs économiques, notamment le rapport sur l'emploi attendu vendredi, seront déterminants. Sur le pétrole, le Brent est resté proche de 95 dollars le baril, les tensions entre les États-Unis et l'Iran continuant de peser sur les approvisionnements énergétiques mondiaux.",
+          },
+          {
+            tag: "USA | EMPLOI",
+            titre: "Le rapport ADP confirme un ralentissement du marché du travail",
+            texte:
+              "Le secteur privé américain n'a créé que 38.000 emplois en août, un chiffre inférieur aux attentes du marché et au chiffre révisé de juillet, selon le rapport ADP publié mercredi. Il s'agit de la plus faible progression depuis janvier, les créations d'emplois se concentrant principalement dans la santé et l'éducation. Cette donnée renforce l'incertitude entourant la prochaine décision de la Fed, les investisseurs se tournant désormais vers le rapport officiel sur l'emploi (NFP) attendu vendredi pour arbitrer entre les risques d'inflation liés au pétrole et ceux d'un ralentissement du marché du travail.",
+          },
+        ],
+      },
+    ],
+  },
+  {
     date: "2026-09-01",
     pdfUrl: "/assets/briefs/2026-09-01.pdf",
     dateLabel: "01/09/2026",
