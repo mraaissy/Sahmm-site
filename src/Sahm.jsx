@@ -165,6 +165,55 @@ const derniereCloture = {
 // au plus ancien. Le premier élément du tableau est le plus récent.
 const morningBriefs = [
   {
+    date: "2026-09-04",
+    pdfUrl: "/assets/briefs/2026-09-04.pdf",
+    dateLabel: "04/09/2026",
+    titre: "Le MASI rebondit de 1,04% et dépasse les 18.700 points",
+    resumeCourt:
+      "Le MASI rebondit de 1,04% jeudi à 18 710,31 points, effaçant une bonne partie du recul de la veille, porté par la Sylviculture et Papier (+4,08%), AGMA (+5,99%) et Med Paper (+4,08%). Auto Hall boucle son augmentation de capital de 250 MDH. Wall Street signe sa meilleure séance depuis le 4 août après des propos rassurants du gouverneur de la Fed Christopher Waller sur l'inflation, tandis que les marchés asiatiques évoluent en ordre dispersé.",
+    sections: [
+      {
+        titre: "MARCHÉ MAROCAIN",
+        items: [
+          {
+            tag: "MAROC | BOURSE DE CASABLANCA",
+            titre: "Le MASI rebondit de 1,04% et dépasse les 18.700 points",
+            texte:
+              "La Bourse de Casablanca a clôturé la séance de jeudi sur une note nettement positive, portée par un regain des achats sur plusieurs compartiments de la cote. Le MASI a gagné 1,04% pour terminer à 18.710,31 points, effaçant une bonne partie du recul de la veille, et le MASI 20 a progressé de 1,06% à 1.352,72 points. La capitalisation boursière globale s'établit à 1.100,3 milliards de dirhams, pour un volume d'échanges de 546,3 MDH. Sur le plan sectoriel, la Sylviculture et Papier s'est distinguée avec une progression de 4,08%, la meilleure performance de la journée. Parmi les valeurs les plus recherchées, AGMA a bondi de 5,99% à 7.080 DH, Med Paper a avancé de 4,08% à 25,5 DH et CFG Bank a complété le podium avec un gain de 3,40% à 209,9 DH.",
+          },
+        ],
+      },
+      {
+        titre: "ACTUALITÉS DES SOCIÉTÉS COTÉES",
+        items: [
+          {
+            tag: "MAROC | AUTO HALL",
+            titre: "Augmentation de capital de 250 MDH bouclée",
+            texte:
+              "La Bourse de Casablanca a annoncé jeudi les résultats de l'opération d'augmentation de capital en numéraire d'Auto Hall, portant sur un montant global de 249,99 MDH. À l'issue de cette opération, le capital social de la société passe de 502,95 MDH (50.294.528 titres) à 541,4 MDH, réparti sur 54.140.578 titres. Décidée par l'assemblée générale extraordinaire du 21 mai 2026, l'opération portait sur l'émission de 3.846.050 actions nouvelles d'une valeur nominale de 10 DH, au prix d'émission de 65 DH, par souscription en numéraire avec droit préférentiel réservé aux actionnaires. La période de souscription s'est déroulée du 27 juillet au 17 août 2026.",
+          },
+        ],
+      },
+      {
+        titre: "MARCHÉS INTERNATIONAUX",
+        items: [
+          {
+            tag: "USA | WALL STREET",
+            titre: "Wall Street signe sa meilleure séance depuis le 4 août, portée par la Fed",
+            texte:
+              "La Bourse de New York a connu jeudi sa meilleure séance depuis le 4 août, après que le gouverneur de la Fed Christopher Waller a estimé que l'inflation montrait des signes encourageants de ralentissement et qu'il pourrait soutenir un statu quo sur les taux lors de la réunion de septembre, si les prochaines données confirment cette tendance. Le Dow Jones a bondi de 624 points (+1,14%) à 53.666 points, le S&P 500 a gagné 1,1% et le Nasdaq Composite 1,2%, porté par les valeurs technologiques dans le sillage du recul des rendements obligataires. Cette annonce a fait chuter la probabilité d'une hausse des taux en septembre, désormais estimée à environ 50% par le marché contre près de 63% la veille. L'actualité a également été marquée par l'acquisition de Hugging Face par Nvidia pour 13 milliards de dollars, confirmant la poursuite de la course aux investissements dans l'intelligence artificielle. Les investisseurs se tournent désormais vers le rapport officiel sur l'emploi américain (NFP), attendu vendredi avant le week-end prolongé du Labor Day.",
+          },
+          {
+            tag: "ASIE | NIKKEI",
+            titre: "Les marchés asiatiques évoluent en ordre dispersé",
+            texte:
+              "En Asie, le Nikkei japonais a reculé de 111 points à 64.214 points, tandis que l'indice de Shanghai est resté quasiment stable autour de 3.942 points et que le Hang Seng de Hong Kong a cédé 97 points à 25.213 points. Le yen s'est par ailleurs apprécié d'environ 2% face au dollar, mettant fin à une glissade de près de 3% sur deux séances déclenchée par des propos plus fermes d'un membre du conseil de la Banque du Japon.",
+          },
+        ],
+      },
+    ],
+  },
+  {
     date: "2026-09-03",
     pdfUrl: "/assets/briefs/2026-09-03.pdf",
     dateLabel: "03/09/2026",
