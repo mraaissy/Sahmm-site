@@ -107,9 +107,9 @@ function buildHtml(dernier: any, precedent: any): string {
     <div style="color:#C9A24B;font-size:12px;margin-top:12px;letter-spacing:0.5px;">| MARCHÉ SECONDAIRE DES BONS DU TRÉSOR | ${dateLabel}</div>
   </td></tr>
   <tr><td style="padding:26px 30px 10px;">
-    <div style="font-size:17px;font-weight:800;line-height:1.35;margin-bottom:12px;">Nouvelle courbe des taux publiée — ${dateLabel}</div>
+    <div style="font-size:17px;font-weight:800;line-height:1.35;margin-bottom:12px;">Nouvelle courbe des taux publiée au ${dateLabel}</div>
     <p style="font-size:14px;line-height:1.65;color:#3a4550;margin:0 0 18px;">
-      Les taux de référence du marché secondaire des bons du Trésor viennent d'être mis à jour sur BourseInfo.ma, de 13 semaines à 30 ans.
+      Les taux de référence du marché secondaire des bons du Trésor viennent d'être mis à jour sur BourseInfo.ma.
     </p>
     ${tableBlock}
     <a href="${SITE_URL}/obligataire/" style="display:inline-block;background:#C9A24B;color:#fff;text-decoration:none;font-weight:700;font-size:13px;padding:12px 22px;border-radius:6px;margin-top:22px;">
@@ -173,7 +173,7 @@ Deno.serve(async (req) => {
     let sentCount = 0;
     if (allEmails.length > 0) {
       const html = buildHtml(dernier, precedent);
-      const subject = `Nouvelle courbe des taux — ${formatDateLabel(dernier.date)}`;
+      const subject = `La courbe des taux au ${formatDateLabel(dernier.date)}`;
       const batchSize = 50;
       for (let i = 0; i < allEmails.length; i += batchSize) {
         const batch = allEmails.slice(i, i + batchSize);
