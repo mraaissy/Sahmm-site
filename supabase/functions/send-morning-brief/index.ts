@@ -50,7 +50,7 @@ function buildHtml(brief: any): string {
   <tr><td style="padding:26px 30px 10px;">
     <div style="font-size:17px;font-weight:800;line-height:1.35;margin-bottom:12px;">${brief.titre}</div>
     <p style="font-size:14px;line-height:1.65;color:#3a4550;margin:0 0 24px;">${brief.resumeCourt}</p>
-    <a href="${SITE_URL}/#brief-detail" style="display:inline-block;background:#C9A24B;color:#fff;text-decoration:none;font-weight:700;font-size:13px;padding:12px 22px;border-radius:6px;">
+    <a href="${SITE_URL}/brief-detail/${brief.date}" style="display:inline-block;background:#C9A24B;color:#fff;text-decoration:none;font-weight:700;font-size:13px;padding:12px 22px;border-radius:6px;">
       Lire le brief complet →
     </a>
   </td></tr>

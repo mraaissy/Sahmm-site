@@ -1934,6 +1934,18 @@ export default function Sahm() {
   const [actionsData, setActionsData] = useState(null);
   const [actionsSearch, setActionsSearch] = useState("");
   const [selectedAction, setSelectedAction] = useState(null);
+  // morningBriefs est une constante statique déjà chargée (pas un fetch
+  // async comme actionsData) — on peut donc restaurer le brief précis
+  // directement à l'initialisation, avant que l'effet de synchronisation
+  // d'URL ne réécrive le chemin sans le connaître (ce qui écraserait la
+  // date et casserait le lien "Lire le brief complet" reçu par email).
+  const [selectedBrief, setSelectedBrief] = useState(() => {
+    const [first, briefDate] = parsePath();
+    if (first === "brief-detail" && briefDate) {
+      return morningBriefs.find((b) => b.date === briefDate) || null;
+    }
+    return null;
+  });
 
   // Favoris (watchlist)
   const [favoris, setFavoris] = useState(() => {
@@ -2028,9 +2040,10 @@ export default function Sahm() {
     try {
       let path = page === "accueil" ? "/" : `/${page}/`;
       if (page === "actions-detail" && selectedAction?.ticker) path = `/actions-detail/${selectedAction.ticker}`;
+      if (page === "brief-detail" && selectedBrief?.date) path = `/brief-detail/${selectedBrief.date}`;
       if (window.location.pathname !== path) window.history.pushState(null, "", path);
     } catch {}
-  }, [page, selectedAction]);
+  }, [page, selectedAction, selectedBrief]);
 
   React.useEffect(() => {
     const onPopState = () => {
@@ -2058,7 +2071,9 @@ export default function Sahm() {
     }
   }, [page, selectedOpcvm]);
 
-  const [selectedBrief, setSelectedBrief] = useState(null);
+  // Si on arrive sur brief-detail sans brief sélectionné (lien invalide/
+  // ancien, ou navigation directe) et que la restauration à l'init n'a rien
+  // trouvé, retombe sur l'accueil.
   React.useEffect(() => {
     if (page === "brief-detail" && !selectedBrief) {
       setPage("accueil");
