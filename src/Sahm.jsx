@@ -165,6 +165,103 @@ const derniereCloture = {
 // au plus ancien. Le premier élément du tableau est le plus récent.
 const morningBriefs = [
   {
+    date: "2026-09-11",
+    pdfUrl: "/assets/briefs/2026-09-11.pdf",
+    dateLabel: "11/09/2026",
+    titre: "Wall Street enchaîne une 4e séance de baisse, le pétrole au plus haut depuis mai",
+    resumeCourt:
+      "Wall Street a clôturé en baisse pour une 4e séance consécutive jeudi, sa plus longue série de repli depuis début mars, tandis que le pétrole a atteint ses plus hauts niveaux depuis le 19 mai sur fond de guerre Iran-USA prolongée. La BCE a relevé ses taux directeurs de 25 pb face à une inflation en zone euro remontée à 3,3%, et le rendement du 10 ans américain a grimpé à 4,95%. À Casablanca, le MASI a cédé 0,27% jeudi à 18.785,4 points, la Sylviculture et Papier ayant le plus pesé sur l'indice. Au menu du jour : le CPI américain d'août à 14h30, test décisif avant la réunion de la Fed des 15-16 septembre.",
+    sections: [
+      {
+        titre: "CONTEXTE OVERNIGHT",
+        items: [
+          {
+            tag: "USA | WALL STREET",
+            titre: "Wall Street enchaîne une 4e séance de baisse",
+            texte:
+              "Wall Street a clôturé en baisse pour la 4e séance consécutive jeudi (Dow -0,6%, S&P -0,6%, Nasdaq -0,7%), sa plus longue série de repli depuis début mars.",
+          },
+          {
+            tag: "ÉNERGIE | PÉTROLE",
+            titre: "Le pétrole au plus haut depuis le 19 mai",
+            texte:
+              "Le WTI et le Brent ont clôturé à leurs plus hauts niveaux depuis le 19 mai (102,48$ et 107,63$), sur fond de guerre Iran-USA prolongée.",
+          },
+          {
+            tag: "EUROPE | BCE",
+            titre: "La BCE relève ses taux directeurs de 25 pb",
+            texte:
+              "La BCE a relevé ses taux directeurs de 25 pb jeudi, portant le taux de dépôt à 2,50% (2e hausse de l'année), face à une inflation en zone euro remontée à 3,3%.",
+          },
+          {
+            tag: "USA | TAUX",
+            titre: "Le 10 ans américain atteint 4,95%",
+            texte:
+              "Le rendement des bons du Trésor américain à 10 ans a atteint 4,95%, en hausse de près d'un point depuis le début du conflit.",
+          },
+          {
+            tag: "MAROC | BOURSE DE CASABLANCA",
+            titre: "Le MASI recule pour une 2e séance consécutive",
+            texte:
+              "La Bourse de Casablanca a clôturé en baisse pour une 2e séance consécutive jeudi (-0,27% à 18.785,4 points), la Sylviculture et Papier ayant le plus pesé sur l'indice.",
+          },
+        ],
+      },
+      {
+        titre: "OUVERTURE DES MARCHÉS",
+        items: [
+          {
+            tag: "MATIÈRES PREMIÈRES | OR",
+            titre: "L'or se replie légèrement à 4.374 $/oz",
+            texte:
+              "L'once d'or évolue autour de 4.374 $/oz (-0,5%), en léger repli après le rapport PPI.",
+          },
+          {
+            tag: "MATIÈRES PREMIÈRES | ARGENT",
+            titre: "L'argent se replie après le rallye de la veille",
+            texte:
+              "L'once d'argent évolue autour de 65,3 $/oz, en repli après le fort rallye de la veille.",
+          },
+          {
+            tag: "MATIÈRES PREMIÈRES | CUIVRE",
+            titre: "Le cuivre proche de son record historique",
+            texte:
+              "Le cuivre (LME) s'échange autour de 14.617 $/tonne, proche de son record historique (+15% YTD), dans un contexte de pénurie physique de stocks.",
+          },
+          {
+            tag: "EUROPE | FUTURES",
+            titre: "Ouverture prudente attendue en Europe",
+            texte:
+              "Les futures européens évoluent en légère hausse (CAC 40 +0,29% à 8.146 pts, DAX +0,10% à 25.442 pts, Eurostoxx 50 +0,25% à 6.294 pts), une ouverture prudente étant attendue.",
+          },
+        ],
+      },
+      {
+        titre: "À SUIVRE AUJOURD'HUI",
+        items: [
+          {
+            tag: "USA | INFLATION",
+            titre: "CPI américain d'août à 14h30",
+            texte:
+              "Le CPI américain d'août (consensus 3,4% sur un an) sera publié à 14h30, un test décisif avant la réunion de la Fed des 15-16 septembre.",
+          },
+          {
+            tag: "GÉOPOLITIQUE | IRAN-USA",
+            titre: "La guerre Iran-USA à surveiller en continu",
+            texte:
+              "La suite de la guerre Iran-USA et son impact sur le pétrole restent à surveiller en continu.",
+          },
+          {
+            tag: "USA | FED",
+            titre: "Réunion de la Fed les 15-16 septembre",
+            texte:
+              "La réunion de la Fed les 15-16 septembre et la poursuite de la désinflation en zone euro post-BCE seront à suivre cette semaine.",
+          },
+        ],
+      },
+    ],
+  },
+  {
     date: "2026-09-04",
     pdfUrl: "/assets/briefs/2026-09-04.pdf",
     dateLabel: "04/09/2026",
