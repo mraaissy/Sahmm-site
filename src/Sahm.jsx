@@ -165,6 +165,132 @@ const derniereCloture = {
 // au plus ancien. Le premier élément du tableau est le plus récent.
 const morningBriefs = [
   {
+    date: "2026-09-14",
+    pdfUrl: "/assets/briefs/2026-09-14.pdf",
+    dateLabel: "14/09/2026",
+    titre: "Choc pétrolier : l'Arabie saoudite ferme l'oléoduc Petroline, le Brent frôle les 110$",
+    resumeCourt:
+      "L'Arabie saoudite a fermé son oléoduc Est-Ouest (Petroline) après des attaques de drones, sa principale voie de contournement du détroit d'Ormuz déjà paralysé — le Brent a brièvement approché les 110$ avant de se stabiliser autour de 105$, puis a repris sa hausse à l'ouverture (+2,78% à 107,52 $/bbl). Wall Street a rebondi vendredi mais termine la semaine dans le rouge, sa pire semaine depuis mars pour le Dow, tandis que le CPI américain conforte une probabilité de hausse des taux Fed désormais proche de 90%. Le rapport de cadrage du PLF 2027 table sur une croissance du PIB marocain de 4,1% l'an prochain. À Casablanca, le MASI a terminé la semaine en baisse (-0,91% vendredi à 18.615,24 points).",
+    sections: [
+      {
+        titre: "CONTEXTE OVERNIGHT",
+        items: [
+          {
+            tag: "ÉNERGIE | PÉTROLE",
+            titre: "Choc pétrolier : l'Arabie saoudite ferme l'oléoduc Petroline",
+            texte:
+              "L'Arabie saoudite a fermé son oléoduc Est-Ouest (Petroline, 7 Mbj de capacité, 4-5 Mbj exportés récemment) après des attaques de drones vendredi, sa principale voie de contournement du détroit d'Ormuz déjà paralysé. Le Brent a brièvement approché les 110$ avant de se stabiliser autour de 105$.",
+          },
+          {
+            tag: "USA | WALL STREET",
+            titre: "Wall Street rebondit vendredi mais termine la semaine dans le rouge",
+            texte:
+              "Wall Street a rebondi vendredi (Dow +0,98%, S&P +0,86%, Nasdaq +0,96%), stoppant 4 séances de baisse, mais termine la semaine dans le rouge (Dow -1,6%, sa pire semaine depuis mars ; S&P -0,8% ; Nasdaq -0,7%).",
+          },
+          {
+            tag: "USA | INFLATION",
+            titre: "Le CPI d'août conforme aux attentes, la probabilité d'une hausse Fed grimpe à 90%",
+            texte:
+              "Le CPI américain d'août est ressorti conforme aux attentes (3,4% sur un an), mais le cœur (2,4%) légèrement plus chaud que prévu — la probabilité d'une hausse des taux de la Fed le 16 septembre grimpe à environ 90%.",
+          },
+          {
+            tag: "EUROPE | BCE",
+            titre: "La BCE relève ses taux de 25 pb",
+            texte:
+              "La BCE a relevé ses taux de 25 pb jeudi dernier, portant le taux de dépôt à 2,50%.",
+          },
+          {
+            tag: "MAROC | BOURSE DE CASABLANCA",
+            titre: "Le MASI termine la semaine en baisse",
+            texte:
+              "La Bourse de Casablanca a terminé la semaine en baisse (-0,91% vendredi, à 18.615,24 points).",
+          },
+        ],
+      },
+      {
+        titre: "ACTUALITÉ MAROC",
+        items: [
+          {
+            tag: "MAROC | CROISSANCE",
+            titre: "Le PIB attendu à 4,1% en 2027",
+            texte:
+              "Selon le rapport de cadrage macroéconomique triennal accompagnant le PLF 2027, le PIB marocain progresserait de 4,1% l'an prochain, porté par une valeur ajoutée non agricole robuste (+4,3%) et une accélération de l'investissement (FBCF +4,6%, contre +4% en 2026). Les exportations en volume gagneraient 7,3%, devant des importations à +7%.",
+          },
+        ],
+      },
+      {
+        titre: "OUVERTURE DES MARCHÉS",
+        items: [
+          {
+            tag: "ÉNERGIE | PÉTROLE",
+            titre: "Le pétrole poursuit nettement sa hausse",
+            texte:
+              "Le Brent s'échange à 107,52 $/bbl (+2,78%) et le WTI à 102,90 $ (+2,85%), en poursuite nette de la hausse liée à la fermeture de l'oléoduc saoudien.",
+          },
+          {
+            tag: "ÉNERGIE | GAZ NATUREL",
+            titre: "Le gaz naturel européen bondit de 5,3%",
+            texte:
+              "Le gaz naturel (TTF) s'échange à 83,735 €/MWh, en hausse de 5,3%.",
+          },
+          {
+            tag: "EUROPE | CAC 40",
+            titre: "Le CAC 40 ouvre finalement en hausse",
+            texte:
+              "Le CAC 40 s'établit à 8.179,77 points (+0,78%), une ouverture en hausse contrairement aux craintes de la veille ; le SBF 120 progresse de 0,74% à 6.199,74 points.",
+          },
+          {
+            tag: "ASIE | MARCHÉS",
+            titre: "Séance dispersée en Asie",
+            texte:
+              "En Asie, la séance est dispersée : le pétrole bondit et les craintes sur l'IA pèsent sur plusieurs Bourses asiatiques.",
+          },
+          {
+            tag: "MATIÈRES PREMIÈRES | OR",
+            titre: "L'or recule malgré les tensions",
+            texte:
+              "L'or (GC1!) recule de 1,07% à 4.361,8 $/oz, un repli malgré le contexte de tensions, les investisseurs semblant privilégier le cash à court terme.",
+          },
+          {
+            tag: "MATIÈRES PREMIÈRES | ARGENT",
+            titre: "L'argent recule de 1,62%",
+            texte:
+              "L'argent (SI1!) recule de 1,62% à 64,13 $/oz.",
+          },
+          {
+            tag: "MATIÈRES PREMIÈRES | NICKEL",
+            titre: "Le nickel recule de 1,21%",
+            texte:
+              "Le nickel s'échange à 16.320,95 $/tonne, en repli de 1,21%.",
+          },
+        ],
+      },
+      {
+        titre: "À SUIVRE AUJOURD'HUI",
+        items: [
+          {
+            tag: "ÉNERGIE | PÉTROLE",
+            titre: "L'oléoduc Petroline, sujet dominant de la séance",
+            texte:
+              "L'évolution de la fermeture de l'oléoduc saoudien Petroline et son impact sur les cours du pétrole restent le sujet dominant de la séance.",
+          },
+          {
+            tag: "EUROPE | EURONEXT",
+            titre: "Rumeurs de rapprochement Euronext-Deutsche Börse",
+            texte:
+              "Euronext se dit ouvert à une fusion avec Deutsche Börse, sans discussions en cours à ce stade, selon le Financial Times.",
+          },
+          {
+            tag: "USA | FED",
+            titre: "Réunion de la Fed les 15-16 septembre",
+            texte:
+              "La réunion de la Fed se tient les 15-16 septembre, avec une probabilité de hausse des taux désormais proche de 87%.",
+          },
+        ],
+      },
+    ],
+  },
+  {
     date: "2026-09-11",
     pdfUrl: "/assets/briefs/2026-09-11.pdf",
     dateLabel: "11/09/2026",
