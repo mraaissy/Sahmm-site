@@ -165,6 +165,108 @@ const derniereCloture = {
 // au plus ancien. Le premier élément du tableau est le plus récent.
 const morningBriefs = [
   {
+    date: "2026-09-15",
+    pdfUrl: "/assets/briefs/2026-09-15.pdf",
+    dateLabel: "15/09/2026",
+    titre: "Wall Street recule, le 10 ans américain dépasse 5% pour la première fois depuis 2023",
+    resumeCourt:
+      "Wall Street a terminé lundi en repli (Dow -0,29%, S&P -0,48%, Nasdaq -0,56%), le rendement des bons du Trésor à 10 ans ayant brièvement dépassé 5% pour la première fois depuis 2023. Le patron d'Anthropic, Dario Amodei, a appelé à un ralentissement du développement de l'IA, une position qui a pesé sur les valeurs technologiques (Nvidia -2%). Côté résultats, TAQA Morocco affiche un bénéfice en hausse de 5,8% à 462 MDH au premier semestre. À Casablanca, le MASI a accentué ses pertes lundi (-1,16% à 18.400,02 points). Au menu du jour : l'ouverture de la réunion de la Fed, dont la décision est attendue mercredi.",
+    sections: [
+      {
+        titre: "CONTEXTE OVERNIGHT",
+        items: [
+          {
+            tag: "USA | WALL STREET",
+            titre: "Wall Street recule, le 10 ans américain dépasse 5%",
+            texte:
+              "Wall Street a terminé lundi en repli (Dow -0,29% à 52.421,20 pts, S&P -0,48% à 7.619,98 pts, Nasdaq -0,56% à 26.186,41 pts), le rendement des bons du Trésor à 10 ans ayant brièvement dépassé 5% pour la première fois depuis 2023.",
+          },
+          {
+            tag: "USA | INTELLIGENCE ARTIFICIELLE",
+            titre: "Le patron d'Anthropic appelle à un ralentissement de l'IA",
+            texte:
+              "Le patron d'Anthropic, Dario Amodei, a appelé à un ralentissement du développement de l'IA pour des raisons de sécurité, une position soutenue par d'autres grands noms du secteur — les valeurs technologiques et semi-conducteurs (Nvidia -2%) ont nettement reculé lundi.",
+          },
+          {
+            tag: "MAROC | BOURSE DE CASABLANCA",
+            titre: "Le MASI accentue ses pertes",
+            texte:
+              "La Bourse de Casablanca a accentué ses pertes lundi (-1,16% à 18.400,02 points).",
+          },
+        ],
+      },
+      {
+        titre: "ACTUALITÉS DES SOCIÉTÉS COTÉES",
+        items: [
+          {
+            tag: "MAROC | TAQA MOROCCO",
+            titre: "Bénéfice en hausse de 5,8% à 462 MDH au S1",
+            texte:
+              "TAQA Morocco a réalisé un résultat net part du groupe de 462 MDH au premier semestre 2026 (+5,8%), malgré un chiffre d'affaires consolidé en repli de 5,4% à 5.088 MDH, pénalisé par la révision de l'Unité 3, des inspections programmées et l'évolution défavorable du USD/MAD. Le taux de disponibilité des Unités 1 à 6 recule à 86,6% (contre 91,7% un an plus tôt). Les investissements bondissent à 515 MDH (contre 210 MDH), tandis que l'endettement net recule de 10,1% à 4.621 MDH, ramenant le gearing à 36%. Le groupe poursuit sa transformation en holding multi-actifs, avec un portefeuille visé de 8,6 GW à l'horizon 2030.",
+          },
+        ],
+      },
+      {
+        titre: "OUVERTURE DES MARCHÉS",
+        items: [
+          {
+            tag: "MATIÈRES PREMIÈRES | OR",
+            titre: "L'or recule légèrement à 4.331,6 $/oz",
+            texte:
+              "L'or (GC1!) recule de 0,47% à 4.331,6 $/oz.",
+          },
+          {
+            tag: "MATIÈRES PREMIÈRES | ARGENT",
+            titre: "L'argent recule de 0,83%",
+            texte:
+              "L'argent (SI1!) recule de 0,83% à 63,605 $/oz.",
+          },
+          {
+            tag: "MATIÈRES PREMIÈRES | CUIVRE",
+            titre: "Le cuivre recule de 2,12%",
+            texte:
+              "Le cuivre (CA1!) recule de 2,12% à 13.974,44 $/tonne.",
+          },
+          {
+            tag: "ÉNERGIE | PÉTROLE",
+            titre: "Le pétrole poursuit sa hausse",
+            texte:
+              "Le Brent (BRN1!) s'échange à 107,63 $/bbl (+1,85%) et le WTI (WBS1!) à 103,28 $ (+1,86%).",
+          },
+          {
+            tag: "EUROPE | OUVERTURE",
+            titre: "Ouverture en ordre dispersé en Europe",
+            texte:
+              "À l'ouverture, le CAC 40 recule de 0,76% à 8.117,78 points, le DAX de 0,50% à 25.440,81 points, tandis que le FTSE 100 progresse de 0,44% à 10.697,57 points.",
+          },
+        ],
+      },
+      {
+        titre: "À SUIVRE AUJOURD'HUI",
+        items: [
+          {
+            tag: "USA | FED",
+            titre: "Ouverture de la réunion de la Fed, décision attendue mercredi",
+            texte:
+              "La réunion de politique monétaire de la Fed s'ouvre aujourd'hui, la décision étant attendue mercredi.",
+          },
+          {
+            tag: "ÉNERGIE | PÉTROLE",
+            titre: "Le détroit d'Ormuz sous surveillance",
+            texte:
+              "La poursuite de la hausse du pétrole et l'évolution de la situation dans le détroit d'Ormuz restent à suivre — la réunion Golfe-Iran prévue à Oman a été reportée.",
+          },
+          {
+            tag: "EUROPE | BANQUES CENTRALES",
+            titre: "Banque d'Angleterre et Banque du Japon plus tard dans la semaine",
+            texte:
+              "Les décisions de la Banque d'Angleterre (jeudi) et de la Banque du Japon (vendredi) sont également attendues plus tard dans la semaine.",
+          },
+        ],
+      },
+    ],
+  },
+  {
     date: "2026-09-14",
     pdfUrl: "/assets/briefs/2026-09-14.pdf",
     dateLabel: "14/09/2026",
