@@ -165,6 +165,120 @@ const derniereCloture = {
 // au plus ancien. Le premier élément du tableau est le plus récent.
 const morningBriefs = [
   {
+    date: "2026-09-16",
+    pdfUrl: "/assets/briefs/2026-09-16.pdf",
+    dateLabel: "16/09/2026",
+    titre: "Le MASI touche un plus bas de l'année, la Fed annonce sa décision ce soir",
+    resumeCourt:
+      "Wall Street a de nouveau clôturé en repli mardi, plombée par l'envolée du pétrole et la flambée des taux obligataires (le 10 ans américain a atteint 5,041%, son plus haut niveau depuis 2007) à la veille de la décision de la Fed. Le pétrole a poursuivi son envolée après des attaques visant des infrastructures énergétiques saoudiennes, attribuées aux Houthis. À Casablanca, le MASI a touché un plus bas intraday à 18.182,89 points avant de clôturer en repli de 1,14% à 18.190,19 points (performance YTD : -3,48%). Reprise de cotation attendue aujourd'hui pour Compagnie Minière de Touissit après le feu vert de l'AMMC à l'OPA obligatoire. Au menu du jour : la décision de la Fed ce soir, une hausse de taux de 25 pb étant largement anticipée.",
+    sections: [
+      {
+        titre: "CONTEXTE OVERNIGHT",
+        items: [
+          {
+            tag: "USA | WALL STREET",
+            titre: "Wall Street recule pour une 2e séance consécutive",
+            texte:
+              "Wall Street a de nouveau clôturé en repli mardi (2e séance consécutive), plombée par l'envolée du pétrole et la flambée des taux obligataires à la veille de la décision de la Fed : Dow -0,63% à 52.093,11 pts, S&P 500 -0,5% à 7.585,70 pts, Nasdaq -0,8% à 25.981,57 pts.",
+          },
+          {
+            tag: "USA | TAUX",
+            titre: "Le 10 ans américain au plus haut depuis 2007",
+            texte:
+              "Le rendement des bons du Trésor américains à 10 ans a atteint 5,041%, son plus haut niveau depuis 2007.",
+          },
+          {
+            tag: "ÉNERGIE | PÉTROLE",
+            titre: "Nouvelle envolée du pétrole après des attaques en Arabie saoudite",
+            texte:
+              "Nouvelle envolée des cours du pétrole après des attaques visant des infrastructures énergétiques saoudiennes, attribuées aux Houthis.",
+          },
+          {
+            tag: "MAROC | BOURSE DE CASABLANCA",
+            titre: "Le MASI touche un plus bas de l'année",
+            texte:
+              "La Bourse de Casablanca a enchaîné une nouvelle séance dans le rouge mardi, l'indice ayant touché un plus bas intraday à 18.182,89 points avant de clôturer en repli de 1,14% à 18.190,19 points (performance YTD : -3,48%).",
+          },
+        ],
+      },
+      {
+        titre: "ACTUALITÉS DES SOCIÉTÉS COTÉES",
+        items: [
+          {
+            tag: "MAROC | CMT",
+            titre: "L'AMMC déclare recevable le projet d'OPA obligatoire, reprise de cotation aujourd'hui",
+            texte:
+              "L'AMMC a déclaré recevable le projet d'offre publique d'achat (OPA) obligatoire sur les actions de Compagnie Minière de Touissit, initié par Ayrad Group Limited de concert avec Osead Fund, Osead Maroc Mining et la CIMR, au prix unitaire de 2.217 DH par action. Le calendrier définitif de l'opération reste à fixer, sous réserve de validation par la Bourse de Casablanca. La cotation du titre, suspendue depuis le dépôt du projet en juillet, doit reprendre ce mercredi 16 septembre.",
+          },
+        ],
+      },
+      {
+        titre: "OUVERTURE DES MARCHÉS",
+        items: [
+          {
+            tag: "EUROPE | CAC 40",
+            titre: "Les marchés européens ouvrent en légère hausse",
+            texte:
+              "En Europe, déjà ouverte ce matin, le CAC 40 s'établit à 8.117,97 points (+0,34%), le SBF 120 à 6.155,58 points et le CAC Large 60 à 8.769,49 points (+0,36%).",
+          },
+          {
+            tag: "ASIE | MARCHÉS",
+            titre: "Séance dispersée en Asie",
+            texte:
+              "En Asie, clôturée ce matin, le Nikkei 225 (Japon) a gagné 0,93% à 64.082,36 points, le Hang Seng (Hong Kong) a cédé 0,35% à 24.829,48 points, tandis que le Shanghai Composite (Chine) est resté quasi stable près de 3.885 points, les valeurs liées à l'IA restant sous pression.",
+          },
+          {
+            tag: "MATIÈRES PREMIÈRES | OR",
+            titre: "L'or progresse à 4.370,1 $/oz",
+            texte:
+              "L'or (GC1!) progresse de 0,86% à 4.370,1 $/oz.",
+          },
+          {
+            tag: "MATIÈRES PREMIÈRES | ARGENT",
+            titre: "L'argent bondit de 2,03%",
+            texte:
+              "L'argent (SI1!) bondit de 2,03% à 65,150 $/oz.",
+          },
+          {
+            tag: "MATIÈRES PREMIÈRES | CUIVRE",
+            titre: "Le cuivre progresse de 0,63%",
+            texte:
+              "Le cuivre (CA1!) progresse de 0,63% à 14.062,39 $/tonne.",
+          },
+          {
+            tag: "ÉNERGIE | PÉTROLE",
+            titre: "Le pétrole marque une pause",
+            texte:
+              "Le Brent (BRN1!) recule de 1,11% à 107,54 $/bbl et le WTI (WBS1!) de 1,55% à 104,19 $.",
+          },
+        ],
+      },
+      {
+        titre: "À SUIVRE AUJOURD'HUI",
+        items: [
+          {
+            tag: "USA | FED",
+            titre: "Décision de la Fed attendue ce soir",
+            texte:
+              "L'annonce de la Fed est attendue ce soir à l'issue du FOMC, une hausse de taux de 25 pb étant largement anticipée (probabilité ~92,5%) — ce serait le premier resserrement monétaire depuis près de trois ans.",
+          },
+          {
+            tag: "ÉNERGIE | PÉTROLE",
+            titre: "La hausse du pétrole à surveiller en continu",
+            texte:
+              "La poursuite de la hausse du pétrole après les attaques visant des infrastructures saoudiennes reste à surveiller en continu.",
+          },
+          {
+            tag: "EUROPE | BANQUES CENTRALES",
+            titre: "Banque d'Angleterre et Banque du Japon plus tard dans la semaine",
+            texte:
+              "Les décisions de la Banque d'Angleterre (jeudi) et de la Banque du Japon (vendredi) sont également attendues plus tard dans la semaine.",
+          },
+        ],
+      },
+    ],
+  },
+  {
     date: "2026-09-15",
     pdfUrl: "/assets/briefs/2026-09-15.pdf",
     dateLabel: "15/09/2026",
