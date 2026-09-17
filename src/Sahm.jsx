@@ -165,6 +165,132 @@ const derniereCloture = {
 // au plus ancien. Le premier élément du tableau est le plus récent.
 const morningBriefs = [
   {
+    date: "2026-09-17",
+    pdfUrl: "/assets/briefs/2026-09-17.pdf",
+    dateLabel: "17/09/2026",
+    titre: "La Fed relève ses taux pour la première fois depuis 2023, le MASI passe sous les 18.000 points",
+    resumeCourt:
+      "À l'issue de sa réunion de mercredi, la Fed a relevé ses taux directeurs à l'unanimité pour la première fois depuis l'été 2023, les portant entre 3,75% et 4% — Wall Street a accueilli cette fermeté avec inquiétude (Dow -1,21%), tandis que le 10 ans américain a grimpé à 5,02% et que le dollar s'est nettement apprécié. Le pétrole a marqué une accalmie après plusieurs jours de flambée, des informations suggérant une remise en service accélérée de l'oléoduc saoudien Est-Ouest. Côté résultats, CFG Bank et Risma publient de solides performances au premier semestre. À Casablanca, le MASI a enchaîné une 5e séance consécutive de repli mercredi, passant sous les 18.000 points à 17.984,00 points (performance YTD : -4,58%).",
+    sections: [
+      {
+        titre: "CONTEXTE OVERNIGHT",
+        items: [
+          {
+            tag: "USA | FED",
+            titre: "La Fed relève ses taux pour la première fois depuis 2023",
+            texte:
+              "À l'issue de sa réunion de mercredi, la Fed a relevé ses taux directeurs à l'unanimité pour la première fois depuis l'été 2023, les portant dans une fourchette de 3,75% à 4%. Le président Kevin Warsh a jugé l'inflation « trop élevée, depuis trop longtemps » ; une majorité de responsables anticipe au moins une nouvelle hausse d'ici la fin de l'année, la prochaine réunion étant prévue en octobre.",
+          },
+          {
+            tag: "USA | WALL STREET",
+            titre: "Wall Street accueille la fermeté de la Fed avec inquiétude",
+            texte:
+              "Wall Street a accueilli cette fermeté avec inquiétude : le Dow Jones a chuté de 1,21%, le S&P 500 a cédé 0,45% et le Nasdaq est resté quasi stable (-0,01%).",
+          },
+          {
+            tag: "USA | TAUX & DOLLAR",
+            titre: "Le 10 ans américain grimpe à 5,02%, le dollar s'apprécie",
+            texte:
+              "Le rendement des bons du Trésor américains à 10 ans a grimpé à 5,02%, et le dollar s'est nettement apprécié (+0,68% face à l'euro, à 1,1466 $).",
+          },
+          {
+            tag: "ÉNERGIE | PÉTROLE",
+            titre: "Accalmie sur le pétrole après plusieurs jours de flambée",
+            texte:
+              "Accalmie après plusieurs jours de flambée — le Brent a reculé de 2,69% à 105,83 $ et le WTI de 3,21% à 102,43 $, des informations suggérant que l'Arabie saoudite pourrait remettre en service une partie de l'oléoduc Est-Ouest plus vite que prévu.",
+          },
+          {
+            tag: "EUROPE | BOURSES",
+            titre: "Les Bourses européennes terminent en hausse avant l'annonce de la Fed",
+            texte:
+              "Les Bourses européennes, qui avaient clôturé avant l'annonce de la Fed, ont terminé en hausse mercredi — Paris +0,68% (portée par STMicroelectronics et les semi-conducteurs), Francfort +0,53%, Londres +0,28%, Milan +0,80%.",
+          },
+          {
+            tag: "MAROC | BOURSE DE CASABLANCA",
+            titre: "Le MASI passe sous les 18.000 points",
+            texte:
+              "Cinquième séance consécutive de repli mercredi, l'indice cédant 1,13% pour passer sous les 18.000 points, à 17.984,00 pts (performance YTD : -4,58%). Le MASI Mid a plus nettement chuté (-3,93%).",
+          },
+        ],
+      },
+      {
+        titre: "ACTUALITÉS DES SOCIÉTÉS COTÉES",
+        items: [
+          {
+            tag: "MAROC | CFG BANK",
+            titre: "RNPG en progression de 10% à 200 MDH au premier semestre",
+            texte:
+              "CFG Bank a clôturé le premier semestre 2026 avec un résultat net part du groupe de 200 MDH (+10% sur un an), porté par un PNB récurrent en hausse de 18% à 549 MDH (marge d'intérêt +29% à 316 MDH). Le PNB consolidé progresse de 6% à 634 MDH, malgré un recul de 36% du PNB lié aux activités de marché, après une base de comparaison exceptionnelle en 2025. Le résultat brut d'exploitation bondit de 18% à 354 MDH, et le coût du risque reste modéré (0,22% des encours). Les crédits progressent de 20% à 20,6 MMDH et les dépôts de 17% à 22,1 MMDH. La banque confirme ses guidances 2026 (RNPG +15%) et vise un RNPG de 600 MDH en 2029.",
+          },
+          {
+            tag: "MAROC | RISMA",
+            titre: "RNPG multiplié par 2,3 à 313 MDH, dette nette divisée par deux",
+            texte:
+              "Risma affiche un chiffre d'affaires de 863 MDH au premier semestre 2026 (+15% à périmètre comparable), porté par la hausse des nuitées sur les segments luxe et haut de gamme (taux d'occupation +5 points à 64%). L'EBE progresse de 22% à 359 MDH et le résultat net part du groupe publié atteint 313 MDH, contre 135 MDH un an plus tôt (+132%), dont 169 MDH liés à des cessions d'actifs (Sofitel Casablanca Tour Blanche). Hors exceptionnels, le RNPG récurrent progresse de 22% à 144 MDH. L'endettement net est quasiment divisé par deux (1,029 MMDH contre 1,968 MMDH fin 2025), grâce à l'augmentation de capital de 500 MDH et à la cession du Sofitel. Le groupe annonce le démarrage en septembre des travaux du futur Sofitel de Tanger, dans le cadre de son plan CAP 2030 (28 hôtels visés).",
+          },
+        ],
+      },
+      {
+        titre: "OUVERTURE DES MARCHÉS",
+        items: [
+          {
+            tag: "EUROPE | INDICES",
+            titre: "Les indices européens en hausse à l'ouverture",
+            texte:
+              "En Europe (live, 08h16), le CAC 40 s'établit à 8.181,00 points (+0,50%), le DAX à 25.745,00 points (+0,73%) et le FTSE 100 à 10.780,50 points (+0,86%).",
+          },
+          {
+            tag: "MATIÈRES PREMIÈRES | OR",
+            titre: "L'or recule légèrement à 4.366,40 $/oz",
+            texte:
+              "L'or recule de 0,48% à 4.366,40 $/oz (live, 08h16).",
+          },
+          {
+            tag: "MATIÈRES PREMIÈRES | ARGENT",
+            titre: "L'argent recule de 0,64%",
+            texte:
+              "L'argent recule de 0,64% à 64,507 $/oz.",
+          },
+          {
+            tag: "MATIÈRES PREMIÈRES | CUIVRE",
+            titre: "Le cuivre progresse de 1,63%",
+            texte:
+              "Le cuivre progresse de 1,63% à 6,5460 $/lb.",
+          },
+          {
+            tag: "ÉNERGIE | PÉTROLE",
+            titre: "Le pétrole poursuit son repli à l'ouverture",
+            texte:
+              "Le Brent recule de 1,76% à 103,97 $/bbl et le WTI de 1,34% à 101,06 $.",
+          },
+        ],
+      },
+      {
+        titre: "À SUIVRE AUJOURD'HUI",
+        items: [
+          {
+            tag: "MONDE | MARCHÉS",
+            titre: "Réaction des marchés asiatiques et européens à la fermeté de la Fed",
+            texte:
+              "La réaction des marchés asiatiques et européens à la fermeté de la Fed, au lendemain de la décision, sera à suivre.",
+          },
+          {
+            tag: "ÉNERGIE | PÉTROLE",
+            titre: "Suivi de la remise en service de l'oléoduc saoudien",
+            texte:
+              "Le suivi de la remise en service de l'oléoduc saoudien Est-Ouest, qui pourrait aller plus vite que prévu et soulager les cours pétroliers, reste à surveiller.",
+          },
+          {
+            tag: "USA | FED",
+            titre: "Prochaine réunion de la Fed en octobre",
+            texte:
+              "Pour la prochaine réunion de la Fed en octobre, le marché anticipe déjà une probabilité élevée d'une nouvelle hausse des taux.",
+          },
+        ],
+      },
+    ],
+  },
+  {
     date: "2026-09-16",
     pdfUrl: "/assets/briefs/2026-09-16.pdf",
     dateLabel: "16/09/2026",
