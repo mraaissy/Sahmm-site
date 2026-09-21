@@ -165,6 +165,91 @@ const derniereCloture = {
 // au plus ancien. Le premier élément du tableau est le plus récent.
 const morningBriefs = [
   {
+    date: "2026-09-21",
+    pdfUrl: "/assets/briefs/2026-09-21.pdf",
+    dateLabel: "21/09/2026",
+    titre: "Pire semaine du MASI depuis le début de la guerre au Moyen-Orient, la BoJ relève ses taux à 1,25%",
+    resumeCourt:
+      "La Bourse de Casablanca a signé vendredi sa pire semaine depuis le déclenchement de la guerre au Moyen-Orient, le MASI cédant 2,18% sur la seule séance à 17.592,46 points (perte hebdomadaire de plus de 5%, performance YTD : -13,69%). À l'international, la Banque du Japon a relevé son taux directeur à 1,25%, son plus haut niveau depuis 31 ans, rejoignant la Fed et la BCE dans la lutte contre l'inflation, tandis que les Bourses européennes ont terminé dans le rouge et que Warren Buffett a quitté la présidence de Berkshire Hathaway après 56 ans. Côté résultats, BCP, Sonasid et SGTM publient de solides performances au premier semestre.",
+    sections: [
+      {
+        titre: "CONTEXTE OVERNIGHT",
+        items: [
+          {
+            tag: "MAROC | BOURSE DE CASABLANCA",
+            titre: "Le MASI signe sa pire semaine depuis le début de la guerre au Moyen-Orient",
+            texte:
+              "La Bourse de Casablanca a signé vendredi sa pire semaine depuis le déclenchement de la guerre au Moyen-Orient. L'indice a cédé 2,18% sur la seule séance de vendredi, à 17.592,46 points, portant sa perte hebdomadaire à plus de 5%, sur des volumes élevés (~624 MDH). Le MASI 20 a chuté de 2,35% à 1.282,32 points (performance YTD : -13,69%).",
+          },
+          {
+            tag: "JAPON | BANQUE DU JAPON",
+            titre: "La BoJ relève son taux directeur à 1,25%, son plus haut niveau depuis 31 ans",
+            texte:
+              "La Banque du Japon a relevé vendredi son taux directeur de 1% à 1,25% (vote 7 contre 2), son plus haut niveau depuis 31 ans, rejoignant la Fed et la BCE dans la lutte contre l'inflation alimentée par la flambée du pétrole. Le yen a paradoxalement chuté après l'annonce, les deux voix dissidentes ayant tempéré les attentes d'un resserrement plus marqué.",
+          },
+          {
+            tag: "EUROPE | BOURSES",
+            titre: "Les Bourses européennes terminent dans le rouge",
+            texte:
+              "Les Bourses européennes ont terminé vendredi dans le rouge, affectées par la remontée générale des taux mondiaux après les décisions de plusieurs banques centrales cette semaine (Fed, BCE, BoJ).",
+          },
+          {
+            tag: "USA | BERKSHIRE HATHAWAY",
+            titre: "Warren Buffett quitte la présidence de Berkshire Hathaway",
+            texte:
+              "Warren Buffett a quitté la présidence du groupe après 56 ans à sa tête.",
+          },
+        ],
+      },
+      {
+        titre: "ACTUALITÉS DES SOCIÉTÉS COTÉES",
+        items: [
+          {
+            tag: "MAROC | BCP",
+            titre: "RNPG en hausse de 10,4% à 3,2 milliards de dirhams",
+            texte:
+              "Le Groupe BCP a réalisé un résultat net part du groupe de 3,2 MMDH au premier semestre 2026 (+10,4%), porté par une forte baisse du coût du risque (-60% à 1,1 MMDH), malgré un PNB consolidé en repli de 3,2% à 13,5 MMDH (normalisation des activités de marché après une année 2025 exceptionnelle). Les métiers bancaires cœurs progressent de 6,6%, les dépôts de 9% à 429,5 MMDH (plus de 35 MMDH de collecte additionnelle sur un an) et les crédits bruts de 5,7% à 337,5 MMDH.",
+          },
+          {
+            tag: "MAROC | SONASID",
+            titre: "RNPG en bond de 72% au premier semestre",
+            texte:
+              "Sonasid a vu son résultat net part du groupe bondir de 72% au premier semestre 2026, confirmant le net rebond opérationnel observé au deuxième trimestre après un début d'année pénalisé par une pluviométrie exceptionnelle.",
+          },
+          {
+            tag: "MAROC | SGTM",
+            titre: "Bénéfice en hausse de 7,3% malgré le recul de l'activité",
+            texte:
+              "SGTM affiche un bénéfice en progression de 7,3% au premier semestre 2026, malgré un recul de son chiffre d'affaires lié au phasage entre grands chantiers livrés en 2025 et nouveaux projets encore en montée en charge.",
+          },
+        ],
+      },
+      {
+        titre: "À SUIVRE AUJOURD'HUI",
+        items: [
+          {
+            tag: "MONDE | BANQUES CENTRALES",
+            titre: "Réaction des marchés à la salve de décisions de banques centrales",
+            texte:
+              "La réaction des marchés à la salve de décisions de banques centrales cette semaine (Fed, BCE, BoJ), toutes orientées vers un resserrement monétaire, sera à suivre.",
+          },
+          {
+            tag: "MAROC | RÉSULTATS SEMESTRIELS",
+            titre: "Poursuite de la publication des résultats semestriels",
+            texte:
+              "La poursuite de la publication des résultats semestriels des sociétés cotées marocaines se poursuit cette semaine.",
+          },
+          {
+            tag: "ÉNERGIE | PÉTROLE",
+            titre: "Le Brent reste au-dessus de 100 dollars",
+            texte:
+              "L'évolution du Brent, resté au-dessus de 100 dollars toute la semaine, reste un facteur clé de la pression sur les marchés actions mondiaux.",
+          },
+        ],
+      },
+    ],
+  },
+  {
     date: "2026-09-17",
     pdfUrl: "/assets/briefs/2026-09-17.pdf",
     dateLabel: "17/09/2026",
