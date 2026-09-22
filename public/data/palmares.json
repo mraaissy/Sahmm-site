@@ -1,59 +1,59 @@
 {
-  "updated_at": "2026-09-03T00:00:00+00:00",
-  "source_last_update_label": "jeudi 3 septembre 2026",
+  "updated_at": "2026-09-22T09:00:00+00:00",
+  "source_last_update_label": "mardi 22 septembre 2026",
   "source": "casablancabourse.com (site tiers, calculé depuis le tableau complet)",
   "top_hausses": [
     {
-      "name": "AGMA",
+      "name": "MINIERE TOUISSIT",
+      "change_pct": 10.0,
+      "price": 2949.0
+    },
+    {
+      "name": "LESIEUR CRISTAL",
+      "change_pct": 6.14,
+      "price": 307.9
+    },
+    {
+      "name": "MAROC LEASING",
       "change_pct": 5.99,
-      "price": 7080.0
+      "price": 374.15
     },
     {
-      "name": "MED PAPER",
-      "change_pct": 4.08,
-      "price": 25.5
+      "name": "SONASID",
+      "change_pct": 5.44,
+      "price": 1898.0
     },
     {
-      "name": "CFG BANK",
-      "change_pct": 3.4,
-      "price": 209.9
-    },
-    {
-      "name": "MANAGEM",
-      "change_pct": 2.46,
-      "price": 1752.0
-    },
-    {
-      "name": "CIH",
-      "change_pct": 2.37,
-      "price": 345.0
+      "name": "MUTANDIS SCA",
+      "change_pct": 5.43,
+      "price": 233.0
     }
   ],
   "top_baisses": [
     {
-      "name": "IB MAROC.COM",
-      "change_pct": -7.55,
-      "price": 55.01
+      "name": "CARTIER SAADA",
+      "change_pct": -9.95,
+      "price": 18.01
     },
     {
-      "name": "REBAB COMPANY",
-      "change_pct": -5.99,
-      "price": 98.24
+      "name": "AGMA",
+      "change_pct": -5.51,
+      "price": 6690.0
     },
     {
-      "name": "ZELLIDJA S.A",
-      "change_pct": -4.39,
-      "price": 305.0
+      "name": "MAGHREBAIL",
+      "change_pct": -3.56,
+      "price": 890.1
     },
     {
-      "name": "ATLANTASANAD",
-      "change_pct": -3.9,
-      "price": 122.0
+      "name": "SANLAM MAROC",
+      "change_pct": -3.02,
+      "price": 3055.0
     },
     {
-      "name": "INVOLYS",
-      "change_pct": -3.03,
-      "price": 128.0
+      "name": "AFRIQUIA GAZ",
+      "change_pct": -1.62,
+      "price": 3640.0
     }
   ]
 }
