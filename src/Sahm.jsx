@@ -127,14 +127,14 @@ function getLastTradingDayLabel() {
 // accessible) — séance du mardi 7 juillet 2026
 const seanceDate = getLastTradingDayLabel();
 const seanceIndices = [
-  { nom: "MASI", valeur: "18 710,31", var: 1.04, ytd: -0.72 },
-  { nom: "MASI ESG", valeur: "1 392,35", var: 1.24, ytd: 11.25 },
-  { nom: "MASI 20", valeur: "1 352,72", var: 1.06, ytd: -8.95 },
+  { nom: "MASI", valeur: "17 991,02", var: 2.27, ytd: -4.54 },
+  { nom: "MASI ESG", valeur: "1 338,40", var: 2.34, ytd: 6.94 },
+  { nom: "MASI 20", valeur: "1 313,64", var: 2.44, ytd: -11.58 },
 ];
 const seanceStats = {
   capitalisation: "1 100,30 MMDH",
-  volume: "546,26 MDH",
-  volumeCentral: "546,26 MDH",
+  volume: "195,83 MDH",
+  volumeCentral: "195,83 MDH",
   volumeBlocs: "0 MDH (aucun échange sur le marché de blocs)",
   hausses: null,
   baisses: null,
@@ -146,16 +146,16 @@ const seanceStats = {
 // qui eux restent en direct). À mettre à jour une fois par jour, en fin de
 // séance, avec les vrais chiffres de clôture transmis manuellement.
 const derniereCloture = {
-  date: "3 septembre 2026",
-  masiValeur: "18 710,31",
-  masiVar: 1.04,
-  volume: "546,26 MDH",
-  meilleureHausse: { nom: "AGMA", var: 5.99 },
-  plusForteBaisse: { nom: "IB MAROC.COM", var: -7.55 },
+  date: "22 septembre 2026",
+  masiValeur: "17 991,02",
+  masiVar: 2.27,
+  volume: "195,83 MDH",
+  meilleureHausse: { nom: "MINIERE TOUISSIT", var: 10.00 },
+  plusForteBaisse: { nom: "CARTIER SAADA", var: -9.95 },
   topActifs: [
-    { nom: "Maroc Telecom", volume: 75.90 },
-    { nom: "CFG Bank", volume: 45.20 },
-    { nom: "Label Vie", volume: 43.36 },
+    { nom: "Banque Centrale Populaire", volume: 115.66 },
+    { nom: "Managem", volume: 14.08 },
+    { nom: "SGTM", volume: 10.28 },
   ],
   topActifsUnite: " MDH",
 };
