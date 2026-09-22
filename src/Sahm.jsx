@@ -165,6 +165,131 @@ const derniereCloture = {
 // au plus ancien. Le premier élément du tableau est le plus récent.
 const morningBriefs = [
   {
+    date: "2026-09-22",
+    pdfUrl: "/assets/briefs/2026-09-22.pdf",
+    dateLabel: "22/09/2026",
+    titre: "Le MASI rebondit de 2,27% après sa pire semaine, l'inflation marocaine recule de 0,3% en août",
+    resumeCourt:
+      "La Bourse de Casablanca a nettement rebondi lundi, le MASI gagnant 2,27% à 17.991,02 points, après sa pire semaine depuis le début de la guerre au Moyen-Orient (-5,49%). Sur le marché obligataire, la remontée des rendements s'est poursuivie (jusqu'à +15 pb sur le 5 ans entre le 9 et le 16 septembre), tandis que le Brent s'est détendu en fin de semaine à 101,52 $ après la reprise des exportations saoudiennes. Côté banques centrales, une semaine chargée s'est achevée avec la Fed à 3,75%-4%, la BoJ à 1,25% et une BoE inchangée. Au Maroc, l'inflation a reculé de 0,3% en août sur un an selon le HCP, et Sonasid, SGTM et TGCC publient de bonnes nouvelles opérationnelles.",
+    sections: [
+      {
+        titre: "CONTEXTE OVERNIGHT",
+        items: [
+          {
+            tag: "MAROC | BOURSE DE CASABLANCA",
+            titre: "Le MASI rebondit de 2,27% après sa pire semaine",
+            texte:
+              "La Bourse de Casablanca a nettement rebondi lundi, le MASI gagnant 2,27% à 17.991,02 points, après sa pire semaine depuis le début de la guerre au Moyen-Orient (-5,49%).",
+          },
+          {
+            tag: "MAROC | TAUX OBLIGATAIRES",
+            titre: "La remontée des rendements se poursuit sur le marché secondaire",
+            texte:
+              "La remontée des rendements s'est poursuivie sur le marché secondaire des bons du Trésor, avec des progressions atteignant +15 pb sur le 5 ans, +12 pb sur le 10 ans et +13 pb sur le 15 ans entre le 9 et le 16 septembre — un facteur qui a lui aussi pesé sur les actions en relevant les taux d'actualisation.",
+          },
+          {
+            tag: "ÉNERGIE | PÉTROLE",
+            titre: "Détente du Brent en fin de semaine à 101,52 $",
+            texte:
+              "Détente en fin de semaine, le Brent reculant de 2,4% vendredi à 101,52 $ (contre ~110 $ la semaine précédente), porté par la reprise des exportations saoudiennes en septembre selon Kpler.",
+          },
+          {
+            tag: "MONDE | BANQUES CENTRALES",
+            titre: "Semaine chargée pour les banques centrales : Fed, BoJ, BoE",
+            texte:
+              "Semaine chargée — la Fed a relevé ses taux de 25 pb à 3,75%-4% (première hausse depuis 2023), la BoJ a fait de même à 1,25% (plus haut depuis 31 ans), tandis que la BoE a maintenu son taux inchangé.",
+          },
+        ],
+      },
+      {
+        titre: "OUVERTURE DES MARCHÉS",
+        items: [
+          {
+            tag: "EUROPE | INDICES",
+            titre: "Les indices européens quasi stables à l'ouverture",
+            texte:
+              "En Europe (live, 08h03), le CAC 40 s'établit à 8.133,21 points (-0,07%), le DAX à 25.482,59 points (-0,36%), l'Euro Stoxx 50 à 6.301,05 points (-0,27%), l'IBEX 35 à 19.691,90 points (-0,16%) et le FTSE 100 à 10.725,94 points (-0,12%).",
+          },
+          {
+            tag: "MATIÈRES PREMIÈRES | OR",
+            titre: "L'or recule de 1% à 4.340,17 $/oz",
+            texte:
+              "L'or recule de 1,00% à 4.340,17 $/oz (live).",
+          },
+          {
+            tag: "MATIÈRES PREMIÈRES | ARGENT",
+            titre: "L'argent recule de 1,51%",
+            texte:
+              "L'argent recule de 1,51% à 65,415 $/oz.",
+          },
+          {
+            tag: "ÉNERGIE | PÉTROLE",
+            titre: "Le Brent rebondit de 1,12% à l'ouverture",
+            texte:
+              "Le Brent rebondit de 1,12% à 101,46 $/bbl (live).",
+          },
+        ],
+      },
+      {
+        titre: "ÉCONOMIE",
+        items: [
+          {
+            tag: "MAROC | INFLATION",
+            titre: "L'IPC recule de 0,3% en août sur un an",
+            texte:
+              "Selon le Haut-Commissariat au Plan, l'indice des prix à la consommation a reculé de 0,3% en août 2026 par rapport à août 2025, résultat d'une baisse de 3,9% des produits alimentaires partiellement compensée par une hausse de 2,5% des produits non alimentaires — notamment les carburants, en hausse de 9,8% sur un mois. Sur une base mensuelle, l'IPC progresse de 0,8% par rapport à juillet. L'inflation sous-jacente, qui exclut les prix volatils et réglementés, ressort quasi stable (+0,1% sur un an).",
+          },
+        ],
+      },
+      {
+        titre: "ACTUALITÉS DES SOCIÉTÉS COTÉES",
+        items: [
+          {
+            tag: "MAROC | SONASID",
+            titre: "RNPG en hausse de 72% à 167 MDH",
+            texte:
+              "Sonasid a publié un résultat net part du groupe de 167 MDH au premier semestre 2026 (+72%), avec un EBITDA consolidé en progression de 30%, alors que le chiffre d'affaires reste pratiquement stable. Le groupe prévoit 514 MDH d'investissements sur l'ensemble de 2026.",
+          },
+          {
+            tag: "MAROC | SGTM",
+            titre: "Bénéfice en hausse de 7,3% à 793 MDH, carnet de commandes record",
+            texte:
+              "SGTM affiche un bénéfice consolidé de 793 MDH au premier semestre (+7,3%), malgré un chiffre d'affaires en retrait de 7,2%. La marge d'EBITDA progresse et le carnet de commandes atteint 34,8 milliards de dirhams, soit plus de deux années de chiffre d'affaires.",
+          },
+          {
+            tag: "MAROC | TGCC",
+            titre: "Un complexe hospitalier de 133 M€ bientôt lancé en RDC",
+            texte:
+              "TGCC a annoncé l'entrée en phase finale du financement d'un projet de complexe hospitalier de 133 millions d'euros en République démocratique du Congo, aux côtés de son partenaire IIDG, ouvrant la voie au démarrage prochain des travaux.",
+          },
+        ],
+      },
+      {
+        titre: "À SUIVRE AUJOURD'HUI",
+        items: [
+          {
+            tag: "MAROC | BANK AL-MAGHRIB",
+            titre: "Conseil de BAM ce mardi, consensus vers un maintien du taux directeur",
+            texte:
+              "Réunion du Conseil de Bank Al-Maghrib ce mardi : le consensus (BKGR, AGR) penche très largement vers un maintien du taux directeur à 2,25% (93% de probabilité selon un sondage AGR auprès de 35 investisseurs). Le marché scrutera surtout les nouvelles projections de BAM sur l'inflation, la croissance et le choc pétrolier.",
+          },
+          {
+            tag: "MAROC | RÉSULTATS SEMESTRIELS",
+            titre: "Poursuite des publications de résultats semestriels",
+            texte:
+              "Poursuite des publications de résultats semestriels des sociétés cotées marocaines.",
+          },
+          {
+            tag: "MAROC | BOURSE DE CASABLANCA",
+            titre: "Confirmation ou non du rebond technique du MASI",
+            texte:
+              "Confirmation ou non du rebond technique amorcé lundi par le MASI, après la lourde correction de la semaine passée.",
+          },
+        ],
+      },
+    ],
+  },
+  {
     date: "2026-09-21",
     pdfUrl: "/assets/briefs/2026-09-21.pdf",
     dateLabel: "21/09/2026",
