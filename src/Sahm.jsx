@@ -165,6 +165,108 @@ const derniereCloture = {
 // au plus ancien. Le premier élément du tableau est le plus récent.
 const morningBriefs = [
   {
+    date: "2026-09-23",
+    pdfUrl: "/assets/briefs/2026-09-23.pdf",
+    dateLabel: "23/09/2026",
+    titre: "Le MASI repasse au-dessus des 18.000 points, Bank Al-Maghrib maintient son taux à 2,25%",
+    resumeCourt:
+      "La Bourse de Casablanca a enchaîné une 2e séance de hausse mardi, gagnant 0,48% à 18.076,72 points et repassant au-dessus des 18.000 points, portée par CMT (+9,97%). Le Conseil de Bank Al-Maghrib a maintenu son taux directeur inchangé à 2,25%, tout en abaissant sa prévision de croissance 2026 à 4,4% et en relevant celle du Brent à 87,2 $/baril en moyenne. Sur le plan géopolitique, l'Iran a formulé des conditions pour une réouverture du détroit d'Ormuz, faisant reculer le Brent sous 101 $, tandis que le Bitcoin a dépassé les 85.000 $, son plus haut niveau depuis janvier. Côté résultats, AtlantaSanad, TAQA Morocco et AGMA publient leurs comptes semestriels.",
+    sections: [
+      {
+        titre: "CONTEXTE OVERNIGHT",
+        items: [
+          {
+            tag: "MAROC | BOURSE DE CASABLANCA",
+            titre: "Le MASI repasse au-dessus des 18.000 points",
+            texte:
+              "La Bourse de Casablanca a enchaîné une 2e séance de hausse mardi, gagnant 0,48% à 18.076,72 points, repassant au-dessus des 18.000 points (performance YTD : -4,08%). CMT s'est envolée de 9,97%, en tête des hausses.",
+          },
+          {
+            tag: "MAROC | BANK AL-MAGHRIB",
+            titre: "BAM maintient son taux directeur à 2,25%",
+            texte:
+              "Le Conseil a maintenu mardi le taux directeur inchangé à 2,25%, décision largement anticipée par le marché. BAM a toutefois révisé ses projections : croissance nationale abaissée à 4,4% pour 2026 (contre 4,9% en 2025), inflation attendue à 0,7% en 2026 puis 1,5% en 2027, et prévision du Brent relevée à 87,2 $/baril en moyenne cette année (contre 68,2 $ en 2025).",
+          },
+          {
+            tag: "GÉOPOLITIQUE | DÉTROIT D'ORMUZ",
+            titre: "L'Iran formule des conditions pour une réouverture du détroit d'Ormuz",
+            texte:
+              "L'Iran a formulé des conditions pour une réouverture du détroit d'Ormuz en marge de l'Assemblée générale de l'ONU, un signal diplomatique qui a fait reculer le Brent sous 101 $ lundi.",
+          },
+          {
+            tag: "CRYPTOMONNAIES | BITCOIN",
+            titre: "Le Bitcoin dépasse les 85.000 $, plus haut depuis janvier",
+            texte:
+              "Le Bitcoin a dépassé les 85.000 $, son plus haut niveau depuis janvier.",
+          },
+        ],
+      },
+      {
+        titre: "OUVERTURE DES MARCHÉS",
+        items: [
+          {
+            tag: "EUROPE | INDICES",
+            titre: "Ouverture prudente attendue en Europe",
+            texte:
+              "Ouverture prudente attendue ce mercredi en Europe, entre espoirs de désescalade au Moyen-Orient et regain d'intérêt pour les valeurs technologiques liées à l'IA.",
+          },
+          {
+            tag: "MONDE | MARCHÉS OBLIGATAIRES",
+            titre: "BCE et Fed ont toutes deux relevé leurs taux en septembre",
+            texte:
+              "La BCE a relevé ses taux de 25 pb les 9-10 septembre (2e hausse de l'année), et la Fed a fait de même les 15-16 septembre, portant sa fourchette à 3,75%-4,00% — première hausse américaine depuis 2023.",
+          },
+        ],
+      },
+      {
+        titre: "ACTUALITÉS DES SOCIÉTÉS COTÉES",
+        items: [
+          {
+            tag: "MAROC | ATLANTASANAD",
+            titre: "Résultat net consolidé en hausse de 4,4% au S1",
+            texte:
+              "AtlantaSanad a réalisé un chiffre d'affaires global de 3,977 milliards de dirhams au premier semestre 2026, contre 3,663 milliards un an plus tôt, soit une progression de 8,6%. Le résultat net consolidé progresse de 4,4% sur la période.",
+          },
+          {
+            tag: "MAROC | TAQA MOROCCO",
+            titre: "BKGR reste à l'achat, cours cible ramené à 2.816 DH",
+            texte:
+              "BMCE Capital Global Research maintient sa recommandation à l'achat sur TAQA Morocco après la publication de ses résultats semestriels, tout en révisant son cours cible à 2.816 DH. Par ailleurs, les porteurs obligataires de la société sont appelés à se prononcer sur le transfert d'un emprunt obligataire de 2,7 milliards de dirhams.",
+          },
+          {
+            tag: "MAROC | AGMA",
+            titre: "RNPG en progression à 39 MDH au premier semestre",
+            texte:
+              "AGMA a vu son résultat net part du groupe progresser à 39 millions de dirhams au premier semestre 2026.",
+          },
+        ],
+      },
+      {
+        titre: "À SUIVRE AUJOURD'HUI",
+        items: [
+          {
+            tag: "ÉNERGIE | PÉTROLE",
+            titre: "Discussions diplomatiques autour du détroit d'Ormuz à suivre",
+            texte:
+              "L'évolution des discussions diplomatiques autour du détroit d'Ormuz, facteur clé pour la trajectoire du pétrole, sera à suivre.",
+          },
+          {
+            tag: "MAROC | RÉSULTATS SEMESTRIELS",
+            titre: "Poursuite des publications de résultats semestriels",
+            texte:
+              "Poursuite des publications de résultats semestriels des sociétés cotées marocaines.",
+          },
+          {
+            tag: "MAROC | BOURSE DE CASABLANCA",
+            titre: "Confirmation ou non de la dynamique de rebond du MASI",
+            texte:
+              "Confirmation ou non de la dynamique de rebond du MASI, qui enchaîne deux séances de hausse après sa lourde correction de la semaine dernière.",
+          },
+        ],
+      },
+    ],
+  },
+  {
     date: "2026-09-22",
     pdfUrl: "/assets/briefs/2026-09-22.pdf",
     dateLabel: "22/09/2026",
