@@ -165,6 +165,126 @@ const derniereCloture = {
 // au plus ancien. Le premier élément du tableau est le plus récent.
 const morningBriefs = [
   {
+    date: "2026-09-24",
+    pdfUrl: "/assets/briefs/2026-09-24.pdf",
+    dateLabel: "24/09/2026",
+    titre: "Le PAM en tête des législatives, le MASI marque une pause après deux séances de hausse",
+    resumeCourt:
+      "Selon les résultats préliminaires du scrutin législatif de mercredi, le Parti authenticité et modernité (PAM) arrive en tête avec 97 sièges, devant le RNI (66), l'Istiqlal (65) et le PJD (54), pour un taux de participation de 38,02% — un classement encore provisoire. Sur les marchés, la Bourse de Casablanca a marqué une pause, le MASI cédant 0,20% à 18.040,73 points après deux séances de hausse consécutives, tandis que Wall Street reprenait son souffle et que le pétrole repartait à la hausse. L'OCDE a légèrement relevé sa prévision de croissance mondiale 2026 à 2,9%. Côté résultats, LabelVie et Microdata publient de solides performances semestrielles.",
+    sections: [
+      {
+        titre: "CONTEXTE OVERNIGHT",
+        items: [
+          {
+            tag: "MAROC | ÉLECTIONS LÉGISLATIVES",
+            titre: "Le PAM arrive en tête avec 97 sièges",
+            texte:
+              "Selon les résultats préliminaires du scrutin de mercredi, le Parti authenticité et modernité (PAM) arrive en tête avec 97 sièges, devant le Rassemblement national des indépendants (RNI, 66 sièges), le Parti de l'Istiqlal (65 sièges) et le Parti de la Justice et du Développement (54 sièges). Le classement reste provisoire dans l'attente de la consolidation officielle des résultats. Le taux de participation national s'est établi à 38,02%. Ce scrutin renouvelait les 395 sièges de la Chambre des représentants.",
+          },
+          {
+            tag: "MAROC | BOURSE DE CASABLANCA",
+            titre: "Le MASI marque une pause, fin de deux séances de hausse",
+            texte:
+              "La Bourse de Casablanca a marqué une pause mercredi, mettant fin à deux séances de hausse consécutives. L'indice a cédé 0,20% à 18.040,73 points (performance YTD : -4,27%). CMT a signé la plus forte hausse individuelle (+9,99%), tandis que CAP a le plus reculé (-4,17%).",
+          },
+          {
+            tag: "USA | WALL STREET",
+            titre: "Wall Street reprend son souffle",
+            texte:
+              "Wall Street a repris son souffle mercredi, ouvrant en légère baisse après plusieurs séances de hausse.",
+          },
+          {
+            tag: "ÉNERGIE | PÉTROLE",
+            titre: "Les cours du pétrole repartent à la hausse",
+            texte:
+              "Les cours du pétrole sont repartis à la hausse mercredi, exerçant de nouvelles pressions sur les rendements obligataires, les investisseurs restant attentifs aux avancées diplomatiques au Moyen-Orient.",
+          },
+          {
+            tag: "MONDE | OCDE",
+            titre: "L'OCDE relève sa prévision de croissance mondiale à 2,9%",
+            texte:
+              "L'OCDE a légèrement relevé sa prévision de croissance mondiale pour 2026, à 2,9%.",
+          },
+        ],
+      },
+      {
+        titre: "OUVERTURE DES MARCHÉS",
+        items: [
+          {
+            tag: "EUROPE | INDICES",
+            titre: "Les indices européens en léger repli à l'ouverture",
+            texte:
+              "Le CAC 40 s'établit à 8.092,48 points (-0,38%), le SBF 120 à 6.145,47 points (-0,23%) et l'Euro Stoxx 50 à 6.285,35 points (-0,23%).",
+          },
+          {
+            tag: "MATIÈRES PREMIÈRES | MÉTAUX",
+            titre: "L'or, l'argent, le nickel et le cuivre en léger recul",
+            texte:
+              "L'or recule de 0,10% à 4.314,2 $/once, l'argent de 0,72% à 64,495 $/once, le nickel de 0,93% à 16.367,48 $/tonne et le cuivre de 0,92% à 14.715,00 $/tonne.",
+          },
+          {
+            tag: "ÉNERGIE | PÉTROLE",
+            titre: "Le Brent recule de 3,89% à l'ouverture",
+            texte:
+              "Le Brent recule de 3,89% à 99,07 $/bbl.",
+          },
+        ],
+      },
+      {
+        titre: "ACTUALITÉS DES SOCIÉTÉS COTÉES",
+        items: [
+          {
+            tag: "MAROC | LABELVIE",
+            titre: "Bénéfice semestriel en bond de 36%",
+            texte:
+              "LabelVie a vu son bénéfice semestriel bondir de 36% au premier semestre 2026, porté notamment par une plus-value immobilière significative sur la période.",
+          },
+          {
+            tag: "MAROC | MICRODATA",
+            titre: "Bénéfice en hausse de 21%",
+            texte:
+              "Microdata affiche un bénéfice semestriel en progression de 21%, porté par une croissance de ses revenus sur la période.",
+          },
+          {
+            tag: "MAROC | SGTM",
+            titre: "En lice pour le marché du stade de Fès, estimé à 2,81 MMDH",
+            texte:
+              "SGTM figure parmi les candidats en lice pour l'attribution du marché de construction ou de rénovation du stade de Fès, un projet estimé à 2,81 milliards de dirhams.",
+          },
+          {
+            tag: "MAROC | OPCVM",
+            titre: "Souscriptions à 1.070,7 milliards de dirhams à fin août",
+            texte:
+              "L'encours des souscriptions dans les OPCVM marocains a atteint 1.070,7 milliards de dirhams à fin août 2026.",
+          },
+        ],
+      },
+      {
+        titre: "À SUIVRE AUJOURD'HUI",
+        items: [
+          {
+            tag: "MAROC | ÉLECTIONS LÉGISLATIVES",
+            titre: "Consolidation et proclamation officielle des résultats",
+            texte:
+              "La consolidation et la proclamation officielle des résultats des élections législatives, avec d'éventuelles répercussions sur le sentiment de marché, seront à suivre.",
+          },
+          {
+            tag: "MAROC | RÉSULTATS SEMESTRIELS",
+            titre: "Poursuite des publications de résultats semestriels",
+            texte:
+              "Poursuite des publications de résultats semestriels des sociétés cotées marocaines.",
+          },
+          {
+            tag: "ÉNERGIE | PÉTROLE",
+            titre: "Évolution du pétrole et du détroit d'Ormuz",
+            texte:
+              "L'évolution du pétrole et des discussions diplomatiques autour du détroit d'Ormuz sera à suivre.",
+          },
+        ],
+      },
+    ],
+  },
+  {
     date: "2026-09-23",
     pdfUrl: "/assets/briefs/2026-09-23.pdf",
     dateLabel: "23/09/2026",
@@ -2331,26 +2451,28 @@ function TradingViewAllStocksScreener() {
 
 // Jours fériés marocains déjà déclarés plus haut (MOROCCO_HOLIDAYS_2026) —
 // réutilisés ici pour le calcul du statut ouvert/fermé du marché en direct.
+//
+// IMPORTANT — heure légale marocaine : depuis la nuit du 19 au 20 septembre
+// 2026, le Maroc est repassé définitivement à l'heure GMT (UTC+0, plus
+// aucun retour au GMT+1 prévu) après huit ans de GMT+1 permanent. Comme ce
+// changement de règle est très récent, on ne peut pas se fier à
+// Intl.DateTimeFormat({ timeZone: "Africa/Casablanca" }) : cela dépend de
+// la base de données de fuseaux horaires (tzdata/ICU) du navigateur ou du
+// moteur JS de chaque visiteur, qui peut ne pas encore avoir intégré ce
+// changement et continuer à afficher l'ancien décalage GMT+1 — décalant
+// le statut du marché d'une heure. Le Maroc étant désormais aligné sur
+// UTC+0 (comme le Sénégal, le Mali, la Côte d'Ivoire), on utilise
+// directement l'heure UTC, ce qui est fiable indépendamment de la version
+// de tzdata de l'appareil du visiteur.
 function getCasablancaMarketStatus() {
   const now = new Date();
-  const parts = new Intl.DateTimeFormat("en-US", {
-    timeZone: "Africa/Casablanca",
-    weekday: "short",
-    year: "numeric",
-    month: "2-digit",
-    day: "2-digit",
-    hour: "2-digit",
-    minute: "2-digit",
-    hour12: false,
-  }).formatToParts(now);
-  const get = (type) => parts.find((p) => p.type === type)?.value;
-  const weekday = get("weekday");
-  const isoDate = `${get("year")}-${get("month")}-${get("day")}`;
-  const hour = parseInt(get("hour"), 10);
-  const minute = parseInt(get("minute"), 10);
+  const weekdayIdx = now.getUTCDay(); // 0 = dimanche, 6 = samedi
+  const hour = now.getUTCHours();
+  const minute = now.getUTCMinutes();
+  const isoDate = now.toISOString().slice(0, 10);
   const minutesNow = hour * 60 + minute;
 
-  const isWeekday = !["Sat", "Sun"].includes(weekday);
+  const isWeekday = weekdayIdx !== 0 && weekdayIdx !== 6;
   const isHoliday = MOROCCO_HOLIDAYS_2026.includes(isoDate);
   const openTime = 9 * 60 + 30; // 09h30
   const closeTime = 15 * 60 + 30; // 15h30
