@@ -165,6 +165,120 @@ const derniereCloture = {
 // au plus ancien. Le premier élément du tableau est le plus récent.
 const morningBriefs = [
   {
+    date: "2026-09-25",
+    pdfUrl: "/assets/briefs/2026-09-25.pdf",
+    dateLabel: "25/09/2026",
+    titre: "Le MASI recule de 0,95%, sommet Trump-Xi à Washington",
+    resumeCourt:
+      "La Bourse de Casablanca est repartie à la baisse jeudi, cédant 0,95% à 17.869,06 points (performance YTD : -5,19%), pénalisée par un courant vendeur généralisé. À l'international, Donald Trump et Xi Jinping se sont retrouvés jeudi à Washington pour un sommet bilatéral de trois jours, marqué par l'extension de la trêve commerciale jusqu'au 10 janvier, tandis que Wall Street et les Bourses européennes ont terminé dans le rouge sous la pression du pétrole et des taux. Côté résultats, Aradei Capital et AFMA publient de solides performances semestrielles, tandis que Ciments du Maroc affiche un bénéfice en recul de 8,2%.",
+    sections: [
+      {
+        titre: "CONTEXTE OVERNIGHT",
+        items: [
+          {
+            tag: "MONDE | SOMMET TRUMP-XI",
+            titre: "Trump et Xi Jinping se retrouvent à Washington",
+            texte:
+              "Le président américain Donald Trump et le dirigeant chinois Xi Jinping se sont retrouvés jeudi à Washington pour un sommet bilatéral de trois jours, marqué par l'extension de la trêve commerciale bilatérale jusqu'au 10 janvier, officialisée par le secrétaire au Trésor Scott Bessent. Les discussions portent notamment sur la régulation de l'intelligence artificielle, le commerce mondial et le conflit au Moyen-Orient.",
+          },
+          {
+            tag: "MAROC | BOURSE DE CASABLANCA",
+            titre: "Le MASI repart à la baisse, cède 0,95%",
+            texte:
+              "La Bourse de Casablanca est repartie à la baisse jeudi, cédant 0,95% à 17.869,06 points (performance YTD : -5,19%), pénalisée par un courant vendeur généralisé. CMT a signé la plus forte hausse (+9,98%), tandis que SID a le plus reculé (-5,21%).",
+          },
+          {
+            tag: "USA | WALL STREET",
+            titre: "Wall Street ouvre en baisse",
+            texte:
+              "Wall Street a ouvert en baisse jeudi, dans le sillage de la hausse du pétrole et des incertitudes géopolitiques.",
+          },
+          {
+            tag: "EUROPE | BOURSES",
+            titre: "Les Bourses européennes terminent dans le rouge",
+            texte:
+              "Les Bourses européennes ont terminé jeudi dans le rouge, sous la pression conjointe du pétrole et de la remontée des taux.",
+          },
+        ],
+      },
+      {
+        titre: "OUVERTURE DES MARCHÉS",
+        items: [
+          {
+            tag: "EUROPE | INDICES",
+            titre: "Les indices européens en légère hausse à l'ouverture",
+            texte:
+              "Le CAC 40 s'établit à 8.089,95 points (+0,11%), le SBF 120 à 6.134,65 points (+0,18%) et l'Euro Stoxx 50 à 6.309,70 points (+0,59%).",
+          },
+          {
+            tag: "MATIÈRES PREMIÈRES | MÉTAUX",
+            titre: "L'or et l'argent en légère hausse, le cuivre recule",
+            texte:
+              "L'or progresse de 0,33% à 4.312,01 $/once, l'argent de 0,22% à 64,143 $/once, tandis que le cuivre recule de 0,56% à 6,7518 $/lb.",
+          },
+          {
+            tag: "ÉNERGIE | PÉTROLE",
+            titre: "Le Brent et le WTI en léger repli à l'ouverture",
+            texte:
+              "Le Brent recule de 0,37% à 106,21 $/bbl et le WTI de 1,03% à 93,64 $/bbl.",
+          },
+        ],
+      },
+      {
+        titre: "ACTUALITÉS DES SOCIÉTÉS COTÉES",
+        items: [
+          {
+            tag: "MAROC | ARADEI CAPITAL",
+            titre: "CA en hausse de 28%, porté par le résidentiel",
+            texte:
+              "Aradei Capital a réalisé un chiffre d'affaires de 393 MDH au premier semestre 2026, en hausse de 28% sur un an, porté par la croissance de l'activité foncière et la livraison des premières villas de son programme résidentiel.",
+          },
+          {
+            tag: "MAROC | AFMA",
+            titre: "Bénéfice part du groupe en hausse de 12%",
+            texte:
+              "AFMA a vu son bénéfice part du groupe progresser de 12% au premier semestre 2026.",
+          },
+          {
+            tag: "MAROC | CIMENTS DU MAROC",
+            titre: "Bénéfice semestriel en recul de 8,2%",
+            texte:
+              "Ciments du Maroc affiche un bénéfice semestriel en repli de 8,2%, pénalisé par la hausse des charges financières.",
+          },
+          {
+            tag: "MAROC | ASSURANCES COTÉES",
+            titre: "L'activité accélère, les bénéfices suivent plus lentement",
+            texte:
+              "Le secteur des assurances cotées affiche une accélération de son activité au premier semestre 2026, tandis que la progression des bénéfices reste plus modérée.",
+          },
+        ],
+      },
+      {
+        titre: "À SUIVRE AUJOURD'HUI",
+        items: [
+          {
+            tag: "MONDE | SOMMET TRUMP-XI",
+            titre: "Poursuite du sommet Trump-Xi à Washington",
+            texte:
+              "Poursuite du sommet Trump-Xi à Washington, avec d'éventuelles annonces sur le commerce, l'IA ou le Moyen-Orient.",
+          },
+          {
+            tag: "MAROC | RÉSULTATS SEMESTRIELS",
+            titre: "Poursuite des publications de résultats semestriels",
+            texte:
+              "Poursuite des publications de résultats semestriels des sociétés cotées marocaines.",
+          },
+          {
+            tag: "ÉNERGIE | PÉTROLE & TAUX",
+            titre: "Pétrole et rendements obligataires sous surveillance",
+            texte:
+              "L'évolution du pétrole et des rendements obligataires, facteurs de pression sur les marchés actions cette semaine, sera à suivre.",
+          },
+        ],
+      },
+    ],
+  },
+  {
     date: "2026-09-24",
     pdfUrl: "/assets/briefs/2026-09-24.pdf",
     dateLabel: "24/09/2026",
