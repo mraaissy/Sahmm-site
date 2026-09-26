@@ -3556,10 +3556,10 @@ export default function Sahm() {
           --ink-soft: #5B6773;
           --paper: #FFFFFF;
           --paper-raised: #FFFFFF;
-          --navy: #2B3A4A;
-          --navy-deep: #1F2A36;
-          --gold: #7C8896;
-          --gold-soft: #D8DBE0;
+          --navy: #1D3D5F;
+          --navy-deep: #0F2438;
+          --gold: #8F701A;
+          --gold-soft: #F2E8CF;
           --green: #2E7D5B;
           --green-soft: #E4F0EA;
           --red: #B4453D;
@@ -3860,7 +3860,7 @@ export default function Sahm() {
 
         /* ---- Hero ---- */
         .hero {
-          background: linear-gradient(180deg, var(--navy) 0%, #1A2530 100%);
+          background: linear-gradient(180deg, var(--navy) 0%, var(--navy-deep) 100%);
           color: #EEF1F4;
           padding: 56px 0 60px;
         }
@@ -4375,7 +4375,7 @@ export default function Sahm() {
         }
         .official-table tbody tr:last-child td { border-bottom: none; }
         .official-table tbody tr:hover { background: var(--gold-soft); }
-        .official-emetteur { color: #2E5E8C; font-weight: 500; }
+        .official-emetteur { color: #1D5A96; font-weight: 500; }
         .official-table td.muted { color: var(--ink-soft); font-style: italic; }
         .type-badge {
           font-size: 11.5px;
@@ -4583,7 +4583,7 @@ export default function Sahm() {
           padding: 11px 22px;
           cursor: pointer;
         }
-        .ptf-add-btn:hover { background: #1A2530; }
+        .ptf-add-btn:hover { background: var(--navy-deep); }
         .ptf-error {
           color: var(--red);
           font-size: 13px;
@@ -5049,7 +5049,7 @@ export default function Sahm() {
                         paddingAngle={2}
                       >
                         {capData.secteurs.map((_, i) => (
-                          <Cell key={i} fill={["#B4453D", "#3B6FA0", "#2E7D5B", "#7C8896", "#D8A23B"][i % 5]} />
+                          <Cell key={i} fill={["#B4453D", "#1D5A96", "#1F8A5B", "#7A4F8C", "#96731A"][i % 5]} />
                         ))}
                       </Pie>
                       <Tooltip formatter={(v) => `${v}%`} />
@@ -5058,7 +5058,7 @@ export default function Sahm() {
                   <div style={{ display: "flex", flexDirection: "column", gap: 8, marginTop: 12 }}>
                     {capData.secteurs.map((s, i) => (
                       <div key={s.nom} style={{ display: "flex", alignItems: "center", gap: 8, fontSize: 13 }}>
-                        <span style={{ width: 10, height: 10, borderRadius: "50%", background: ["#B4453D", "#3B6FA0", "#2E7D5B", "#7C8896", "#D8A23B"][i % 5], flexShrink: 0 }} />
+                        <span style={{ width: 10, height: 10, borderRadius: "50%", background: ["#B4453D", "#1D5A96", "#1F8A5B", "#7A4F8C", "#96731A"][i % 5], flexShrink: 0 }} />
                         <span style={{ color: "var(--ink)" }}>{s.nom}</span>
                         <span style={{ color: "var(--ink-soft)", marginLeft: "auto" }}>{s.pct}%</span>
                       </div>
