@@ -165,6 +165,126 @@ const derniereCloture = {
 // au plus ancien. Le premier élément du tableau est le plus récent.
 const morningBriefs = [
   {
+    date: "2026-09-28",
+    pdfUrl: "/assets/briefs/2026-09-28.pdf",
+    dateLabel: "28/09/2026",
+    titre: "Le MASI cède 0,29% sur la semaine, résultats semestriels en cascade",
+    resumeCourt:
+      "La Bourse de Casablanca a terminé la semaine sur une légère baisse vendredi, le MASI cédant 0,29% à 17.818,09 points (performance YTD : -5,46%), même si l'indice progresse de 1,28% sur la semaine du 21 au 25 septembre, porté par les Mines (+6,51%) — CMT signe la plus forte hausse de la séance (+9,99%). À l'international, Wall Street a clôturé la semaine en hausse, soutenue par la détente du pétrole après des signes de rapprochement entre les États-Unis et l'Iran, tandis que les rendements obligataires américains (10 ans à 5,18%) et allemands atteignent des plus hauts pluriannuels. Côté résultats, CMT, Disty Technologies, Disway, Immorente Invest et HPS publient des performances semestrielles en nette amélioration.",
+    sections: [
+      {
+        titre: "CONTEXTE OVERNIGHT",
+        items: [
+          {
+            tag: "MAROC | BOURSE DE CASABLANCA",
+            titre: "Le MASI cède 0,29% vendredi, mais progresse de 1,28% sur la semaine",
+            texte:
+              "La Bourse de Casablanca a terminé la semaine sur une légère baisse vendredi, le MASI cédant 0,29% à 17.818,09 points (performance YTD : -5,46%). Sur la semaine du 21 au 25 septembre, l'indice progresse toutefois de 1,28%, porté par les Mines (+6,51%). CMT a signé la plus forte hausse de la séance (+9,99% à 4.315 DH), dans des échanges de 480 MDH dominés par TGCC.",
+          },
+          {
+            tag: "USA | WALL STREET",
+            titre: "Wall Street clôture la semaine en hausse",
+            texte:
+              "Wall Street a clôturé la semaine en hausse vendredi : Dow Jones +0,93% à 51.828,62 points, S&P 500 +0,51% à 7.743,41 points, Nasdaq +0,50% à 27.068,72 points, soutenus par la détente du pétrole (Brent repassé sous 98 $/baril), après des signes de rapprochement entre les États-Unis et l'Iran sur la levée des blocus navals.",
+          },
+          {
+            tag: "MONDE | TAUX",
+            titre: "Les rendements obligataires américains et allemands à des plus hauts pluriannuels",
+            texte:
+              "Le rendement des bons du Trésor américains à 10 ans a touché 5,18% en séance vendredi, un plus haut depuis la crise financière, tandis que le Bund allemand à 10 ans (3,58%) évolue au-dessus de son sommet de 17 ans.",
+          },
+          {
+            tag: "MAROC | BANK AL-MAGHRIB",
+            titre: "Les avoirs officiels de réserve bondissent à 503 milliards de dirhams",
+            texte:
+              "Les avoirs officiels de réserve de Bank Al-Maghrib ont bondi à 503 milliards de dirhams au 18 septembre.",
+          },
+        ],
+      },
+      {
+        titre: "OUVERTURE DES MARCHÉS",
+        items: [
+          {
+            tag: "EUROPE | INDICES",
+            titre: "Les indices européens en légère hausse à l'ouverture",
+            texte:
+              "Le CAC 40 s'établit à 8.110,44 points (+0,40%), le SBF 120 à 6.143,98 points (+0,36%) et l'Euro Stoxx 50 à 6.317,65 points (+0,24%).",
+          },
+          {
+            tag: "MATIÈRES PREMIÈRES | MÉTAUX",
+            titre: "L'or, l'argent et le cuivre en net repli",
+            texte:
+              "L'or recule de 3,10% à 4.187,34 $/once, l'argent de 5,19% à 61,438 $/once, et le cuivre de 2,29% à 6,6113 $/lb.",
+          },
+          {
+            tag: "ÉNERGIE | PÉTROLE",
+            titre: "Le Brent en hausse de 2,14% à l'ouverture",
+            texte:
+              "Le Brent progresse de 2,14% à 99,53 $/bbl.",
+          },
+        ],
+      },
+      {
+        titre: "ACTUALITÉS DES SOCIÉTÉS COTÉES",
+        items: [
+          {
+            tag: "MAROC | CMT",
+            titre: "Résultat net en hausse de 149% à 187 MDH au S1",
+            texte:
+              "La Compagnie Minière de Touissit a réalisé un résultat net consolidé de 187 MDH au premier semestre 2026 (contre 75 MDH), porté par un chiffre d'affaires de 596 MDH (+74%) et la hausse des cours de l'argent (+141%) et du zinc (+22%). Le résultat d'exploitation atteint 356 MDH (+79%).",
+          },
+          {
+            tag: "MAROC | DISTY TECHNOLOGIES",
+            titre: "Résultat net en hausse de 28% au S1",
+            texte:
+              "Disty Technologies affiche un résultat net en hausse de 28% au premier semestre 2026, porté par une demande IT soutenue au Maroc.",
+          },
+          {
+            tag: "MAROC | DISWAY",
+            titre: "RNPG en hausse de 20% au S1",
+            texte:
+              "Disway a vu son résultat net part du groupe progresser de 20% au premier semestre 2026.",
+          },
+          {
+            tag: "MAROC | IMMORENTE INVEST",
+            titre: "FFO en hausse de 7%, guidance 2026 maintenue",
+            texte:
+              "Immorente Invest enregistre un FFO en progression de 7% au premier semestre 2026 et maintient sa guidance pour l'ensemble de l'exercice.",
+          },
+          {
+            tag: "MAROC | HPS",
+            titre: "Redressement de la rentabilité, objectifs 2026 confirmés",
+            texte:
+              "HPS redresse sa rentabilité au premier semestre 2026 et confirme ses objectifs pour l'année.",
+          },
+        ],
+      },
+      {
+        titre: "À SUIVRE AUJOURD'HUI",
+        items: [
+          {
+            tag: "MONDE | IRAN",
+            titre: "Discussions entre les États-Unis et l'Iran sur la levée des blocus navals",
+            texte:
+              "Évolution des discussions entre les États-Unis et l'Iran sur la levée des blocus navals, et impact sur les cours du pétrole.",
+          },
+          {
+            tag: "MONDE | OBLIGATAIRE",
+            titre: "Tension sur les marchés obligataires mondiaux",
+            texte:
+              "Tension sur les marchés obligataires mondiaux, avec des rendements américains et allemands à des plus hauts de 15 ans.",
+          },
+          {
+            tag: "MAROC | RÉSULTATS SEMESTRIELS",
+            titre: "Poursuite des publications de résultats semestriels",
+            texte:
+              "Poursuite des publications de résultats semestriels des sociétés cotées marocaines.",
+          },
+        ],
+      },
+    ],
+  },
+  {
     date: "2026-09-25",
     pdfUrl: "/assets/briefs/2026-09-25.pdf",
     dateLabel: "25/09/2026",
