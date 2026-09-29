@@ -165,6 +165,132 @@ const derniereCloture = {
 // au plus ancien. Le premier élément du tableau est le plus récent.
 const morningBriefs = [
   {
+    date: "2026-09-29",
+    pdfUrl: "/assets/briefs/2026-09-29.pdf",
+    dateLabel: "29/09/2026",
+    titre: "Le MASI efface ses gains du matin, cède 0,95% lundi",
+    resumeCourt:
+      "La Bourse de Casablanca a effacé ses gains du matin lundi, terminant en baisse de 0,95% à 17.648 points, au plus bas du jour (MASI 20 : -0,71%, -13,93% YTD). Disty Technologies a signé la meilleure performance (+4,35%), tandis qu'Oulmès a le plus reculé (-5,95%). À l'international, Donald Trump a rejeté samedi la proposition iranienne de réouverture du détroit d'Ormuz, faisant bondir le pétrole de près de 1% et pesant sur Wall Street, tandis que le marché anticipe désormais à 70% une nouvelle hausse des taux de la Fed fin octobre. Côté résultats, Marsa Maroc et Eqdom publient de solides performances semestrielles, tandis que Holcim Maroc affiche un résultat net en recul de 8,1%.",
+    sections: [
+      {
+        titre: "CONTEXTE OVERNIGHT",
+        items: [
+          {
+            tag: "MAROC | BOURSE DE CASABLANCA",
+            titre: "Le MASI efface ses gains du matin, cède 0,95%",
+            texte:
+              "La Bourse de Casablanca a effacé ses gains du matin lundi, terminant en baisse de 0,95% à 17.648 points, au plus bas du jour (MASI 20 : -0,71%, -13,93% YTD). Disty Technologies a signé la meilleure performance (+4,35%), tandis qu'Oulmès a le plus reculé (-5,95%).",
+          },
+          {
+            tag: "MONDE | GÉOPOLITIQUE",
+            titre: "Trump rejette la proposition iranienne sur le détroit d'Ormuz",
+            texte:
+              "Donald Trump a rejeté samedi la proposition iranienne de réouverture du détroit d'Ormuz, après le plan de paix présenté par Téhéran à l'ONU. Des médiateurs devaient rencontrer séparément Washington et Téhéran lundi ou mardi. Le pétrole a bondi de près de 1% lundi, restant bien au-dessus des 100 $.",
+          },
+          {
+            tag: "USA | WALL STREET",
+            titre: "Wall Street clôture en baisse lundi",
+            texte:
+              "Wall Street a clôturé en baisse lundi pour la même raison : Dow Jones -0,67% à 51.481,51 pts, S&P 500 -0,77% à 7.683,69 pts, Nasdaq -0,92% à 26.820 pts, la hausse du pétrole et des rendements obligataires renforçant les craintes d'un resserrement monétaire plus marqué de la Fed.",
+          },
+          {
+            tag: "MONDE | FED",
+            titre: "Le marché anticipe à 70% une nouvelle hausse des taux fin octobre",
+            texte:
+              "Selon LSEG, le marché anticipe désormais à 70% une nouvelle hausse des taux fin octobre, contre 47% de probabilité d'un statu quo pour la BCE.",
+          },
+          {
+            tag: "MAROC | CHARI",
+            titre: "Chari intègre l'indice Africa Tech 50 de la Bourse de Londres",
+            texte:
+              "Chari, fintech marocaine, intègre l'indice Africa Tech 50 de la Bourse de Londres, seule start-up du pays retenue.",
+          },
+        ],
+      },
+      {
+        titre: "OUVERTURE DES MARCHÉS",
+        items: [
+          {
+            tag: "EUROPE | INDICES",
+            titre: "Les indices européens en légère hausse à l'ouverture",
+            texte:
+              "Le CAC 40 s'établit à 8.082,33 points (+0,05%), le SBF 120 à 6.128,61 points (+0,11%) et l'Euro Stoxx 50 à 6.335,00 points (+0,54%).",
+          },
+          {
+            tag: "MATIÈRES PREMIÈRES | MÉTAUX",
+            titre: "L'or en légère hausse, l'argent et le cuivre en repli",
+            texte:
+              "L'or progresse de 0,15% à 4.174,55 $/once, tandis que l'argent recule de 0,90% à 61,163 $/once et le cuivre de 0,53% à 6,5983 $/lb.",
+          },
+          {
+            tag: "ÉNERGIE | PÉTROLE",
+            titre: "Le Brent en hausse de 1,04% à l'ouverture",
+            texte:
+              "Le Brent progresse de 1,04% à 98,85 $/bbl.",
+          },
+        ],
+      },
+      {
+        titre: "ACTUALITÉS DES SOCIÉTÉS COTÉES",
+        items: [
+          {
+            tag: "MAROC | MARSA MAROC",
+            titre: "RNPG en hausse de 12% à 869 MDH au S1",
+            texte:
+              "Marsa Maroc a réalisé un résultat net part du groupe de 869 MDH au premier semestre 2026 (+12%), pour un chiffre d'affaires de 3,214 MMDH.",
+          },
+          {
+            tag: "MAROC | HOLCIM MAROC",
+            titre: "Résultat net consolidé en recul de 8,1% au S1",
+            texte:
+              "Holcim Maroc affiche un résultat net consolidé en repli de 8,1% au premier semestre 2026.",
+          },
+          {
+            tag: "MAROC | EQDOM",
+            titre: "Croissance confirmée sur le financement automobile",
+            texte:
+              "Eqdom publie ses résultats à fin juin 2026, marqués par la croissance du financement automobile.",
+          },
+          {
+            tag: "MAROC | AKDITAL",
+            titre: "Contrat-cadre avec T2S pour des robots chirurgicaux",
+            texte:
+              "T2S a signé un contrat-cadre avec Akdital pour le déploiement de robots chirurgicaux au Maroc.",
+          },
+          {
+            tag: "MAROC | BANQUES",
+            titre: "Besoin en liquidité de 132,3 milliards de dirhams en août",
+            texte:
+              "Le besoin en liquidité des banques marocaines s'est établi à 132,3 milliards de dirhams en août 2026.",
+          },
+        ],
+      },
+      {
+        titre: "À SUIVRE AUJOURD'HUI",
+        items: [
+          {
+            tag: "MONDE | DÉTROIT D'ORMUZ",
+            titre: "Issue des entretiens séparés entre médiateurs, États-Unis et Iran",
+            texte:
+              "Issue des entretiens séparés entre médiateurs, États-Unis et Iran sur le détroit d'Ormuz, et impact sur les cours du pétrole.",
+          },
+          {
+            tag: "MONDE | MACRO",
+            titre: "Semaine chargée en indicateurs macro",
+            texte:
+              "Semaine chargée en indicateurs macro : inflation en Europe et aux États-Unis, PMI finaux.",
+          },
+          {
+            tag: "MAROC | RÉSULTATS SEMESTRIELS",
+            titre: "Poursuite des publications de résultats semestriels",
+            texte:
+              "Poursuite des publications de résultats semestriels des sociétés cotées marocaines.",
+          },
+        ],
+      },
+    ],
+  },
+  {
     date: "2026-09-28",
     pdfUrl: "/assets/briefs/2026-09-28.pdf",
     dateLabel: "28/09/2026",
