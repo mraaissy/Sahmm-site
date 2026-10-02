@@ -165,6 +165,97 @@ const derniereCloture = {
 // au plus ancien. Le premier élément du tableau est le plus récent.
 const morningBriefs = [
   {
+    date: "2026-10-02",
+    pdfUrl: "/assets/briefs/2026-10-02.pdf",
+    dateLabel: "02/10/2026",
+    titre: "Le MASI cède 0,87% jeudi, Attijariwafa bank s'offre Société Générale Ghana",
+    resumeCourt:
+      "La Bourse de Casablanca a cédé du terrain jeudi, le MASI reculant de 0,87% à 17.579,17 points (MASI 20 : -1,08% ; MASI ESG : -0,98%), dans un volume de 152,5 MDH dominé par TGCC. À l'international, Wall Street a terminé jeudi en légère hausse, effaçant ses pertes du matin à mesure que la vente massive sur les obligations marquait une pause, les investisseurs reprenant espoir sur un statu quo de la Fed après une inflation plus faible que prévu. Côté sociétés, Attijariwafa bank a signé un accord pour acquérir 55,22% de Société Générale Ghana, tandis que BCP, CFG Bank, CFG Marchés et Upline Securities rejoignent les négociateurs du marché à terme. Résultats contrastés au S1 : CTM bascule en perte nette (-13 MDH), pénalisée par le carburant, tandis que CDG Capital et S2M progressent.",
+    sections: [
+      {
+        titre: "CONTEXTE OVERNIGHT",
+        items: [
+          {
+            tag: "MAROC | BOURSE DE CASABLANCA",
+            titre: "Le MASI cède 0,87% jeudi",
+            texte:
+              "La Bourse de Casablanca a cédé du terrain jeudi, le MASI reculant de 0,87% à 17.579,17 points (MASI 20 : -1,08% à 1.270,22 pts ; MASI ESG : -0,98%). Le volume a dépassé 152,5 MDH, dominé par TGCC (50,7 MDH), devant Attijariwafa bank et Résidences Dar Saada. La capitalisation de la place s'établit à plus de 1.034,25 MMDH.",
+          },
+          {
+            tag: "USA | WALL STREET",
+            titre: "Wall Street efface ses pertes du matin, termine en légère hausse",
+            texte:
+              "Wall Street a terminé jeudi en légère hausse, effaçant ses pertes du matin à mesure que la vente massive sur les obligations marquait une pause : Dow Jones +0,10% à 50.957 pts (Boeing +3,58%, Salesforce +3,10%), S&P 500 +0,2%, Nasdaq +0,3%. Les investisseurs reprennent espoir sur un statu quo de la Fed ce mois-ci, après une inflation plus faible que prévu publiée mercredi et de solides résultats de Micron.",
+          },
+          {
+            tag: "MONDE | TAUX",
+            titre: "Les rendements obligataires américains se replient",
+            texte:
+              "Les rendements obligataires américains se sont repliés depuis leurs récents plus hauts pluriannuels, soulageant les marchés actions en fin de séance.",
+          },
+        ],
+      },
+      {
+        titre: "ACTUALITÉS DES SOCIÉTÉS COTÉES",
+        items: [
+          {
+            tag: "MAROC | ATTIJARIWAFA BANK",
+            titre: "Accord pour acquérir 55,22% de Société Générale Ghana",
+            texte:
+              "Attijariwafa bank a signé un accord avec le groupe Société Générale en vue d'acquérir 55,22% du capital de Société Générale Ghana (60,22% cédés au total, les 5% restants revenant à l'investisseur institutionnel SSNIT), sous réserve des autorisations réglementaires au Maroc et au Ghana. La banque ghanéenne affichait fin 2025 un PNB de 1,356 MdGHS et un résultat net de 397 MGHS. L'opération s'inscrit dans la stratégie d'expansion du groupe en Afrique anglophone.",
+          },
+          {
+            tag: "MAROC | MARCHÉ À TERME",
+            titre: "BCP, CFG Bank, CFG Marchés et Upline Securities rejoignent les négociateurs",
+            texte:
+              "La SGMAT (Société gestionnaire du marché à terme) a annoncé l'adhésion de quatre nouveaux membres négociateurs — Banque Centrale Populaire, CFG Bank, CFG Marchés et Upline Securities — qui ont débuté leur activité de négociation des instruments financiers à terme ce jeudi 1er octobre.",
+          },
+          {
+            tag: "MAROC | CTM",
+            titre: "Perte nette de 13 MDH au S1, pénalisée par le carburant",
+            texte:
+              "CTM affiche un chiffre d'affaires consolidé de 927 MDH au premier semestre 2026 (+22,2%), porté par l'intégration des filiales de transport urbain ISSAL Tanger et Fès. La hausse des prix du carburant a toutefois fait basculer l'EBITDA consolidé en territoire négatif (-39 MDH, contre +5 MDH un an plus tôt), entraînant une perte nette part du groupe de 13 MDH, contre un bénéfice de 12 MDH au S1 2025.",
+          },
+          {
+            tag: "MAROC | CDG CAPITAL",
+            titre: "RNPG de 74,4 MDH, normalisation des activités de marché",
+            texte:
+              "CDG Capital affiche un résultat net part du groupe de 74,4 MDH au premier semestre 2026, pour un PNB consolidé de 442,4 MDH (-11%), la comparaison souffrant d'une base 2025 exceptionnelle sur les activités de marché. Sur base sociale en revanche, le PNB bondit de 56% à 442 MDH et le résultat net de 66% à 208 MDH, porté par les dividendes des filiales.",
+          },
+          {
+            tag: "MAROC | S2M",
+            titre: "Résultat net en hausse de 15%, prises de commandes +60%",
+            texte:
+              "S2M a réalisé un chiffre d'affaires consolidé de 181,5 MDH au premier semestre 2026 (+21,7%), pour un résultat net de 12,7 MDH (+15%). Les prises de commandes bondissent de 60%, dont +91% pour la composante récurrente. Le groupe a par ailleurs pris une participation dans la fintech américaine CUP3PAY.",
+          },
+        ],
+      },
+      {
+        titre: "À SUIVRE AUJOURD'HUI",
+        items: [
+          {
+            tag: "USA | EMPLOI",
+            titre: "Rapport officiel sur l'emploi américain de septembre",
+            texte:
+              "Rapport officiel sur l'emploi américain de septembre, publication très attendue ce vendredi.",
+          },
+          {
+            tag: "MONDE | OBLIGATAIRE",
+            titre: "Confirmation ou non de la pause sur les rendements américains",
+            texte:
+              "Confirmation ou non de la pause sur les rendements obligataires américains, facteur clé pour le sentiment de marché.",
+          },
+          {
+            tag: "MAROC | RÉSULTATS SEMESTRIELS",
+            titre: "Poursuite des publications de résultats semestriels",
+            texte:
+              "Poursuite des publications de résultats semestriels des sociétés cotées marocaines.",
+          },
+        ],
+      },
+    ],
+  },
+  {
     date: "2026-09-29",
     pdfUrl: "/assets/briefs/2026-09-29.pdf",
     dateLabel: "29/09/2026",
