@@ -165,6 +165,85 @@ const derniereCloture = {
 // au plus ancien. Le premier élément du tableau est le plus récent.
 const morningBriefs = [
   {
+    date: "2026-10-13",
+    pdfUrl: "/assets/briefs/2026-10-13.pdf",
+    dateLabel: "13/10/2026",
+    titre: "Le MASI rebondit de 0,94% lundi, porté par S2M, Sothema et Holcim Maroc",
+    resumeCourt:
+      "La Bourse de Casablanca a rebondi lundi (+0,94% à 16.954,50 points), portée par S2M (+6,75%), Sothema (+6,10%) et Holcim Maroc (+6,09%), dans un volume de 195,6 MDH sur le marché au comptant. À l'international, Wall Street a terminé lundi en ordre dispersé (Dow +0,38%, S&P -0,06%, Nasdaq -0,44%), à la veille des résultats des grandes banques américaines. Le rendement du Trésor américain à 10 ans évolue autour de 5,24% (marché obligataire fermé lundi, Columbus Day), tandis que le Brent reste proche de 106 $/bbl sur fond de tensions géopolitiques.",
+    sections: [
+      {
+        titre: "CONTEXTE OVERNIGHT",
+        items: [
+          {
+            tag: "MAROC | BOURSE DE CASABLANCA",
+            titre: "Le MASI rebondit de 0,94% lundi",
+            texte:
+              "La Bourse de Casablanca a rebondi lundi (+0,94% à 16.954,50 points), portée par S2M (+6,75%), Sothema (+6,10%) et Holcim Maroc (+6,09%). Volume de 195,6 MDH sur le marché au comptant.",
+          },
+          {
+            tag: "USA | WALL STREET",
+            titre: "Wall Street termine en ordre dispersé",
+            texte:
+              "Wall Street a terminé lundi en ordre dispersé (Dow +0,38% à 51.850,55 pts, S&P -0,06% à 7.807,24 pts, Nasdaq -0,44% à 27.245,90 pts), à la veille des résultats des grandes banques.",
+          },
+          {
+            tag: "MONDE | TAUX & PÉTROLE",
+            titre: "Le Trésor US à 10 ans autour de 5,24%, le Brent proche de 106 $/bbl",
+            texte:
+              "Rendement du Trésor US à 10 ans autour de 5,24% (marché obligataire fermé lundi, Columbus Day) ; Brent proche de 106 $/bbl sur fond de tensions géopolitiques.",
+          },
+        ],
+      },
+      {
+        titre: "OUVERTURE DES MARCHÉS",
+        items: [
+          {
+            tag: "MATIÈRES PREMIÈRES | MÉTAUX",
+            titre: "L'or, l'argent et le cuivre en légère hausse",
+            texte:
+              "L'or s'établit à environ 4.183 $/once (+0,3%), l'argent à environ 60,5 $/once (+0,4%) et le cuivre à environ 6,72 $/lb (+0,3%).",
+          },
+          {
+            tag: "ÉNERGIE | PÉTROLE",
+            titre: "Le Brent recule de 1,8% à l'ouverture",
+            texte:
+              "Le Brent recule de 1,8% à environ 104,8 $/bbl.",
+          },
+          {
+            tag: "EUROPE | INDICES",
+            titre: "Les indices européens en hausse à l'ouverture",
+            texte:
+              "Le CAC 40 progresse de 0,41% à 7.864,82 points et le DAX de 0,46% à 25.394,62 points.",
+          },
+        ],
+      },
+      {
+        titre: "À SUIVRE AUJOURD'HUI",
+        items: [
+          {
+            tag: "USA | RÉSULTATS TRIMESTRIELS",
+            titre: "Ouverture de la saison des résultats avec JPMorgan, Goldman Sachs, Citigroup et Wells Fargo",
+            texte:
+              "Publications de JPMorgan, Goldman Sachs, Citigroup et Wells Fargo, en ouverture de la saison des résultats trimestriels aux États-Unis.",
+          },
+          {
+            tag: "USA | MACRO",
+            titre: "Inflation et ventes au détail américaines attendues mercredi et jeudi",
+            texte:
+              "Inflation et ventes au détail américaines attendues mercredi et jeudi.",
+          },
+          {
+            tag: "MAROC | RÉSULTATS SEMESTRIELS",
+            titre: "Poursuite des publications semestrielles des sociétés cotées",
+            texte:
+              "Poursuite des publications semestrielles des sociétés cotées à Casablanca.",
+          },
+        ],
+      },
+    ],
+  },
+  {
     date: "2026-10-02",
     pdfUrl: "/assets/briefs/2026-10-02.pdf",
     dateLabel: "02/10/2026",
