@@ -1,6 +1,14 @@
 {
   "briefs": [
     {
+      "date": "2026-10-21",
+      "pdfUrl": "/assets/briefs/2026-10-21.pdf",
+      "dateLabel": "21/10/2026",
+      "badge": "MORNING BRIEF",
+      "titre": "Le MASI recule de 0,24% mardi, performance YTD à -10,14%",
+      "resumeCourt": "La Bourse de Casablanca a reculé mardi (-0,24% à 16.934,59 points), portant sa performance depuis le début de l'année à -10,14%, dans un volume de 100,6 MDH sur le marché au comptant. À l'international, Wall Street a terminé mardi en hausse (Dow Jones +1,02%, S&P 500 environ +0,3%, Nasdaq -0,02%), portée par les valeurs industrielles et de bons résultats d'entreprises, tandis que le rendement du Trésor à 10 ans reste sous 5,12%. Le WTI a reculé de 2,5% après des informations sur une médiation visant à réunir Washington et Téhéran, le Brent ayant touché plus tôt son plus haut niveau depuis mi-mai."
+    },
+    {
       "date": "2026-10-13",
       "pdfUrl": "/assets/briefs/2026-10-13.pdf",
       "dateLabel": "13/10/2026",

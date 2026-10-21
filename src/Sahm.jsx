@@ -165,6 +165,85 @@ const derniereCloture = {
 // au plus ancien. Le premier élément du tableau est le plus récent.
 const morningBriefs = [
   {
+    date: "2026-10-21",
+    pdfUrl: "/assets/briefs/2026-10-21.pdf",
+    dateLabel: "21/10/2026",
+    titre: "Le MASI recule de 0,24% mardi, performance YTD à -10,14%",
+    resumeCourt:
+      "La Bourse de Casablanca a reculé mardi (-0,24% à 16.934,59 points), portant sa performance depuis le début de l'année à -10,14%, dans un volume de 100,6 MDH sur le marché au comptant. À l'international, Wall Street a terminé mardi en hausse (Dow Jones +1,02%, S&P 500 environ +0,3%, Nasdaq -0,02%), portée par les valeurs industrielles et de bons résultats d'entreprises, tandis que le rendement du Trésor à 10 ans reste sous 5,12%. Le WTI a reculé de 2,5% après des informations sur une médiation visant à réunir Washington et Téhéran, le Brent ayant touché plus tôt son plus haut niveau depuis mi-mai.",
+    sections: [
+      {
+        titre: "CONTEXTE OVERNIGHT",
+        items: [
+          {
+            tag: "MAROC | BOURSE DE CASABLANCA",
+            titre: "Le MASI recule de 0,24% mardi, -10,14% YTD",
+            texte:
+              "La Bourse de Casablanca a reculé mardi (-0,24% à 16.934,59 points), portant sa performance depuis le début de l'année à -10,14%. Volume de 100,6 MDH sur le marché au comptant.",
+          },
+          {
+            tag: "USA | WALL STREET",
+            titre: "Wall Street termine mardi en hausse",
+            texte:
+              "Wall Street a terminé mardi en hausse (Dow Jones +1,02% à 52.496 pts, S&P 500 environ +0,3%, Nasdaq -0,02% à 26.425 pts), portée par les valeurs industrielles et de bons résultats d'entreprises ; le rendement du Trésor à 10 ans reste sous 5,12%.",
+          },
+          {
+            tag: "MONDE | PÉTROLE & GÉOPOLITIQUE",
+            titre: "Le WTI recule de 2,5% sur fond de médiation Washington-Téhéran",
+            texte:
+              "Le WTI a reculé de 2,5% à 101,10 $ après des informations sur une médiation visant à réunir Washington et Téhéran, le Brent ayant touché plus tôt son plus haut niveau depuis mi-mai.",
+          },
+        ],
+      },
+      {
+        titre: "OUVERTURE DES MARCHÉS",
+        items: [
+          {
+            tag: "MATIÈRES PREMIÈRES | MÉTAUX",
+            titre: "L'or, l'argent et le cuivre en léger repli",
+            texte:
+              "L'or s'établit à environ 4.121 $/once (-0,1%), l'argent à environ 57,4 $/once (-1,0%) et le cuivre à environ 6,50 $/lb (-1,0%).",
+          },
+          {
+            tag: "ÉNERGIE | PÉTROLE",
+            titre: "Le Brent en hausse de 1,2% à l'ouverture",
+            texte:
+              "Le Brent progresse de 1,2% à environ 110,1 $/bbl.",
+          },
+          {
+            tag: "EUROPE | INDICES",
+            titre: "Le CAC 40 en légère hausse, le DAX en léger repli",
+            texte:
+              "Le CAC 40 progresse de 0,40% à 7.869,64 points, tandis que le DAX recule légèrement (-0,1%).",
+          },
+        ],
+      },
+      {
+        titre: "À SUIVRE AUJOURD'HUI",
+        items: [
+          {
+            tag: "MONDE | RÉSULTATS TRIMESTRIELS",
+            titre: "Poursuite de la saison des résultats, Tesla attendu aujourd'hui",
+            texte:
+              "Poursuite de la saison des résultats trimestriels en Europe et aux États-Unis, dont Tesla attendu aujourd'hui.",
+          },
+          {
+            tag: "MONDE | IRAN",
+            titre: "Évolution de la médiation entre les États-Unis et l'Iran",
+            texte:
+              "Évolution de la médiation entre les États-Unis et l'Iran et trajectoire du pétrole.",
+          },
+          {
+            tag: "EUROPE | DETTE FRANÇAISE",
+            titre: "Inquiétudes sur la dette française à surveiller",
+            texte:
+              "Inquiétudes sur la dette française et agitation politique en France, à surveiller sur le marché obligataire européen.",
+          },
+        ],
+      },
+    ],
+  },
+  {
     date: "2026-10-13",
     pdfUrl: "/assets/briefs/2026-10-13.pdf",
     dateLabel: "13/10/2026",
