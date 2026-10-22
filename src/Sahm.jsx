@@ -165,6 +165,102 @@ const derniereCloture = {
 // au plus ancien. Le premier élément du tableau est le plus récent.
 const morningBriefs = [
   {
+    date: "2026-10-22",
+    pdfUrl: "/assets/briefs/2026-10-22.pdf",
+    dateLabel: "22/10/2026",
+    titre: "Le MASI repasse la barre des 17.000 points, +0,43% mercredi",
+    resumeCourt:
+      "La Bourse de Casablanca a repassé mercredi la barre des 17.000 points (+0,43% à 17.007,86 points), soutenue par Cosumar (+4,09%) et Résidences Dar Saada (+3,16%), dans un volume de 247,7 MDH animé par HPS et BCP. À l'international, Wall Street a terminé mercredi en hausse, les résultats de SpaceX et de Super Micro Computer ayant relancé l'appétit pour les valeurs liées à l'IA, tandis que le Nikkei recule et que les Bourses européennes ouvrent en baisse, pénalisées par la hausse du pétrole et des taux liée au Moyen-Orient. Côté actualités, l'AMMC a visé le prospectus de l'introduction en Bourse de Jet Energy (filiale de Jet Contractors, ~350 MDH), et l'inflation marocaine ressort à +1,0% en septembre sur un mois selon le HCP.",
+    sections: [
+      {
+        titre: "CONTEXTE OVERNIGHT",
+        items: [
+          {
+            tag: "MAROC | BOURSE DE CASABLANCA",
+            titre: "Le MASI repasse la barre des 17.000 points",
+            texte:
+              "La Bourse de Casablanca a repassé mercredi la barre des 17.000 points (+0,43% à 17.007,86 points), soutenue par Cosumar (+4,09%) et Résidences Dar Saada (+3,16%). Volume de 247,7 MDH, animé par HPS (58,4 MDH) et BCP (54,5 MDH).",
+          },
+          {
+            tag: "USA | WALL STREET",
+            titre: "Wall Street termine mercredi en hausse, portée par l'IA",
+            texte:
+              "Wall Street a terminé mercredi en hausse (Dow Jones +0,69%, S&P 500 +0,58%, Nasdaq +1,05%), les résultats de SpaceX et de Super Micro Computer ayant relancé l'appétit pour les valeurs liées à l'IA.",
+          },
+          {
+            tag: "ASIE & EUROPE | INDICES",
+            titre: "Le Nikkei recule, les Bourses européennes ouvrent en baisse",
+            texte:
+              "Le Nikkei recule de 2,65% ce matin ; les Bourses européennes ouvrent en baisse, pénalisées par la hausse du pétrole et des taux liée au Moyen-Orient, et par des doutes sur la rentabilité de l'IA après les résultats de Meta.",
+          },
+        ],
+      },
+      {
+        titre: "OUVERTURE DES MARCHÉS",
+        items: [
+          {
+            tag: "MATIÈRES PREMIÈRES | MÉTAUX",
+            titre: "L'or, l'argent et le cuivre en net repli",
+            texte:
+              "L'or recule à environ 4.083 $/once (-1,4%), l'argent à environ 55,9 $/once (-3,5%) et le cuivre à environ 6,39 $/lb (-2,4%).",
+          },
+          {
+            tag: "ÉNERGIE | PÉTROLE",
+            titre: "Le Brent en forte hausse de 3,0% à l'ouverture",
+            texte:
+              "Le Brent progresse de 3,0% à environ 112,1 $/bbl.",
+          },
+          {
+            tag: "EUROPE | INDICES",
+            titre: "Le CAC 40 et le DAX en baisse à l'ouverture",
+            texte:
+              "Le CAC 40 recule de 1,34% à 7.815,77 points et le DAX de 1,10% à 25.363,06 points.",
+          },
+        ],
+      },
+      {
+        titre: "ACTUALITÉS",
+        items: [
+          {
+            tag: "MAROC | JET ENERGY",
+            titre: "L'AMMC vise le prospectus de l'introduction en Bourse de Jet Energy",
+            texte:
+              "L'AMMC a visé le 21 octobre le prospectus de l'introduction en Bourse de Jet Energy, filiale de Jet Contractors, pour une opération d'environ 350 MDH. Les souscriptions sont prévues début novembre et la première cotation le 24 novembre 2026.",
+          },
+          {
+            tag: "MAROC | INFLATION",
+            titre: "L'inflation ressort à +1,0% en septembre sur un mois selon le HCP",
+            texte:
+              "Selon le HCP, les prix à la consommation ont progressé de 1,0% en septembre par rapport à août (alimentaire +1,6%, non alimentaire +0,4%), tirés par la viande et les légumes (+4,3%) et les carburants (+2,0%). Sur un an, l'inflation ressort à +0,5% et l'inflation sous-jacente à +0,6%.",
+          },
+        ],
+      },
+      {
+        titre: "À SUIVRE AUJOURD'HUI",
+        items: [
+          {
+            tag: "EUROPE | RÉSULTATS TRIMESTRIELS",
+            titre: "Flux continu de résultats trimestriels, doutes sur le ROI de l'IA",
+            texte:
+              "Flux continu de résultats trimestriels en Europe, sur fond de doutes sur le retour sur investissement de l'IA.",
+          },
+          {
+            tag: "MONDE | PÉTROLE",
+            titre: "Évolution du pétrole et des tensions au Moyen-Orient",
+            texte:
+              "Évolution du pétrole (Brent au-dessus de 112 $) et des tensions au Moyen-Orient.",
+          },
+          {
+            tag: "MONDE | OBLIGATAIRE",
+            titre: "Poursuite de la hausse des rendements obligataires",
+            texte:
+              "Poursuite de la hausse des rendements obligataires, à surveiller.",
+          },
+        ],
+      },
+    ],
+  },
+  {
     date: "2026-10-21",
     pdfUrl: "/assets/briefs/2026-10-21.pdf",
     dateLabel: "21/10/2026",
