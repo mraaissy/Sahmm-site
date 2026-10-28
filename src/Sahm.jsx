@@ -165,6 +165,85 @@ const derniereCloture = {
 // au plus ancien. Le premier élément du tableau est le plus récent.
 const morningBriefs = [
   {
+    date: "2026-10-28",
+    pdfUrl: "/assets/briefs/2026-10-28.pdf",
+    dateLabel: "28/10/2026",
+    titre: "Le MASI en légère hausse (+0,12%) mardi, veille de la décision de la Fed",
+    resumeCourt:
+      "La Bourse de Casablanca a terminé mardi en légère hausse (+0,12% à 17.020,28 points), avec M2M Group (+6,58%) et Mutandis (+3,24%) en tête, tandis que HPS (-3,53%) et TGCC (-3,33%) ont reculé, dans un volume d'environ 167 MDH. À l'international, Wall Street a terminé mardi en hausse, les investisseurs profitant de prises de position sur l'IA avant la décision de la Fed attendue ce soir, tandis que le Brent progresse sur fond de tensions géopolitiques (frappe revendiquée par les Houthis sur la raffinerie saoudienne de Ras Tanura, non confirmée par Riyad). La saison des résultats se poursuit en Europe (BNP Paribas, Danone, Stellantis, Deutsche Bank, UBS) et aux États-Unis (Alphabet, Microsoft).",
+    sections: [
+      {
+        titre: "CONTEXTE OVERNIGHT",
+        items: [
+          {
+            tag: "MAROC | BOURSE DE CASABLANCA",
+            titre: "Le MASI termine mardi en légère hausse (+0,12%)",
+            texte:
+              "La Bourse de Casablanca a terminé mardi en légère hausse (+0,12% à 17.020,28 points), avec M2M Group (+6,58%) et Mutandis (+3,24%) en tête, tandis que HPS (-3,53%) et TGCC (-3,33%) ont reculé. Volume d'environ 167 MDH.",
+          },
+          {
+            tag: "USA | WALL STREET",
+            titre: "Wall Street termine mardi en hausse, à la veille de la décision de la Fed",
+            texte:
+              "Wall Street a terminé mardi en hausse (Dow Jones +0,03%, S&P 500 +0,60%, Nasdaq +1,18%), les investisseurs profitant de prises de position sur l'IA avant la décision de la Fed.",
+          },
+          {
+            tag: "MONDE | PÉTROLE & GÉOPOLITIQUE",
+            titre: "Le Brent progresse après une frappe revendiquée sur une raffinerie saoudienne",
+            texte:
+              "Le Brent progresse, les Houthis ayant revendiqué une frappe sur la raffinerie saoudienne de Ras Tanura (non confirmée par Riyad), tandis que la presse évoque une possible nouvelle opération américaine contre l'Iran.",
+          },
+        ],
+      },
+      {
+        titre: "OUVERTURE DES MARCHÉS",
+        items: [
+          {
+            tag: "MATIÈRES PREMIÈRES | MÉTAUX",
+            titre: "L'or, l'argent et le cuivre quasi stables",
+            texte:
+              "L'or s'établit à environ 4.050 $/once, l'argent à environ 54,2 $/once et le cuivre à environ 6,63 $/lb.",
+          },
+          {
+            tag: "ÉNERGIE | PÉTROLE",
+            titre: "Le Brent en hausse d'environ 1% à l'ouverture",
+            texte:
+              "Le Brent progresse d'environ 1% à environ 115,2 $/bbl.",
+          },
+          {
+            tag: "EUROPE | INDICES",
+            titre: "Ouverture européenne attendue en légère baisse",
+            texte:
+              "Contrats à terme : CAC 40 ≈ -0,1%, DAX ≈ -0,4%, FTSE 100 ≈ -0,15%.",
+          },
+        ],
+      },
+      {
+        titre: "À SUIVRE AUJOURD'HUI",
+        items: [
+          {
+            tag: "USA | FED",
+            titre: "Décision de politique monétaire de la Fed attendue ce soir",
+            texte:
+              "Décision de politique monétaire attendue ce soir, maintien des taux anticipé ; les commentaires de son président, Kevin Warsh, sont très attendus.",
+          },
+          {
+            tag: "MONDE | RÉSULTATS TRIMESTRIELS",
+            titre: "BNP Paribas, Danone, Stellantis, Deutsche Bank, UBS, Alphabet et Microsoft publient",
+            texte:
+              "Résultats : BNP Paribas, Danone, Stellantis, Deutsche Bank et UBS en Europe ; Alphabet et Microsoft ce soir aux États-Unis (Amazon et Intel demain).",
+          },
+          {
+            tag: "EUROPE | DETTE FRANÇAISE",
+            titre: "Hausse du rendement de l'OAT à 10 ans",
+            texte:
+              "Dette française : hausse du rendement de l'OAT à 10 ans, avec des inquiétudes budgétaires persistantes.",
+          },
+        ],
+      },
+    ],
+  },
+  {
     date: "2026-10-22",
     pdfUrl: "/assets/briefs/2026-10-22.pdf",
     dateLabel: "22/10/2026",
