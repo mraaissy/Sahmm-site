@@ -165,6 +165,102 @@ const derniereCloture = {
 // au plus ancien. Le premier élément du tableau est le plus récent.
 const morningBriefs = [
   {
+    date: "2026-10-29",
+    pdfUrl: "/assets/briefs/2026-10-29.pdf",
+    dateLabel: "29/10/2026",
+    titre: "Le MASI recule de 0,55% mercredi, pénalisé par le secteur des boissons",
+    resumeCourt:
+      "La Bourse de Casablanca a reculé mercredi (-0,55% à 16.926,61 points), pénalisée par le secteur des boissons (Société des Boissons du Maroc -8,48%, M2M Group -7,59%), malgré Sonasid (+3,66%) et HPS (+3,32%), dans un volume de 128,5 MDH. À l'international, Wall Street a terminé mercredi en hausse après le maintien des taux de la Fed, les marchés anticipant désormais à près de 87% un relèvement en décembre ; Microsoft gagne environ 4% après ses résultats, tandis qu'Alphabet recule nettement. Côté actualités, l'AMMC a accordé son visa à l'introduction en Bourse de Laprophan (~2,22 MMDH, prix fixé à 341 DH/action), et la Bourse de Casablanca lance deux nouveaux indices de rentabilité intégrant les dividendes.",
+    sections: [
+      {
+        titre: "CONTEXTE OVERNIGHT",
+        items: [
+          {
+            tag: "MAROC | BOURSE DE CASABLANCA",
+            titre: "Le MASI recule de 0,55% mercredi, pénalisé par les boissons",
+            texte:
+              "La Bourse de Casablanca a reculé mercredi (-0,55% à 16.926,61 points), pénalisée par le secteur des boissons (Société des Boissons du Maroc -8,48%, M2M Group -7,59%), malgré Sonasid (+3,66%) et HPS (+3,32%). Volume de 128,5 MDH.",
+          },
+          {
+            tag: "USA | WALL STREET",
+            titre: "Wall Street termine mercredi en hausse après le maintien des taux de la Fed",
+            texte:
+              "Wall Street a terminé mercredi en hausse (Dow Jones +0,19% à 52.475,10 pts, S&P 500 +0,28% à 7.743,98 pts, Nasdaq +0,27% à 26.549,85 pts) après le maintien des taux de la Fed, dont deux membres ont voté pour une hausse ; les marchés anticipent désormais à près de 87% un relèvement en décembre.",
+          },
+          {
+            tag: "USA | RÉSULTATS TECH",
+            titre: "Microsoft bondit, Alphabet recule, le Nikkei progresse",
+            texte:
+              "Microsoft gagne environ 4% après ses résultats, tandis qu'Alphabet recule nettement ; le Nikkei progresse de 1,10% ce matin.",
+          },
+        ],
+      },
+      {
+        titre: "OUVERTURE DES MARCHÉS",
+        items: [
+          {
+            tag: "MATIÈRES PREMIÈRES | MÉTAUX",
+            titre: "L'or stable, l'argent et le cuivre en repli",
+            texte:
+              "L'or s'établit à environ 4.025 $/once, l'argent à environ 52,8 $/once (-2,2%) et le cuivre à environ 6,60 $/lb (-0,65%).",
+          },
+          {
+            tag: "ÉNERGIE | PÉTROLE",
+            titre: "Le Brent recule de 1,3% à l'ouverture",
+            texte:
+              "Le Brent recule de 1,3% à environ 114 $/bbl.",
+          },
+          {
+            tag: "EUROPE | INDICES",
+            titre: "Le CAC 40 progresse de 0,85% en début de séance",
+            texte:
+              "Le CAC 40 s'établit à 7.953,70 points (+0,85%) en début de séance ; DAX ≈ +0,1% et FTSE 100 ≈ +0,2% attendus (contrats à terme).",
+          },
+        ],
+      },
+      {
+        titre: "ACTUALITÉS",
+        items: [
+          {
+            tag: "MAROC | LAPROPHAN",
+            titre: "L'AMMC accorde son visa à l'introduction en Bourse de Laprophan",
+            texte:
+              "L'AMMC a accordé son visa à l'introduction en Bourse de Laprophan, pour un montant maximum d'environ 2,22 MMDH (augmentation de capital d'environ 1,40 MMDH et cession de 2.412.200 actions existantes). Le prix est fixé à 341 DH par action, la part offerte au public représentant 37,64% du capital. Souscriptions du 9 au 17 novembre 2026 ; CFG Finance est conseiller financier et coordinateur global.",
+          },
+          {
+            tag: "MAROC | INDICES",
+            titre: "La Bourse de Casablanca lance deux nouveaux indices de rentabilité",
+            texte:
+              "La Bourse de Casablanca lance deux nouveaux indices, « MASI.20 Rentabilité Brut » et « MASI.20 Rentabilité Net », pour offrir une lecture plus complète de la performance du marché en intégrant les dividendes.",
+          },
+        ],
+      },
+      {
+        titre: "À SUIVRE AUJOURD'HUI",
+        items: [
+          {
+            tag: "EUROPE | BCE",
+            titre: "Décision de politique monétaire de la BCE attendue aujourd'hui",
+            texte:
+              "BCE : décision de politique monétaire attendue aujourd'hui, une pause étant anticipée par les marchés.",
+          },
+          {
+            tag: "USA | MACRO",
+            titre: "Inflation PCE, PIB du 3e trimestre et résultats d'Amazon et Intel",
+            texte:
+              "États-Unis : inflation PCE, PIB du 3e trimestre et inscriptions au chômage à 12h30 ; résultats d'Amazon et d'Intel ce soir.",
+          },
+          {
+            tag: "EUROPE | RÉSULTATS",
+            titre: "TotalEnergies et Lloyds publient leurs résultats",
+            texte:
+              "Résultats européens : TotalEnergies (bénéfice net en hausse de 127% sur un an au T3) et Lloyds notamment.",
+          },
+        ],
+      },
+    ],
+  },
+  {
     date: "2026-10-28",
     pdfUrl: "/assets/briefs/2026-10-28.pdf",
     dateLabel: "28/10/2026",
