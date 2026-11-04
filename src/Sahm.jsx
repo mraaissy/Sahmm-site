@@ -165,6 +165,85 @@ const derniereCloture = {
 // au plus ancien. Le premier élément du tableau est le plus récent.
 const morningBriefs = [
   {
+    date: "2026-11-04",
+    pdfUrl: "/assets/briefs/2026-11-04.pdf",
+    dateLabel: "04/11/2026",
+    titre: "Le MASI cède 0,76% mardi, les mines sous pression",
+    resumeCourt:
+      "La Bourse de Casablanca a reculé mardi (-0,76% à 16.390,89 points), les mines étant sous pression (Managem -8,05%), tandis que la promotion immobilière progressait (Addoha +5,23%, Résidences Dar Saada +4,38%), dans un volume supérieur à 1,65 MMDH. À l'international, Wall Street a terminé mardi en ordre dispersé, les valeurs de puces rebondissant (Nvidia +2,3%, Micron +2,6%) alors qu'Apple a cédé 1,9%. Les démocrates sont en passe de remporter la Chambre et le Sénat lors des midterms selon les projections de presse, le dollar recule à un plus bas d'un mois, le rendement du Trésor à 10 ans ressort à environ 4,93% et le Nikkei cède 1,42%, sur des craintes de régulation de la tech et de l'IA.",
+    sections: [
+      {
+        titre: "CONTEXTE OVERNIGHT",
+        items: [
+          {
+            tag: "MAROC | BOURSE DE CASABLANCA",
+            titre: "Le MASI cède 0,76% mardi, les mines sous pression",
+            texte:
+              "La Bourse de Casablanca a reculé mardi (-0,76% à 16.390,89 points), les mines étant sous pression (Managem -8,05%), tandis que la promotion immobilière progressait (Addoha +5,23%, Résidences Dar Saada +4,38%). Volume supérieur à 1,65 MMDH.",
+          },
+          {
+            tag: "USA | WALL STREET",
+            titre: "Wall Street termine mardi en ordre dispersé",
+            texte:
+              "Wall Street a terminé mardi en ordre dispersé (Dow Jones -0,38% à 51.786,72 pts, S&P 500 +0,36% à 7.568,92 pts, Nasdaq +0,83% à 25.372,01 pts), les valeurs de puces rebondissant (Nvidia +2,3%, Micron +2,6%) alors qu'Apple a cédé 1,9%.",
+          },
+          {
+            tag: "USA | MIDTERMS",
+            titre: "Les démocrates en passe de remporter la Chambre et le Sénat",
+            texte:
+              "Les démocrates sont en passe de remporter la Chambre et le Sénat, selon les projections rapportées par la presse. Le dollar recule à un plus bas d'un mois, le rendement du Trésor à 10 ans ressort à environ 4,93% et le Nikkei cède 1,42%, sur des craintes de régulation de la tech et de l'IA.",
+          },
+        ],
+      },
+      {
+        titre: "OUVERTURE DES MARCHÉS",
+        items: [
+          {
+            tag: "MATIÈRES PREMIÈRES | MÉTAUX",
+            titre: "L'or et l'argent stables, le cuivre en repli",
+            texte:
+              "L'or s'établit à environ 4.036 $/once, l'argent à environ 49,3 $/once et le cuivre à environ 6,30 $/lb (-1,3%).",
+          },
+          {
+            tag: "ÉNERGIE | PÉTROLE",
+            titre: "Le Brent recule légèrement à l'ouverture",
+            texte:
+              "Le Brent recule de 0,35% à environ 103,8 $/bbl.",
+          },
+          {
+            tag: "EUROPE | INDICES",
+            titre: "Ouverture européenne attendue stable à légèrement baissière",
+            texte:
+              "Contrats à terme : CAC 40 ≈ 0%, DAX ≈ -0,2%, FTSE 100 ≈ -0,4%.",
+          },
+        ],
+      },
+      {
+        titre: "À SUIVRE AUJOURD'HUI",
+        items: [
+          {
+            tag: "EUROPE | INFLATION",
+            titre: "Inflation flash de la zone euro et PMI définitifs",
+            texte:
+              "Zone euro : inflation flash d'octobre (consensus 4,0% après 3,8%) et PMI définitifs.",
+          },
+          {
+            tag: "USA | MACRO",
+            titre: "Emploi privé ADP et ISM des services",
+            texte:
+              "États-Unis : emploi privé ADP (consensus 69.000) et ISM des services (consensus 54,8).",
+          },
+          {
+            tag: "MONDE | RÉSULTATS & PÉTROLE",
+            titre: "BMW, Novo Nordisk, McDonald's, Uber et Qualcomm publient ; pétrole volatil",
+            texte:
+              "Résultats : BMW, Novo Nordisk, JCDecaux et Continental en Europe ; McDonald's, Uber et Qualcomm aux États-Unis. Pétrole volatil dans l'attente de la décision de Washington sur l'Iran.",
+          },
+        ],
+      },
+    ],
+  },
+  {
     date: "2026-10-29",
     pdfUrl: "/assets/briefs/2026-10-29.pdf",
     dateLabel: "29/10/2026",
