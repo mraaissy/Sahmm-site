@@ -165,6 +165,132 @@ const derniereCloture = {
 // au plus ancien. Le premier élément du tableau est le plus récent.
 const morningBriefs = [
   {
+    date: "2026-11-09",
+    pdfUrl: "/assets/briefs/2026-11-09.pdf",
+    dateLabel: "09/11/2026",
+    titre: "Le MASI bondit de 3,33% jeudi, +4,72% sur la semaine",
+    resumeCourt:
+      "Lors de la dernière séance de la semaine, jeudi 5 novembre, la Bourse de Casablanca a bondi de 3,33% à 17.317,91 points (+5,65% en deux séances, +4,72% sur la semaine), portée par Delta Holding (+9,78%), Zellidja (+9,63%) et SGTM (+7,66%), dans un volume de 1,01 MMDH dont 500 MDH en bloc sur Managem. À l'international, Wall Street a terminé vendredi en ordre dispersé, les semi-conducteurs rebondissant (Nvidia +3,0%, AMD +9,5%) après une semaine de repli, tandis que le Nikkei rebondit de 2,33% ce matin après avoir cédé 6% vendredi sur les craintes d'un encadrement plus strict de l'IA. Côté sociétés, CFG Bank et Disway publient de solides performances sur neuf mois, l'IPO de Jet Energy est sursouscrite près de 32 fois, et Label'Vie/Retail Holding obtiennent le visa AMMC pour leur fusion.",
+    sections: [
+      {
+        titre: "CONTEXTE OVERNIGHT",
+        items: [
+          {
+            tag: "MAROC | BOURSE DE CASABLANCA",
+            titre: "Le MASI bondit de 3,33% jeudi, +4,72% sur la semaine",
+            texte:
+              "Lors de la dernière séance de la semaine, jeudi 5/11, la Bourse de Casablanca a bondi de 3,33% à 17.317,91 points (+5,65% en deux séances, +4,72% sur la semaine), portée par Delta Holding (+9,78%), Zellidja (+9,63%) et SGTM (+7,66%). Volume de 1,01 MMDH, dont 500 MDH en bloc sur Managem ; capitalisation à 1.015,9 MMDH.",
+          },
+          {
+            tag: "USA | WALL STREET",
+            titre: "Wall Street termine vendredi en ordre dispersé, les semi-conducteurs rebondissent",
+            texte:
+              "Wall Street a terminé vendredi en ordre dispersé (Dow Jones -0,46% à 51.285,73 pts, S&P 500 +0,31% à 7.376,86 pts, Nasdaq +1,09% à 24.579,42 pts) : les semi-conducteurs rebondissent (Nvidia +3,0%, AMD +9,5%) après une semaine de repli, le Nasdaq restant en correction (-3,4% sur la semaine).",
+          },
+          {
+            tag: "ASIE | NIKKEI",
+            titre: "Le Nikkei rebondit de 2,33% après une chute de 6% vendredi",
+            texte:
+              "Le Nikkei rebondit de 2,33% ce matin, après avoir cédé 6% vendredi sur les craintes d'un encadrement plus strict de l'IA après les midterms américaines.",
+          },
+        ],
+      },
+      {
+        titre: "OUVERTURE DES MARCHÉS",
+        items: [
+          {
+            tag: "MATIÈRES PREMIÈRES | MÉTAUX",
+            titre: "L'or, l'argent et le cuivre en hausse",
+            texte:
+              "L'or progresse à environ 4.103 $/once (+0,8%), l'argent à environ 52,9 $/once (+1,9%) et le cuivre à environ 6,30 $/lb (+1,3%).",
+          },
+          {
+            tag: "ÉNERGIE | PÉTROLE",
+            titre: "Le Brent recule de 1,7% à l'ouverture",
+            texte:
+              "Le Brent recule de 1,7% à environ 96,6 $/bbl.",
+          },
+          {
+            tag: "EUROPE | INDICES",
+            titre: "Ouverture européenne attendue stable",
+            texte:
+              "Contrats à terme : CAC 40 ≈ 0%, DAX ≈ 0%, FTSE 100 ≈ +0,1%.",
+          },
+        ],
+      },
+      {
+        titre: "ACTUALITÉS DES SOCIÉTÉS COTÉES",
+        items: [
+          {
+            tag: "MAROC | CFG BANK",
+            titre: "PNB consolidé de 976 MDH sur neuf mois (+7%)",
+            texte:
+              "CFG Bank : PNB consolidé de 976 MDH sur neuf mois (+7%), tiré par les revenus récurrents (+19%).",
+          },
+          {
+            tag: "MAROC | LESIEUR CRISTAL",
+            titre: "Chiffre d'affaires en recul de 6% sur neuf mois",
+            texte:
+              "Lesieur Cristal : chiffre d'affaires de 3.915 MDH sur neuf mois (-6%), -4% au T3.",
+          },
+          {
+            tag: "MAROC | DISWAY",
+            titre: "Chiffre d'affaires en hausse de 10% sur neuf mois",
+            texte:
+              "Disway : chiffre d'affaires de 1.651 MDH sur neuf mois (+10%), +2,4% au T3.",
+          },
+          {
+            tag: "MAROC | JET ENERGY",
+            titre: "IPO sursouscrite près de 32 fois",
+            texte:
+              "Jet Energy : IPO sursouscrite près de 32 fois (≈ 12 MMDH de demande) ; cotation prévue le 16 novembre.",
+          },
+          {
+            tag: "MAROC | LABEL'VIE / RETAIL HOLDING",
+            titre: "Visa AMMC pour la fusion, assemblées générales le 20 novembre",
+            texte:
+              "Label'Vie / Retail Holding : visa AMMC pour la fusion (parité 8 pour 11) ; assemblées générales le 20 novembre.",
+          },
+          {
+            tag: "MAROC | SOTHEMA",
+            titre: "Prise de contrôle de Ramo Pharm notifiée au Conseil de la concurrence",
+            texte:
+              "Sothema : prise de contrôle de Ramo Pharm notifiée au Conseil de la concurrence.",
+          },
+          {
+            tag: "MAROC | ADDOHA",
+            titre: "Agrément de la NHC pour des projets résidentiels en Arabie saoudite",
+            texte:
+              "Addoha : agrément de la NHC pour des projets résidentiels en Arabie saoudite.",
+          },
+        ],
+      },
+      {
+        titre: "À SUIVRE AUJOURD'HUI",
+        items: [
+          {
+            tag: "EUROPE | SENTIX & BCE",
+            titre: "Indice Sentix de novembre, commerce extérieur allemand et présidence de la BCE",
+            texte:
+              "Zone euro : indice Sentix de novembre (consensus 2,1 contre 2,7) et commerce extérieur allemand ; les ministres des Finances débattent de la présidence de la BCE.",
+          },
+          {
+            tag: "USA | INFLATION & RÉSULTATS",
+            titre: "CPI américain mardi, les marchés anticipent une hausse de taux de la Fed en décembre",
+            texte:
+              "Cette semaine : inflation américaine (CPI) mardi et prix à la production vendredi, les marchés anticipant à 80% une hausse de taux de la Fed en décembre ; résultats de CoreWeave, Applied Materials et Cisco.",
+          },
+          {
+            tag: "EUROPE | BANQUES",
+            titre: "UniCredit publie un bénéfice en hausse de 24% au T3",
+            texte:
+              "Europe : UniCredit publie un bénéfice en hausse de 24% au T3, et Crédit Agricole propose un rapprochement entre Banco BPM et Crédit Agricole Italia.",
+          },
+        ],
+      },
+    ],
+  },
+  {
     date: "2026-11-04",
     pdfUrl: "/assets/briefs/2026-11-04.pdf",
     dateLabel: "04/11/2026",
