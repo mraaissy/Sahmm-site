@@ -165,6 +165,85 @@ const derniereCloture = {
 // au plus ancien. Le premier élément du tableau est le plus récent.
 const morningBriefs = [
   {
+    date: "2026-11-10",
+    pdfUrl: "/assets/briefs/2026-11-10.pdf",
+    dateLabel: "10/11/2026",
+    titre: "Le MASI progresse de 0,65% lundi, porté par les ingénieries et biens d'équipement",
+    resumeCourt:
+      "La Bourse de Casablanca a progressé lundi (+0,65% à 17.431,05 points), portée par les ingénieries et biens d'équipement (+4,42%) avec M2M Group (+8,00%), Sonasid (+7,21%) et Stroc Industrie (+5,49%), tandis que S2M (-3,00%) et Wafa Assurance (-1,85%) ont reculé, dans un volume de 466,6 MDH. À l'international, Wall Street a terminé lundi en nette hausse, les valeurs de l'IA rebondissant (AMD +13,3%, Broadcom +8,8%, Micron +6,3%) malgré le repli de Nvidia (-4,3%), tandis que le WTI recule nettement (≈ -4%) sur l'espoir d'avancées diplomatiques entre Washington et Téhéran. À Casablanca, le prix définitif de l'IPO de Jet Energy est attendu demain 11 novembre, avec une première cotation prévue le 16 novembre.",
+    sections: [
+      {
+        titre: "CONTEXTE OVERNIGHT",
+        items: [
+          {
+            tag: "MAROC | BOURSE DE CASABLANCA",
+            titre: "Le MASI progresse de 0,65% lundi",
+            texte:
+              "La Bourse de Casablanca a progressé lundi (+0,65% à 17.431,05 points), portée par les ingénieries et biens d'équipement (+4,42%) avec M2M Group (+8,00%), Sonasid (+7,21%) et Stroc Industrie (+5,49%), tandis que S2M (-3,00%) et Wafa Assurance (-1,85%) ont reculé. Volume de 466,6 MDH.",
+          },
+          {
+            tag: "USA | WALL STREET",
+            titre: "Wall Street termine lundi en nette hausse, les valeurs de l'IA rebondissent",
+            texte:
+              "Wall Street a terminé lundi en nette hausse (Dow Jones +2,15% à 52.389,75 pts, S&P 500 +2,35%, Nasdaq +2,74% à 25.253,14 pts), les valeurs de l'IA rebondissant (AMD +13,3%, Broadcom +8,8%, Micron +6,3%) malgré le repli de Nvidia (-4,3%). Le rendement du Trésor à 10 ans ressort à environ 4,88%.",
+          },
+          {
+            tag: "MONDE | PÉTROLE",
+            titre: "Le WTI recule nettement sur l'espoir d'avancées diplomatiques Iran-USA",
+            texte:
+              "Le WTI recule nettement (≈ -4%) sur l'espoir d'avancées diplomatiques entre Washington et Téhéran, l'Iran évoquant une possible réouverture du détroit d'Ormuz sous 48 heures, sous conditions.",
+          },
+        ],
+      },
+      {
+        titre: "OUVERTURE DES MARCHÉS",
+        items: [
+          {
+            tag: "MATIÈRES PREMIÈRES | MÉTAUX",
+            titre: "L'or, l'argent et le cuivre en léger repli",
+            texte:
+              "L'or recule à environ 4.114 $/once (-0,6%), l'argent à environ 52,7 $/once (-1,2%) et le cuivre à environ 6,30 $/lb (-0,4%).",
+          },
+          {
+            tag: "ÉNERGIE | PÉTROLE",
+            titre: "Le Brent recule de 1,7% à l'ouverture",
+            texte:
+              "Le Brent recule de 1,7% à environ 90,5 $/bbl.",
+          },
+          {
+            tag: "EUROPE | INDICES",
+            titre: "Les indices européens en nette hausse à l'ouverture",
+            texte:
+              "CAC 40 +1,20%, DAX +1,14%, FTSE 100 +0,73%, portés par le recul du pétrole et le rebond des valeurs liées à l'IA.",
+          },
+        ],
+      },
+      {
+        titre: "À SUIVRE AUJOURD'HUI",
+        items: [
+          {
+            tag: "USA | INFLATION",
+            titre: "Inflation américaine d'octobre (CPI) attendue",
+            texte:
+              "États-Unis : inflation d'octobre (CPI) attendue à +0,3% sur un mois et environ 3,9% sur un an (sous-jacente : 2,8% sur un an), avec les interventions de plusieurs responsables de la Fed (Bowman, Waller, Logan).",
+          },
+          {
+            tag: "MONDE | RÉSULTATS",
+            titre: "CoreWeave, Venture Global et On Holding publient",
+            texte:
+              "Résultats : CoreWeave, Venture Global et On Holding.",
+          },
+          {
+            tag: "MAROC | JET ENERGY",
+            titre: "Prix définitif de l'IPO de Jet Energy attendu demain",
+            texte:
+              "Casablanca : prix définitif de l'IPO de Jet Energy attendu demain 11/11, avec une première cotation prévue le 16 novembre.",
+          },
+        ],
+      },
+    ],
+  },
+  {
     date: "2026-11-09",
     pdfUrl: "/assets/briefs/2026-11-09.pdf",
     dateLabel: "09/11/2026",
