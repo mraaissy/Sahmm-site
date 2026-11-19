@@ -165,6 +165,181 @@ const derniereCloture = {
 // au plus ancien. Le premier élément du tableau est le plus récent.
 const morningBriefs = [
   {
+    date: "2026-11-19",
+    pdfUrl: "/assets/briefs/2026-11-19.pdf",
+    dateLabel: "19/11/2026",
+    titre: "Le MASI quasi stable, Jet Energy bondit de 10,75% pour ses débuts",
+    resumeCourt:
+      "La Bourse de Casablanca a clôturé mardi 17/11 quasi stable (-0,03% à 17.234,80 points, -8,55% depuis le début de l'année). Jet Energy, pour sa première séance, a bondi de 10,75% à 190 DH; IB Maroc.com (+9,99%) et Unimer (+5,92%) ont progressé, tandis que Jet Contractors (-3,82%) et T2S (-2,75%) ont reculé (volume de 341,5 MDH). Attijariwafa bank affiche un RNPG en hausse de 10,3% à fin septembre, et Sothema un chiffre d'affaires en hausse de 19% sur neuf mois. À l'international, Wall Street a terminé mercredi en ordre dispersé, les minutes de la Fed évoquant des inquiétudes sur l'inflation persistante, et Nvidia a cédé 2,9% malgré des résultats supérieurs aux attentes. L'or recule à son plus bas depuis septembre 2025. À suivre aujourd'hui : l'introduction en Bourse d'Anthropic sur le Nasdaq à 83 $ l'action.",
+    sections: [
+      {
+        titre: "CONTEXTE OVERNIGHT",
+        items: [
+          {
+            tag: "MAROC | BOURSE DE CASABLANCA",
+            titre: "Le MASI quasi stable mardi (-0,03%), Jet Energy bondit pour ses débuts",
+            texte:
+              "La Bourse de Casablanca a clôturé mardi 17/11 quasi stable (-0,03% à 17.234,80 points, -8,55% depuis le début de l'année). Jet Energy, pour sa première séance, a bondi de 10,75% à 190 DH; IB Maroc.com (+9,99%) et Unimer (+5,92%) ont progressé, tandis que Jet Contractors (-3,82%) et T2S (-2,75%) ont reculé. Volume de 341,5 MDH.",
+          },
+          {
+            tag: "USA | WALL STREET",
+            titre: "Wall Street termine mercredi en ordre dispersé, Nvidia recule malgré de bons résultats",
+            texte:
+              "Wall Street a terminé mercredi en ordre dispersé (Dow Jones -1,11% à 50.198,17 pts, S&P 500 -0,23% à 7.323,64 pts, Nasdaq +0,42% à 24.429,89 pts) : les minutes de la Fed font état d'inquiétudes sur une inflation persistante, et Nvidia cède 2,9% malgré des résultats au-dessus des attentes, après le départ de son PDG Jensen Huang.",
+          },
+          {
+            tag: "ASIE | MARCHÉS",
+            titre: "Le Nikkei en hausse, l'euro proche de son plus bas depuis avril 2025",
+            texte:
+              "Le Nikkei termine en hausse de 0,71% à 59.444,21 pts, tandis que l'indice MSCI Asie hors Japon recule de 1,7%. L'euro évolue près de 1,0976 $, proche de son plus bas depuis avril 2025.",
+          },
+        ],
+      },
+      {
+        titre: "OUVERTURE DES MARCHÉS",
+        items: [
+          {
+            tag: "MATIÈRES PREMIÈRES | MÉTAUX",
+            titre: "L'or au plus bas depuis septembre 2025, l'argent recule aussi",
+            texte:
+              "L'or s'établit à environ 3.732 $/once, au plus bas depuis septembre 2025 (-2,2% hier); l'argent recule à environ 45,3 $/once (-4,5% hier), et le cuivre à environ 5,65 $/lb (-0,2% hier).",
+          },
+          {
+            tag: "ÉNERGIE | PÉTROLE",
+            titre: "Le Brent rebondit légèrement après les pertes de la veille",
+            texte:
+              "Le Brent progresse de 0,5% à environ 92,4 $/bbl, après les pertes de la veille.",
+          },
+          {
+            tag: "EUROPE | INDICES",
+            titre: "Ouverture européenne attendue en hausse",
+            texte:
+              "Contrats à terme : CAC 40 +0,59%, hausse attendue pour le DAX (≈+0,3%), le FTSE 100 (≈+0,1%) et l'Euro Stoxx 50 (≈+0,7%).",
+          },
+        ],
+      },
+      {
+        titre: "ACTUALITÉS DES SOCIÉTÉS COTÉES",
+        items: [
+          {
+            tag: "ATTIJARIWAFA BANK | RÉSULTATS",
+            titre: "RNPG en hausse de 10,3% à fin septembre",
+            texte:
+              "Attijariwafa bank affiche un RNPG consolidé de 9,1 MMDH à fin septembre (+10,3%), avec un PNB de 27,3 MMDH (+3,7%) et un coût du risque en baisse de 38,2%.",
+          },
+          {
+            tag: "SOTHEMA | RÉSULTATS",
+            titre: "Chiffre d'affaires en hausse de 19% sur neuf mois",
+            texte:
+              "Sothema affiche un chiffre d'affaires de 2.736 MDH sur neuf mois (+19%), dont 940 MDH au T3 (+24%), porté par les traitements chroniques, l'oncologie et Soludia.",
+          },
+        ],
+      },
+      {
+        titre: "À SUIVRE AUJOURD'HUI",
+        items: [
+          {
+            tag: "USA | ANTHROPIC",
+            titre: "Introduction en Bourse d'Anthropic sur le Nasdaq à 83 $ l'action",
+            texte:
+              "Anthropic fait son entrée en Bourse sur le Nasdaq au prix de 83 $ l'action (fourchette initiale : 70-78 $), à suivre comme test de l'appétit pour l'IA.",
+          },
+          {
+            tag: "USA | MACRO",
+            titre: "Inscriptions au chômage et indice Philly Fed attendus, résultats de Walmart",
+            texte:
+              "États-Unis : inscriptions hebdomadaires au chômage (consensus 197.000) et indice Philly Fed (consensus 20,0) à 13h30 GMT; résultats de Walmart.",
+          },
+          {
+            tag: "FED | POLITIQUE MONÉTAIRE",
+            titre: "Débat sur la politique monétaire de décembre après des minutes sensibles à l'inflation",
+            texte:
+              "La Fed débat de la politique monétaire de décembre, après des minutes jugées sensibles à l'inflation.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    date: "2026-11-13",
+    pdfUrl: "/assets/briefs/2026-11-13.pdf",
+    dateLabel: "13/11/2026",
+    titre: "Le MASI quasi stable jeudi (-0,01%), marché peu animé",
+    resumeCourt:
+      "La Bourse de Casablanca a clôturé jeudi quasi stable (-0,01% à 17.428,90 points, MASI 20 : +0,10%), dans un marché peu animé (65,8 MDH). CFG Bank (+2,49%), la Société des Boissons du Maroc (+2,46%) et Wafa Assurance (+1,91%) ont progressé, tandis que Risma (-3,56%) et SNEP (-1,90%) ont reculé. À l'international, Wall Street a terminé jeudi en baisse, pénalisée par Nvidia (près de -12% en séance) après la démission de son PDG Jensen Huang, tandis que le secteur de l'énergie a signé la meilleure performance du S&P 500. Le rendement du Trésor à 10 ans approche 5,10%, et le pétrole progresse après des propos durcis de Donald Trump envers l'Iran. À Casablanca, la première cotation de Jet Energy est prévue lundi 16 novembre.",
+    sections: [
+      {
+        titre: "CONTEXTE OVERNIGHT",
+        items: [
+          {
+            tag: "MAROC | BOURSE DE CASABLANCA",
+            titre: "Le MASI clôture jeudi quasi stable (-0,01%)",
+            texte:
+              "La Bourse de Casablanca a clôturé jeudi quasi stable (-0,01% à 17.428,90 points, MASI 20 : +0,10%), dans un marché peu animé (65,8 MDH). CFG Bank (+2,49% à 202 DH), la Société des Boissons du Maroc (+2,46%) et Wafa Assurance (+1,91%) ont progressé, tandis que Risma (-3,56%) et SNEP (-1,90%) ont reculé.",
+          },
+          {
+            tag: "USA | WALL STREET",
+            titre: "Wall Street termine jeudi en baisse, Nvidia chute après la démission de Jensen Huang",
+            texte:
+              "Wall Street a terminé jeudi en baisse (Dow Jones -0,36% à 52.297,09 pts, S&P 500 -0,35% à 7.592,40 pts, Nasdaq -0,39% à 25.366,09 pts), pénalisée par Nvidia (près de -12% en séance) après la démission de son PDG Jensen Huang. Le secteur de l'énergie a signé la meilleure performance du S&P 500.",
+          },
+          {
+            tag: "MONDE | TAUX & PÉTROLE",
+            titre: "Le Trésor US à 10 ans approche 5,10%, le pétrole progresse",
+            texte:
+              "Le rendement du Trésor à 10 ans approche 5,10%, et le pétrole progresse après des propos durcis de Donald Trump envers l'Iran.",
+          },
+        ],
+      },
+      {
+        titre: "OUVERTURE DES MARCHÉS",
+        items: [
+          {
+            tag: "MATIÈRES PREMIÈRES | MÉTAUX",
+            titre: "L'or, l'argent et le cuivre quasi stables",
+            texte:
+              "L'or s'établit à environ 3.894 $/once, l'argent à environ 50,5 $/once et le cuivre à environ 6,18 $/lb (-0,1%).",
+          },
+          {
+            tag: "ÉNERGIE | PÉTROLE",
+            titre: "Le Brent en légère hausse à l'ouverture",
+            texte:
+              "Le Brent progresse de 0,5% à environ 96,3 $/bbl.",
+          },
+          {
+            tag: "EUROPE | INDICES",
+            titre: "Ouverture européenne attendue stable, après une série de records",
+            texte:
+              "Contrats à terme : CAC 40 ≈ 0%, DAX ≈ -0,3%, après une série de records.",
+          },
+        ],
+      },
+      {
+        titre: "À SUIVRE AUJOURD'HUI",
+        items: [
+          {
+            tag: "EUROPE | BALANCE COMMERCIALE",
+            titre: "Balance commerciale de la zone euro à 11h00",
+            texte:
+              "Zone euro : balance commerciale à 11h00 (heure de Paris).",
+          },
+          {
+            tag: "USA | MACRO",
+            titre: "Prix à la production (PPI) américains à 14h30",
+            texte:
+              "États-Unis : prix à la production (PPI) à 14h30, dans un contexte de rendements élevés et d'anticipations de hausse de taux de la Fed en décembre.",
+          },
+          {
+            tag: "MAROC | JET ENERGY",
+            titre: "Première cotation de Jet Energy prévue lundi",
+            texte:
+              "Casablanca : première cotation de Jet Energy prévue lundi 16 novembre.",
+          },
+        ],
+      },
+    ],
+  },
+  {
     date: "2026-11-10",
     pdfUrl: "/assets/briefs/2026-11-10.pdf",
     dateLabel: "10/11/2026",
