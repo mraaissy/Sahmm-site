@@ -165,6 +165,102 @@ const derniereCloture = {
 // au plus ancien. Le premier élément du tableau est le plus récent.
 const morningBriefs = [
   {
+    date: "2026-11-20",
+    pdfUrl: "/assets/briefs/2026-11-20.pdf",
+    dateLabel: "20/11/2026",
+    titre: "Le MASI repasse sous les 17.000 points (-1,37%), les mines plombent la séance",
+    resumeCourt:
+      "La Bourse de Casablanca a repassé sous les 17.000 points jeudi (-1,37% à 16.997,89 points, MASI 20 : -0,75%), pénalisée par les mines (-6,63%) avec IB Maroc.com (-9,98%), Managem (-7,03%) et Minière Touissit (-4,61%), tandis que la chimie progresse (+2,03%) avec Jet Energy (+5,26% à 200 DH) et SNEP (+2,42%), dans un volume de 322,4 MDH. Vicenne affiche un chiffre d'affaires en hausse de 13% sur neuf mois, et l'inflation (HCP) ressort à +1,9% sur un an en octobre. À l'international, Wall Street a terminé jeudi en forte baisse, sixième repli de suite pour le S&P 500 : les débuts d'Anthropic en Bourse n'ont pas relancé l'engouement pour l'IA, Nvidia perdant 3,3% et AMD 7,7%. Le Nikkei s'est effondré de 5,06%, les marchés asiatiques s'orientant vers leur pire semaine depuis 2020.",
+    sections: [
+      {
+        titre: "CONTEXTE OVERNIGHT",
+        items: [
+          {
+            tag: "MAROC | BOURSE DE CASABLANCA",
+            titre: "Le MASI repasse sous les 17.000 points (-1,37%), les mines plombent la séance",
+            texte:
+              "La Bourse de Casablanca a repassé sous les 17.000 points jeudi (-1,37% à 16.997,89 points, MASI 20 : -0,75%), pénalisée par les mines (-6,63%) avec IB Maroc.com (-9,98%), Managem (-7,03%) et Minière Touissit (-4,61%), tandis que la chimie progresse (+2,03%) avec Jet Energy (+5,26% à 200 DH) et SNEP (+2,42%). Volume de 322,4 MDH.",
+          },
+          {
+            tag: "USA | WALL STREET",
+            titre: "Wall Street en forte baisse, sixième repli de suite pour le S&P 500",
+            texte:
+              "Wall Street a terminé jeudi en forte baisse (Dow Jones -2,19% à 49.097,06 pts, S&P 500 -2,02% à 7.175,83 pts, Nasdaq -2,25% à 23.879,20 pts), sixième repli de suite pour le S&P 500. Les débuts d'Anthropic (ouverture à 111,50 $, clôture à environ 97 $ pour un prix d'introduction de 83 $) n'ont pas relancé l'engouement pour l'IA; Nvidia perd 3,3% et AMD 7,7%.",
+          },
+          {
+            tag: "ASIE | TAUX",
+            titre: "Le Nikkei s'effondre de 5,06%, la Fed anticipée en hausse de taux en décembre",
+            texte:
+              "Le Nikkei s'effondre de 5,06%, les marchés asiatiques s'orientant vers leur pire semaine depuis 2020. Le dollar reste proche d'un plus haut de 19 mois et le rendement du Trésor à 10 ans ressort autour de 5,01%, les marchés anticipant à plus de 96% une hausse de taux de 25 points de base de la Fed en décembre.",
+          },
+        ],
+      },
+      {
+        titre: "OUVERTURE DES MARCHÉS",
+        items: [
+          {
+            tag: "MATIÈRES PREMIÈRES | MÉTAUX",
+            titre: "L'or chute de 3,7%, l'argent de 7,9%",
+            texte:
+              "L'or s'établit à environ 3.531 $/once (-3,7%), l'argent à environ 41,5 $/once (-7,9%), et le cuivre à environ 5,55 $/lb (-1,6%).",
+          },
+          {
+            tag: "ÉNERGIE | PÉTROLE",
+            titre: "Le Brent soutenu par les tensions géopolitiques",
+            texte:
+              "Le Brent s'établit à environ 92 $/bbl, soutenu par les attaques houthies et des perturbations signalées dans le détroit d'Ormuz.",
+          },
+          {
+            tag: "EUROPE | INDICES",
+            titre: "Ouverture européenne attendue en baisse",
+            texte:
+              "CAC 40 -0,75% (clôture de jeudi : 8.080,74 pts); DAX ≈-1,2% et FTSE 100 ≈-0,5% attendus (contrats à terme).",
+          },
+        ],
+      },
+      {
+        titre: "ACTUALITÉS",
+        items: [
+          {
+            tag: "VICENNE | RÉSULTATS",
+            titre: "Chiffre d'affaires en hausse de 13% sur neuf mois",
+            texte:
+              "Vicenne affiche un chiffre d'affaires de 786 MDH sur neuf mois (+13%), dont 195 MDH au T3 (+15%); objectif 2026 d'environ 1,2 MMDH confirmé.",
+          },
+          {
+            tag: "MAROC | INFLATION (HCP)",
+            titre: "L'inflation ressort à +1,9% sur un an en octobre",
+            texte:
+              "L'inflation (HCP) s'établit à +1,9% sur un an en octobre et +0,8% sur un mois, tirée par les légumes (+6,8%) et les carburants (+5%); l'inflation sous-jacente ressort à +1% sur un an.",
+          },
+        ],
+      },
+      {
+        titre: "À SUIVRE AUJOURD'HUI",
+        items: [
+          {
+            tag: "TECH | IA",
+            titre: "Craintes sur les dépenses IA et un rapport liant AMD à des entités chinoises sanctionnées",
+            texte:
+              "Tech et IA : craintes liées aux dépenses des acteurs de l'IA et à un rapport reliant AMD à des entités chinoises sous sanctions américaines.",
+          },
+          {
+            tag: "EUROPE | INDICATEURS & RÉSULTATS",
+            titre: "Climat des affaires en France, Ubisoft, Vallourec et Accor en vedette",
+            texte:
+              "Europe : climat des affaires en France, confiance des consommateurs de la zone euro et ventes au détail britanniques; Ubisoft, Vallourec (EBITDA du T3 en baisse de 25,8%) et Accor, visé par un fonds activiste, en vedette.",
+          },
+          {
+            tag: "USA | SEMAINE PROCHAINE",
+            titre: "Inflation PCE américaine attendue la semaine prochaine",
+            texte:
+              "Semaine prochaine : inflation PCE américaine (sous-jacente attendue à 3,2% sur un an).",
+          },
+        ],
+      },
+    ],
+  },
+  {
     date: "2026-11-19",
     pdfUrl: "/assets/briefs/2026-11-19.pdf",
     dateLabel: "19/11/2026",
