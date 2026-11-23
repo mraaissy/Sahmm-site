@@ -165,6 +165,102 @@ const derniereCloture = {
 // au plus ancien. Le premier élément du tableau est le plus récent.
 const morningBriefs = [
   {
+    date: "2026-11-23",
+    pdfUrl: "/assets/briefs/2026-11-23.pdf",
+    dateLabel: "23/11/2026",
+    titre: "Le MASI en léger repli (-0,14%), les mines perdent 15,79% sur la semaine",
+    resumeCourt:
+      "La Bourse de Casablanca a clôturé vendredi en léger repli (-0,14% à 16.974,44 points, MASI 20 : +0,37%), soit -2,16% sur la semaine et -9,93% depuis le début de l'année. Wafa Assurance (+5,65%) et Maroc Leasing (+5,14%) ont progressé, tandis que Zellidja (-9,06%), SMI (-6,52%) et Managem (-5,51%) ont reculé; les mines perdent 15,79% sur la semaine (volume de 303,3 MDH). Bank of Africa affiche un RNPG en hausse de 13% à fin septembre, et Sonasid un chiffre d'affaires en hausse de 8% sur neuf mois. À l'international, Wall Street a terminé vendredi en net recul, les indices entrant en correction avec leur pire semaine depuis avril 2025 sous l'effet des craintes sur l'IA (Nvidia -13,8%, Anthropic -9,1%). Taïwan resserre les règles de vente à découvert et la Chine annonce des mesures de soutien.",
+    sections: [
+      {
+        titre: "CONTEXTE OVERNIGHT",
+        items: [
+          {
+            tag: "MAROC | BOURSE DE CASABLANCA",
+            titre: "Le MASI en léger repli (-0,14%), les mines perdent 15,79% sur la semaine",
+            texte:
+              "La Bourse de Casablanca a clôturé vendredi en léger repli (-0,14% à 16.974,44 points, MASI 20 : +0,37%), soit -2,16% sur la semaine et -9,93% depuis le début de l'année. Wafa Assurance (+5,65%) et Maroc Leasing (+5,14%) ont progressé, tandis que Zellidja (-9,06%), SMI (-6,52%) et Managem (-5,51%) ont reculé; les mines perdent 15,79% sur la semaine. Volume de 303,3 MDH.",
+          },
+          {
+            tag: "USA | WALL STREET",
+            titre: "Wall Street en net recul, pire semaine depuis avril 2025",
+            texte:
+              "Wall Street a terminé vendredi en net recul (Dow Jones -1,93% à 48.147,33 pts, S&P 500 -3,70% à 6.910,39 pts, Nasdaq -5,28% à 22.617,73 pts), les indices entrant en correction avec leur pire semaine depuis avril 2025 sous l'effet des craintes sur l'IA (Nvidia -13,8%, Anthropic -9,1%). Les marchés anticipent à plus de 93% une hausse de taux de 25 points de base de la Fed début décembre.",
+          },
+          {
+            tag: "ASIE | MARCHÉS",
+            titre: "Taïwan resserre la vente à découvert, la Chine annonce des mesures de soutien",
+            texte:
+              "Taïwan resserre les règles de vente à découvert et la Chine annonce des mesures de soutien, son principal indice ayant touché un plus bas de 16 mois. Le Brent se stabilise autour de 92 $ malgré les attaques houthies.",
+          },
+        ],
+      },
+      {
+        titre: "OUVERTURE DES MARCHÉS",
+        items: [
+          {
+            tag: "MATIÈRES PREMIÈRES | MÉTAUX",
+            titre: "L'or rebondit de 2,3% après sa pire semaine",
+            texte:
+              "L'or s'établit à environ 3.619 $/once (+2,3%, après -9% la semaine dernière), l'argent à environ 42,2 $/once (+2,4%), et le cuivre à environ 5,54 $/lb (+1,0%).",
+          },
+          {
+            tag: "ÉNERGIE | PÉTROLE",
+            titre: "Le Brent quasi stable autour de 92 $",
+            texte:
+              "Le Brent s'établit à environ 92,0 $/bbl (-0,6%).",
+          },
+          {
+            tag: "EUROPE | INDICES",
+            titre: "Ouverture européenne attendue en légère hausse après la déroute des valeurs de l'IA",
+            texte:
+              "Ouverture attendue : CAC 40 ≈+0,5%, DAX ≈+0,4%, FTSE 100 ≈0% (contrats à terme), après la déroute des valeurs de l'IA.",
+          },
+        ],
+      },
+      {
+        titre: "ACTUALITÉS DES SOCIÉTÉS COTÉES",
+        items: [
+          {
+            tag: "BANK OF AFRICA | RÉSULTATS",
+            titre: "RNPG en hausse de 13% à fin septembre",
+            texte:
+              "Bank of Africa affiche un RNPG consolidé de 3,4 MMDH à fin septembre (+13%), avec un PNB stable à 15,3 MMDH; crédits consolidés à 247 MMDH (+9% sur douze mois).",
+          },
+          {
+            tag: "SONASID | RÉSULTATS",
+            titre: "Chiffre d'affaires en hausse de 8% sur neuf mois",
+            texte:
+              "Sonasid affiche un chiffre d'affaires consolidé de 4.910 MDH sur neuf mois (+8%), dont 1.859 MDH au T3 (+26%); investissements de 208 MDH à fin septembre (+37%).",
+          },
+        ],
+      },
+      {
+        titre: "À SUIVRE AUJOURD'HUI",
+        items: [
+          {
+            tag: "ZONE EURO | PMI",
+            titre: "Indicateurs PMI préliminaires de novembre attendus",
+            texte:
+              "Zone euro : indicateurs PMI préliminaires de novembre, pour jauger la santé du secteur privé européen.",
+          },
+          {
+            tag: "TECH | IA",
+            titre: "Le rebond des valeurs technologiques à l'épreuve, faute de catalyseur",
+            texte:
+              "Tech et IA : l'enjeu est de savoir si le rebond tenté ce matin résiste, les analystes soulignant l'absence de catalyseur sans changement de cap des banques centrales.",
+          },
+          {
+            tag: "FED | POLITIQUE MONÉTAIRE",
+            titre: "Réunion des 8 et 9 décembre, hausse de taux largement anticipée",
+            texte:
+              "Fed : réunion des 8 et 9 décembre, avec une hausse de taux très largement anticipée; euro autour de 1,10 $.",
+          },
+        ],
+      },
+    ],
+  },
+  {
     date: "2026-11-20",
     pdfUrl: "/assets/briefs/2026-11-20.pdf",
     dateLabel: "20/11/2026",
