@@ -165,6 +165,102 @@ const derniereCloture = {
 // au plus ancien. Le premier élément du tableau est le plus récent.
 const morningBriefs = [
   {
+    date: "2026-11-24",
+    pdfUrl: "/assets/briefs/2026-11-24.pdf",
+    dateLabel: "24/11/2026",
+    titre: "Le MASI en repli (-0,54%), les assurances pénalisées, les mines rebondissent",
+    resumeCourt:
+      "La Bourse de Casablanca a clôturé lundi en repli (-0,54% à 16.882,60 points), pénalisée par les assurances (-4,24%), dont Wafa Assurance (-7,82% à 5.070 DH) et CMGP Group (-4,06%). Les mines ont rebondi (+3,77%) avec Jet Energy (+5,27% à 215,8 DH), Minière Touissit (+4,83%) et S2M (+4,12%), dans un volume supérieur à 245 MDH. CMGP Group affiche un chiffre d'affaires en hausse de 30,1% à fin septembre, et Managem un chiffre d'affaires en hausse de 129% sur neuf mois. À l'international, Wall Street a rebondi lundi, sa meilleure séance depuis avril 2025, portée par Nvidia (+31%) après le retour de Jensen Huang à la direction du groupe. En Europe, Sanofi gagne environ 5% après l'annonce du rachat d'Insmed (≈41 Md$).",
+    sections: [
+      {
+        titre: "CONTEXTE OVERNIGHT",
+        items: [
+          {
+            tag: "MAROC | BOURSE DE CASABLANCA",
+            titre: "Le MASI en repli (-0,54%), les assurances pénalisées, les mines rebondissent",
+            texte:
+              "La Bourse de Casablanca a clôturé lundi en repli (-0,54% à 16.882,60 points), pénalisée par les assurances (-4,24%), dont Wafa Assurance (-7,82% à 5.070 DH) et CMGP Group (-4,06%). Les mines ont rebondi (+3,77%) avec Jet Energy (+5,27% à 215,8 DH), Minière Touissit (+4,83%) et S2M (+4,12%). Volume supérieur à 245 MDH.",
+          },
+          {
+            tag: "USA | WALL STREET",
+            titre: "Wall Street rebondit, meilleure séance depuis avril 2025, portée par Nvidia (+31%)",
+            texte:
+              "Wall Street a rebondi lundi (Dow Jones +3,01% à 49.595,31 pts, S&P 500 +4,73% à 7.237,17 pts, Nasdaq +6,51% à 24.089,56 pts), sa meilleure séance depuis avril 2025, portée par Nvidia (+31%) après le retour de Jensen Huang à la direction du groupe.",
+          },
+          {
+            tag: "EUROPE | MARCHÉS",
+            titre: "Places européennes sans direction nette, Sanofi gagne 5% après le rachat d'Insmed",
+            texte:
+              "Les places européennes évoluent sans direction nette ce matin, l'euphorie autour de Nvidia s'estompant; les valeurs des matières premières reculent (jusqu'à -2%) et Sanofi gagne environ 5% après l'annonce du rachat d'Insmed (≈41 Md$).",
+          },
+        ],
+      },
+      {
+        titre: "OUVERTURE DES MARCHÉS",
+        items: [
+          {
+            tag: "MATIÈRES PREMIÈRES | MÉTAUX",
+            titre: "L'or poursuit sa hausse à environ 3.650 $/once",
+            texte:
+              "L'or s'établit à environ 3.650 $/once, en hausse d'environ 0,9% par rapport à la veille (≈3.619 $). L'argent évolue à environ 42,5 $/once, et le cuivre à environ 5,59 $/lb (derniers cours connus, lundi).",
+          },
+          {
+            tag: "ÉNERGIE | PÉTROLE",
+            titre: "Le Brent stable autour de 92 $",
+            texte:
+              "Le Brent s'établit à environ 92 $/bbl (dernier niveau connu, lundi).",
+          },
+          {
+            tag: "EUROPE | INDICES",
+            titre: "Ouverture européenne attendue quasi stable",
+            texte:
+              "Ouverture attendue : CAC 40 ≈+0,2%, DAX ≈-0,1%, FTSE 100 ≈-0,05%.",
+          },
+        ],
+      },
+      {
+        titre: "ACTUALITÉS DES SOCIÉTÉS COTÉES",
+        items: [
+          {
+            tag: "CMGP GROUP | RÉSULTATS",
+            titre: "Chiffre d'affaires en hausse de 30,1% à fin septembre",
+            texte:
+              "CMGP Group affiche un chiffre d'affaires consolidé de 2,32 MMDH à fin septembre (+30,1%, +6,3% à périmètre comparable); 734 MDH au T3 (+24,1%).",
+          },
+          {
+            tag: "MANAGEM | RÉSULTATS",
+            titre: "Chiffre d'affaires en hausse de 129% sur neuf mois, dette réduite de 24%",
+            texte:
+              "Managem affiche un chiffre d'affaires consolidé de 17,02 MMDH sur neuf mois (+129%), dont 5,26 MMDH au T3 (+75,4%); dette réduite de 24% à 9,57 MMDH par rapport à fin 2025.",
+          },
+        ],
+      },
+      {
+        titre: "À SUIVRE AUJOURD'HUI",
+        items: [
+          {
+            tag: "USA | WALL STREET",
+            titre: "Le rebond tiré par Nvidia à l'épreuve après une semaine de correction",
+            texte:
+              "Wall Street : l'enjeu est de savoir si le rebond de lundi, tiré par Nvidia, se confirme après une semaine de correction.",
+          },
+          {
+            tag: "USA | MACRO",
+            titre: "Publication de l'inflation américaine mercredi, dernier indicateur avant la Fed",
+            texte:
+              "États-Unis : publication de l'inflation américaine mercredi, dernier indicateur clé avant la réunion de la Fed.",
+          },
+          {
+            tag: "FED | POLITIQUE MONÉTAIRE",
+            titre: "Réunion des 8 et 9 décembre, hausse de taux anticipée à plus de 93%",
+            texte:
+              "Fed : réunion des 8 et 9 décembre, avec une hausse de taux de 25 points de base anticipée à plus de 93% par les marchés.",
+          },
+        ],
+      },
+    ],
+  },
+  {
     date: "2026-11-23",
     pdfUrl: "/assets/briefs/2026-11-23.pdf",
     dateLabel: "23/11/2026",
