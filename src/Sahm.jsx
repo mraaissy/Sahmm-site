@@ -165,6 +165,96 @@ const derniereCloture = {
 // au plus ancien. Le premier élément du tableau est le plus récent.
 const morningBriefs = [
   {
+    date: "2026-11-25",
+    pdfUrl: "/assets/briefs/2026-11-25.pdf",
+    dateLabel: "25/11/2026",
+    titre: "Le MASI recule pour la deuxième séance consécutive (-0,7%), les mines pénalisées",
+    resumeCourt:
+      "La Bourse de Casablanca a clôturé mardi en repli pour la deuxième séance consécutive (-0,7% à 16.764,82 points), pénalisée par les mines (-4,23%), avec Managem (-4,34% à 1.191 DH) et Minière Touissit (-4,32%), ainsi que par Holcim Maroc (-4,58%). BMCI (+4,98% à 569 DH), IB Maroc.com (+4,17%) et Label'Vie (+3,26%) ont progressé; les distributeurs gagnent 2,46% (volume de 252,7 MDH). AFMA affiche un chiffre d'affaires en hausse de 8% à fin septembre. À l'international, Wall Street a clôturé mardi en ordre dispersé, les semi-conducteurs chutant de 7,9% (Nvidia -5,86%) sur fond de doutes sur les valorisations de l'IA et de menaces de nouveaux droits de douane. Le Nikkei perd environ 2,8%, et l'or tombe à son plus bas niveau en un an.",
+    sections: [
+      {
+        titre: "CONTEXTE OVERNIGHT",
+        items: [
+          {
+            tag: "MAROC | BOURSE DE CASABLANCA",
+            titre: "Le MASI recule pour la deuxième séance consécutive (-0,7%), les mines pénalisées",
+            texte:
+              "La Bourse de Casablanca a clôturé mardi en repli pour la deuxième séance consécutive (-0,7% à 16.764,82 points), pénalisée par les mines (-4,23%), avec Managem (-4,34% à 1.191 DH) et Minière Touissit (-4,32%), ainsi que par Holcim Maroc (-4,58%). BMCI (+4,98% à 569 DH), IB Maroc.com (+4,17%) et Label'Vie (+3,26%) ont progressé; les distributeurs gagnent 2,46%. Volume de 252,7 MDH.",
+          },
+          {
+            tag: "USA | WALL STREET",
+            titre: "Wall Street en ordre dispersé, les semi-conducteurs chutent de 7,9%",
+            texte:
+              "Wall Street a clôturé mardi en ordre dispersé : le Dow Jones a gagné 0,85% à 50.018,70 pts (au-dessus de 50.000), tandis que le S&P 500 a cédé 0,50% à 7.201,09 pts et le Nasdaq 1,48% à 23.733,54 pts. Les semi-conducteurs ont chuté de 7,9% (Nvidia -5,86%), sur fond de doutes sur les valorisations de l'IA et de menaces de nouveaux droits de douane.",
+          },
+          {
+            tag: "ASIE | MARCHÉS",
+            titre: "Séoul et Taipei fortement en recul, le Nikkei perd 2,8%",
+            texte:
+              "Séoul et Taipei ont fortement reculé et le Nikkei perd environ 2,8%, dans le sillage de la technologie.",
+          },
+        ],
+      },
+      {
+        titre: "OUVERTURE DES MARCHÉS",
+        items: [
+          {
+            tag: "MATIÈRES PREMIÈRES | MÉTAUX",
+            titre: "L'or à son plus bas niveau en un an",
+            texte:
+              "L'or s'établit à environ 3.534 $/once, à son plus bas niveau en un an. L'argent évolue à environ 43 $/once (dernier niveau connu, mardi), et le cuivre à environ 5,36 $/lb, quasi stable.",
+          },
+          {
+            tag: "ÉNERGIE | PÉTROLE",
+            titre: "Le Brent chute de 4,4% sur des craintes de surabondance de l'offre",
+            texte:
+              "Le Brent s'établit à environ 87,4 $/bbl, en baisse d'environ 4,4% (craintes de surabondance de l'offre).",
+          },
+          {
+            tag: "EUROPE | INDICES",
+            titre: "Ouverture européenne attendue prudente",
+            texte:
+              "Contrats à terme Euro STOXX 50, DAX et FTSE entre -0,2% et +0,2%, dans un climat de prudence (technologie, droits de douane).",
+          },
+        ],
+      },
+      {
+        titre: "ACTUALITÉS DES SOCIÉTÉS COTÉES",
+        items: [
+          {
+            tag: "AFMA | RÉSULTATS",
+            titre: "Chiffre d'affaires en hausse de 8% à fin septembre",
+            texte:
+              "AFMA affiche un chiffre d'affaires consolidé de 256 MDH à fin septembre (+8%), dont 65 MDH au T3 (+11%); endettement net de 24 MDH contre 7 MDH à fin décembre 2025 (dividendes).",
+          },
+        ],
+      },
+      {
+        titre: "À SUIVRE AUJOURD'HUI",
+        items: [
+          {
+            tag: "USA | MACRO",
+            titre: "Inflation PCE d'octobre et révision du PIB du T3 attendues",
+            texte:
+              "États-Unis : publication de l'inflation PCE d'octobre et de la révision du PIB du T3, derniers indicateurs clés avant la réunion de la Fed.",
+          },
+          {
+            tag: "TECH | IA",
+            titre: "La pression sur les semi-conducteurs pourrait se poursuivre",
+            texte:
+              "Tech et IA : après le rebond puis la rechute de Nvidia, l'enjeu est de savoir si la pression sur les semi-conducteurs se poursuit.",
+          },
+          {
+            tag: "FED | POLITIQUE MONÉTAIRE",
+            titre: "Réunion des 8 et 9 décembre, droits de douane américains attendus",
+            texte:
+              "Fed : réunion des 8 et 9 décembre, avec une hausse de taux de 25 points de base envisagée par les marchés; droits de douane américains attendus.",
+          },
+        ],
+      },
+    ],
+  },
+  {
     date: "2026-11-24",
     pdfUrl: "/assets/briefs/2026-11-24.pdf",
     dateLabel: "24/11/2026",
